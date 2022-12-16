@@ -445,6 +445,9 @@ hr {
   transition: 1s;
 }
 
+.a:active {
+  background-color: white;
+}
 .footertop h4 {
   font-size: x-large;
   margin-bottom: 20px;
