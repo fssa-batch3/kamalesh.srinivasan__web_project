@@ -10,8 +10,8 @@ section {
   height: 500px;
   background-image: linear-gradient(
     to right,
-    rgb(56, 56, 249),
-    rgba(137, 137, 241, 0.614)
+    rgb(95, 142, 243),
+    rgba(35, 35, 151, 0.614)
   );
 }
 
@@ -85,8 +85,8 @@ body {
 }
 
 /* .top_icons {
-  margin-top: 40px;
-} */
+    margin-top: 40px;
+  } */
 
 .icons p {
   margin-top: 25px;
