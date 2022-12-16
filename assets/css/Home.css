@@ -12,6 +12,9 @@ a {
   color: white;
   color: rgb(79, 252, 168);
   height: 20px;
+  background-color: black;
+  padding: 10px 10px;
+  border-radius: 5px;
 }
 body {
   background-color: #000;
@@ -438,6 +441,8 @@ hr {
 .a:hover {
   color: black;
   transition: 0.5s;
+  background-color: white;
+  transition: 1s;
 }
 
 .footertop h4 {
