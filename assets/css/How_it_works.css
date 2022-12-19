@@ -1,3 +1,7 @@
+body {
+  background-color: white;
+}
+
 .sec1 {
   position: relative;
   color: white;
@@ -106,8 +110,12 @@
 }
 
 p {
-  color: white;
+  color: black;
 }
 h3 {
-  color: wheat;
+  color: blue;
+}
+
+.footerpara {
+  color: white;
 }

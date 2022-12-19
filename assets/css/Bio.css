@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: white;
 }
 section {
   width: 700px;
@@ -17,9 +17,9 @@ section {
 }
 
 .profile img {
-  width: 300px;
-  height: 300px;
-  margin-left: 200px;
+  width: 200px;
+  height: 200px;
+  margin-left: 250px;
   margin-top: 20px;
 }
 
@@ -102,4 +102,10 @@ a {
   text-decoration: none;
   color: black;
   font-weight: bold;
+}
+
+form input:focus {
+  outline: none;
+  background-color: rgba(249, 246, 246, 0.489);
+  opacity: 0.7;
 }

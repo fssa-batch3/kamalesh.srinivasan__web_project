@@ -1,0 +1,129 @@
+body {
+  background-color: rgb(237, 237, 247);
+}
+
+section {
+  max-width: 500px;
+  margin: auto;
+  background-color: lightblue;
+  border-radius: 10px;
+  margin-top: 100px;
+}
+
+.chat_with_us-P {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 20px;
+  font-size: larger;
+}
+
+.chat_with_us img {
+  height: 40px;
+  width: 40px;
+}
+
+.chat_with_us {
+  background-color: blue;
+  border-radius: 10px 10px 0px 0px;
+  color: white;
+}
+
+.chat_profile {
+  display: flex;
+  margin-left: 40px;
+  gap: 20px;
+  align-items: center;
+  margin-top: -20px;
+}
+
+.leftchat p {
+  background-color: white;
+  padding: 5px 10px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.main {
+  margin: 20px;
+}
+
+.right_chat p:nth-child(1) {
+  background-color: white;
+  padding: 5px 10px;
+  display: inline-block;
+  border-radius: 5px;
+  margin-left: 400px;
+}
+
+.right_chat_p2 {
+  background-color: white;
+  padding: 5px 10px;
+  display: inline-block;
+  border-radius: 5px;
+  margin-left: 288px;
+}
+
+.typebar {
+  margin-top: 15px;
+  background-color: black;
+  color: white;
+  display: flex;
+  border-radius: 0px 0px 5px 5px;
+  gap: 10px;
+  align-items: center;
+}
+
+.typebar_div1 {
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: lightblue;
+  color: black;
+  border-radius: 5px;
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+.typebar_div2 input {
+  padding-right: 150px;
+  border: 1px solid lightblue;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  padding-left: 2px;
+  background-color: lightblue;
+}
+
+.typebar_div2 input:focus {
+  outline: none;
+}
+
+.date p {
+  background-color: black;
+  color: white;
+  display: inline-block;
+  padding: 3px 10px;
+}
+
+.date span {
+  margin: 10px;
+}
+
+.date {
+  margin-left: 10px;
+}
+
+.chat_with_us-2ndP {
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  margin-top: 25px;
+  background-color: red;
+  color: white;
+}
+
+.profile_logo {
+  display: flex;
+  align-items: center;
+  margin-left: -10px;
+  margin-top: -20px;
+}
