@@ -7,8 +7,6 @@ body {
   background-color: white;
 }
 
-
-
 section {
   background: paleturquoise;
   height: 800px;
@@ -121,4 +119,95 @@ button a {
   color: white;
 }
 
+@media all and (max-width: 600px) {
+  section {
+    background: none;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 10px;
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
 
+  section img {
+    display: none;
+  }
+
+  section div {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    margin: 10px;
+
+    border-radius: 10px;
+    background-image: linear-gradient(
+      to bottom right,
+      #c2bde0,
+      rgb(156, 89, 228)
+    );
+  }
+  section div input {
+    padding: 2vh 20vw 0 0;
+    /* margin-top: 5px; */
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid gray;
+    margin-left: 15vw;
+    margin-bottom: 20px;
+    background-color: transparent;
+  }
+  section div label {
+    margin-left: 10vw;
+    padding-top: 100px;
+    font-size: medium;
+    font-weight: 500;
+  }
+
+  .reg {
+    margin-top: 20px;
+    padding: 2vh 23vw;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    background-color: #655de4;
+    border: none;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+
+  .signin {
+    padding: 2vh 25vw;
+    margin-left: 0px;
+    background-color: #575a89;
+    border: none;
+    font-size: medium;
+    font-weight: bold;
+    color: white;
+    font-size: medium;
+    border-radius: 5px;
+  }
+
+  .cancel {
+    padding: 2vh 24.5vw;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    background-color: red;
+    border: none;
+    font-size: medium;
+    font-weight: bold;
+    color: white;
+    font-size: medium;
+    border-radius: 5px;
+  }
+
+  .btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+}

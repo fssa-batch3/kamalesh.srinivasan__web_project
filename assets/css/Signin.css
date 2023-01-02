@@ -111,3 +111,38 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+
+@media all and (max-width: 600px) {
+  img {
+    display: none;
+  }
+
+  section {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    color: white;
+  }
+
+  .signin div {
+    background-color: blueviolet;
+    width: 100%;
+    height: 100%;
+    margin-left: 60px;
+    margin-top: 30px;
+    border-radius: 10px;
+  }
+
+  .signin form {
+    width: 200px;
+    /* margin-left: 100px; */
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+
+  body {
+    margin: auto;
+  }
+}
