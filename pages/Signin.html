@@ -21,18 +21,21 @@
                     <h1>Welcome Back</h1>
                 </marquee>
                 <h3>Sign In</h3>
-                <form>
-                    <label class="tag">Username</label><br>
-                    <input type="text" placeholder="Enter Username" /><br>
+
+
+                <form id="form">
+                    <label class="tag">Email Id</label><br>
+                    <input type="text" id="Email" placeholder="Enter Email" /><br>
 
                     <label>Password</label><br>
-                    <input type="text" placeholder="Enter Password" /><br>
+                    <input type="text" id="Password" placeholder="Enter Password"
+                        pattern="[A-Za-z]{6,20}[!@#$%^&*()]" /><br>
 
-                    <button class="btn1"><a href="Workerhome.html">Sign In</a></button><br>
-                    <button class="btn2"><a href="../index.html">Cancel</a></button><br>
+                    <button class="btn1" type="submit">Sign In</button><br>
+                    <button class="btn2">Cancel</button><br>
                     <p>Or</p><br>
-                    <button class="btn3"><a>Sign In with Google</a></button><br>
-                    <button class="btn4"><a>Sign In with Facebook</a></button><br>
+                    <button class="btn3">Sign In with Google</button><br>
+                    <button class="btn4">Sign In with Facebook</button><br>
 
 
 
@@ -48,6 +51,81 @@
             </div>
         </div>
     </section>
+
+    <script>
+
+        let logIn = document.getElementById("form");
+
+        logIn.addEventListener("submit", (event) => {
+
+
+            event.preventDefault();
+            let defaultData = JSON.parse(localStorage.getItem("register"));
+            console.log(defaultData)
+            let Email = document.getElementById("Email").value.toLowerCase();
+            let Password = document.getElementById("Password").value;
+
+            let match = false;
+
+            for (let i = 0; i < defaultData.length; i++) {
+                if (Email == defaultData[i].Email && Password == defaultData[i].Password) {
+                    match = true
+                    break;
+                    // i = i + defaultData.length;
+                }
+                else {
+                    match = false
+                }
+
+            }
+
+
+
+
+            if (match == true) {
+                let arr = [];
+
+                if (localStorage.getItem("Login") != null) {
+                    arr = JSON.parse(localStorage.getItem("Login"))
+                }
+
+                let SuccessLogin = {
+                    "Email": Email,
+                    "password": Password
+                }
+
+                arr.push(SuccessLogin);
+                let str = JSON.stringify(arr);
+                localStorage.setItem("Login", str);
+
+
+
+
+                console.log(SuccessLogin)
+                window.location.href = "Workerhome.html?from=logIn";
+            }
+            else {
+                alert("Login credentials not correct")
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+        })
+
+
+
+
+
+    </script>
 </body>
 
 </html>

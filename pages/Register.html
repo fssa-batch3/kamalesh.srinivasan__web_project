@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
+    <title>Register</title>
     <link rel="stylesheet" href="../assets/css/Register.css">
 </head>
 <!-- This is register page -->
@@ -17,30 +17,118 @@
         <div>
             <h1>Register Here</h1>
 
-            <form>
+            <form id="form" name="registerForm">
+
                 <label>Full Name</label><br>
-                <input type="text" placeholder="Name.." /><br>
+                <input type="text" value="fullname" id="FullName" name="fullname" placeholder="Name.." required
+                    pattern="[A-Za-z]{1,20}" autocomplete="fdgbsfgbds" title="FullName pattern is wrong" /><br>
 
                 <label>Email</label><br>
-                <input type="email" placeholder="example@gmail.com" /><br>
+                <input type="email" value="userObjalesh@gmail.com" id="email" placeholder="example@gmail.com" required
+                    autocomplete="fdgbsfgbds" /><br>
 
                 <label>Username</label><br>
-                <input type="text" placeholder="Username..." /><br>
+                <input type="text" placeholder="Username..." id="UserName" value="Username" required
+                    autocomplete="fdgbsfgbds" pattern="[A-Za-z]{1,20}" title="UserName pattern is wrong" /><br>
 
+                <p id="emptyPassword"></p>
                 <label>Password</label><br>
-                <input type="password" placeholder="*********" /><br>
+                <input type="password" id="password" name="password" value="kkkkk@kkkkk" placeholder="*********"
+                    required autocomplete="fdgbsfgbds" pattern="[A-Za-z]{1,20}" title="Password pattern is wrong" /><br>
 
                 <label>Repeat Password</label><br>
-                <input type="password" placeholder="*********" /><br>
+                <input type="password" id="Rpassword" value="kkkkk@kkkkk" placeholder="*********" required
+                    autocomplete="fdgbsfgbds" pattern="[A-Za-z]{1,20}" title="Password pattern is Wrong" /><br>
+
 
                 <input type="checkbox">
                 <label for="">I agree to the terms and Conditions</label><br>
-                <button class="reg" type="submit"><a href="../pages/Bio.html">Register</a></button><br>
+                <button class="reg" type="submit">Register</button><br>
                 <a href=""><button class="cancel" type="reset"><a href="../index.html">Cancel </a></button><br></a>
-                <button class="signin" type="submit"><a href="">Signin</a></button><br>
+                <button class="signin"><a>Signin</a></button><br>
             </form>
 
         </div>
+        <script>
+
+
+
+            // function emptyFullName() {
+            //     let x = document.forms[" registerForm"]["fullname"].value; // if (x=="" ) { // let
+            // formFullName = document.querySelector("#FullName"); //
+            // formFullName.setAttribute("style", "display:block"); // } // } const
+
+
+
+            signUpform = document.getElementById("form");
+
+
+            signUpform.addEventListener("submit", function (event) {
+
+                event.preventDefault();
+                let userData = []
+                if (localStorage.getItem("register") != null) {
+                    userData = JSON.parse(localStorage.getItem("register"))
+                }
+                // let userData = lo calStorage.getItem('register');
+                // localStorage.setItem(userData)
+
+                // if (userData === undefined) {
+                // const userData = [];
+                // }
+
+                let match = false;
+                const FullName = document.getElementById('FullName').value;
+                const Email = document.getElementById('email').value.toLowerCase();
+                const UserName = document.getElementById('UserName').value;
+                const Password = document.getElementById('password').value;
+                const RPassword = document.getElementById('Rpassword').value;
+                if (Password != RPassword) {
+                    alert("Password and Repeat password not match")
+                }
+
+                else {
+                    for (let i = 0; i < userData.length; i++) {
+                        if (Email == userData[i]["Email"]) {
+                            match = true;
+                        }
+                    }
+                }
+
+                if (match == true) {
+                    alert("Email is already Exist");
+                }
+
+                else {
+                    let userObj = {
+                        FullName, Email, UserName, Password, RPassword
+                    }
+                    console.log(userObj)
+
+                    userData.push(userObj);
+                    const str = JSON.stringify(userData);
+                    localStorage.setItem("register", str)
+                    console.log(str)
+                    // window.location.href = "Bio.html";
+                }
+
+            }
+
+
+            )
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
     </section>
 </body>
 

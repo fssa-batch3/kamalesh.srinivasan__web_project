@@ -59,6 +59,10 @@ body {
   box-shadow: 0px 0px 10px rgba(25, 3, 3, 0.288);
 }
 
+.datas {
+  margin-left: 20px;
+}
+
 .second_div_profile_p1 {
   text-align: center;
   font-weight: bold;
@@ -74,6 +78,10 @@ body {
 
 .second_div_profile_2rdp {
   text-align: center;
+}
+
+.second_div_profile_p {
+  margin-left: 20px;
 }
 
 .icons {

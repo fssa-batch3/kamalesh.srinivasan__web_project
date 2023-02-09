@@ -28,16 +28,9 @@
                 </div>
             </div>
             <div class="second_div_profile">
-                <p class="second_div_profile_p1">HELLO EVERYONE, I am</p>
-                <h2>AJMAL</h2>
+                <div class="datas">
 
-                <p class="second_div_profile_2rdp">Manager of fssa</p>
-
-                <P class="second_div_profile_3rdp">I have completed by M.E(Tech).Now I am <br>working at on top IT
-                    Academy.
-                    I completed<br> my works on time with expected output.<br>
-                    <b>UPI - kamal@okaxis</b>
-                </P>
+                </div>
                 <div class="top_icons">
                     <div class="icons"> <img alt="image" src="../assets/Images/phone.svg" alt="">
                         <p>+919876543210</p>
@@ -60,6 +53,81 @@
 
         <button onclick="history.back()">Back</button>
     </section>
+
+    <script>
+
+        let url = location.search;
+        let urlParams = new URLSearchParams(url);
+        let from = urlParams.get("from");
+        console.log(from);
+
+        let BIO = JSON.parse(localStorage.getItem("BIO"));
+        console.log(BIO);
+
+        let Email = "";
+
+        if (from == "logIn") {
+            let logIn = JSON.parse(localStorage.getItem("Login"));
+            Email = logIn[logIn.length - 1]["Email"];
+            console.log()
+
+        }
+
+        else {
+
+            let register = JSON.parse(localStorage.getItem("register"));
+            // console.log(register)
+            Email = register[register.length - 1]["Email"]
+            console.log(Email);
+        }
+
+        console.log(Email)
+
+        // let register = JSON.parse(localStorage.getItem("register"));
+        // // console.log(register)
+        // let Email = register[register.length - 1]["Email"]
+        // console.log(Email);
+
+
+        let userBio = BIO.find(B => B.Email == Email)
+
+        console.log(userBio);
+
+        let expertIn = document.createElement("p");
+        expertIn.innerText = "Expert In :  " + userBio.Expect_in;
+        expertIn.setAttribute("class", "second_div_profile_p")
+        document.querySelector(".datas").prepend(expertIn);
+
+        let Current_occupation = document.createElement("p");
+        Current_occupation.innerText = "Current_occupation :  " + userBio.Current_occupation;
+        expertIn.setAttribute("class", "second_div_profile_p")
+        document.querySelector(".datas").prepend(Current_occupation);
+
+
+        let Education = document.createElement("p");
+        Education.innerText = "Education :  " + userBio.Education;
+        expertIn.setAttribute("class", "second_div_profile_p")
+        document.querySelector(".datas").prepend(Education);
+
+        let Address = document.createElement("p");
+        Address.innerText = "Address :  " + userBio.Address;
+        expertIn.setAttribute("class", "second_div_profile_p")
+        document.querySelector(".datas").prepend(Address);
+
+
+        let DOB = document.createElement("p");
+        DOB.innerText = "DOB :  " + userBio.DOM;
+        expertIn.setAttribute("class", "second_div_profile_p")
+        document.querySelector(".datas").prepend(DOB);
+
+
+        let Name = document.createElement("p");
+        Name.innerText = "Name :  " + userBio.FN + userBio.LN;
+        expertIn.setAttribute("class", "second_div_profile_p")
+        document.querySelector(".datas").prepend(Name);
+
+
+    </script>
 </body>
 
 </html>

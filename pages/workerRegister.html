@@ -74,19 +74,20 @@
 
             <form>
                 <label>Full Name</label><br>
-                <input type="text" placeholder="Name.." /><br>
+                <input type="text" id="name" value="kamalesh Srinivasan" placeholder="Name.." /><br>
 
                 <label>Email</label><br>
-                <input type="email" placeholder="example@gmail.com" /><br>
+                <input type="email" id="email" value="kamalesh.srinivasan@fssa.freshworks.com"
+                    placeholder="example@gmail.com" /><br>
 
                 <label>Username</label><br>
-                <input type="text" placeholder="Username..." /><br>
+                <input type="text" id="username" value="kamlaeshsri" placeholder="Username..." /><br>
 
                 <label>Password</label><br>
-                <input type="password" placeholder="*********" /><br>
+                <input type="password" id="password" value="kkkk@sssss" placeholder="*********" /><br>
 
                 <label>Repeat Password</label><br>
-                <input type="password" placeholder="*********" /><br>
+                <input type="password" id="Rpassword" value="kkkk@sssss" placeholder="*********" /><br>
 
                 <input type="checkbox">
                 <label for="">I agree to the terms and Conditions</label><br>
@@ -98,6 +99,16 @@
             </form>
 
         </div>
+
+        <script>
+            const email = (document.getElementById("email").value)
+            const name = (document.getElementById("name").value)
+            const Username = (document.getElementById("username").value)
+            const password = (document.getElementById("password").value)
+            const Rpassword = (document.getElementById("Rpassword").value)
+
+            console.log(email, name, Username, password, Rpassword);
+        </script>
     </section>
 </body>
 

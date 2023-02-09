@@ -27,7 +27,7 @@
 
             <a style="margin-left: 600px;text-decoration: none;" onclick="openNav()">Notifications</a>
             <a style="text-decoration: none;" onclick="openchat()">Chat</a>
-            <a href="./profile.html" style="text-decoration: none;">Profile</a>
+            <!-- <a href="./profile.html?from =" style="text-decoration: none;">Profile</a> -->
         </nav>
 
 
@@ -921,6 +921,15 @@
     </footer>
     <script>
 
+        let Trending_Jobs = [{
+
+        }];
+
+
+
+
+
+
 
         function closechat() {
             document.getElementById("mySidedchat").style.width = "0px";
@@ -981,6 +990,23 @@
         function closechat() {
             document.getElementById("mySidechat").style.width = "0px";
         }
+
+
+
+
+        let url = location.search;
+        let urlParams = new URLSearchParams(url);
+        let from = urlParams.get("from");
+        console.log(from);
+
+        let profile = document.createElement("a");
+        profile.setAttribute("href", "./profile.html?from=" + from);
+        profile.setAttribute("style", "text-decoration: none;");
+        profile.innerText = "Profile";
+        document.querySelector("nav").append(profile)
+
+
+
 
 
     </script>

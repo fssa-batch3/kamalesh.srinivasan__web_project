@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../assets/css/ownerhome.css">
     <link rel="stylesheet" href="./assets/css/Home.css">
     <!-- <link rel="stylesheet" href="../assets/css/profile.css"> -->
+    <link rel="stylesheet" href="./form-to-json.css" type="text/css">
+
 
 
 </head>
@@ -520,18 +522,27 @@
             <div>
                 <h3 style="margin-top: 40px;margin-left: 20px;">Upload your Requirements</h3>
             </div>
-            <form>
+            <form action="../index.html" target="_blank" id="myForm">
                 <div
                     style="display: flex;flex-direction: column;max-width: 300px;margin-left: auto;margin-right: auto;margin-top: 100px;gap: 20px;">
-                    <input style="padding: 10px 20px;" type="text" placeholder="Job title" required id="Job-title" />
-                    <input style="padding: 10px 20px;" type="text" placeholder="Job Tags" required id="Job-Tags" />
-                    <input style="padding: 10px 20px;" type="text" placeholder="Suggestion Workers " />
-                    <input style="padding: 10px 20px;" type="text" placeholder="Summary of work" required
-                        id="Job-summary" />
-                    <input style="padding: 10px 20px;" type="text" placeholder="Basic payment of this work" required
-                        id="Job-payment" />
-                    <button style="background-color: green;" type="submit" onclick="myFunction()">OK</button>
+                    <label for="profile_img"></label>
+                    <input style="padding: 10px 20px;" id="profile_img" type="text" name="profile_img"
+                        placeholder="profile_img" required id="Job-title" />
+                    <label for="username"></label>
+                    <input style="padding: 10px 20px;" type="text" id="username" name="username" placeholder="username"
+                        required id="Job-Tags" />
+                    <label for="requirement_title"></label>
+                    <input style="padding: 10px 20px;" type="text" id="requirement_title" name="requirement_title"
+                        placeholder="requirement_title" />
+                    <label for="recieved_payment"></label>
+                    <input style="padding: 10px 20px;" type="text" id="recieved_payment" name="recieved_payment"
+                        placeholder="recieved_payment" required />
+                    <!-- <input style="padding: 10px 20px;" type="text" placeholder="Basic payment of this work" required
+                        id="Job-payment" /> -->
+                    <button style="background-color: green;" type="submit" id="btn" class="form-submit-btn">OK</button>
                     <button style="background-color: red;" type="reset">Cancel</button>
+
+                    <a href="../index.html">index</a>
 
                 </div>
             </form>
@@ -986,6 +997,8 @@
     <script>
 
 
+
+
         function closechat() {
             document.getElementById("mySidedchat").style.width = "0px";
 
@@ -1045,6 +1058,45 @@
         function closechat() {
             document.getElementById("mySidechat").style.width = "0px";
         }
+
+
+
+        // let newData = location.search
+        // let newData_string = new URLSearchParams(newData)
+        // console.log(newData_string)
+
+        let movies = [];
+        // example {id:1592304983049, title: 'Deadpool', year: 2015}
+        const addMovie = (ev) => {
+            ev.preventDefault();  //to stop the form submitting
+            let movie = {
+                id: Date.now(),
+                profile_img: document.getElementById('profile_img').value,
+                userName: document.getElementById('username').value,
+                requirement_title: document.getElementById('requirement_title').value,
+                recieved_payment: document.getElementById('recieved_payment').value,
+                recieved_payment: document.getElementById('recieved_payment').value
+            }
+
+            movies.push(movie);
+            document.forms[0].reset(); // to clear the form for the next entries
+            document.querySelector('form').reset();
+
+            //for display purposes only
+            console.log('added', { movies });
+            // let pre = document.querySelector('#msg pre');
+            // pre.textContent = '\n' + JSON.stringify(movies, '\t', 2);
+
+            // //saving to localStorage
+            let movies_str = JSON.stringify(movie)
+            localStorage.setItem('MyMovieList', movies_str);
+            // console.log(movies_str)
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('btn').addEventListener('click', addMovie);
+            // datas.push(addMovie)
+        });
+
 
 
     </script>

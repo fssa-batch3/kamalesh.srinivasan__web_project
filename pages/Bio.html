@@ -17,17 +17,18 @@
         </div>
 
         <div class="details">
-            <form>
-                <input type="text" placeholder="First Name"><br>
-                <input type="text" placeholder="Last Name"><br>
+            <form id="form">
+                <input type="text" id="First_Name" placeholder="First Name"><br>
+                <input type="text" id="Last_Name" placeholder="Last Name"><br>
                 <label id="dob">DOB</label>
-                <input type="date" placeholder="Date Of birth"><br>
-                <input type="text" placeholder="Address"><br>
-                <input type="text" placeholder="Type of works"><br>
-                <input type="text" placeholder="Organization"><br>
-                <input type="text" placeholder="Aadhar number"><br>
+                <input type="date" id="DOB" placeholder="Date Of birth"><br>
+                <input type="text" id="Address" placeholder="Address"><br>
+                <input type="text" id="Education" placeholder="Education"><br>
+                <input type="text" id="Current_occupation" placeholder="Current Occupation"><br>
+                <input type="texxt" id="Expect_in" placeholder="Expect in" /><br>
+                <input type="text" id="Aadhar_number" placeholder="Aadhar number"><br>
                 <input type="file" style="border: none;" placeholder="Upload your expirience certificate here" />
-                <button type="submit"><a href="Workerhome.html">Submit </a></button>
+                <button type="submit">Submit</button>
                 <button type="reset"><a href="Register.html">Cancel </a></button>
 
 
@@ -37,6 +38,58 @@
 
         </div>
     </section>
+    <script>
+
+        let register = JSON.parse(localStorage.getItem("register"));
+        // console.log(register)
+        let Email = register[register.length - 1]["Email"]
+        console.log(Email)
+
+        let bioFn = document.getElementById("form");
+        bioFn.addEventListener("submit", (event) => {
+            event.preventDefault();
+            let arr = [];
+            if (localStorage.getItem("BIO") != null) {
+                arr = JSON.parse(localStorage.getItem("BIO"))
+            }
+
+            let FN = document.getElementById("First_Name").value;
+            let LN = document.getElementById("Last_Name").value;
+            let DOM = document.getElementById("DOB").value;
+            let Address = document.getElementById("Address").value;
+            let Education = document.getElementById("Education").value;
+            let Current_occupation = document.getElementById("Current_occupation").value;
+            let Expect_in = document.getElementById("Expect_in").value;
+            let Aadhar_number = document.getElementById("Aadhar_number").value;
+
+            let bio = {
+                Email,
+                FN,
+                LN,
+                DOM,
+                Address,
+                Education,
+                Current_occupation,
+                Expect_in,
+                Aadhar_number
+            }
+
+
+            arr.push(bio);
+            let str = JSON.stringify(arr);
+            localStorage.setItem("BIO", str);
+            window.location.href = "Workerhome.html?from=register";
+        });
+
+
+
+
+
+
+
+
+
+    </script>
 </body>
 
 </html>

@@ -119,6 +119,20 @@ button a {
   color: white;
 }
 
+.empty {
+  display: none;
+}
+
+#empty_password {
+  color: white;
+  font-size: bold;
+  margin: 5px;
+}
+
+input:invalid {
+  border-color: red;
+}
+
 @media all and (max-width: 600px) {
   section {
     background: none;
