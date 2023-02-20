@@ -5,1102 +5,394 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-
-    <link rel="stylesheet" href="../assets/css/Home.css">
+    <title>Owner Home</title>
     <link rel="stylesheet" href="../assets/css/ownerhome.css">
-    <link rel="stylesheet" href="./assets/css/Home.css">
-    <!-- <link rel="stylesheet" href="../assets/css/profile.css"> -->
-    <link rel="stylesheet" href="./form-to-json.css" type="text/css">
-
-
-
 </head>
-<!-- This is ownerhome page -->
 
-<body style="background-color:white ;">
-
-    <header style=" display: flex;gap: 30px;max-width: 1500px;">
-        <div
-            style="margin-left: 20px;background-color: black;margin-right: 50px;margin-bottom: 50px; width: 100px;height: 100px;">
-            <img width="100px" height="100px" alt="image" onclick="document.location.href='worker-profile.html'"
-                src="../assets/images/Logo.png">
+<body>
+    <header>
+        <div>
+            <img src="../assets/Images/Logo.png" alt="Logo">
         </div>
-        <nav style="margin-top: 40px;display: flex;justify-content: space-around;gap: 30px;font-size: 20px;">
 
-            <a class="ca" href="requirementList.html" style=" color: black;">Requirement List</a>
-            <a class="ca" href="about.html">About</a>
-
-            <a class="ca" style="margin-left: 600px;" onclick="openNav()">Notifications</a>
-            <a class="ca" onclick="openchat()">Chat</a>
-            <a class="ca" href="profile.html">Profile</a>
+        <nav>
+            <div>
+                <a>Requirement List</a>
+                <!-- <a>Search</a> -->
+                <a>Chat</a>
+                <a>Notification</a>
+                <a href="profile.html">profile</a>
+                <a href="../index.html">LogOut</a>
+            </div>
         </nav>
     </header>
 
     <main>
-        <section>
-            <!-- This is requirement list -->
-            <h3 style="margin-top: 20px;margin-left: 10px;">Requirement List</h3>
+        <section class="recent_sec">
+            <h2>
+                Recently uploded
+            </h2>
 
-            <!-- Pending Jobs -->
-            <div>
-                <div class="joblist">
-                    <h2 id="TopJobs">Pending Jobs</h2>
-                    <div>
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/female_profile.png" alt="profile">
-
-                        </div>
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/male_profile.jpg" alt="profile">
-
-                        </div>
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (1).svg" alt="profile">
-
-                        </div>
+            <div class="left">
+                <img src="../../assets/Images/left.svg" onclick="goLeft()" alt="image">
+            </div>
+            <div class="rect_jobs">
 
 
 
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (2).svg" alt="profile">
-
-                        </div>
 
 
+                <div class="rect_cards">
+                    <img src="/../assets/Images/profiel1.jpg">
+                    <p class="Prof_name">Mr.Krish</p>
+                    <p class="Type"><span> Type :</span> WebDevelopment</p>
+                    <p class="NOE"><span>No of Employees : </span> 10</p>
+                    <p class="uploaded_date"><span>uploaded date:</span> 12:02:2023</p>
+                    <div class="rect-buttons">
+                        <button class="ck_work">Check Workers</button>
+                        <button class="cnl">Cancel</button>
                     </div>
-
-
-                    <div>
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (3).svg" alt="profile">
-
-                        </div>
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (4).svg" alt="profile">
-
-                        </div>
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (4).svg" alt="profile">
-
-                        </div>
-
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (6).svg" alt="profile">
-
-                        </div>
-
-
-                    </div>
-
-
-                    <div>
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/female_profile.png" alt="profile">
-
-                        </div>
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (5).svg" alt="profile">
-
-                        </div>
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/boy-avatar.svg" alt="profile">
-
-                        </div>
-
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/female-avatar.svg" alt="profile">
-
-                        </div>
-
-
-
-                    </div>
-
-
-                    <div>
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/boy-avatar.svg" alt="profile">
-
-                        </div>
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/girl-avatar.svg" alt="profile">
-
-                        </div>
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (3).svg" alt="profile">
-
-                        </div>
-
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (2).svg" alt="profile">
-
-                        </div>
-
-
-
-                    </div>
-
-
-
-
                 </div>
+
+            </div>
+
+            <div class="right">
+                <img src="../assets/Images/right.svg" onclick="goRight()" alt="image">
             </div>
         </section>
 
-        <section>
-
-            <!-- Done Jobs -->
-            <div>
-                <div class="joblist">
-                    <h2 id="TopJobs">Done Jobs</h2>
-                    <div>
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (2).svg" alt="profile">
-
-                        </div>
 
 
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (1).svg" alt="profile">
-
-                        </div>
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (3).svg" alt="profile">
-
-                        </div>
-
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (5).svg" alt="profile">
-
-                        </div>
-
-
-                    </div>
-
-
-                    <div>
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (6).svg" alt="profile">
-
-                        </div>
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar.svg" alt="profile">
-
-                        </div>
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/boy-avatar.svg" alt="profile">
-
-                        </div>
-
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/girl-avatar.svg" alt="profile">
-
-                        </div>
-
-
-                    </div>
-
-
-                    <div>
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/girl-avatar.svg" alt="profile">
-
-                        </div>
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/father.svg" alt="profile">
-
-                        </div>
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (2).svg" alt="profile">
-
-                        </div>
-
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (4).svg" alt="profile">
-
-                        </div>
-
-
-
-                    </div>
-
-
-                    <div>
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (3).svg" alt="profile">
-
-                        </div>
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (5).svg" alt="profile">
-
-                        </div>
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (3).svg" alt="profile">
-
-                        </div>
-
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (1).svg" alt="profile">
-
-                        </div>
-
-
-
-                    </div>
-
-
-
-
-                </div>
+        <section class="Pending_sec">
+            <h2>
+                Pending Jobs
+            </h2>
+            <div class="left_pen">
+                <img src="../assets/Images/left.svg" onclick="goLeftPen()" alt="image">
             </div>
-        </section>
-        <!-- This is  Want to complete immediately jobs-->
-
-        <section>
-
-
-            <div>
-                <div class="joblist">
-                    <h2 id="TopJobs">Want to complete immediately</h2>
-                    <div>
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/female_profile.png" alt="profile">
-
-                        </div>
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/male_profile.jpg" alt="profile">
-
-                        </div>
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (1).svg" alt="profile">
-
-                        </div>
+            <div class="pen_jobs">
 
 
 
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (3).svg" alt="profile">
-
-                        </div>
 
 
+                <div class="rect_cards">
+                    <img src="../assets/Images/profiel1.jpg">
+                    <p class="Prof_name">Mr.Krish</p>
+                    <p class="Type"><span> Type :</span> WebDevelopment</p>
+                    <p class="NOE"><span>No of Employees : </span> 10</p>
+                    <p class="uploaded_date"><span>uploaded date:</span> 12:02:2023</p>
+                    <div class="rect-buttons">
+                        <button class="ck_work">Check Workers</button>
+                        <button class="cnl">Cancel</button>
                     </div>
-
-
-                    <div>
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (4).svg" alt="profile">
-
-                        </div>
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (5).svg" alt="profile">
-
-                        </div>
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (4).svg" alt="profile">
-
-                        </div>
-
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (3).svg(4).svg" alt="profile">
-
-                        </div>
-
-
-                    </div>
-
-
-                    <div>
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar.svg" alt="profile">
-
-                        </div>
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/girl-avatar.svg" alt="profile">
-
-                        </div>
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/female-avatar.svg" alt="profile">
-
-                        </div>
-
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (6).svg" alt="profile">
-
-                        </div>
-
-
-
-                    </div>
-
-
-                    <div>
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/girl-avatar.svg" alt="profile">
-
-                        </div>
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (5).svg" alt="profile">
-
-                        </div>
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (3).svg" alt="profile">
-
-                        </div>
-
-
-
-                        <div class="list">
-                            <p>I want electrician - basic payment is $20</p>
-                            <img alt="image" onclick="document.location.href='worker-profile.html'"
-                                src="../assets/images/avatar (6).svg" alt="profile">
-
-                        </div>
-
-
-
-                    </div>
-
-
-
-
                 </div>
+
+            </div>
+
+            <div class="right_pen">
+                <img src="../assets/Images/right.svg" onclick="goRightPen()" alt="image">
             </div>
         </section>
 
-        <!-- this is upload -->
 
-        <section>
-            <div>
-                <h3 style="margin-top: 40px;margin-left: 20px;">Upload your Requirements</h3>
+        <section class="Unallocated_sec">
+            <h2>
+                Unallocated Jobs
+            </h2>
+            <div class="left_ua">
+                <img src="../assets/Images/left.svg" onclick="goLeftUa()" alt="image">
             </div>
-            <form action="../index.html" target="_blank" id="myForm">
-                <div
-                    style="display: flex;flex-direction: column;max-width: 300px;margin-left: auto;margin-right: auto;margin-top: 100px;gap: 20px;">
-                    <label for="profile_img"></label>
-                    <input style="padding: 10px 20px;" id="profile_img" type="text" name="profile_img"
-                        placeholder="profile_img" required id="Job-title" />
-                    <label for="username"></label>
-                    <input style="padding: 10px 20px;" type="text" id="username" name="username" placeholder="username"
-                        required id="Job-Tags" />
-                    <label for="requirement_title"></label>
-                    <input style="padding: 10px 20px;" type="text" id="requirement_title" name="requirement_title"
-                        placeholder="requirement_title" />
-                    <label for="recieved_payment"></label>
-                    <input style="padding: 10px 20px;" type="text" id="recieved_payment" name="recieved_payment"
-                        placeholder="recieved_payment" required />
-                    <!-- <input style="padding: 10px 20px;" type="text" placeholder="Basic payment of this work" required
-                        id="Job-payment" /> -->
-                    <button style="background-color: green;" type="submit" id="btn" class="form-submit-btn">OK</button>
-                    <button style="background-color: red;" type="reset">Cancel</button>
+            <div class="ua_jobs">
 
-                    <a href="../index.html">index</a>
 
+
+
+
+                <div class="rect_cards">
+                    <img src="../assets/Images/profiel1.jpg">
+                    <p class="Prof_name">Mr.Krish</p>
+                    <p class="Type"><span> Type :</span> WebDevelopment</p>
+                    <p class="NOE"><span>No of Employees : </span> 10</p>
+                    <p class="uploaded_date"><span>uploaded date:</span> 12:02:2023</p>
+                    <div class="rect-buttons">
+                        <button class="ck_work">Check Workers</button>
+                        <button class="cnl">Cancel</button>
+                    </div>
                 </div>
+
+            </div>
+
+            <div class="right_ua">
+                <img src="../../assets/Images/right.svg" onclick="goRightUa()" alt="image">
+            </div>
+        </section>
+
+
+        <section class="form">
+            <form id="form">
+                <h2>Upload your Requirement</h2>
+                <input type="text" id="title" placeholder="Title of the job" /><BR>
+                <input type="text" id="location" placeholder="Location" /><br>
+                <input type="text" id="Salary" placeholder="Salary" /><br>
+                <textarea rows="4" id="disc" cols="20">Description
+                    </textarea><br>
+                <button type="reset">Cancel</button>
+                <button type="submit">Add</button>
             </form>
-
         </section>
-
-        <section>
-            <div id="mySidenav" class="sidenav">
-                <div>
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
-
-                </div>
-                <div style="display: flex;margin-bottom: 50px;">
-                    <div>
-                        <input type="text" placeholder="Search"
-                            style="padding: 10px 20px;margin-left: 20px;font-size: medium;" />
-                    </div>
-                    <div>
-                        <img alt="image" onclick="document.location.href='worker-profile.html'"
-                            src="../assets/images/Search-icon.png" width="30px" height="auto"
-                            style="border-radius: 5px;margin-left: -40px;margin-top: 5px;">
-                    </div>
-
-
-                </div>
-
-
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><a href="worker-profile.html"><img alt="image"
-                            onclick="document.location.href='worker-profile.html'"
-                            src="../assets/images/female_profile.png"></a>
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'" src="../assets/images/male_profile.jpg">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'" src="../assets/images/avatar (1).svg">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'" src="../assets/images/avatar (2).svg">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'" src="../assets/images/avatar (3).svg">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'" src="../assets/images/avatar (4).svg">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'" src="../assets/images/avatar (5).svg">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'" src="../assets/images/avatar (6).svg">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'" src="../assets/images/avatar.svg">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'" src="../assets/images/boy-avatar.svg">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-                <div class="req">
-                    <p>Reqest - Summary of the job </p><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female_profile.png">
-                </div>
-            </div>
-        </section>
-
-
-
-        <section>
-            <div id="mySidechat" class="sidenav">
-                <div>
-                    <a href="javascript:void(0)" class="closebtn" onclick="closechat()">&times;</a>
-
-
-                </div>
-                <div style="display: flex;margin-bottom: 50px;">
-                    <div>
-                        <input type="text" placeholder="Search"
-                            style="padding: 10px 20px;margin-left: 20px;font-size: medium;" />
-                    </div>
-                    <div>
-                        <img alt="image" onclick="document.location.href='worker-profile.html'"
-                            src="../assets/Images/Search-icon.png" width="30px" height="auto"
-                            style="border-radius: 5px;margin-left: -40px;margin-top: 5px;">
-                    </div>
-
-
-                </div>
-
-
-                <div class="req">
-                    <img alt="image" onclick="document.location.href='Worker_Chat.html'"
-                        src="../assets/images/male_profile.jpg" width="30px" height="30px"
-                        style="margin-left: 20px;margin-right: 20px;">
-                    <span>User Name</span><input style="margin-left: 10px;height: 20px;width: 20px;"
-                        type="checkbox"><label style="margin-left: 10px;"><a href="worker-profile.html">All
-                            Done</a></label>
-
-
-                </div>
-                <div class="req">
-                    <img alt="image" onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/female-avatar.svg" width="30px" height="30px"
-                        style="margin-left: 20px;margin-right: 20px;">
-                    <span>User Name</span><input style="margin-left: 10px;height: 20px;width: 20px;"
-                        type="checkbox"><label style="margin-left: 10px;"><a href="worker-profile.html">All
-                            Done</a></label>
-
-
-                </div>
-                <div class="req">
-                    <img alt="image" onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/avatar (1).svg" width="30px" height="30px"
-                        style="margin-left: 20px;margin-right: 20px;">
-                    <span>User Name</span><input style="margin-left: 10px;height: 20px;width: 20px;"
-                        type="checkbox"><label style="margin-left: 10px;"><a href="worker-profile.html">All
-                            Done</a></label>
-
-
-                </div>
-                <div class="req">
-                    <img alt="image" onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/avatar (3).svg" width="30px" height="30px"
-                        style="margin-left: 20px;margin-right: 20px;">
-                    <span>User Name</span><input style="margin-left: 10px;height: 20px;width: 20px;"
-                        type="checkbox"><label style="margin-left: 10px;"><a href="worker-profile.html">All
-                            Done</a></label>
-
-
-                </div>
-                <div class="req">
-                    <img alt="image" onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/avatar (3).svg" width="30px" height="30px"
-                        style="margin-left: 20px;margin-right: 20px;">
-                    <span>User Name</span><input style="margin-left: 10px;height: 20px;width: 20px;"
-                        type="checkbox"><label style="margin-left: 10px;"><a href="worker-profile.html">All
-                            Done</a></label>
-
-
-                </div>
-                <div class="req">
-                    <img alt="image" onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/avatar (4).svg" width="30px" height="30px"
-                        style="margin-left: 20px;margin-right: 20px;">
-                    <span>User Name</span><input style="margin-left: 10px;height: 20px;width: 20px;"
-                        type="checkbox"><label style="margin-left: 10px;"><a href="worker-profile.html">All
-                            Done</a></label>
-
-
-                </div>
-                <div class="req">
-                    <img alt="image" onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/avatar (4).svg" width="30px" height="30px"
-                        style="margin-left: 20px;margin-right: 20px;">
-                    <span>User Name</span><input style="margin-left: 10px;height: 20px;width: 20px;"
-                        type="checkbox"><label style="margin-left: 10px;"><a href="worker-profile.html">All
-                            Done</a></label>
-
-
-                </div>
-                <div class="req">
-                    <img alt="image" onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/avatar (5).svg" width="30px" height="30px"
-                        style="margin-left: 20px;margin-right: 20px;">
-                    <span>User Name</span><input style="margin-left: 10px;height: 20px;width: 20px;"
-                        type="checkbox"><label style="margin-left: 10px;"><a href="worker-profile.html">All
-                            Done</a></label>
-
-
-                </div>
-                <div class="req">
-                    <img alt="image" onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/male_profile.jpg" width="30px" height="30px"
-                        style="margin-left: 20px;margin-right: 20px;">
-                    <span>User Name</span><input style="margin-left: 10px;height: 20px;width: 20px;"
-                        type="checkbox"><label style="margin-left: 10px;"><a href="worker-profile.html">All
-                            Done</a></label>
-
-
-                </div>
-                <div class="req">
-                    <img alt="image" onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/girl-avatar.svg" width="30px" height="30px"
-                        style="margin-left: 20px;margin-right: 20px;">
-                    <span>User Name</span><input style="margin-left: 10px;height: 20px;width: 20px;"
-                        type="checkbox"><label style="margin-left: 10px;"><a href="worker-profile.html">All
-                            Done</a></label>
-
-
-                </div>
-                <div class="req">
-                    <img alt="image" onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/girl-avatar.svg" width="30px" height="30px"
-                        style="margin-left: 20px;margin-right: 20px;">
-                    <span>User Name</span><input style="margin-left: 10px;height: 20px;width: 20px;"
-                        type="checkbox"><label style="margin-left: 10px;"><a href="worker-profile.html">All
-                            Done</a></label>
-
-
-                </div>
-                <div class="req">
-                    <img alt="image" onclick="document.location.href='worker-profile.html'"
-                        src="../assets/images/male_profile.jpg" width="30px" height="30px"
-                        style="margin-left: 20px;margin-right: 20px;">
-                    <span>User Name</span><input style="margin-left: 10px;height: 20px;width: 20px;"
-                        type="checkbox"><label style="margin-left: 10px;"><a href="worker-profile.html">All
-                            Done</a></label>
-
-
-                </div>
-
-
-        </section>
-
-
-
-        <section>
-            <section>
-                <div id="mySidedchat" class="sidenav">
-                    <div>
-                        <a href="javascript:void(0)" class="closebtn" onclick="closedchat()">&times;</a>
-
-
-                    </div>
-
-
-
-                </div>
-            </section>
-
 
 
 
 
     </main>
-    <hr style="margin-top: 20px;margin-bottom: 20px;">
 
-    <footer style="display: flex;padding-bottom: 100px;">
-
-
+    <footer>
         <div>
-            <div
-                style="margin-left: 100px;background-color: black;margin-right: 50px;margin-bottom: 50px;margin-top: 50px;width: 100px;height: 100px;">
-                <img style="margin-top: -30px;margin-left: -20px;" height="150px" width="150px" alt="image"
-                    onclick="document.location.href='worker-profile.html'" src="../assets/Images/Logo.png" alt="">
-            </div>
-            <div style="display: flex;">
-                <div style="margin-left: 100px;margin-bottom: 50px;"><img alt="image"
-                        onclick="document.location.href='worker-profile.html'"
-                        src="../assets/Images/icons8-helping-32.png">
-                </div>
-                <div style="margin-top:10px ;"><a style="margin-left: 15px;color: white;" href="#">Help&Support</a>
-                </div>
-
+            <div class="logo">
+                <img src="../assets/Images/Logo.png" alt="logo" />
             </div>
         </div>
-        <div>
-            <div style="display: flex; margin-left: 50px;gap: 150px;margin-top: 100px;">
-                <div class="footertop">
-                    <h4>Freelancers</h4>
-                    <p>Categories</p>
-                    <p>Projects</p>
-                    <p>Contests</p>
-                    <p>Freelancers</p>
-                    <p>Enterprise</p>
-                    <p>Photo Anywhere</p>
-                </div>
 
-                <div class="footertop">
-                    <h4>About Us</h4>
-                    <p>About us</p>
-                    <p>How it Works</p>
-                    <p>Careers</p>
-                    <p>Security</p>
-                    <p>News</p>
-                </div>
+        <div class="Registered_Users">
+            <p>64,653,006<br>
+                Registered Users</p>
+        </div>
 
-                <div class="footertop">
-                    <h4>Terms</h4>
-                    <p>Privacy Policy</p>
-                    <p>Terms and Conditions</p>
-                    <p>Copyright Policy</p>
-                    <p>Code of Conduct</p>
-                    <p>Fees and Charges</p>
-                </div>
+        <div class="Total_Jobs_Posted">
 
-                <div class="footertop">
-                    <h4>Partners</h4>
-                    <p>Freshworks</p>
-                    <p>Meta</p>
-                    <p>Tesla</p>
-                </div>
+            <p>22,357,427<br>
+                Total Jobs Posted</p>
+        </div>
 
-                <div class="footertop">
-                    <h4>Apps</h4>
-                    <p><img alt="image" onclick="document.location.href='worker-profile.html'"
-                            src="../assets/Images/icons8-twitter.svg"> </p>
-                    <p><img alt="image" onclick="document.location.href='worker-profile.html'"
-                            src="../assets/Images/icons8-youtube.svg"></p>
-                    <p><img alt="image" onclick="document.location.href='worker-profile.html'"
-                            src="../assets/Images/icons8-facebook.svg"> </p>
-                    <p><img alt="image" onclick="document.location.href='worker-profile.html'"
-                            src="../assets/Images/icons8-instagram.svg"> </p>
-                </div>
-            </div>
-
-            <div
-                style="display: flex;color: white;padding-left: 250px;gap: 200px;margin-top: 50px;background-color: black;position: absolute;left: 0px;right: 0px;">
-                <div style="padding: 10px 0px;">63,275,365<br>
-                    Registered Users</div>
-
-                <div style="padding: 10px 0px;">
-                    22,121,496<br>
-                    Total Jobs Posted
-                </div>
-
-                <div style="padding: 10px 0px;">
-                    NeedsToBeDone ® is a registered Trademark of Freshworks.<br>
-                    Copyright © 2022 Freshworks.
-                </div>
-
+        <div class="last">
+            <p>Apps</p>
+            <div class="apps">
+                <img src="../assets/Images/icons8-instagram.svg" alt="instagram" />
+                <img src="../assets/Images/icons8-twitter.svg" alt="twitter" />
+                <img src="../assets/Images/icons8-facebook.svg" alt="facebook" />
+                <img src="../assets/Images/icons8-youtube.svg" alt="youtube" />
             </div>
         </div>
     </footer>
 
+    <section>
+        <div class="Copyright">
+            NeedsToBeDone ® is a registered Trademark of NTBD Technology Pty Limited.
+            Copyright © 2023 NTBD Technology Pty Limited.
+        </div>
+    </section>
+
+
+
+    <script src="../assets/JS/ownerHome.js"></script>
+
+
+
+
     <script>
 
 
+        //Get form data
 
 
-        function closechat() {
-            document.getElementById("mySidedchat").style.width = "0px";
 
-        }
 
-        function openDchat() {
-            document.getElementById("mysidedchat").style.width = "350px"
-        }
 
-        function myFunction() {
-            if (document.getElementById('Job-title').value === "") {
-                alert("enter the valid data's");
-                return false;
+        document.getElementById("form").addEventListener("submit", (event) => {
+            event.preventDefault();
+            let formData = {
+                title: document.getElementById("title").value,
+                location: document.getElementById("location").value,
+                Salary: document.getElementById("Salary").value,
+                disc: document.getElementById("disc").value
+
             }
+            console.log(formData)
+            getUploadreq(formData)
+        })
 
 
 
 
-            if (document.getElementById('Job-Tags').value === "") {
-                alert("enter the valid data's");
-                return false;
-            }
+
+        //  JSON
+
+        let rect_jobs = [{
+            name: "kamalesh",
+            image: {
+                src: "/../assets/Images/profiel1.jpg",
+                alt: "profile Image"
+            },
+            type: "WebDevelopment",
+            noe: 20,
+            uploadedDate: "12:30:2022",
+
+        },
+        {
+            name: "kamalesh",
+            image: {
+                src: "/../assets/Images/profiel1.jpg",
+                alt: "profile Image"
+            },
+            type: "WebDevelopment",
+            noe: 20,
+            uploadedDate: "12:30:2022",
+
+        },
+
+        {
+            name: "kamalesh",
+            image: {
+                src: "/../assets/Images/profiel1.jpg",
+                alt: "profile Image"
+            },
+            type: "WebDevelopment",
+            noe: 20,
+            uploadedDate: "12:30:2022",
+
+        },
+
+
+        {
+            name: "kamalesh",
+            image: {
+                src: "/../assets/Images/profiel1.jpg",
+                alt: "profile Image"
+            },
+            type: "WebDevelopment",
+            noe: 20,
+            uploadedDate: "12:30:2022",
+
+        },
+
+        {
+            name: "kamalesh",
+            image: {
+                src: "/../assets/Images/profiel1.jpg",
+                alt: "profile Image"
+            },
+            type: "WebDevelopment",
+            noe: 20,
+            uploadedDate: "12:30:2022",
+
+        },
+
+        {
+            name: "kamalesh",
+            image: {
+                src: "/../assets/Images/profiel1.jpg",
+                alt: "profile Image"
+            },
+            type: "WebDevelopment",
+            noe: 20,
+            uploadedDate: "12:30:2022",
+
+        },
+
+        {
+            name: "kamalesh",
+            image: {
+                src: "/../assets/Images/profiel1.jpg",
+                alt: "profile Image"
+            },
+            type: "WebDevelopment",
+            noe: 20,
+            uploadedDate: "12:30:2022",
+
+        },
+
+        {
+            name: "kamalesh",
+            image: {
+                src: "/../assets/Images/profiel1.jpg",
+                alt: "profile Image"
+            },
+            type: "WebDevelopment",
+            noe: 20,
+            uploadedDate: "12:30:2022",
+
+        },
+
+        {
+            name: "kamalesh",
+            image: {
+                src: "/../assets/Images/profiel1.jpg",
+                alt: "profile Image"
+            },
+            type: "WebDevelopment",
+            noe: 20,
+            uploadedDate: "12:30:2022",
+
+        },
 
 
 
-            if (document.getElementById('Job-payment').value === "") {
-                alert("enter the valid data's");
-                return false;
-            }
+
+        ]
 
 
 
-            if (document.getElementById('Job-summary').value === "") {
-                alert("enter the valid data's");
-                return false;
-            }
 
-            else {
-                alert("Your Requirement has been submited")
-            }
+        // loops
+
+        for (let i = 0; i < rect_jobs.length; i++) {
+            let rect_cards = document.createElement("div");
+            rect_cards.setAttribute("class", "rect_cards");
+            rect_cards.innerHTML = `<img alt=${rect_jobs[i]["image"]["alt"]} src=${rect_jobs[i]["image"]["src"]}  >
+                    <p class="Prof_name">${rect_jobs[i]["name"]}</p>
+                    <p class="Type"><span> Type :</span>${rect_jobs[i]["type"]}</p>
+                    <p class="NOE"><span>No of Employees : </span> ${rect_jobs[i]["noe"]}</p>
+                    <p class="uploaded_date"><span>uploaded date:</span> ${rect_jobs[i]["uploadedDate"]}</p>
+                    <div class="rect-buttons">
+                        <button class="ck_work">Check Workers</button>
+                        <button class="cnl">Cancel</button>
+                    </div>`
+            document.querySelector(".rect_jobs").append(rect_cards);
+
         }
 
 
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "350px";
+        for (let i = 0; i < rect_jobs.length; i++) {
+            let rect_cards = document.createElement("div");
+            rect_cards.setAttribute("class", "rect_cards");
+            rect_cards.innerHTML = `<img alt=${rect_jobs[i]["image"]["alt"]} src=${rect_jobs[i]["image"]["src"]}  >
+                    <p class="Prof_name">${rect_jobs[i]["name"]}</p>
+                    <p class="Type"><span> Type :</span>${rect_jobs[i]["type"]}</p>
+                    <p class="NOE"><span>No of Employees : </span> ${rect_jobs[i]["noe"]}</p>
+                    <p class="uploaded_date"><span>uploaded date:</span> ${rect_jobs[i]["uploadedDate"]}</p>
+                    <div class="rect-buttons">
+                        <button class="ck_work">Check Workers</button>
+                        <button class="cnl">Cancel</button>
+                    </div>`
+            document.querySelector(".pen_jobs").append(rect_cards);
+
         }
 
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0px";
+
+        for (let i = 0; i < rect_jobs.length; i++) {
+            let rect_cards = document.createElement("div");
+            rect_cards.setAttribute("class", "rect_cards");
+            rect_cards.innerHTML = `<img alt=${rect_jobs[i]["image"]["alt"]} src=${rect_jobs[i]["image"]["src"]}  >
+                    <p class="Prof_name">${rect_jobs[i]["name"]}</p>
+                    <p class="Type"><span> Type :</span>${rect_jobs[i]["type"]}</p>
+                    <p class="NOE"><span>No of Employees : </span> ${rect_jobs[i]["noe"]}</p>
+                    <p class="uploaded_date"><span>uploaded date:</span> ${rect_jobs[i]["uploadedDate"]}</p>
+                    <div class="rect-buttons">
+                        <button class="ck_work">Check Workers</button>
+                        <button class="cnl">Cancel</button>
+                    </div>`
+            document.querySelector(".ua_jobs").append(rect_cards);
+
         }
 
 
-        function openchat() {
-            document.getElementById("mySidechat").style.width = "350px";
-        }
-
-        function closechat() {
-            document.getElementById("mySidechat").style.width = "0px";
-        }
 
 
-
-        // let newData = location.search
-        // let newData_string = new URLSearchParams(newData)
-        // console.log(newData_string)
-
-        let movies = [];
-        // example {id:1592304983049, title: 'Deadpool', year: 2015}
-        const addMovie = (ev) => {
-            ev.preventDefault();  //to stop the form submitting
-            let movie = {
-                id: Date.now(),
-                profile_img: document.getElementById('profile_img').value,
-                userName: document.getElementById('username').value,
-                requirement_title: document.getElementById('requirement_title').value,
-                recieved_payment: document.getElementById('recieved_payment').value,
-                recieved_payment: document.getElementById('recieved_payment').value
-            }
-
-            movies.push(movie);
-            document.forms[0].reset(); // to clear the form for the next entries
-            document.querySelector('form').reset();
-
-            //for display purposes only
-            console.log('added', { movies });
-            // let pre = document.querySelector('#msg pre');
-            // pre.textContent = '\n' + JSON.stringify(movies, '\t', 2);
-
-            // //saving to localStorage
-            let movies_str = JSON.stringify(movie)
-            localStorage.setItem('MyMovieList', movies_str);
-            // console.log(movies_str)
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('btn').addEventListener('click', addMovie);
-            // datas.push(addMovie)
-        });
 
 
 
     </script>
-
 </body>
 
 </html>

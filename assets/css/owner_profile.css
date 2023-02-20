@@ -83,7 +83,7 @@ body {
 
 .icons {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   margin-left: 130px;
 }
 
@@ -105,10 +105,21 @@ button {
   position: absolute;
   top: 10px;
   right: 10px;
-  padding: 10px 20px;
+  /* padding: 10px 43px; */
+  height: 2rem;
+  width: 6rem;
   border: none;
   border-radius: 5px;
   background-color: rgba(211, 211, 237, 0.687);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  background-color: black;
+  color: rgba(211, 211, 237, 0.687);
 }
 
 a {
@@ -121,4 +132,53 @@ a {
 
 .aaa:hover {
   text-decoration: underline;
+}
+
+.edit {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  /* padding: 10px 45px; */
+  height: 2rem;
+  width: 6rem;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(211, 211, 237, 0.687);
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit:hover {
+  background-color: black;
+  color: rgba(211, 211, 237, 0.687);
+  transition: 0.5s;
+}
+
+.delete {
+  position: absolute;
+  top: 95px;
+  right: 10px;
+  /* padding: 10px 21px; */
+  height: 2rem;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(211, 211, 237, 0.687);
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.delete:hover {
+  background-color: black;
+  color: rgba(211, 211, 237, 0.687);
+  transition: 0.5s;
 }

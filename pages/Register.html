@@ -20,32 +20,34 @@
             <form id="form" name="registerForm">
 
                 <label>Full Name</label><br>
-                <input type="text" value="fullname" id="FullName" name="fullname" placeholder="Name.." required
+                <input type="text" value="kamalesh" id="FullName" name="fullname" placeholder="Name.." required
                     pattern="[A-Za-z]{1,20}" autocomplete="fdgbsfgbds" title="FullName pattern is wrong" /><br>
 
                 <label>Email</label><br>
-                <input type="email" value="userObjalesh@gmail.com" id="email" placeholder="example@gmail.com" required
+                <input type="email" value="kamalesh@gmail.com" id="email" placeholder="example@gmail.com" required
                     autocomplete="fdgbsfgbds" /><br>
 
                 <label>Username</label><br>
-                <input type="text" placeholder="Username..." id="UserName" value="Username" required
+                <input type="text" placeholder="Username..." id="UserName" value="kamaleshSrini" required
                     autocomplete="fdgbsfgbds" pattern="[A-Za-z]{1,20}" title="UserName pattern is wrong" /><br>
 
                 <p id="emptyPassword"></p>
                 <label>Password</label><br>
-                <input type="password" id="password" name="password" value="kkkkk@kkkkk" placeholder="*********"
-                    required autocomplete="fdgbsfgbds" pattern="[A-Za-z]{1,20}" title="Password pattern is wrong" /><br>
+                <input type="password" id="password" name="password" value="Ssss" placeholder="*********" required
+                    autocomplete="fdgbsfgbds" pattern="[A-Za-z]{1,20}"
+                    title="Password should have uppercase and lowercase only" /><br>
 
                 <label>Repeat Password</label><br>
-                <input type="password" id="Rpassword" value="kkkkk@kkkkk" placeholder="*********" required
-                    autocomplete="fdgbsfgbds" pattern="[A-Za-z]{1,20}" title="Password pattern is Wrong" /><br>
+                <input type="password" id="Rpassword" value="Ssss" placeholder="*********" required
+                    autocomplete="fdgbsfgbds" pattern="[A-Za-z]{1,20}"
+                    title="RepeatPassword should have uppercase and lowercase only" /><br>
 
 
                 <input type="checkbox">
                 <label for="">I agree to the terms and Conditions</label><br>
                 <button class="reg" type="submit">Register</button><br>
-                <a href=""><button class="cancel" type="reset"><a href="../index.html">Cancel </a></button><br></a>
-                <button class="signin"><a>Signin</a></button><br>
+                <a href=""><button class="cancel" type="reset">Cancel</button><br></a>
+                <button class="signin">Signin</button><br>
             </form>
 
         </div>
@@ -109,7 +111,7 @@
                     const str = JSON.stringify(userData);
                     localStorage.setItem("register", str)
                     console.log(str)
-                    // window.location.href = "Bio.html";
+                    window.location.href = "Bio.html";
                 }
 
             }

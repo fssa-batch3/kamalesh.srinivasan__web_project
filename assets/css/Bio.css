@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: white;
+  background-color: black;
 }
 section {
   width: 700px;
@@ -12,8 +12,8 @@ section {
   background-color: white;
   margin: auto;
   margin-top: 50px;
-  background-image: url("../Images/background_bio.png");
-  border-radius: 10px;
+  /* background-image: url(../Images/background_bio.png); */
+  border-radius: 3px;
 }
 
 .profile img {
@@ -38,7 +38,7 @@ form {
   margin-right: 200px;
   padding-bottom: 20px;
   margin-top: 10px;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 
 form button,

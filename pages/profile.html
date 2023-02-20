@@ -12,6 +12,7 @@
 <body>
     <!-- This is worker profile -->
     <section>
+        <!-- BioDatas(); -->
         <div class="fullprofile">
             <div>
                 <div class="blue">
@@ -32,26 +33,28 @@
 
                 </div>
                 <div class="top_icons">
-                    <div class="icons"> <img alt="image" src="../assets/Images/phone.svg" alt="">
+                    <div class="icons"> <img src="../assets/Images/phone_new.svg" alt="image" />
                         <p>+919876543210</p>
                     </div>
                     <div class="icons">
-                        <img alt="image" src="../assets/Images/linkedin (1).svg" alt="">
+                        <img src="../assets/Images/linkedin (1).svg" alt="image" />
                         <p>Linkedin</p>
                     </div>
                     <div class="icons">
-                        <img alt="image" src="../assets/Images/instagram-logo.svg" alt="">
+                        <img src="../assets/Images/instagram-logo.svg" alt="image" />
                         <p>Instagram</p>
                     </div>
                     <div class="icons">
-                        <img alt="image" src="../assets/Images/gmail (1).svg">
+                        <img src="../assets/Images/gmail (1).svg" alt="image" />
                         <p>Gmail</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <button onclick="history.back()">Back</button>
+        <button onclick='location.href = "OwnerHome.html"'>Back</button>
+        <a class="edit" href="editProfile.html">Edit</a>
+        <a class="delete" onclick="deleteUser()">Delete User</a>
     </section>
 
     <script>
@@ -69,7 +72,7 @@
         if (from == "logIn") {
             let logIn = JSON.parse(localStorage.getItem("Login"));
             Email = logIn[logIn.length - 1]["Email"];
-            console.log()
+            // console.log()
 
         }
 
@@ -127,7 +130,64 @@
         document.querySelector(".datas").prepend(Name);
 
 
+        function deleteUser() {
+            let email = prompt("Enter your email");
+
+            let password = prompt("Enter your password")
+
+            let BIO = JSON.parse(localStorage.getItem("BIO"));
+            let register = JSON.parse(localStorage.getItem("register"))
+            let login = JSON.parse(localStorage.getItem("Login"))
+
+
+
+            function Email() {
+                return email;
+            }
+
+
+            if (localStorage.getItem("BIO") != null) {
+                console.log(email);
+                let FindedEmail = BIO.find(B => B["Email"] == email);
+
+                if (FindedEmail == undefined) {
+                    return alert("User credentials not match");
+                }
+
+                let bioIndex = BIO.indexOf(FindedEmail);
+                console.log(bioIndex)
+                BIO.splice(bioIndex, 1);
+                localStorage.setItem("BIO", JSON.stringify(BIO));
+            }
+
+            if (localStorage.getItem("Login") != null) {
+
+                console.log("test")
+                let FindedEmail = login.find(L => L["Email"] == email);
+                let loginIndex = login.indexOf(FindedEmail);
+                console.log(loginIndex)
+                login.splice(loginIndex, 1);
+                localStorage.setItem("Login", JSON.stringify(login));
+            }
+
+            if (localStorage.getItem("register") != null) {
+
+                let FindReg = register.find(R => R["Email"] == email);
+                let registerIndex = register.indexOf(FindReg);
+                console.log(registerIndex);
+                register.splice(registerIndex, 1);
+                localStorage.setItem("register", JSON.stringify(register));
+                location.href = "../index.html";
+            }
+
+
+        }
+
+
+
+
     </script>
+
 </body>
 
 </html>

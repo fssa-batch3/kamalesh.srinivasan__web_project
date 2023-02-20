@@ -18,16 +18,17 @@
 
         <div class="details">
             <form id="form">
-                <input type="text" id="First_Name" placeholder="First Name"><br>
-                <input type="text" id="Last_Name" placeholder="Last Name"><br>
+                <input type="text" id="First_Name" placeholder="First Name" required><br>
+                <input type="text" id="Last_Name" placeholder="Last Name" required><br>
                 <label id="dob">DOB</label>
-                <input type="date" id="DOB" placeholder="Date Of birth"><br>
-                <input type="text" id="Address" placeholder="Address"><br>
-                <input type="text" id="Education" placeholder="Education"><br>
-                <input type="text" id="Current_occupation" placeholder="Current Occupation"><br>
-                <input type="texxt" id="Expect_in" placeholder="Expect in" /><br>
-                <input type="text" id="Aadhar_number" placeholder="Aadhar number"><br>
-                <input type="file" style="border: none;" placeholder="Upload your expirience certificate here" />
+                <input type="date" id="DOB" placeholder="Date Of birth" required><br>
+                <input type="text" id="Address" placeholder="Address" required><br>
+                <input type="text" id="Education" placeholder="Education" required><br>
+                <input type="text" id="Current_occupation" placeholder="Current Occupation" required><br>
+                <input type="texxt" id="Expect_in" placeholder="Expect in" /required><br>
+                <input type="text" id="Aadhar_number" placeholder="Aadhar number" required><br>
+                <input type="file" style="border: none;" placeholder="Upload your expirience certificate here"
+                    required />
                 <button type="submit">Submit</button>
                 <button type="reset"><a href="Register.html">Cancel </a></button>
 
@@ -78,7 +79,7 @@
             arr.push(bio);
             let str = JSON.stringify(arr);
             localStorage.setItem("BIO", str);
-            window.location.href = "Workerhome.html?from=register";
+            window.location.href = "ownerhome.html?from=register";
         });
 
 

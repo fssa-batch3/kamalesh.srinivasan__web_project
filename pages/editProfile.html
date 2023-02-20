@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Data</title>
+    <link rel="stylesheet" href="../assets/css/editBio.css">
+</head>
+<!-- This is bio  -->
+
+<body>
+    <section>
+        <div class="profile">
+            <img alt="image" src="../assets/Images/avatar.svg" />
+        </div>
+
+        <div class="details">
+            <form id="form">
+
+                <input type="text" id="First_Name" placeholder="First Name" value="kamalesh"><br>
+                <input type="text" id="Last_Name" placeholder="Last Name" value="srini"><br>
+                <input type="email" id="Email" placeholder="Enter your Email" value="userobjalesh@gmail.com"><br>
+                <label id="dob">DOB</label>
+                <input type="date" id="DOB" placeholder="Date Of birth" value="2003-08-20"><br>
+                <input type="text" id="Address" placeholder="Address" value="test Address"><br>
+                <input type="text" id="Education" placeholder="Education" value="test Education"><br>
+                <input type="text" id="Current_occupation" placeholder="Current Occupation" value="test Ocpn"><br>
+                <input type="texxt" id="Expect_in" placeholder="Expect in" value="text expert" /><br>
+                <input type="number" id="Aadhar_number" placeholder="Aadhar number" value="1234567890"><br>
+                <input type="file" style="border: none;" placeholder="Upload your expirience certificate here" />
+                <button type="submit">Submit</button>
+                <button type="reset" onclick="location.href = 'profile.html'">Cancel </button>
+
+
+            </form>
+        </div>
+        <div class="Experience">
+
+        </div>
+    </section>
+    <script>
+
+        let editForm = document.getElementById("form");
+        editForm.addEventListener("submit", (event) => {
+            event.preventDefault()
+            // console.log("function Started")
+            let FN = document.getElementById("First_Name").value;
+            let LN = document.getElementById("Last_Name").value;
+            let DOM = document.getElementById("DOB").value;
+            let Address = document.getElementById("Address").value;
+            let Education = document.getElementById("Education").value;
+            let Current_occupation = document.getElementById("Current_occupation").value;
+            let Expect_in = document.getElementById("Expect_in").value;
+            let Aadhar_number = document.getElementById("Aadhar_number").value;
+            let Email = document.getElementById("Email").value;
+
+
+            let newProfile = {
+                Email,
+                FN,
+                LN,
+                DOM,
+                Address,
+                Education,
+                Current_occupation,
+                Expect_in,
+                Aadhar_number
+            }
+
+            console.log(newProfile["Email"])
+
+
+            let BIO = JSON.parse(localStorage.getItem("BIO"));
+            console.log(BIO)
+
+
+            let oldProfile = BIO.find(B => B.Email == Email)
+            console.log(oldProfile)
+
+
+            if (oldProfile == undefined) {
+                alert("Email Id not match")
+            }
+            // if else (oldProfile.Email != newProfile.Email) {
+
+            // }
+            else {
+                let updated = Object.assign(oldProfile, newProfile);
+                console.log(BIO)
+                console.log(oldProfile)
+                let index = BIO.indexOf(oldProfile.Email);
+                BIO[index] = updated;
+                console.log(BIO)
+                localStorage.setItem("BIO", JSON.stringify(BIO));
+                location.href = "profile.html"
+
+            }
+
+
+
+
+
+
+        })
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
+
+</html>

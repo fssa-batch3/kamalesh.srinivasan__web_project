@@ -1,0 +1,297 @@
+body {
+  background-image: url(/assets/Images/colors.jpg);
+  color: white;
+  transition: o.5s;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* height: 10rem; */
+}
+
+nav a {
+  color: white;
+  margin-right: 2rem;
+  font-size: larger;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+header img {
+  height: 7rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.yourJobs {
+  margin-left: 2rem;
+  margin-top: 5rem;
+}
+
+.filters {
+  /* background-color: lightblue; */
+  height: 5rem;
+  width: 60rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 3rem;
+  margin-top: 1rem;
+}
+
+.filters a {
+  text-decoration: none;
+  color: black;
+  /* padding: 1rem; */
+  text-align: center;
+  background-color: lightblue;
+  box-sizing: border-box;
+  width: 5rem;
+  padding: 0.5rem 0rem;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.filters p {
+  color: lightblue;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.yourJobs_card {
+  background-color: white;
+  box-sizing: border-box;
+  width: 50rem;
+  height: 20rem;
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  margin-left: 4rem;
+}
+
+.profile img {
+  width: 5rem;
+  margin-left: 2rem;
+  margin-top: 1rem;
+}
+
+.content h2 {
+  color: rgb(51, 165, 235);
+  text-decoration: underline;
+}
+
+.Location {
+  margin-top: -1rem;
+  font-size: large;
+}
+
+.Payment {
+  margin-top: -1rem;
+  font-size: large;
+}
+
+.desc {
+  color: black;
+}
+/* .desc span {
+  color: red;
+} */
+
+.content h3 {
+  color: rgb(51, 165, 235);
+}
+
+.content p {
+  color: black;
+  margin-right: 1.5rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 2rem;
+}
+
+.buttons a {
+  text-decoration: none;
+  background-color: rgb(51, 165, 235);
+  color: white;
+  /* box-sizing: border-box; */
+  padding: 0.4rem;
+  border-radius: 2px;
+}
+
+.content img {
+  width: 24px;
+  margin-right: 1rem;
+}
+
+.card_last {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  align-items: center;
+  background-color: rgb(166 166 200);
+  padding: 0rem 2rem;
+  position: relative;
+  /* height: 20rem; */
+}
+
+.Registered_Users {
+  color: white;
+}
+
+.Total_Jobs_Posted {
+  color: white;
+}
+
+.last {
+  color: white;
+}
+
+.Copyright {
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.logo img {
+  height: 10rem;
+}
+
+.Deatils {
+  width: 45rem;
+  background-color: white;
+  /* color: white; */
+  margin-top: 8rem;
+  height: 70rem;
+  display: none;
+  /* position: sticky;
+  top: 0; */
+  border-radius: 5px;
+  padding-left: 3rem;
+  padding-top: 3rem;
+  color: black;
+}
+
+main {
+  display: flex;
+  gap: 2rem;
+  /* justify-content: space-around; */
+  position: relative;
+}
+
+.title {
+  color: black;
+  font-size: x-large;
+  font-weight: bolder;
+}
+
+.head {
+  background-color: lightblue;
+  padding: 1rem;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.moredetails {
+  /* margin-top: 2rem; */
+  padding: 2rem;
+  margin-bottom: 2rem;
+  background-color: whitesmoke;
+  height: 57rem;
+  overflow: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.apply {
+  padding: 0.25rem 0.5rem;
+  border: none;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.apply:hover {
+  background-color: green;
+  color: white;
+}
+
+.moredetails div {
+  margin-bottom: 0.5rem;
+}
+
+.jobSummary {
+  margin-top: 2rem;
+  font-size: x-large;
+}
+
+.summary {
+  font-size: large;
+  /* background-color: blueviolet; */
+  width: 40rem;
+}
+
+.Qualifications {
+  margin-top: 2rem;
+}
+
+.Qualifications p {
+  margin-top: 2rem;
+  font-size: x-large;
+  font-weight: bolder;
+}
+
+.Qualifications ul {
+  font-size: large;
+}
+
+.Responsibilities p {
+  margin-top: 2rem;
+  font-size: x-large;
+  font-weight: bolder;
+}
+
+.Responsibilities {
+  margin-top: 2rem;
+}
+
+.Responsibilities ul {
+  font-size: large;
+}
+
+.cross img {
+  width: 24px;
+  margin-top: -10;
+}
+
+.cross {
+  position: absolute;
+  right: 6.2rem;
+  margin-top: 0.4rem;
+  display: none;
+}
+
+section {
+  transition: 1s;
+}
+
+.right_sec {
+  position: sticky;
+}
