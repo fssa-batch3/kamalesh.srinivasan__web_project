@@ -2,6 +2,8 @@ body {
   background-image: url(/assets/Images/colors.jpg);
   color: white;
   transition: o.5s;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 header {
@@ -244,7 +246,7 @@ main {
 
 .summary {
   font-size: large;
-  /* background-color: blueviolet; */
+  background-color: blueviolet;
   width: 40rem;
 }
 
@@ -283,7 +285,7 @@ main {
 
 .cross {
   position: absolute;
-  right: 6.2rem;
+  right: 0.3rem;
   margin-top: 0.4rem;
   display: none;
 }
@@ -294,4 +296,5 @@ section {
 
 .right_sec {
   position: sticky;
+  top: 20px;
 }

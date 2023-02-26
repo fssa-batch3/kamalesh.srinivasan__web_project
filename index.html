@@ -20,11 +20,11 @@
                 <a>
                     Jobs
                 </a>
-                <a href="pages/Register.html">
+                <a onclick="ownerlogin()">
                     Join as owner
                 </a>
 
-                <a href="pages/Register.html">
+                <a onclick="workerLogin()">
                     Join as worker
                 </a>
             </div>
@@ -820,6 +820,15 @@
             document.querySelector(".scrollmenu_1").scrollLeft -= 786;
         }
 
+
+
+        function workerLogin() {
+            location.href = 'pages/Register.html?type=worker'
+        }
+
+        function ownerlogin() {
+            location.href = 'pages/Register.html?type=owner'
+        }
 
 
 

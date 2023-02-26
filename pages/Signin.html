@@ -60,63 +60,87 @@
 
             event.preventDefault();
             let defaultData = JSON.parse(localStorage.getItem("register"));
+            let WorkerdefaultData = JSON.parse(localStorage.getItem("workerRegister"));
+            console.log(defaultData);
             console.log(defaultData)
             let Email = document.getElementById("Email").value.toLowerCase();
             let Password = document.getElementById("Password").value;
 
             let match = false;
+            let id;
+            let type;
 
-            for (let i = 0; i < defaultData.length; i++) {
-                if (Email == defaultData[i].Email && Password == defaultData[i].Password) {
-                    match = true
-                    break;
-                    // i = i + defaultData.length;
-                }
-                else {
-                    match = false
+            if (defaultData != null) {
+                for (let i = 0; i < defaultData.length; i++) {
+                    if (Email == defaultData[i].Email && Password == defaultData[i].Password) {
+                        match = true
+                        id = defaultData[i]["id"];
+                        console.log(defaultData[i]["id"]);
+                        type = "owner";
+                        break;
+                        // i = i + defaultData.length;
+
+                    }
                 }
 
+            }
+
+            if (WorkerdefaultData != null) {
+                for (let i = 0; i < WorkerdefaultData.length; i++) {
+                    console.log("worker")
+                    if (Email == WorkerdefaultData[i]["Email"] && Password == WorkerdefaultData[i]["Password"]) {
+                        match = true;
+                        id = WorkerdefaultData[i]["id"];
+                        type = "worker";
+                        break;
+                    }
+                }
             }
 
 
 
 
-            if (match == true) {
-                let arr = [];
+            if (match == true && type == "owner") {
+                // let arr = [];
 
-                if (localStorage.getItem("Login") != null) {
-                    arr = JSON.parse(localStorage.getItem("Login"))
-                }
+                // if (localStorage.getItem("Login") != null) {
+                //     arr = JSON.parse(localStorage.getItem("Login"))
+                // }
 
                 let SuccessLogin = {
                     "Email": Email,
-                    "password": Password
+                    "password": Password,
+                    "id": id,
                 }
 
-                arr.push(SuccessLogin);
-                let str = JSON.stringify(arr);
+                // arr.push(SuccessLogin);
+                let str = JSON.stringify(SuccessLogin);
                 localStorage.setItem("Login", str);
 
 
 
 
                 console.log(SuccessLogin)
-                window.location.href = "OwnerHome.html?from=logIn";
+                window.location.href = "OwnerHome.html?from=logIn&&type=owner";
+            }
+
+            else if (match == true && type == "worker") {
+                let SuccessLogin = {
+                    "Email": Email,
+                    "password": Password,
+                    "id": id,
+                }
+
+                // arr.push(SuccessLogin);
+                let str = JSON.stringify(SuccessLogin);
+                localStorage.setItem("Login", str);
+
+                console.log(SuccessLogin)
+                window.location.href = "workerHome.html?from=logIn&&type=worker";
             }
             else {
                 alert("Login credentials not correct")
             }
-
-
-
-
-
-
-
-
-
-
-
 
         })
 

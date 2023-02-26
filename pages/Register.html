@@ -64,14 +64,34 @@
 
             signUpform = document.getElementById("form");
 
-
+            let url = location.search;
+            let urlParams = new URLSearchParams(url);
+            let type = urlParams.get("type");
+            console.log(type);
             signUpform.addEventListener("submit", function (event) {
-
                 event.preventDefault();
+
                 let userData = []
-                if (localStorage.getItem("register") != null) {
-                    userData = JSON.parse(localStorage.getItem("register"))
+
+
+                if (type == "owner") {
+                    if (localStorage.getItem("register") != null) {
+                        userData = JSON.parse(localStorage.getItem("register"))
+                    }
+
+
                 }
+
+                else {
+
+                    if (localStorage.getItem("workerRegister") != null) {
+
+                        userData = JSON.parse(localStorage.getItem("workerRegister"))
+                    }
+                }
+
+
+
                 // let userData = lo calStorage.getItem('register');
                 // localStorage.setItem(userData)
 
@@ -79,45 +99,117 @@
                 // const userData = [];
                 // }
 
+
+
                 let match = false;
+                let id = Date.now();
                 const FullName = document.getElementById('FullName').value;
                 const Email = document.getElementById('email').value.toLowerCase();
                 const UserName = document.getElementById('UserName').value;
                 const Password = document.getElementById('password').value;
                 const RPassword = document.getElementById('Rpassword').value;
+                let allEmail = [];
+
+                if (localStorage.getItem("allEmail") != null) {
+                    allEmail = JSON.parse(localStorage.getItem("allEmail"))
+                }
                 if (Password != RPassword) {
                     alert("Password and Repeat password not match")
                 }
 
                 else {
-                    for (let i = 0; i < userData.length; i++) {
-                        if (Email == userData[i]["Email"]) {
-                            match = true;
+
+                    if (type == "owner") {
+                        for (let i = 0; i < allEmail.length; i++) {
+                            if (Email == allEmail[i]) {
+                                match = true;
+                            }
+                        }
+
+                        if (match == true) {
+                            alert("Email is already Exist");
+                        }
+
+                        else {
+                            let userObj = {
+                                FullName, Email, UserName, Password, RPassword, id
+                            }
+                            console.log(userObj)
+
+                            userData.push(userObj);
+                            const str = JSON.stringify(userData);
+                            localStorage.setItem("register", str)
+                            console.log(str)
+                            window.location.href = "Bio.html?type=" + type;
+                        }
+
+                    }
+
+
+
+
+                    else {
+                        for (let i = 0; i <= allEmail.length; i++) {
+                            console.log("workerElse")
+
+                            if (Email == allEmail[i]) {
+                                {
+                                    match = true;
+                                }
+                            }
+
+                            if (match == true) {
+                                alert("Email is already Exist");
+                            }
+
+                            else {
+                                let userObj = {
+                                    FullName, Email, UserName, Password, RPassword, id
+                                }
+                                console.log(userObj)
+
+                                userData.push(userObj);
+                                const str = JSON.stringify(userData);
+                                localStorage.setItem("workerRegister", str)
+                                console.log(str)
+                                location.href = "Bio.html?type=" + type;
+                            }
+
                         }
                     }
+
+
+
+
+                    //     if (match == true) {
+                    //         alert("Email is already Exist");
+                    //     }
+
+                    //     else {
+                    //         let userObj = {
+                    //             FullName, Email, UserName, Password, RPassword, id
+                    //         }
+                    //         console.log(userObj)
+
+                    //         userData.push(userObj);
+                    //         const str = JSON.stringify(userData);
+                    //         localStorage.setItem("register", str)
+                    //         console.log(str)
+                    //         window.location.href = "Bio.html";
+                    //     }
+
+                    // }
+
+
                 }
 
-                if (match == true) {
-                    alert("Email is already Exist");
+                if (match != true) {
+
+                    allEmail.push(Email);
+                    localStorage.setItem("allEmail", JSON.stringify(allEmail))
+
                 }
-
-                else {
-                    let userObj = {
-                        FullName, Email, UserName, Password, RPassword
-                    }
-                    console.log(userObj)
-
-                    userData.push(userObj);
-                    const str = JSON.stringify(userData);
-                    localStorage.setItem("register", str)
-                    console.log(str)
-                    window.location.href = "Bio.html";
-                }
-
-            }
-
-
-            )
+            })
 
 
 

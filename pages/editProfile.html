@@ -17,7 +17,7 @@
         </div>
 
         <div class="details">
-            <form id="form">
+            <!-- <form id="form">
 
                 <input type="text" id="First_Name" placeholder="First Name" value="kamalesh"><br>
                 <input type="text" id="Last_Name" placeholder="Last Name" value="srini"><br>
@@ -34,13 +34,51 @@
                 <button type="reset" onclick="location.href = 'profile.html'">Cancel </button>
 
 
-            </form>
+            </form> -->
         </div>
         <div class="Experience">
 
         </div>
     </section>
     <script>
+        let url = location.search;
+        let urlParams = new URLSearchParams(url);
+        let email = urlParams.get("email");
+        let type = urlParams.get("type");
+        console.log(type);
+        let register;
+
+        if (type == "owner") {
+            register = JSON.parse(localStorage.getItem("register"));
+        }
+        else {
+            register = JSON.parse(localStorage.getItem("workerRegister"));
+
+        }
+
+        let formBio = JSON.parse(localStorage.getItem("BIO"));
+        let defaultFormData = formBio.find(B => B.Email == email)
+
+
+        let form = document.createElement("form")
+        form.setAttribute("id", "form");
+        form.innerHTML = `<input type="text" id="First_Name" placeholder="First Name" value="${defaultFormData["FN"]}"><br>
+                <input type="text" id="Last_Name" placeholder="Last Name" value="${defaultFormData["LN"]}"><br>
+                <input type="email" id="Email" placeholder="Enter your Email" value="${defaultFormData["Email"]}"><br>
+                <label id="dob">DOB</label>
+                <input type="date" id="DOB" placeholder="Date Of birth" value="${defaultFormData["DOB"]}"><br>
+                <input type="text" id="Address" placeholder="Address" value="${defaultFormData["Address"]}"><br>
+                <input type="text" id="Education" placeholder="Education" value="${defaultFormData["Education"]}"><br>
+                <input type="text" id="Current_occupation" placeholder="Current Occupation" value="${defaultFormData["Current_occupation"]}"><br>
+                <input type="text" id="Expect_in" placeholder="Expect in" value="${defaultFormData["Expect_in"]}" /><br>
+                <input type="number" id="Aadhar_number" placeholder="Aadhar number" value="1234567890"><br>
+                <input type="file" style="border: none;" placeholder="Upload your expirience certificate here" />
+                <button type="submit">Submit</button>
+                <button type="reset" onclick="location.href = 'profile.html'">Cancel </button>`;
+        document.querySelector(".details").append(form);
+
+
+
 
         let editForm = document.getElementById("form");
         editForm.addEventListener("submit", (event) => {
@@ -48,7 +86,7 @@
             // console.log("function Started")
             let FN = document.getElementById("First_Name").value;
             let LN = document.getElementById("Last_Name").value;
-            let DOM = document.getElementById("DOB").value;
+            let DOB = document.getElementById("DOB").value;
             let Address = document.getElementById("Address").value;
             let Education = document.getElementById("Education").value;
             let Current_occupation = document.getElementById("Current_occupation").value;
@@ -61,7 +99,7 @@
                 Email,
                 FN,
                 LN,
-                DOM,
+                DOB,
                 Address,
                 Education,
                 Current_occupation,
@@ -75,26 +113,52 @@
             let BIO = JSON.parse(localStorage.getItem("BIO"));
             console.log(BIO)
 
+            let id;
 
-            let oldProfile = BIO.find(B => B.Email == Email)
-            console.log(oldProfile)
+            let oldProfile = BIO.find(B => B.Email == Email);
+
 
 
             if (oldProfile == undefined) {
-                alert("Email Id not match")
+                alert("Email Id not match");
             }
-            // if else (oldProfile.Email != newProfile.Email) {
 
-            // }
+
+
             else {
+
+                let findedRegisterObj = register.find(R => R.Email == Email);
+                id = oldProfile["id"];
+                console.log(oldProfile);
+
+                let findedId = findedRegisterObj.id;
+
+
                 let updated = Object.assign(oldProfile, newProfile);
                 console.log(BIO)
                 console.log(oldProfile)
                 let index = BIO.indexOf(oldProfile.Email);
                 BIO[index] = updated;
                 console.log(BIO)
+
+                let newLocal;
+                if (type == "owner") {
+                    newLocal = JSON.parse(localStorage.getItem("register"));
+                }
+                else {
+                    newLocal = JSON.parse(localStorage.getItem("workerRegister"));
+
+                }
+
+                let checkId = newLocal.find(N => N.id == findedId);
+
+                if (checkId == undefined) {
+                    return alert("Id not match");
+                }
+
+
                 localStorage.setItem("BIO", JSON.stringify(BIO));
-                location.href = "profile.html"
+                location.href = "profile.html?type=" + type;
 
             }
 

@@ -41,10 +41,29 @@
     </section>
     <script>
 
-        let register = JSON.parse(localStorage.getItem("register"));
-        // console.log(register)
-        let Email = register[register.length - 1]["Email"]
-        console.log(Email)
+        let url = location.search;
+        let urlParams = new URLSearchParams(url);
+        console.log(urlParams)
+        let type = urlParams.get("type");
+        console.log(type);
+        let Email;
+        if (type == "owner") {
+            let register = JSON.parse(localStorage.getItem("register"));
+            // console.log(register)
+            Email = register[register.length - 1]["Email"]
+            console.log(Email)
+        }
+
+        else {
+            let workerRegister = JSON.parse(localStorage.getItem("workerRegister"));
+            // console.log(register)
+            Email = workerRegister[workerRegister.length - 1]["Email"]
+            console.log(Email)
+        }
+
+
+
+
 
         let bioFn = document.getElementById("form");
         bioFn.addEventListener("submit", (event) => {
@@ -56,18 +75,19 @@
 
             let FN = document.getElementById("First_Name").value;
             let LN = document.getElementById("Last_Name").value;
-            let DOM = document.getElementById("DOB").value;
+            let DOB = document.getElementById("DOB").value;
             let Address = document.getElementById("Address").value;
             let Education = document.getElementById("Education").value;
             let Current_occupation = document.getElementById("Current_occupation").value;
             let Expect_in = document.getElementById("Expect_in").value;
             let Aadhar_number = document.getElementById("Aadhar_number").value;
 
+
             let bio = {
                 Email,
                 FN,
                 LN,
-                DOM,
+                DOB,
                 Address,
                 Education,
                 Current_occupation,
@@ -79,7 +99,16 @@
             arr.push(bio);
             let str = JSON.stringify(arr);
             localStorage.setItem("BIO", str);
-            window.location.href = "ownerhome.html?from=register";
+
+
+
+            if (type == "owner") {
+                window.location.href = "ownerhome.html?from=register&&type=owner";
+            }
+            else {
+                window.location.href = "workerhome.html?from=register&&type=worker";
+
+            }
         });
 
 

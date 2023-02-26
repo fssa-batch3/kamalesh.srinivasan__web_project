@@ -21,7 +21,7 @@
                 <a>Search</a>
                 <a>Chat</a>
                 <a>Notification</a>
-                <a href="">profile</a>
+                <a onclick="urlData()">profile</a>
                 <a href="../index.html">LogOut</a>
             </div>
         </nav>
@@ -285,106 +285,116 @@
 
     <script>
 
+        let url = location.search;
+        let urlParams = new URLSearchParams(url);
+        let from = urlParams.get("from");
+        let type = urlParams.get("type");
+        console.log(from);
+
+        function urlData() {
+            location.href = "profile.html?from=" + from + "&&type=" + type;
+        }
 
 
 
-        let yourJobs = [{
-            Image: {
-                src: '../assets/Images/avatar (2).svg',
-                alt: 'image',
-            },
-            title: 'Fullstack WebDevelopment',
-            location: 'Chennai, Tamil Nadu',
-            payment: '2lakh to 3lakh per project',
-            desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
+        // let yourJobs = [{
+        //     Image: {
+        //         src: '../assets/Images/avatar (2).svg',
+        //         alt: 'image',
+        //     },
+        //     title: 'Fullstack WebDevelopment',
+        //     location: 'Chennai, Tamil Nadu',
+        //     payment: '2lakh to 3lakh per project',
+        //     desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
 
 
 
-        },
-        {
-            Image: {
-                src: '../assets/Images/avatar (2).svg',
-                alt: 'image',
-            },
-            title: 'Fullstack WebDevelopment',
-            location: 'Chennai, Tamil Nadu',
-            payment: '2lakh to 3lakh per project',
-            desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
+        // },
+        // {
+        //     Image: {
+        //         src: '../assets/Images/avatar (2).svg',
+        //         alt: 'image',
+        //     },
+        //     title: 'Fullstack WebDevelopment',
+        //     location: 'Chennai, Tamil Nadu',
+        //     payment: '2lakh to 3lakh per project',
+        //     desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
 
 
 
-        },
-        {
-            Image: {
-                src: '../assets/Images/avatar (2).svg',
-                alt: 'image',
-            },
-            title: 'Fullstack WebDevelopment',
-            location: 'Chennai, Tamil Nadu',
-            payment: '2lakh to 3lakh per project',
-            desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
+        // },
+        // {
+        //     Image: {
+        //         src: '../assets/Images/avatar (2).svg',
+        //         alt: 'image',
+        //     },
+        //     title: 'Fullstack WebDevelopment',
+        //     location: 'Chennai, Tamil Nadu',
+        //     payment: '2lakh to 3lakh per project',
+        //     desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
 
 
 
-        },
+        // },
 
-        {
-            Image: {
-                src: '../assets/Images/avatar (2).svg',
-                alt: 'image',
-            },
-            title: 'Fullstack WebDevelopment',
-            location: 'Chennai, Tamil Nadu',
-            payment: '2lakh to 3lakh per project',
-            desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
-
-
-
-        },
-
-
-        {
-            Image: {
-                src: '../assets/Images/avatar (2).svg',
-                alt: 'image',
-            },
-            title: 'Fullstack WebDevelopment',
-            location: 'Chennai, Tamil Nadu',
-            payment: '2lakh to 3lakh per project',
-            desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
+        // {
+        //     Image: {
+        //         src: '../assets/Images/avatar (2).svg',
+        //         alt: 'image',
+        //     },
+        //     title: 'Fullstack WebDevelopment',
+        //     location: 'Chennai, Tamil Nadu',
+        //     payment: '2lakh to 3lakh per project',
+        //     desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
 
 
 
-        },
+        // },
 
 
-        {
-            Image: {
-                src: '../assets/Images/avatar (2).svg',
-                alt: 'image',
-            },
-            title: 'Fullstack WebDevelopment',
-            location: 'Chennai, Tamil Nadu',
-            payment: '2lakh to 3lakh per project',
-            desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
-
-
-
-        },
+        // {
+        //     Image: {
+        //         src: '../assets/Images/avatar (2).svg',
+        //         alt: 'image',
+        //     },
+        //     title: 'Fullstack WebDevelopment',
+        //     location: 'Chennai, Tamil Nadu',
+        //     payment: '2lakh to 3lakh per project',
+        //     desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
 
 
 
+        // },
 
-        ]
+
+        // {
+        //     Image: {
+        //         src: '../assets/Images/avatar (2).svg',
+        //         alt: 'image',
+        //     },
+        //     title: 'Fullstack WebDevelopment',
+        //     location: 'Chennai, Tamil Nadu',
+        //     payment: '2lakh to 3lakh per project',
+        //     desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
+
+
+
+        // },
+
+
+
+
+        // ]
 
 
         //  Get localstorage requirements
 
-        // let yourJobs = [];
+        let yourJobs;
 
-        // yourJobs = getLocalreq(yourJobs);
-
+        yourJobs = getLocalreq(yourJobs);
+        console.log(yourJobs);
         for (let i = 0; i < yourJobs.length; i++) {
+            console.log(yourJobs[i])
 
             let yourJobs_card = document.createElement("div");
             yourJobs_card.setAttribute("class", "yourJobs_card");
@@ -396,11 +406,11 @@
                 <div class="content">
                     <h2>${yourJobs[i]["title"]}</h2>
                     <p class="Location">${yourJobs[i]["location"]}</p>
-                    <p class="Payment">${yourJobs[i]["payment"]}t</p>
+                    <p class="Payment">${yourJobs[i]["Salary"]}t</p>
                     <h3>Description</h3>
                     <p class="desc">
 
-                        ${yourJobs[i]["desc"]}</p>
+                        ${yourJobs[i]["disc"]}</p>
                     <div class="card_last">
                         <div class="buttons">
                             <a href="">More Deatils</a>

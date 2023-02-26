@@ -41,5 +41,5 @@ function getLocalreq(data) {
   arr.push(getLocal);
   console.log(arr);
 
-  return arr;
+  return getLocal;
 }

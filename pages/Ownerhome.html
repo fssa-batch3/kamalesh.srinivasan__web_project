@@ -21,7 +21,7 @@
                 <!-- <a>Search</a> -->
                 <a>Chat</a>
                 <a>Notification</a>
-                <a href="profile.html">profile</a>
+                <a onclick="urlData()">profile</a>
                 <a href="../index.html">LogOut</a>
             </div>
         </nav>
@@ -193,9 +193,19 @@
     <script>
 
 
+        function urlData() {
+            location.href = "profile.html" + url;
+        }
+
+
         //Get form data
 
 
+
+        let url = location.search;
+        let urlParams = new URLSearchParams(url);
+        let from = urlParams.get("from");
+        console.log(from);
 
 
 
