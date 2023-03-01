@@ -7,3 +7,11 @@ Market Research: https://docs.google.com/document/d/1iMvUUm9hptlUvdoIL0f7n5AUlQy
 User flow:  https://drive.google.com/drive/folders/1dCALWqtEifowzzn-sDB8WBf8Luj7CqkW
 
 Wireframe: https://drive.google.com/drive/folders/1dCALWqtEifowzzn-sDB8WBf8Luj7CqkW
+
+
+
+// My web progress table
+
+CRUD For User signning page => Create user account [completed] => Read User Data For Profile Page [completed] => Update user details For Edit Page [completed] => Delete user details For deactivate [completed]
+
+CRUD For User Features page => Create Job Feature [completed] => Read Job Feature [completed] => Update Job feature [completed] => Delete Job feature [completed]
