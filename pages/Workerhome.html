@@ -90,7 +90,7 @@
 
         </div>
 
-        <div class="right">
+        <!-- <div class="right">
 
             <section class="right_sec">
                 <div class="cross">
@@ -108,13 +108,14 @@
                             <!-- <div class="name">
                             name
                         </div> -->
-                        </div>
+        <!-- </div>
 
 
 
-                    </div>
+                 </div>
 
-                    <button class="apply">Apply</button>
+
+                    <button onclick="applyJob()" class="apply">Apply</button>
                     <div class="moredetails">
                         <div class="heading">
 
@@ -238,7 +239,7 @@
 
 
             </section>
-        </div>
+        </div> -->
 
 
     </main>
@@ -285,10 +286,18 @@
 
     <script>
 
+
+        //  Get localstorage requirements
+
+        let yourJobs;
+
+        yourJobs = getLocalreq();
+
         let url = location.search;
         let urlParams = new URLSearchParams(url);
-        let from = urlParams.get("from");
+        let from = JSON.stringify(urlParams.get("from"));
         let type = urlParams.get("type");
+        let id = urlParams.get("id")
         console.log(from);
 
         function urlData() {
@@ -296,110 +305,17 @@
         }
 
 
+        // Job Deatils
 
-        // let yourJobs = [{
-        //     Image: {
-        //         src: '../assets/Images/avatar (2).svg',
-        //         alt: 'image',
-        //     },
-        //     title: 'Fullstack WebDevelopment',
-        //     location: 'Chennai, Tamil Nadu',
-        //     payment: '2lakh to 3lakh per project',
-        //     desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
-
-
-
-        // },
-        // {
-        //     Image: {
-        //         src: '../assets/Images/avatar (2).svg',
-        //         alt: 'image',
-        //     },
-        //     title: 'Fullstack WebDevelopment',
-        //     location: 'Chennai, Tamil Nadu',
-        //     payment: '2lakh to 3lakh per project',
-        //     desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
-
-
-
-        // },
-        // {
-        //     Image: {
-        //         src: '../assets/Images/avatar (2).svg',
-        //         alt: 'image',
-        //     },
-        //     title: 'Fullstack WebDevelopment',
-        //     location: 'Chennai, Tamil Nadu',
-        //     payment: '2lakh to 3lakh per project',
-        //     desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
-
-
-
-        // },
-
-        // {
-        //     Image: {
-        //         src: '../assets/Images/avatar (2).svg',
-        //         alt: 'image',
-        //     },
-        //     title: 'Fullstack WebDevelopment',
-        //     location: 'Chennai, Tamil Nadu',
-        //     payment: '2lakh to 3lakh per project',
-        //     desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
-
-
-
-        // },
-
-
-        // {
-        //     Image: {
-        //         src: '../assets/Images/avatar (2).svg',
-        //         alt: 'image',
-        //     },
-        //     title: 'Fullstack WebDevelopment',
-        //     location: 'Chennai, Tamil Nadu',
-        //     payment: '2lakh to 3lakh per project',
-        //     desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
-
-
-
-        // },
-
-
-        // {
-        //     Image: {
-        //         src: '../assets/Images/avatar (2).svg',
-        //         alt: 'image',
-        //     },
-        //     title: 'Fullstack WebDevelopment',
-        //     location: 'Chennai, Tamil Nadu',
-        //     payment: '2lakh to 3lakh per project',
-        //     desc: ' Create a attractive UI/UI.Website should look like a Ecommerce site.any doubt connect with a chat and <span>Important:</span> A full-stack developer is proficient in both front-end and back-end development and is capable of working on all aspects of a web application or website. This requires a broad range of skills and knowledge, including database management, server-side scripting, and front-end technologies.'
-
-
-
-        // },
-
-
-
-
-        // ]
-
-
-        //  Get localstorage requirements
-
-        let yourJobs;
-
-        yourJobs = getLocalreq(yourJobs);
         console.log(yourJobs);
+
+        //  list the jobs
         for (let i = 0; i < yourJobs.length; i++) {
             console.log(yourJobs[i])
-
             let yourJobs_card = document.createElement("div");
             yourJobs_card.setAttribute("class", "yourJobs_card");
-            yourJobs_card.setAttribute("onclick", "yourJobsClick()");
             // yourJobs_card.setAttribute("onclick" = "detailView()");
+            console.log(from);
             yourJobs_card.innerHTML = `<div class="profile">
                     <img src="../assets/Images/avatar (2).svg" alt="image">
                 </div>
@@ -409,12 +325,11 @@
                     <p class="Payment">${yourJobs[i]["Salary"]}t</p>
                     <h3>Description</h3>
                     <p class="desc">
-
+                
                         ${yourJobs[i]["disc"]}</p>
                     <div class="card_last">
                         <div class="buttons">
-                            <a href="">More Deatils</a>
-                            <a href="">Apply</a>
+                            <a  onclick="yourJobsClick(${i})">More Deatils</a>
 
                         </div>
                         <img src="../assets/Images/heart.svg" alt="image" />
@@ -422,6 +337,124 @@
                 </div>`;
             document.querySelector(".yourJobs").append(yourJobs_card);
         }
+
+        // details
+
+        let right = document.createElement("div");
+        right.setAttribute("class", "right");
+
+
+        let right_sec = document.createElement("section");
+        right_sec.setAttribute("class", "right_sec");
+        right.append(right_sec);
+
+        let cross = document.createElement("div");
+        cross.setAttribute("class", "cross");
+        right_sec.append(cross);
+
+        let cross_img = document.createElement("img");
+        cross_img.setAttribute("src", "../assets/Images/close.svg");
+        cross_img.setAttribute("onclick", "closeDetail()");
+        cross_img.setAttribute("alt", "image");
+        cross.append(cross_img);
+
+        let Deatils = document.createElement("div");
+        Deatils.setAttribute("class", "Deatils");
+        right_sec.append(Deatils);
+
+        let head = document.createElement("div");
+        head.setAttribute("class", "head");
+        Deatils.append(head);
+
+        let headNextDiv = document.createElement("div");
+        head.append(headNextDiv);
+
+        let title = document.createElement("div");
+        title.setAttribute("class", "title");
+        title.innerText = `Title`;
+        headNextDiv.append(title);
+
+        let location_deta = document.createElement("div");
+        location_deta.setAttribute("class", "location_deta");
+        location_deta.innerText = `location`;
+        headNextDiv.append(location_deta);
+
+        let applyBtn = document.createElement("button");
+        applyBtn.setAttribute("class", "apply");
+        applyBtn.setAttribute("onclick", "applyJob()")
+        applyBtn.innerText = "Apply";
+        Deatils.append(applyBtn);
+
+        let moredetails = document.createElement("div");
+        moredetails.setAttribute("class", "moredetails");
+        Deatils.append(moredetails);
+
+        let heading = document.createElement("div");
+        heading.setAttribute("class", "heading");
+        moredetails.append(heading);
+
+        let jobTitle = document.createElement("div");
+        jobTitle.setAttribute("class", "jobTitle");
+        jobTitle.innerHTML = `<b>Job Title :</b>Title `;
+        heading.append(jobTitle);
+
+        let jobLocation = document.createElement("div");
+        jobLocation.setAttribute("class", "jobLocation");
+        jobLocation.innerHTML = `<b>Location :</b> Location`;
+        heading.append(jobLocation);
+
+        let summary = document.createElement("div");
+        summary.setAttribute("class", "summary");
+        moredetails.append(summary);
+
+        let jobSummary = document.createElement("div");
+        jobSummary.setAttribute("class", "jobSummary");
+        jobSummary.innerHTML = `<b>Job Summary</b>`;
+        heading.append(jobSummary);
+
+        let jobSummaryUL = document.createElement("ul");
+        jobSummary.append(jobSummaryUL);
+
+
+
+        let Qualifications = document.createElement("div");
+        Qualifications.setAttribute("class", "Qualifications");
+        summary.append(Qualifications);
+
+        let QualificationsP = document.createElement("p")
+        QualificationsP.innerText = "Qualifications";
+        Qualifications.append(QualificationsP);
+
+        let QualificationsUL = document.createElement("ul");
+        Qualifications.append(QualificationsUL);
+
+
+        let Responsibilities = document.createElement("div");
+        Responsibilities.setAttribute("class", "Responsibilities");
+        summary.append(Responsibilities);
+
+        let ResponsibilitiesP = document.createElement("p")
+        ResponsibilitiesP.innerText = "Responsibilities";
+        Responsibilities.append(ResponsibilitiesP);
+
+        let ResponsibilitiesUL = document.createElement("ul");
+        Responsibilities.append(ResponsibilitiesUL);
+
+
+
+
+
+        document.querySelector("main").append(right);
+
+
+
+
+
+
+
+
+
+
 
     </script>
 

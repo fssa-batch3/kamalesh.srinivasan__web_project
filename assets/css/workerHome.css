@@ -6,6 +6,10 @@ body {
   background-size: cover;
 }
 
+a {
+  cursor: pointer;
+}
+
 header {
   display: flex;
   align-items: center;
@@ -68,7 +72,7 @@ a:hover {
   background-color: white;
   box-sizing: border-box;
   width: 50rem;
-  height: 20rem;
+  height: 15rem;
   border-radius: 0.5rem;
   display: flex;
   gap: 2rem;
@@ -99,6 +103,12 @@ a:hover {
 
 .desc {
   color: black;
+  width: 38rem;
+  word-break: break-all;
+  margin-right: 0.2rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 /* .desc span {
   color: red;
@@ -172,18 +182,23 @@ footer {
   height: 10rem;
 }
 
+ul {
+  font-size: ;
+}
+
 .Deatils {
   width: 45rem;
   background-color: white;
   /* color: white; */
   margin-top: 8rem;
-  height: 70rem;
+  /* height: 70rem; */
   display: none;
   /* position: sticky;
   top: 0; */
   border-radius: 5px;
   padding-left: 3rem;
   padding-top: 3rem;
+  padding-bottom: 0.5rem;
   color: black;
 }
 
@@ -214,7 +229,7 @@ main {
   padding: 2rem;
   margin-bottom: 2rem;
   background-color: whitesmoke;
-  height: 57rem;
+  /* height: 57rem; */
   overflow: auto;
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -241,12 +256,12 @@ main {
 
 .jobSummary {
   margin-top: 2rem;
-  font-size: x-large;
+  font-size: large;
 }
 
 .summary {
   font-size: large;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   width: 40rem;
 }
 

@@ -12,12 +12,12 @@
 
 <body>
     <section>
-        <img alt="image" src="../assets/Images/signinback.svg" alt="">
+        <!-- <img alt="image" src="../assets/Images/signinback.svg" alt="">
         <!-- <a href="pages/OwnerBio.html"></a> -->
-        <div>
-            <h1>Register Here</h1>
+        <!-- <div>
+            <h1>Register Here</h1> -->
 
-            <form id="form" name="registerForm">
+        <!-- <form id="form" name="registerForm">
 
                 <label>Full Name</label><br>
                 <input type="text" value="kamalesh" id="FullName" name="fullname" placeholder="Name.." required
@@ -48,8 +48,31 @@
                 <button class="reg" type="submit">Register</button><br>
                 <a href=""><button class="cancel" type="reset">Cancel</button><br></a>
                 <button class="signin">Signin</button><br>
-            </form>
+            </form> -->
 
+        <!-- </div> -->
+
+        <div id="container">
+            <header>Register new account</header>
+            <form method="post" id="form">
+                <fieldset>
+                    <br />
+                    <input type="text" name="username" id="UserName" placeholder="Username" required autofocus>
+                    <br /><br />
+                    <input type="text" name="FullName" id="FullName" placeholder="Full Name" required />
+                    <br /><br />
+                    <input type="email" name="email" id="email" placeholder="E-mail" required>
+                    <br /><br />
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                    <br /><br />
+                    <input type="password" name="confirm-password" id="Rpassword" placeholder="Confirm Password"
+                        required>
+                    <br /> <br /> <br />
+                    <label for="submit"></label>
+                    <input type="submit" name="submit" id="submit" value="REGISTER">
+                    <input type="reset" name="SignIn" value="SIGNIN" id="signIn" />
+                </fieldset>
+            </form>
         </div>
         <script>
 
@@ -124,15 +147,22 @@
                             if (Email == allEmail[i]) {
                                 match = true;
                             }
+
+
                         }
 
                         if (match == true) {
-                            alert("Email is already Exist");
+                            return alert("Email is already Exist");
+
                         }
 
+
                         else {
+
+                            allEmail.push(Email);
+                            localStorage.setItem("allEmail", JSON.stringify(allEmail))
                             let userObj = {
-                                FullName, Email, UserName, Password, RPassword, id
+                                Email, UserName, Password, RPassword, id
                             }
                             console.log(userObj)
 
@@ -140,6 +170,14 @@
                             const str = JSON.stringify(userData);
                             localStorage.setItem("register", str)
                             console.log(str)
+
+                            let LoggedUser = {
+                                Email,
+                                id
+                            }
+
+                            localStorage.setItem("Login", JSON.stringify(LoggedUser));
+                            console.log(LoggedUser);
                             window.location.href = "Bio.html?type=" + type;
                         }
 
@@ -153,13 +191,18 @@
                             console.log("workerElse")
 
                             if (Email == allEmail[i]) {
-                                {
-                                    match = true;
-                                }
+
+                                match = true;
+
+                            }
+                            else {
+                                allEmail.push(Email);
+                                localStorage.setItem("allEmail", JSON.stringify(allEmail))
                             }
 
+
                             if (match == true) {
-                                alert("Email is already Exist");
+                                return alert("Email is already Exist");
                             }
 
                             else {
@@ -172,7 +215,13 @@
                                 const str = JSON.stringify(userData);
                                 localStorage.setItem("workerRegister", str)
                                 console.log(str)
-                                location.href = "Bio.html?type=" + type;
+                                let userLoggedIn = {
+                                    Email,
+                                    id
+                                }
+                                localStorage.setItem("Login", JSON.stringify(userLoggedIn));
+                                // console.log(logIn)
+                                return location.href = "Bio.html?type=" + type;
                             }
 
                         }
@@ -203,12 +252,7 @@
 
                 }
 
-                if (match != true) {
 
-                    allEmail.push(Email);
-                    localStorage.setItem("allEmail", JSON.stringify(allEmail))
-
-                }
             })
 
 

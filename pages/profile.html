@@ -63,7 +63,7 @@
         let urlParams = new URLSearchParams(url);
         let from = urlParams.get("from");
         let type = urlParams.get("type");
-        console.log(from);
+        console.log(from + type);
 
         function back() {
             if (type == "owner") {
@@ -128,35 +128,35 @@
         document.querySelector("#gmail").append(gmail);
 
         let expertIn = document.createElement("p");
-        expertIn.innerText = "Expert In :  " + userBio.Expect_in;
+        expertIn.innerHTML = "<span>Expert In :  </span>" + userBio.Expect_in;
         expertIn.setAttribute("class", "second_div_profile_p")
         document.querySelector(".datas").prepend(expertIn);
 
         let Current_occupation = document.createElement("p");
-        Current_occupation.innerText = "Current_occupation :  " + userBio.Current_occupation;
+        Current_occupation.innerHTML = "<span>Current_occupation :  </span>" + userBio.Current_occupation;
         expertIn.setAttribute("class", "second_div_profile_p")
         document.querySelector(".datas").prepend(Current_occupation);
 
 
         let Education = document.createElement("p");
-        Education.innerText = "Education :  " + userBio.Education;
+        Education.innerHTML = "<span>Education :  </span>" + userBio.Education;
         expertIn.setAttribute("class", "second_div_profile_p")
         document.querySelector(".datas").prepend(Education);
 
         let Address = document.createElement("p");
-        Address.innerText = "Address :  " + userBio.Address;
+        Address.innerHTML = "<span>Address :  </span>" + userBio.Address;
         expertIn.setAttribute("class", "second_div_profile_p")
         document.querySelector(".datas").prepend(Address);
 
 
         let DOB = document.createElement("p");
-        DOB.innerText = "DOB :  " + userBio.DOB;
+        DOB.innerHTML = "<span>DOB :  </span>" + userBio.DOB;
         expertIn.setAttribute("class", "second_div_profile_p")
         document.querySelector(".datas").prepend(DOB);
 
 
         let Name = document.createElement("p");
-        Name.innerText = "Name :  " + userBio.FN + userBio.LN;
+        Name.innerHTML = "<span>Name :  </span>" + userBio.FN + userBio.LN;
         expertIn.setAttribute("class", "second_div_profile_p")
         document.querySelector(".datas").prepend(Name);
 
@@ -207,7 +207,7 @@
                     return alert("User credentials not match");
                 }
 
-                let allEmailIndex = allEmail.indexOf(FindedallEmail);
+                let allEmailIndex = all.indexOf(FindedallEmail);
                 console.log(allEmailIndex)
                 allEmail.splice(allEmailIndex, 1);
                 localStorage.setItem("allEmail", JSON.stringify(allEmail));

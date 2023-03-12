@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit your job</title>
+    <link rel="stylesheet" href="../assets/css/editJob.css">
+</head>
+
+<body>
+
+    <section id="form" class="section_form">
+        <h1>Edit Your Job</h1>
+        <!-- <form id="consultation-form" class="feed-form" action="#">
+            <input required="" placeholder="Title" id="Title" type="text" type="text">
+            <input name="phone" required="" placeholder="Location" id="Location" type="text">
+            <input name="email" required="" placeholder="Salary" id="Salary" type="text">
+            <button class="button_submit" type="submit">Edit</button>
+            <button class="button_submit" onclick="back()">Back</button>
+
+        </form> -->
+    </section>
+</body>
+
+<script>
+    let url = window.location.search;
+    let urlParams = new URLSearchParams(url);
+    let id = urlParams.get("id");
+    console.log(id);
+    let requirements = JSON.parse(localStorage.getItem("requirements"));
+    let oldJob = requirements.find(R => R["id"] == id);
+
+    if (oldJob == undefined) {
+        alert("Id Not Match")
+    }
+    else {
+        let form = document.createElement("form");
+        form.setAttribute("id", "consultation-form");
+        form.setAttribute("class", "feed-form");
+        form.setAttribute("action", "#")
+        form.innerHTML = ` <input required="" value="${oldJob["title"]}" placeholder="Title" id="Title" type="text" type="text">
+            <input name="phone" required="" placeholder="Location" value="${oldJob["location"]}" id="Location" type="text">
+            <input name="email" required="" placeholder="Salary" id="Salary" value="${oldJob["Salary"]}" type="text">
+            <button class="button_submit" type="submit">Edit</button>
+            <button class="button_submit" onclick="back()">Back</button>`;
+
+        document.querySelector(".section_form").append(form);
+    }
+
+
+
+
+
+
+    document.getElementById("form").addEventListener("submit", (event) => {
+        event.preventDefault();
+
+
+
+        let title = document.getElementById("Title").value;
+        let Salary = document.getElementById("Salary").value;
+        let location = document.getElementById("Location").value;
+
+        let editedJob = {
+            title,
+            Salary,
+            location
+        }
+
+
+
+        if (oldJob == undefined) {
+            return alert("Id not match");
+        }
+
+        let updated = Object.assign(oldJob, editedJob);
+        let index = requirements.indexOf(id);
+        requirements[index] = updated;
+
+        localStorage.setItem("requirements", JSON.stringify(requirements));
+        window.location.href = "OwnerHome.html?from=register&&type=owner";
+
+
+        // let updated = Object.assign(oldProfile, newProfile);
+        //         console.log(BIO)
+        //         console.log(oldProfile)
+        //         let index = BIO.indexOf(oldProfile.Email);
+        //         BIO[index] = updated;
+        //         console.log(BIO)
+
+
+
+
+
+
+
+
+    })
+
+
+    function back() {
+        location.href = "OwnerHome.html?from=register&&type=owner"
+    }
+</script>
+
+</html>

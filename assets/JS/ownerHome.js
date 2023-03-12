@@ -8,6 +8,7 @@ function getUploadreq(obj) {
   arr.push(obj);
 
   localStorage.setItem("requirements", JSON.stringify(arr));
+  // location.reload();
 }
 
 function goRight() {

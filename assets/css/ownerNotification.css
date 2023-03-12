@@ -1,0 +1,159 @@
+body {
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+.notificationEntire {
+  background-color: white;
+  width: 30rem;
+  /* height: 5rem; */
+  margin-left: 100%;
+  margin-top: 2rem;
+  border-radius: 0.3rem;
+}
+
+.notificationTop {
+  display: flex;
+  gap: 6rem;
+}
+
+.profile {
+  display: flex;
+  height: 5rem;
+  margin-left: 1rem;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile img {
+  width: 3rem;
+}
+
+.user_name {
+  color: black;
+  font-size: x-large;
+}
+
+.types {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.types div {
+  /* box-sizing: border-box;
+  width: 5rem;
+  height: 1.5rem; */
+  padding: 0.2rem 0.5rem;
+  background-color: aqua;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.notifications {
+  background-color: aqua;
+  /* margin-bottom: 2rem; */
+  padding: 0.1rem 1rem 0.5rem 1rem;
+  border-end-end-radius: 5px;
+  border-end-start-radius: 5px;
+}
+
+.notifyCards {
+  background-color: white;
+  box-sizing: 20rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  display: flex;
+  gap: 2rem;
+  border-radius: 0.5rem;
+}
+
+.notifyCards img {
+  width: 3rem;
+}
+
+.applierDetails {
+  font-size: large;
+}
+
+.buttons {
+  /* margin-left: 2rem; */
+  display: flex;
+  /* flex-direction: row; */
+  /* flex-wrap: wrap; */
+  font-size: small;
+  flex-direction: column;
+  /* gap: -5rem; */
+  justify-content: space-around;
+}
+
+.buttons a {
+  padding: 5px;
+  background-color: aqua;
+  text-align: center;
+  border-radius: 2px;
+  box-sizing: border-box;
+  width: 10rem;
+}
+
+.b1 a {
+  width: 4rem;
+  margin-right: 0.5rem;
+}
+
+.b2 a {
+  margin-right: 0.5rem;
+  box-sizing: border-box;
+  width: 10rem;
+}
+
+main {
+  display: flex;
+  gap: 10rem;
+}
+
+.secS {
+  margin-top: 2rem;
+  width: 45rem;
+  background-color: white;
+  /* height: 50rem; */
+  border-radius: 0.3rem;
+  display: none;
+}
+
+.jobHead {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: aqua;
+  margin: 1rem;
+  border-radius: 5px;
+}
+
+.p {
+  display: flex;
+  gap: 2rem;
+}
+
+.jobHead img {
+  width: 2rem;
+  margin-right: -1.5rem;
+  margin-top: -0.5rem;
+}
+
+.data {
+  background-color: aliceblue;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.data p {
+  font-size: larger;
+  font-weight: bold;
+}

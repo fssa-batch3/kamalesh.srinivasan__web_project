@@ -1,6 +1,7 @@
 body {
-  background-image: url(/assets/Images/colors.jpg);
+  /* background-image: url(/assets/Images/colors.jpg); */
   color: white;
+  background-color: black;
 }
 
 a {
@@ -55,16 +56,27 @@ nav a:hover {
 .rect_cards {
   width: 15rem;
   /* background-color: white; */
-  height: 20rem;
+  height: 22rem;
   border-radius: 0.2rem;
   margin-right: 2rem;
   background-color: white;
   transition: 0.1s;
   scroll-behavior: smooth;
   min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .rect_cards img {
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  border-radius: 50%;
+  margin-left: 40%;
+}
+
+.secondCard img {
   height: 3rem;
   border-radius: 50%;
   margin-left: 6.2rem;
@@ -126,7 +138,7 @@ nav a:hover {
 .ck_work {
   border: none;
   border-radius: 2px;
-  background-color: grey;
+  background-color: GREEN;
   color: white;
   font-size: medium;
 }
@@ -312,8 +324,9 @@ nav a:hover {
 form {
   text-align: center;
   border-radius: 0.2rem;
-  background-color: grey;
+  /* background-color: grey; */
   padding: 1rem;
+  border: 2px solid white;
 }
 
 .form {
@@ -333,13 +346,15 @@ form input {
   border: none;
   background-color: white;
   margin-bottom: 1rem;
-  height: 1.5rem;
+  height: 2rem;
   border-radius: 0.1rem;
   outline: none;
+  width: 30rem;
 }
 
 form textarea {
   outline: none;
+  margin-bottom: 0.5rem;
 }
 
 button[type="reset"] {
@@ -404,4 +419,32 @@ footer {
 }
 .logo img {
   height: 10rem;
+}
+
+.ED {
+  display: flex;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  position: relative;
+  margin-top: 0.5rem;
+  justify-content: space-between;
+}
+
+.ED img {
+  width: 22px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.secondCard {
+  margin-top: -1.5rem;
+}
+
+/* .editImg {
+  margin-top: 0.8rem;
+} */
+
+textarea {
+  width: 30rem;
+  height: 20rem;
 }
