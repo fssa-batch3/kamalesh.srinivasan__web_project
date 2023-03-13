@@ -21,11 +21,11 @@
 
     <nav>
         <div>
-            <a>Requirement List</a>
+            <a href="OwnerHome.html">Requirement List</a>
             <!-- <a>Search</a> -->
-            <a>Chat</a>
+            <a href="">Chat</a>
             <a>Notification</a>
-            <a onclick="urlData()">profile</a>
+            <a onclick="urlData()" href="profile.html">profile</a>
             <a href="../index.html">LogOut</a>
         </div>
     </nav>
@@ -198,7 +198,13 @@
 
     //  Notification
 
-    let applyJob = JSON.parse(localStorage.getItem("apllyJob"))
+    let getApplyJOb = JSON.parse(localStorage.getItem("apllyJob"))
+    let currentOwner = JSON.parse(localStorage.getItem("Login"))
+    console.log(getApplyJOb);
+
+    let applyJob = getApplyJOb.filter(J => J["ownerId"] == currentOwner.id)
+    console.log(getApplyJOb.ownerId);
+    console.log(applyJob)
 
     for (let i = 0; i < applyJob.length; i++) {
         let notifications = document.createElement("div");
