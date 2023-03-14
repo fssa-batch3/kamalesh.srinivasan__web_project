@@ -199,11 +199,12 @@
     //  Notification
 
     let getApplyJOb = JSON.parse(localStorage.getItem("apllyJob"))
-    let currentOwner = JSON.parse(localStorage.getItem("Login"))
     console.log(getApplyJOb);
-
-    let applyJob = getApplyJOb.filter(J => J["ownerId"] == currentOwner.id)
+    let currentOwner = JSON.parse(localStorage.getItem("Login"))
+    console.log(currentOwner.id);
     console.log(getApplyJOb.ownerId);
+
+    let applyJob = getApplyJOb.filter((J) => J["ownerId"] == currentOwner.id)
     console.log(applyJob)
 
     for (let i = 0; i < applyJob.length; i++) {
@@ -256,17 +257,28 @@
 
         let Readed = document.createElement("a");
         Readed.innerHTML = "Readed";
+        Readed.setAttribute("onclick", "readed()")
         b2.append(Readed);
 
         let details = document.createElement("a");
         details.innerHTML = "Details";
-        details.setAttribute("onclick", `setCurrentNotificationId(${applyJob[i]["jobID"]})`)
+        details.setAttribute("onclick", `setCurrentNotificationId(${applyJob[i]["aplliedJobId"]})`)
         // details.setAttribute("onclick", "oncDetails()")
         b2.append(details);
 
         document.querySelector(".notificationEntire").append(notifications);
     }
 
+
+    // function readed() {
+    //     let moeDetails = JSON.parse(localStorage.getItem("moreDetails"));
+    //     let appliedJobs = JSON.parse(localStorage.getItem("apllyJob"));
+    //     let requirements = JSON.parse(localStorage.getItem("requirements"));
+    //     let findexObject =
+    //         let index = requirements.indexOf(moeDetails);
+
+
+    // }
 
     // let url = location.search;
     // let urlParams = new URLSearchParams(url);
@@ -282,7 +294,7 @@
         // console.log(applyJob);
         // console.log(applyJob["CurrentId"]);
         // console.log(currentJobIndex);
-        let currentJob = applyJob.find((A) => A["jobID"] == CurrentId);
+        let currentJob = applyJob.find((A) => A["aplliedJobId"] == CurrentId);
         createDetails(currentJob);
 
     }
@@ -292,7 +304,7 @@
     // Data Details
 
     function createDetails(currentJob) {
-
+        console.log(currentJob);
 
         let initial = document.querySelector(".details");
         if (initial != null) {

@@ -20,8 +20,10 @@ function yourJobsClick(index) {
   let cross = document.querySelector(".cross");
   cross.style.display = "block";
   console.log(index);
-  localStorage.setItem("moreDetails", JSON.stringify(jobs[index]["id"]));
-
+  localStorage.setItem(
+    "moreDetails",
+    JSON.stringify(jobs[index]["aplliedJobId"])
+  );
   // let detailData = jobs[index]["id"];
   // return detailData;
 
@@ -32,8 +34,8 @@ function yourJobsClick(index) {
 function channgeDatas() {
   let register = JSON.parse(localStorage.getItem("requirements"));
   console.log(register);
-  let id = JSON.parse(localStorage.getItem("moreDetails"));
-  let moreData = register.find((R) => R.id == id);
+  let id = JSON.parse(localStorage.getItem("CurrentNotificationId"));
+  let moreData = register.find((R) => R["aplliedJobId"] == id);
   console.log(moreData);
   let title = document.querySelector("div.title");
   title.innerHTML = `${moreData["title"]}`;
@@ -139,6 +141,7 @@ function applyJob() {
     jobID,
     applierId: applier.id,
     applierName: applier.FullName,
+    aplliedJobId: Date.now(),
   };
 
   if (owner != undefined) {
