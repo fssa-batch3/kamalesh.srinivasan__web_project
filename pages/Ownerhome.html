@@ -204,8 +204,9 @@
     <script>
 
         function OWnotification() {
-            let url = location.search
-            location.href = "ownerNotification.html" + url;
+            // let url = location.search
+            // url = url + "filter=all";
+            location.href = "ownerNotification.html?from=logIn&&type=owner&filter=all";
         }
 
 

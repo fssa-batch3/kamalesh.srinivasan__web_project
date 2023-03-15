@@ -21,7 +21,7 @@
 
     <nav>
         <div>
-            <a href="OwnerHome.html">Requirement List</a>
+            <a onclick="urlNotif()">Requirement List</a>
             <!-- <a>Search</a> -->
             <a href="">Chat</a>
             <a>Notification</a>
@@ -43,13 +43,13 @@
                 </div>
 
                 <div class="types">
-                    <div>
+                    <div onclick="filterAll()">
                         All
                     </div>
-                    <div>
+                    <div onclick="filterRead()">
                         Read
                     </div>
-                    <div>
+                    <div onclick="filterUnread()">
                         Unread
                     </div>
                 </div>
@@ -198,14 +198,64 @@
 
     //  Notification
 
+    // filters
+
+    function filterAll() {
+        location.href = "ownerNotification.html?from=logIn&&type=owner&filter=all";
+
+    }
+
+    function filterRead() {
+        location.href = "ownerNotification.html?from=logIn&&type=owner&filter=readed";
+    }
+
+    function filterUnread() {
+        location.href = "ownerNotification.html?from=logIn&&type=owner&filter=unreaded";
+
+    }
+
+
+
+
+    function urlNotif() {
+        // let url = location.search;
+        location.href = "ownerHome.html?from=logIn&&type=owner&filter=all";
+    }
+
+    // url data
+
+
+    let url = location.search;
+    let urlParams = new URLSearchParams(url);
+    let filter = urlParams.get("filter");
+    console.log(filter);
+
     let getApplyJOb = JSON.parse(localStorage.getItem("apllyJob"))
     console.log(getApplyJOb);
     let currentOwner = JSON.parse(localStorage.getItem("Login"))
     console.log(currentOwner.id);
-    console.log(getApplyJOb.ownerId);
+    console.log(getApplyJOb);
 
-    let applyJob = getApplyJOb.filter((J) => J["ownerId"] == currentOwner.id)
+
+    let applyJobAll = getApplyJOb.filter((J) => J["ownerId"] == currentOwner.id);
+    console.log(applyJobAll);
+    let applyJobReaded = applyJobAll.filter((J) => J["readed"] == true);
+    console.log(applyJobReaded);
+    let applyJobUnread = applyJobAll.filter((J) => J["readed"] == false);
+    console.log(applyJobUnread);
+    let applyJob;
+    if (filter == "all") {
+        applyJob = applyJobAll;
+    }
+    else if (filter == "readed") {
+        applyJob = applyJobReaded;
+    }
+    else {
+        applyJob = applyJobUnread;
+    }
     console.log(applyJob)
+
+
 
     for (let i = 0; i < applyJob.length; i++) {
         let notifications = document.createElement("div");
@@ -226,11 +276,11 @@
 
         let name = document.createElement("p");
         name.setAttribute("class", "name");
-        name.innerHTML = `Worker Name : ${applyJob[i]["applierName"]}`;
+        name.innerHTML = `${applyJob[i]["applierName"]}`;
         applierDetails.append(name);
 
         let jobId = document.createElement("p");
-        jobId.innerHTML = `Job Id : ${applyJob[i]["applierId"]}`;
+        jobId.innerHTML = `Job Id : ${applyJob[i]["jobID"]}`;
         jobId.setAttribute("class", "jobId");
         applierDetails.append(jobId);
 
@@ -270,15 +320,25 @@
     }
 
 
-    // function readed() {
-    //     let moeDetails = JSON.parse(localStorage.getItem("moreDetails"));
-    //     let appliedJobs = JSON.parse(localStorage.getItem("apllyJob"));
-    //     let requirements = JSON.parse(localStorage.getItem("requirements"));
-    //     let findexObject =
-    //         let index = requirements.indexOf(moeDetails);
+    function readed() {
+        let CurrentNotificationId = JSON.parse(localStorage.getItem("CurrentNotificationId"));
+        let appliedJobs = JSON.parse(localStorage.getItem("apllyJob"));
+        let findexObject = appliedJobs.find(f => f.aplliedJobId == CurrentNotificationId)
+        let index = appliedJobs.indexOf(findexObject);
+        console.log(findexObject);
+        let readed = {
+            readed: true,
+        }
+
+        console.log(readed);
+        let AddedfindexObject = Object.assign(findexObject, readed);
+        console.log(AddedfindexObject, "AddedfindexObject");
+        console.log(index);
+        appliedJobs[index] = AddedfindexObject;
+        localStorage.setItem("apllyJob", JSON.stringify(appliedJobs));
+    }
 
 
-    // }
 
     // let url = location.search;
     // let urlParams = new URLSearchParams(url);
@@ -296,7 +356,6 @@
         // console.log(currentJobIndex);
         let currentJob = applyJob.find((A) => A["aplliedJobId"] == CurrentId);
         createDetails(currentJob);
-
     }
 
 

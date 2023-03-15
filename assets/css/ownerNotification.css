@@ -4,6 +4,7 @@ body {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .notificationEntire {
@@ -42,6 +43,7 @@ a {
   justify-content: space-between;
   gap: 1rem;
   align-items: center;
+  cursor: pointer;
 }
 
 .types div {
