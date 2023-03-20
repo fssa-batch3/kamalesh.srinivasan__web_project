@@ -134,6 +134,9 @@
                         <img src="../assets/Images/close.svg" alt="image" />
                     </div>
                 </div>
+                <div class="startWord">
+                    Start Work
+                </div>
                 <div class="data">
                     <div class="jobSummary">
                         <p class="title">
@@ -221,22 +224,27 @@
         let logIn = JSON.parse(localStorage.getItem("Login"));
         All = applyJobAll.filter((F) => applyJobAll.applierId == logIn.applierId)
 
-        let applyJob;
+        let applyJob = applyJobAll.filter((F) => applyJobAll.applierId == logIn.applierId);
         if (filter == "All") {
             applyJob = applyJobAll.filter((F) => applyJobAll.applierId == logIn.applierId)
         }
 
         if (filter == "NotActioned") {
-            applyJob = All.filter((F) => All.notificationAction == "NotActioned");
+            applyJob = applyJobAll.filter((F) => F.notificationAction == "NotActioned");
         }
 
         if (filter == "Rejected") {
-            applyJob = All.filter((F) => All.notificationAction == "Rejected");
+            applyJob = All.filter((F) => F.notificationAction == "Rejected");
 
         }
 
         if (filter == "Approved") {
-            applyJob = All.filter((F) => All.notificationAction == "Approved");
+            applyJob = All.filter((F) => F.notificationAction == "Approved");
+        }
+
+        if (filter == "Started") {
+            applyJob = All.filter((F) => F.start == true);
+
         }
         console.log(All);
         console.log(applyJob)
@@ -320,6 +328,8 @@
 
             document.querySelector(".notificationEntire").append(notifications);
         }
+
+
     </script>
 </body>
 

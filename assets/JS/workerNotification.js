@@ -58,6 +58,12 @@ function createDetails(currentJob) {
   image.setAttribute("onclick", "closeDetail()");
   imageDiv.append(image);
 
+  let startWork = document.createElement("div");
+  startWork.setAttribute("class", "startWork");
+  startWork.setAttribute("onclick", "addstartWork()");
+  startWork.innerHTML = "Start Work";
+  details.append(startWork);
+
   let data = document.createElement("div");
   data.setAttribute("class", "data");
   details.append(data);
@@ -195,4 +201,19 @@ function filterApproved() {
 function filterStarted() {
   location.href = "workerNotification.html?filter=Started";
   // location.reload();
+}
+
+function urlNotif() {
+  location.href = "workerHome.html?from=register&&type=worker&&All";
+}
+
+function addstartWork() {
+  let crntJobId = JSON.parse(localStorage.getItem("CurrentNotificationId"));
+  let applyJOb = JSON.parse(localStorage.getItem("apllyJob"));
+  let selectedObj = applyJOb.find((F) => F.aplliedJobId == crntJobId);
+  let index = applyJOb.indexOf(selectedObj);
+  selectedObj["start"] = true;
+  applyJOb[index] = selectedObj;
+
+  localStorage.setItem("apllyJob", JSON.stringify(applyJOb));
 }

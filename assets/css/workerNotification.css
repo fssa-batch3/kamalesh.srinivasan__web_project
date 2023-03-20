@@ -186,3 +186,24 @@ a:active {
   align-items: center;
   cursor: pointer;
 }
+
+.startWork {
+  background-color: aqua;
+  /* padding: 0.2rem; */
+  box-sizing: border-box;
+  font-size: large;
+  width: 7rem;
+  height: 2rem;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+  border-radius: 0.15rem;
+}
+
+.startWork:hover {
+  background-color: antiquewhite;
+  /* color: ; */
+  cursor: pointer;
+}
