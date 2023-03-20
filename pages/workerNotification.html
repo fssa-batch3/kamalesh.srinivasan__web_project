@@ -237,37 +237,50 @@
             buttons.setAttribute("class", "buttons");
             notifyCards.append(buttons);
 
-            let b1 = document.createElement("div");
-            b1.setAttribute("class", "b1");
-            buttons.append(b1);
 
 
-            let Approve = document.createElement("a");
-            Approve.setAttribute("id", "approve")
-            Approve.innerHTML = "Approve";
-            Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
-            b1.append(Approve);
 
-            let Reject = document.createElement("a");
-            Reject.setAttribute("id", "reject");
-            Reject.innerHTML = "Reject";
-            Reject.setAttribute("onclick", `reject(${applyJob[i]["aplliedJobId"]})`)
-            b1.append(Reject);
+            if (applyJob[i]["notificationAction"] == "Rejected") {
+                let Reject = document.createElement("a");
+                Reject.setAttribute("id", "reject");
+                Reject.innerHTML = "Rejected";
+                Reject.setAttribute("onclick", `reject(${applyJob[i]["aplliedJobId"]})`)
+                buttons.append(Reject);
+
+
+
+            }
+
+            else if (applyJob[i]["notificationAction"] == "Approved") {
+
+                let Approve = document.createElement("a");
+                Approve.setAttribute("id", "approve")
+                Approve.innerHTML = "Approved";
+                Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
+                buttons.append(Approve);
+
+                let startWork = document.createElement("a");
+                startWork.setAttribute("id", "startWork");
+                startWork.innerHTML = "Start Work";
+                startWork.setAttribute("onclick", `reject(${applyJob[i]["aplliedJobId"]})`)
+                buttons.append(startWork);
+            }
+
+            else {
+                let Approve = document.createElement("a");
+                Approve.setAttribute("id", "NotActioned")
+                Approve.innerHTML = "NotActioned";
+                Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
+                buttons.append(Approve);
+            }
+
+
+
 
             let b2 = document.createElement("div");
             b2.setAttribute("class", "b2");
             buttons.append(b2);
 
-            let Readed = document.createElement("a");
-            Readed.innerHTML = "Readed";
-            Readed.setAttribute("onclick", "readed()")
-            b2.append(Readed);
-
-            let details = document.createElement("a");
-            details.innerHTML = "Details";
-            details.setAttribute("onclick", `setCurrentNotificationId(${applyJob[i]["aplliedJobId"]})`)
-            // details.setAttribute("onclick", "oncDetails()")
-            b2.append(details);
 
             document.querySelector(".notificationEntire").append(notifications);
         }

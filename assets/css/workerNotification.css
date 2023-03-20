@@ -82,6 +82,7 @@ a {
 
 .applierDetails {
   font-size: large;
+  margin-right: 2rem;
 }
 
 .buttons {
@@ -91,17 +92,17 @@ a {
   /* flex-wrap: wrap; */
   font-size: small;
   flex-direction: column;
-  /* gap: -5rem; */
+  /* gap: 1rem; */
   justify-content: space-around;
 }
 
 .buttons a {
   padding: 5px;
-  background-color: aqua;
+  background-color: yellow;
   text-align: center;
   border-radius: 2px;
   box-sizing: border-box;
-  width: 10rem;
+  width: 5rem;
 }
 
 .b1 a {
@@ -162,4 +163,8 @@ main {
 
 a:active {
   background-color: antiquewhite;
+}
+
+#startWork {
+  background-color: aqua;
 }
