@@ -12,9 +12,9 @@
 
 <body>
     <section>
-        <div>
+        <!-- <div>
             <img alt="image" src="../assets/Images/signin_Background.webp" />
-        </div>
+        </div> -->
         <div class="signin">
             <div>
                 <marquee scrollamount="10" behavior="alternate">
@@ -31,10 +31,10 @@
                     <input type="text" id="Password" placeholder="Enter Password" /><br>
 
                     <button class="btn1" type="submit">Sign In</button><br>
-                    <button class="btn2">Cancel</button><br>
-                    <p>Or</p><br>
+                    <button class="btn2" onclick="index()">Cancel</button><br>
+                    <!-- <p>Or</p><br>
                     <button class="btn3">Sign In with Google</button><br>
-                    <button class="btn4">Sign In with Facebook</button><br>
+                    <button class="btn4">Sign In with Facebook</button><br> -->
 
 
 
@@ -141,6 +141,11 @@
             }
 
         })
+
+
+        function index() {
+            location.href = "../index.html"
+        }
 
 
 
