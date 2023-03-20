@@ -141,6 +141,7 @@ function applyJob() {
     applierName: applier.FullName,
     aplliedJobId: Date.now(),
     readed: false,
+    notificationAction: "NotActioned",
   };
 
   if (owner != undefined) {

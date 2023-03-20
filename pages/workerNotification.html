@@ -44,14 +44,24 @@
                     </div>
 
                     <div class="types">
-                        <div onclick="filterAll()">
-                            All
+                        <div class="firstHead">
+                            <div class="filterButtons" onclick="filterAll()">
+                                All
+                            </div>
+                            <div class="filterButtons" onclick="filterNotActioned()">
+                                NotActioned
+                            </div>
+                            <div class="filterButtons" onclick="filterRejected()">
+                                Rejected
+                            </div>
                         </div>
-                        <div onclick="filterRead()">
-                            Read
-                        </div>
-                        <div onclick="filterUnread()">
-                            Unread
+                        <div class="secondHead">
+                            <div class="filterButtons" onclick="filterApproved()">
+                                Approved
+                            </div>
+                            <div class="filterButtons" onclick="filterStarted()">
+                                Started
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -198,11 +208,37 @@
 
         </section>
     </main>
+    <script src="../assets/JS/workerNotification.js"></script>
     <script>
+
+        let url = location.search;
+        let urlParams = new URLSearchParams(url);
+        let filter = urlParams.get("filter");
+        console.log(filter);
+
 
         let applyJobAll = JSON.parse(localStorage.getItem("apllyJob"));
         let logIn = JSON.parse(localStorage.getItem("Login"));
-        let applyJob = applyJobAll.filter((F) => applyJobAll.applierId == logIn.applierId)
+        All = applyJobAll.filter((F) => applyJobAll.applierId == logIn.applierId)
+
+        let applyJob;
+        if (filter == "All") {
+            applyJob = applyJobAll.filter((F) => applyJobAll.applierId == logIn.applierId)
+        }
+
+        if (filter == "NotActioned") {
+            applyJob = All.filter((F) => All.notificationAction == "NotActioned");
+        }
+
+        if (filter == "Rejected") {
+            applyJob = All.filter((F) => All.notificationAction == "Rejected");
+
+        }
+
+        if (filter == "Approved") {
+            applyJob = All.filter((F) => All.notificationAction == "Approved");
+        }
+        console.log(All);
         console.log(applyJob)
 
 
@@ -244,7 +280,7 @@
                 let Reject = document.createElement("a");
                 Reject.setAttribute("id", "reject");
                 Reject.innerHTML = "Rejected";
-                Reject.setAttribute("onclick", `reject(${applyJob[i]["aplliedJobId"]})`)
+                // Reject.setAttribute("onclick", `reject(${applyJob[i]["aplliedJobId"]})`)
                 buttons.append(Reject);
 
 
@@ -256,13 +292,13 @@
                 let Approve = document.createElement("a");
                 Approve.setAttribute("id", "approve")
                 Approve.innerHTML = "Approved";
-                Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
+                // Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
                 buttons.append(Approve);
 
                 let startWork = document.createElement("a");
                 startWork.setAttribute("id", "startWork");
                 startWork.innerHTML = "Start Work";
-                startWork.setAttribute("onclick", `reject(${applyJob[i]["aplliedJobId"]})`)
+                startWork.setAttribute("onclick", `setCurrentNotificationId(${applyJob[i]["aplliedJobId"]})`)
                 buttons.append(startWork);
             }
 
@@ -270,7 +306,7 @@
                 let Approve = document.createElement("a");
                 Approve.setAttribute("id", "NotActioned")
                 Approve.innerHTML = "NotActioned";
-                Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
+                // Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
                 buttons.append(Approve);
             }
 

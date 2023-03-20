@@ -18,7 +18,7 @@ a {
 
 .notificationTop {
   display: flex;
-  gap: 6rem;
+  gap: 3rem;
 }
 
 .profile {
@@ -40,13 +40,13 @@ a {
 
 .types {
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  flex-direction: column-reverse;
   align-items: center;
-  cursor: pointer;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-.types div {
+.filterButtons {
   /* box-sizing: border-box;
     width: 5rem;
     height: 1.5rem; */
@@ -56,6 +56,7 @@ a {
   align-items: center;
   justify-content: center;
   border-radius: 5px;
+  /* gap: 1rem; */
 }
 
 .notifications {
@@ -167,4 +168,21 @@ a:active {
 
 #startWork {
   background-color: aqua;
+}
+
+.secondHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.firstHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  /* row-gap: 1rem; */
+  align-items: center;
+  cursor: pointer;
 }
