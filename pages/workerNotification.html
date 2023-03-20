@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OwnerNotification</title>
     <link rel="stylesheet" href="../assets/css/ownerhome.css">
-    <link rel="stylesheet" href="../assets/css/ownerNotification.css">
+    <link rel="stylesheet" href="../assets/css/workerNotification.css">
 
 </head>
 
@@ -57,7 +57,7 @@
                 </div>
 
 
-                <div class="notifications">
+                <!-- <div class="notifications">
                     <div class="notifyCards">
                         <img src="../assets/Images/boy-avatar.svg" alt="Image">
                         <div class="applierDetails">
@@ -106,7 +106,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
 
@@ -198,7 +198,80 @@
 
         </section>
     </main>
+    <script>
 
+        let applyJobAll = JSON.parse(localStorage.getItem("apllyJob"));
+        let logIn = JSON.parse(localStorage.getItem("Login"));
+        let applyJob = applyJobAll.filter((F) => applyJobAll.applierId == logIn.applierId)
+        console.log(applyJob)
+
+
+        for (let i = 0; i < applyJob.length; i++) {
+            let notifications = document.createElement("div");
+            notifications.setAttribute("class", "notifications");
+
+            let notifyCards = document.createElement("div");
+            notifyCards.setAttribute("class", "notifyCards");
+            notifications.append(notifyCards);
+
+            let notifyCardsImage = document.createElement("img");
+            notifyCardsImage.setAttribute("src", "../assets/Images/boy-avatar.svg");
+            notifyCardsImage.setAttribute("alt", "Image");
+            notifyCards.append(notifyCardsImage);
+
+            let applierDetails = document.createElement("div");
+            applierDetails.setAttribute("class", "applierDetails");
+            notifyCards.append(applierDetails);
+
+            let name = document.createElement("p");
+            name.setAttribute("class", "name");
+            name.innerHTML = `${applyJob[i]["applierName"]}`;
+            applierDetails.append(name);
+
+            let jobId = document.createElement("p");
+            jobId.innerHTML = `Job Id : ${applyJob[i]["jobID"]}`;
+            jobId.setAttribute("class", "jobId");
+            applierDetails.append(jobId);
+
+            let buttons = document.createElement("div");
+            buttons.setAttribute("class", "buttons");
+            notifyCards.append(buttons);
+
+            let b1 = document.createElement("div");
+            b1.setAttribute("class", "b1");
+            buttons.append(b1);
+
+
+            let Approve = document.createElement("a");
+            Approve.setAttribute("id", "approve")
+            Approve.innerHTML = "Approve";
+            Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
+            b1.append(Approve);
+
+            let Reject = document.createElement("a");
+            Reject.setAttribute("id", "reject");
+            Reject.innerHTML = "Reject";
+            Reject.setAttribute("onclick", `reject(${applyJob[i]["aplliedJobId"]})`)
+            b1.append(Reject);
+
+            let b2 = document.createElement("div");
+            b2.setAttribute("class", "b2");
+            buttons.append(b2);
+
+            let Readed = document.createElement("a");
+            Readed.innerHTML = "Readed";
+            Readed.setAttribute("onclick", "readed()")
+            b2.append(Readed);
+
+            let details = document.createElement("a");
+            details.innerHTML = "Details";
+            details.setAttribute("onclick", `setCurrentNotificationId(${applyJob[i]["aplliedJobId"]})`)
+            // details.setAttribute("onclick", "oncDetails()")
+            b2.append(details);
+
+            document.querySelector(".notificationEntire").append(notifications);
+        }
+    </script>
 </body>
 
 </html>
