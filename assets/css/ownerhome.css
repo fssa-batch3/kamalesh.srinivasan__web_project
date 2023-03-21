@@ -56,7 +56,7 @@ nav a:hover {
 .rect_cards {
   width: 15rem;
   /* background-color: white; */
-  height: 22rem;
+  height: 20rem;
   border-radius: 0.2rem;
   margin-right: 2rem;
   background-color: white;
@@ -73,7 +73,7 @@ nav a:hover {
   height: 3rem;
   text-align: center;
   border-radius: 50%;
-  margin-left: 40%;
+  /* margin-left: 40%; */
 }
 
 .secondCard img {
@@ -172,7 +172,7 @@ nav a:hover {
   border-radius: 5px;
   padding: 0.2rem;
   position: absolute;
-  top: 21.5rem;
+  top: 21rem;
 }
 
 .left img {
@@ -190,7 +190,7 @@ nav a:hover {
   border-radius: 5px;
   padding: 0.2rem;
   position: absolute;
-  top: 21.5rem;
+  top: 21rem;
   right: 1rem;
 }
 
@@ -233,7 +233,7 @@ nav a:hover {
   border-radius: 5px;
   padding: 0.2rem;
   position: absolute;
-  top: 47.5rem;
+  top: 49rem;
 }
 .left_pen img {
   width: 2rem;
@@ -250,7 +250,7 @@ nav a:hover {
   border-radius: 5px;
   padding: 0.2rem;
   position: absolute;
-  top: 47.5rem;
+  top: 49rem;
   right: 1rem;
 }
 .right_pen img {
@@ -292,7 +292,7 @@ nav a:hover {
   border-radius: 5px;
   padding: 0.2rem;
   position: absolute;
-  top: 74rem;
+  top: 76rem;
 }
 .left_ua img {
   width: 2rem;
@@ -309,7 +309,7 @@ nav a:hover {
   border-radius: 5px;
   padding: 0.2rem;
   position: absolute;
-  top: 74rem;
+  top: 76rem;
   right: 1rem;
 }
 .right_ua img {
@@ -447,4 +447,26 @@ footer {
 textarea {
   width: 40rem;
   height: 20rem;
+}
+
+.rect_cards_notFound {
+  width: 15rem;
+  /* background-color: white; */
+  height: 22rem;
+  border-radius: 0.2rem;
+  margin-right: 2rem;
+  background-color: white;
+  transition: 0.1s;
+  scroll-behavior: smooth;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: red;
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.rect_cards_notFound p {
+  transform: rotate(-60deg);
 }
