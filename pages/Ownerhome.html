@@ -98,7 +98,7 @@
 
         <section class="Unallocated_sec">
             <h2>
-                Unallocated Jobs
+                All Jobs
             </h2>
             <div class="left_ua">
                 <img src="../assets/Images/left.svg" onclick="goLeftUa()" alt="image">
@@ -335,9 +335,7 @@
                 Qualifications: removedQualification,
                 Responsibilities: removedResponsibilities,
                 isActive: true,
-                ownerId
-
-
+                ownerId,
             }
             console.log(formData)
             getUploadreq(formData)
@@ -347,159 +345,154 @@
 
 
 
-        //  JSON
-
-        let rect_jobs = [{
-            name: "kamalesh",
-            image: {
-                src: "/../assets/Images/profiel1.jpg",
-                alt: "profile Image"
-            },
-            type: "WebDevelopment",
-            noe: 20,
-            uploadedDate: "12:30:2022",
-
-        },
-        {
-            name: "kamalesh",
-            image: {
-                src: "/../assets/Images/profiel1.jpg",
-                alt: "profile Image"
-            },
-            type: "WebDevelopment",
-            noe: 20,
-            uploadedDate: "12:30:2022",
-
-        },
-
-        {
-            name: "kamalesh",
-            image: {
-                src: "/../assets/Images/profiel1.jpg",
-                alt: "profile Image"
-            },
-            type: "WebDevelopment",
-            noe: 20,
-            uploadedDate: "12:30:2022",
-
-        },
-
-
-        {
-            name: "kamalesh",
-            image: {
-                src: "/../assets/Images/profiel1.jpg",
-                alt: "profile Image"
-            },
-            type: "WebDevelopment",
-            noe: 20,
-            uploadedDate: "12:30:2022",
-
-        },
-
-        {
-            name: "kamalesh",
-            image: {
-                src: "/../assets/Images/profiel1.jpg",
-                alt: "profile Image"
-            },
-            type: "WebDevelopment",
-            noe: 20,
-            uploadedDate: "12:30:2022",
-
-        },
-
-        {
-            name: "kamalesh",
-            image: {
-                src: "/../assets/Images/profiel1.jpg",
-                alt: "profile Image"
-            },
-            type: "WebDevelopment",
-            noe: 20,
-            uploadedDate: "12:30:2022",
-
-        },
-
-        {
-            name: "kamalesh",
-            image: {
-                src: "/../assets/Images/profiel1.jpg",
-                alt: "profile Image"
-            },
-            type: "WebDevelopment",
-            noe: 20,
-            uploadedDate: "12:30:2022",
-
-        },
-
-        {
-            name: "kamalesh",
-            image: {
-                src: "/../assets/Images/profiel1.jpg",
-                alt: "profile Image"
-            },
-            type: "WebDevelopment",
-            noe: 20,
-            uploadedDate: "12:30:2022",
-
-        },
-
-        {
-            name: "kamalesh",
-            image: {
-                src: "/../assets/Images/profiel1.jpg",
-                alt: "profile Image"
-            },
-            type: "WebDevelopment",
-            noe: 20,
-            uploadedDate: "12:30:2022",
-
-        },
-
-
-
-
-        ]
 
 
 
 
         // loops
 
-        for (let i = 0; i < rect_jobs.length; i++) {
+        // for (let i = 0; i < rect_jobs.length; i++) {
+        //     let rect_cards = document.createElement("div");
+        //     rect_cards.setAttribute("class", "rect_cards");
+        //     rect_cards.innerHTML = `<img alt=${rect_jobs[i]["image"]["alt"]} src=${rect_jobs[i]["image"]["src"]}  >
+        //             <p class="Prof_name">${rect_jobs[i]["name"]}</p>
+        //             <p class="Type"><span> Type :</span>${rect_jobs[i]["type"]}</p>
+        //             <p class="NOE"><span>No of Employees : </span> ${rect_jobs[i]["noe"]}</p>
+        //             <p class="uploaded_date"><span>uploaded date:</span> ${rect_jobs[i]["uploadedDate"]}</p>
+        //             <div class="rect-buttons">
+        //                 <button class="ck_work">Check Workers</button>
+        //                 <button class="cnl">Cancel</button>
+        //             </div>`
+        //     document.querySelector(".rect_jobs").append(rect_cards);
+        // }
+
+
+
+        let requirements = JSON.parse(localStorage.getItem("requirements"));
+        let logIn = JSON.parse(localStorage.getItem("Login"));
+        let UplodedJobs = requirements.filter((F) => F.ownerId == logIn.id);
+
+        if (UplodedJobs == undefined) {
             let rect_cards = document.createElement("div");
             rect_cards.setAttribute("class", "rect_cards");
-            rect_cards.innerHTML = `<img alt=${rect_jobs[i]["image"]["alt"]} src=${rect_jobs[i]["image"]["src"]}  >
-                    <p class="Prof_name">${rect_jobs[i]["name"]}</p>
-                    <p class="Type"><span> Type :</span>${rect_jobs[i]["type"]}</p>
-                    <p class="NOE"><span>No of Employees : </span> ${rect_jobs[i]["noe"]}</p>
-                    <p class="uploaded_date"><span>uploaded date:</span> ${rect_jobs[i]["uploadedDate"]}</p>
-                    <div class="rect-buttons">
-                        <button class="ck_work">Check Workers</button>
-                        <button class="cnl">Cancel</button>
-                    </div>`
-            document.querySelector(".rect_jobs").append(rect_cards);
         }
+        else {
+
+            console.log(UplodedJobs);
+            for (let i = 0; i < UplodedJobs.length; i++) {
+                function test() {
+                    if (UplodedJobs[i]["isActive"] !== true) {
+                        console.log(UplodedJobs[i]["isActive"])
+                        return
+                    }
 
 
-        for (let i = 0; i < rect_jobs.length; i++) {
-            let rect_cards = document.createElement("div");
-            rect_cards.setAttribute("class", "rect_cards");
-            rect_cards.innerHTML = `<img alt=${rect_jobs[i]["image"]["alt"]} src=${rect_jobs[i]["image"]["src"]}  >
-                    <p class="Prof_name">${rect_jobs[i]["name"]}</p>
-                    <p class="Type"><span> Type :</span>${rect_jobs[i]["type"]}</p>
-                    <p class="NOE"><span>No of Employees : </span> ${rect_jobs[i]["noe"]}</p>
-                    <p class="uploaded_date"><span>uploaded date:</span> ${rect_jobs[i]["uploadedDate"]}</p>
-                    <div class="rect-buttons">
-                        <button class="ck_work">Check Workers</button>
-                        <button class="cnl">Cancel</button>
-                    </div>`
-            document.querySelector(".pen_jobs").append(rect_cards);
+                    let rect_cards = document.createElement("div");
+                    rect_cards.setAttribute("class", "rect_cards");
+
+                    let ED = document.createElement("div");
+                    ED.setAttribute("class", "ED");
+
+                    let editA = document.createElement("a");
+                    editA.setAttribute("href", `EditYourJob.html?id= ${UplodedJobs[i]["id"]}`);
+                    ED.append(editA);
+
+                    let editImg = document.createElement("img");
+                    editImg.setAttribute("class", "editImg");
+                    editImg.setAttribute("alt", "Image");
+                    editImg.setAttribute("src", "../assets/Images/edit.svg");
+                    editA.append(editImg);
+
+                    let jobId = document.createElement("p");
+                    jobId.innerText = `${UplodedJobs[i]["id"]}`;
+                    ED.append(jobId)
+
+                    let deleteImg = document.createElement("img");
+                    deleteImg.setAttribute("src", "../assets/Images/delete.svg");
+                    // deleteImg.setAttribute("onclick", "deleteJob()");
+                    deleteImg.setAttribute("alt", "Image");
+                    deleteImg.setAttribute("id", "btn");
+                    ED.append(deleteImg);
+                    rect_cards.append(ED);
+
+
+
+                    let secondCard = document.createElement("div");
+                    secondCard.setAttribute("class", "secondCard");
+
+                    let profileImg = document.createElement("img");
+                    profileImg.setAttribute("src", "../assets/Images/profiel1.jpg");
+                    profileImg.setAttribute("alt", "Profile")
+                    secondCard.append(profileImg);
+
+                    let Prof_name = document.createElement("p");
+                    Prof_name.innerText = "Mr.Krish";
+                    Prof_name.setAttribute("class", "Prof_name")
+                    secondCard.append(Prof_name);
+
+                    let TypeP = document.createElement("p");
+                    TypeP.setAttribute("class", "Type");
+                    TypeP.innerText = `${UplodedJobs[i]["title"]}`;
+
+                    let TypeSpan = document.createElement("span");
+                    TypeSpan.innerText = 'Type :';
+                    TypeP.prepend(TypeSpan);
+
+                    secondCard.append(TypeP);
+
+                    let LocationP = document.createElement("p");
+                    LocationP.setAttribute("class", "NOE");
+                    LocationP.innerText = `${UplodedJobs[i]["location"]}`;
+
+                    let LocationSpan = document.createElement("span");
+                    LocationSpan.innerText = 'Location :';
+                    LocationP.prepend(LocationSpan);
+
+                    secondCard.append(LocationP);
+
+
+                    let uploaded_dateP = document.createElement("p");
+                    uploaded_dateP.setAttribute("class", "uploaded_date");
+                    uploaded_dateP.innerText = `${UplodedJobs[i]["Salary"]}`;
+
+                    let uploaded_dateSpan = document.createElement("span");
+                    uploaded_dateSpan.innerText = 'Salary :';
+                    uploaded_dateP.prepend(uploaded_dateSpan);
+
+                    secondCard.append(uploaded_dateP);
+
+                    let rectButtons = document.createElement("div");
+                    rectButtons.setAttribute("class", "rect-buttons");
+                    rectButtons.innerHTML = `<button class="ck_work">Check Workers</button>
+               <button class="cnl">Cancel</button>`;
+                    secondCard.append(rectButtons);
+
+                    rect_cards.append(secondCard)
+
+                    document.querySelector(".ua_jobs").append(rect_cards);
+                    // console.log(UplodedJobs[i]["id"])
+                    let btn = document.getElementById("btn");
+                    // console.log(UplodedJobs[i]["isActive"]);
+
+                    deleteImg.addEventListener("click", () => {
+                        // console.log(UplodedJobs[i]["id"]);
+                        // UplodedJobs = JSON.parse(localStorage.getItem("requirements"));
+                        // UplodedJobs[i]["isActive"] = false;
+                        // const findOfThis = UplodedJobs.find(e => e.id = UplodedJobs[i]["id"])
+                        const indexOfThis = UplodedJobs.indexOf(UplodedJobs[i])
+                        console.log(UplodedJobs);
+                        // UplodedJobs.splice(indexOfThis, 1)
+                        UplodedJobs[indexOfThis]["isActive"] = false;
+                        localStorage.setItem("requirements", JSON.stringify(UplodedJobs))
+                        console.log(UplodedJobs);
+                        window.location.reload();
+                    })
+                }
+                test()
+            }
+
 
         }
-
-        let UplodedJobs = JSON.parse(localStorage.getItem("requirements"));
 
 
         // for (let i = 0; i < UplodedJobs.length; i++) {

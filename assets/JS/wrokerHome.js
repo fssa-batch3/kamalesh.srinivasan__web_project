@@ -142,6 +142,7 @@ function applyJob() {
     aplliedJobId: Date.now(),
     readed: false,
     notificationAction: "NotActioned",
+    start: false,
   };
 
   if (owner != undefined) {
