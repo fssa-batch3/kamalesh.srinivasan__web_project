@@ -129,6 +129,7 @@ main {
   height: fit-content;
   border-radius: 0.3rem;
   display: none;
+  position: relative;
 }
 
 .jobHead {
@@ -206,4 +207,32 @@ a:active {
   background-color: antiquewhite;
   /* color: ; */
   cursor: pointer;
+}
+
+.getCompletedDetails {
+  background-color: yellow;
+  width: 40rem;
+  height: 20rem;
+  position: absolute;
+  margin: 15rem 2rem;
+  border-radius: 1rem;
+  padding-top: 2rem;
+  display: none;
+}
+
+#reason {
+  height: 5rem;
+}
+
+.getCompletedDetails img {
+  width: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.getCompletedDetails label,
+select,
+textarea {
+  margin-bottom: 1rem;
 }

@@ -58,11 +58,19 @@ function createDetails(currentJob) {
   image.setAttribute("onclick", "closeDetail()");
   imageDiv.append(image);
 
-  let startWork = document.createElement("div");
-  startWork.setAttribute("class", "startWork");
-  startWork.setAttribute("onclick", "addstartWork()");
-  startWork.innerHTML = "Start Work";
-  details.append(startWork);
+  if (currentJob["start"] == true) {
+    let startWork = document.createElement("div");
+    startWork.setAttribute("class", "startWork");
+    startWork.setAttribute("onclick", `completedWork(${currentJob})`);
+    startWork.innerHTML = "Completed";
+    details.append(startWork);
+  } else {
+    let startWork = document.createElement("div");
+    startWork.setAttribute("class", "startWork");
+    startWork.setAttribute("onclick", "addstartWork()");
+    startWork.innerHTML = "Start Work";
+    details.append(startWork);
+  }
 
   let data = document.createElement("div");
   data.setAttribute("class", "data");
@@ -212,8 +220,19 @@ function addstartWork() {
   let applyJOb = JSON.parse(localStorage.getItem("apllyJob"));
   let selectedObj = applyJOb.find((F) => F.aplliedJobId == crntJobId);
   let index = applyJOb.indexOf(selectedObj);
+  if (selectedObj["start"]) {
+    return alert("Job already started");
+  }
+
   selectedObj["start"] = true;
   applyJOb[index] = selectedObj;
 
   localStorage.setItem("apllyJob", JSON.stringify(applyJOb));
+}
+
+function completedWork(currentJob) {
+  // getCompletedDetails
+  // let getCompletedDetails = document.createElement("div");
+  // getCompletedDetails.setAttribute("class", "getCompletedDetails");
+  // document.querySelector("body").append(getCompletedDetails);
 }

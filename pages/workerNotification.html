@@ -209,6 +209,38 @@
                 </div>
             </div>
 
+            <form class="getCompletedDetails">
+                <img alt="image" src="../assets/Images/close.svg" />
+                <label for="WorkCompleted">Work Completed:</label>
+                <select id="WorkCompleted">
+                    <option value="">None</option>
+                    <option value="yes">Yes</option>
+                    <option value="No">No</option>
+                </select><br>
+
+                <label for="Allrequirements">Have you complete the all requirements:</label>
+                <select id="Allrequirements">
+                    <option value="">None</option>
+                    <option value="yes">Yes</option>
+                    <option value="No">No</option>
+                </select><br>
+
+                <label for="amountChanges">Do you have any price changes:</label>
+                <select id="amountChanges">
+                    <option value="">None</option>
+                    <option value="yes">Yes</option>
+                    <option value="No">No</option>
+                </select><br>
+
+                <label for="changedAmount">If you have any changes in price</label>
+                <input id="changedAmount" placeholder="Enter the price here" />
+
+                <label for="reason">Type the reason of price changes</label>
+                <textarea id="reason" placeholder="reason"></textarea>
+
+                <button>Completed</button>
+                <button>Cancel</button>
+            </form>
         </section>
     </main>
     <script src="../assets/JS/workerNotification.js"></script>
@@ -303,11 +335,21 @@
                 // Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
                 buttons.append(Approve);
 
-                let startWork = document.createElement("a");
-                startWork.setAttribute("id", "startWork");
-                startWork.innerHTML = "Start Work";
-                startWork.setAttribute("onclick", `setCurrentNotificationId(${applyJob[i]["aplliedJobId"]})`)
-                buttons.append(startWork);
+                if (applyJob[i]["start"] == true) {
+                    let startWork = document.createElement("a");
+                    startWork.setAttribute("id", "startWork");
+                    startWork.innerHTML = "Started";
+                    startWork.setAttribute("onclick", `setCurrentNotificationId(${applyJob[i]["aplliedJobId"]})`)
+                    buttons.append(startWork);
+                }
+                else {
+                    let startWork = document.createElement("a");
+                    startWork.setAttribute("id", "startWork");
+                    startWork.innerHTML = "Start Work";
+                    startWork.setAttribute("onclick", `setCurrentNotificationId(${applyJob[i]["aplliedJobId"]})`)
+                    buttons.append(startWork);
+                }
+
             }
 
             else {
@@ -318,9 +360,7 @@
                 buttons.append(Approve);
             }
 
-            if (applyJob[i]["start"] == true) {
 
-            }
 
 
 
@@ -335,6 +375,10 @@
             document.querySelector(".notificationEntire").append(notifications);
         }
 
+
+        // let getCompletedDetails = document.createElement("div");
+        // getCompletedDetails.setAttribute("class", "getCompletedDetails");
+        // document.querySelector(".details").append(getCompletedDetails);
 
     </script>
 </body>
