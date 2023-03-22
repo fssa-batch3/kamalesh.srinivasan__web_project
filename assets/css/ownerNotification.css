@@ -163,3 +163,7 @@ main {
 a:active {
   background-color: antiquewhite;
 }
+
+#getCompletedDetailsbutton {
+  width: 10rem;
+}

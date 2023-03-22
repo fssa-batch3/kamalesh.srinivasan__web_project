@@ -210,7 +210,7 @@ a:active {
 }
 
 .getCompletedDetails {
-  background-color: yellow;
+  background-color: cyan;
   width: 40rem;
   height: 20rem;
   position: absolute;
@@ -218,6 +218,11 @@ a:active {
   border-radius: 1rem;
   padding-top: 2rem;
   display: none;
+  box-shadow: gainsboro;
+  -webkit-box-shadow: 10px 10px 81px 8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 81px 8px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 81px 8px rgba(0, 0, 0, 0.75);
+  margin-left: -15rem;
 }
 
 #reason {

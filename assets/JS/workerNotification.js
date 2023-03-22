@@ -61,7 +61,11 @@ function createDetails(currentJob) {
   if (currentJob["start"] == true) {
     let startWork = document.createElement("div");
     startWork.setAttribute("class", "startWork");
-    startWork.setAttribute("onclick", `completedWork(${currentJob})`);
+    startWork.setAttribute(
+      "onclick",
+      `completedWork(${currentJob.aplliedJobId})`
+    );
+    // console.log(`completedWork(${currentJob["location"]})`);
     startWork.innerHTML = "Completed";
     details.append(startWork);
   } else {
@@ -230,9 +234,45 @@ function addstartWork() {
   localStorage.setItem("apllyJob", JSON.stringify(applyJOb));
 }
 
-function completedWork(currentJob) {
-  // getCompletedDetails
-  // let getCompletedDetails = document.createElement("div");
-  // getCompletedDetails.setAttribute("class", "getCompletedDetails");
-  // document.querySelector("body").append(getCompletedDetails);
+function completedWork(job) {
+  console.log(job);
+
+  getCompletedDetails.style.display = "block";
+  document
+    .getElementById("getCompletedDetails")
+    .addEventListener("submit", (event) => {
+      event.preventDefault();
+      let applyJob = JSON.parse(localStorage.getItem("apllyJob"));
+      let finded = applyJob.find((F) => F.aplliedJobId == job);
+      let getCompletedDetails = document.querySelector(".getCompletedDetails");
+      let form = {
+        WorkCompleted: document.getElementById("WorkCompleted").value,
+        Allrequirements: document.getElementById("Allrequirements").value,
+        amountChanges: document.getElementById("amountChanges").value,
+        changedAmount: document.getElementById("changedAmount").value,
+        reason: document.getElementById("reason").value,
+      };
+
+      let arr = [];
+      if (localStorage.getItem("completedJobs") != null) {
+        arr = JSON.parse(localStorage.getItem("completedJobs"));
+      }
+      let completedJobs = Object.assign(finded, form);
+      for (let i = 0; i < arr.length; i++) {
+        if (
+          arr[i]["aplliedJobId"] == completedJobs["aplliedJobId"] &&
+          arr[i]["applierId"] == completedJobs["applierId"]
+        ) {
+          return toastr.error("This job is already completed");
+        }
+      }
+      arr.push(completedJobs);
+      localStorage.setItem("completedJobs", JSON.stringify(arr));
+      toastr.success("Job Completed");
+    });
 }
+
+let close = document.querySelector("#close");
+close.addEventListener("click", (event) => {
+  getCompletedDetails.style.display = "none";
+});
