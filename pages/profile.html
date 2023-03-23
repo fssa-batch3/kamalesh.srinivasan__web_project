@@ -34,7 +34,7 @@
                 </div>
                 <div class="top_icons">
                     <div class="icons"> <img src="../assets/Images/phone_new.svg" alt="image" />
-                        <p>+919876543210</p>
+                        <!-- <p>+919876543210</p> -->
                     </div>
                     <div class="icons">
                         <img src="../assets/Images/linkedin (1).svg" alt="image" />
@@ -159,6 +159,10 @@
         Name.innerHTML = "<span>Name :  </span>" + userBio.FN + userBio.LN;
         expertIn.setAttribute("class", "second_div_profile_p")
         document.querySelector(".datas").prepend(Name);
+
+        let phone = document.createElement("p");
+        phone.innerHTML = `${userBio["Phone"]}`;
+        document.querySelector(".icons").append(phone);
 
 
         function deleteUser() {
