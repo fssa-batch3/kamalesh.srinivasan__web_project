@@ -159,4 +159,5 @@ function marckAsDelete(id) {
   }
   localStorage.setItem("requirements", JSON.stringify(getLocal));
   console.log(getLocal);
+  location.reload();
 }

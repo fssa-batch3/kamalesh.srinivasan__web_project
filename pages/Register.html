@@ -57,16 +57,21 @@
             <form method="post" id="form">
                 <fieldset>
                     <br />
-                    <input type="text" name="username" id="UserName" placeholder="Username" required autofocus>
+                    <input type="text" name="username" id="UserName" placeholder="Username" required autofocus
+                        autocomplete="fdgbsfgbds" pattern="[A-Za-z]{1,20}" title="Enter alphabet only">
                     <br /><br />
-                    <input type="text" name="FullName" id="FullName" placeholder="Full Name" required />
+                    <input type="text" name="FullName" id="FullName" placeholder="Full Name" required
+                        pattern="[A-Za-z]{1,20}" autocomplete="fdgbsfgbds" title="Enter alphabet only" />
                     <br /><br />
                     <input type="email" name="email" id="email" placeholder="E-mail" required>
                     <br /><br />
-                    <input type="password" name="password" id="password" placeholder="Password" required>
+                    <input type="password" name="password" id="password" placeholder="Password" required
+                        autocomplete="fdgbsfgbds" pattern="[A-Za-z]{1,20}"
+                        title="Password should have uppercase and lowercase only">
                     <br /><br />
                     <input type="password" name="confirm-password" id="Rpassword" placeholder="Confirm Password"
-                        required>
+                        required autocomplete="fdgbsfgbds" pattern="[A-Za-z]{1,20}"
+                        title="RepeatPassword should have uppercase and lowercase only">
                     <br /> <br /> <br />
                     <label for="submit"></label>
                     <input type="submit" name="submit" id="submit" value="REGISTER">
@@ -195,36 +200,39 @@
                                 match = true;
 
                             }
-                            else {
-                                allEmail.push(Email);
-                                localStorage.setItem("allEmail", JSON.stringify(allEmail))
-                            }
-
-
-                            if (match == true) {
-                                return alert("Email is already Exist");
-                            }
-
-                            else {
-                                let userObj = {
-                                    FullName, Email, UserName, Password, RPassword, id
-                                }
-                                console.log(userObj)
-
-                                userData.push(userObj);
-                                const str = JSON.stringify(userData);
-                                localStorage.setItem("workerRegister", str)
-                                console.log(str)
-                                let userLoggedIn = {
-                                    Email,
-                                    id
-                                }
-                                localStorage.setItem("Login", JSON.stringify(userLoggedIn));
-                                // console.log(logIn)
-                                return location.href = "Bio.html?type=" + type;
-                            }
 
                         }
+
+
+
+
+
+                        if (match == true) {
+                            return alert("Email is already Exist");
+                        }
+
+                        else {
+                            allEmail.push(Email);
+                            localStorage.setItem("allEmail", JSON.stringify(allEmail))
+                            let userObj = {
+                                FullName, Email, UserName, Password, RPassword, id
+                            }
+                            console.log(userObj)
+
+                            userData.push(userObj);
+                            const str = JSON.stringify(userData);
+                            localStorage.setItem("workerRegister", str)
+                            console.log(str)
+                            let userLoggedIn = {
+                                Email,
+                                id
+                            }
+                            localStorage.setItem("Login", JSON.stringify(userLoggedIn));
+                            // console.log(logIn)
+                            return location.href = "Bio.html?type=" + type;
+                        }
+
+
                     }
 
 

@@ -2,7 +2,7 @@
 
 function detailView(currentData) {
   console.log(currentData);
-
+  localStorage.setItem("currentDataPayDetail", JSON.stringify(currentData));
   let completed = JSON.parse(localStorage.getItem("completedJobs"));
   let finded = completed.find((F) => F.aplliedJobId == currentData);
   let detailSec = document.querySelector(".detailSec");
@@ -152,7 +152,8 @@ function payCash() {
   let cashSubmit = document.createElement("button");
   cashSubmit.setAttribute("type", "submit");
   cashSubmit.innerHTML = "Piad";
-  cashSubmit.setAttribute("id", "cashSubmit");
+  //   cashSubmit.setAttribute("id", "cashSubmit");
+  cashSubmit.setAttribute("onclick", "cashSubmit()");
   form.append(cashSubmit);
 
   let cashCancel = document.createElement("button");
@@ -169,6 +170,13 @@ function cancelCashform() {
   cashCard.remove();
 }
 
-document.getElementById("cashSubmit").addEventListener("click", (event) => {
+function cashSubmit() {
   event.preventDefault();
-});
+  let paymentJob = JSON.parse(localStorage.getItem("currentDataPayDetail"));
+  let completedJobs = JSON.parse(localStorage.getItem("completedJobs"));
+
+  let currentPaymentJob = completedJobs.find(
+    (F) => F.paymentJob == completedJobs
+  );
+  console.log(currentPaymentJob);
+}

@@ -25,7 +25,7 @@
                 <!-- <a>Search</a> -->
                 <a href="">Chat</a>
                 <a>Notification</a>
-                <a onclick="urlData()" href="profile.html">profile</a>
+                <a onclick="urlData()">profile</a>
                 <a href="../index.html">LogOut</a>
             </div>
         </nav>
@@ -295,14 +295,27 @@
 
             let Approve = document.createElement("a");
             Approve.setAttribute("id", "approve")
-            Approve.innerHTML = "Approve";
-            Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
+            if (applyJob[i]["notificationAction"] == "Approved") {
+                Approve.innerHTML = "Approved";
+                console.log("Approved");
+            }
+            else {
+                Approve.innerHTML = "Approve";
+                Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
+            }
+
             b1.append(Approve);
 
             let Reject = document.createElement("a");
             Reject.setAttribute("id", "reject");
-            Reject.innerHTML = "Reject";
-            Reject.setAttribute("onclick", `reject(${applyJob[i]["aplliedJobId"]})`)
+            if (applyJob[i]["notificationAction"] == "Rejected") {
+                Reject.innerHTML = "Rejected";
+            }
+            else {
+                Reject.innerHTML = "Reject";
+                Reject.setAttribute("onclick", `reject(${applyJob[i]["aplliedJobId"]})`)
+            }
+
             b1.append(Reject);
 
             let b2 = document.createElement("div");
@@ -310,8 +323,15 @@
             buttons.append(b2);
 
             let Readed = document.createElement("a");
-            Readed.innerHTML = "Readed";
-            Readed.setAttribute("onclick", "readed()")
+            if (applyJob[i]["readed"] == true) {
+                Readed.innerHTML = "Read";
+            }
+            else {
+                Readed.innerHTML = "Read";
+                Readed.setAttribute("onclick", `readed(${applyJob[i]["aplliedJobId"]})`)
+            }
+            Readed.innerHTML = "Read";
+            Readed.setAttribute("onclick", `readed(${applyJob[i]["aplliedJobId"]})`)
             b2.append(Readed);
 
             let details = document.createElement("a");
@@ -340,6 +360,7 @@
             console.log(index);
             appliedJobs[index] = AddedfindexObject;
             localStorage.setItem("apllyJob", JSON.stringify(appliedJobs));
+            location.reload();
         }
 
 
@@ -522,6 +543,7 @@
             let index = applyJob.indexOf(aplliedJobId);
             applyJob[index] = findedObject;
             localStorage.setItem("apllyJob", JSON.stringify(applyJob));
+            location.reload();
         }
 
         function reject(aplliedJobId) {
@@ -530,9 +552,12 @@
             let index = applyJob.indexOf(aplliedJobId);
             applyJob[index] = findedObject;
             localStorage.setItem("apllyJob", JSON.stringify(applyJob));
+            location.reload();
         }
 
-
+        function urlData() {
+            location.href = "profile.html?from=logIn&&type=owner&filter=all"
+        }
 
 
 

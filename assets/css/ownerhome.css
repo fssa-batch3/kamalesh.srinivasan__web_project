@@ -1,7 +1,8 @@
 body {
   /* background-image: url(/assets/Images/colors.jpg); */
   color: white;
-  background-color: black;
+  background-color: rgb(185, 180, 245);
+  font-family: "Droid Serif", serif;
 }
 
 a {
@@ -138,7 +139,7 @@ nav a:hover {
 .ck_work {
   border: none;
   border-radius: 2px;
-  background-color: GREEN;
+  background-color: rgb(185, 180, 245);
   color: white;
   font-size: medium;
 }
@@ -462,7 +463,7 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: red;
+  color: rgb(185, 180, 245);
   font-size: 1.8rem;
   font-weight: 300;
 }

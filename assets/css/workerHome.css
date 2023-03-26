@@ -4,7 +4,7 @@ body {
   transition: o.5s;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: black;
+  background-color: rgb(185, 180, 245);
 }
 
 a {
@@ -204,8 +204,8 @@ ul {
 }
 
 main {
-  /* display: flex; */
-  /* gap: 2rem; */
+  display: flex;
+  gap: 2rem;
   /* justify-content: space-around; */
   position: relative;
 }

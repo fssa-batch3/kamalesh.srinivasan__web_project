@@ -2,7 +2,7 @@
   --light-purple: #dbd2dc;
   --dark-purple: #2a0531;
   --purple-opaq: rgba(20, 2, 23, 0.5);
-  --color-white: #eae9e4;
+  --color-white: white;
   --complementary-blue: #4877f4;
 }
 
@@ -17,7 +17,9 @@ body {
   font-weight: 400;
   color: var(--color-white);
   margin: 0;
-  background-color: black;
+  background-color: rgb(185, 180, 245);
+  font-family: "Droid Serif", serif;
+
 }
 
 /* mobile friendly alternative to using background-attachment: fixed */
@@ -67,7 +69,7 @@ textarea {
 }
 
 form {
-  background: var(--purple-opaq);
+  rgb(20 2 23 / 1%);
   padding: 2rem 1rem;
   width: 80%;
   display: inline-block;
@@ -111,7 +113,7 @@ p {
 .form-columns:focus {
   border-color: #ff4500;
   outline: 0;
-  box-shadow: 0 0 0 0.15rem rgba(88, 34, 13, 0.9);
+  box-shadow: 0 0 0 0.15rem yellow;
 }
 
 .radio-input,

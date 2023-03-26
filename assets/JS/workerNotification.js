@@ -188,6 +188,7 @@ function reject(aplliedJobId) {
   let index = applyJob.indexOf(aplliedJobId);
   applyJob[index] = findedObject;
   localStorage.setItem("apllyJob", JSON.stringify(applyJob));
+  location.reload();
 }
 
 function filterAll() {
@@ -216,7 +217,7 @@ function filterStarted() {
 }
 
 function urlNotif() {
-  location.href = "workerHome.html?from=register&&type=worker&&All";
+  location.href = "workerHome.html?from=register&&type=worker&&filter=All";
 }
 
 function addstartWork() {

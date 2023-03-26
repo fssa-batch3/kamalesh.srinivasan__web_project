@@ -1,8 +1,9 @@
 body {
-  background-color: rgb(238, 238, 238);
-  background-image: url(../Images/colors.jpg);
+  background-color: rgb(185, 180, 245);
+  /* background-image: url(../Images/colors.jpg); */
   background-size: cover;
   /* padding-left: ; */
+  font-family: "Droid Serif", serif;
 }
 
 a {
@@ -29,7 +30,7 @@ header {
 }
 header a {
   margin-top: 1vh;
-  font-size: 2vh;
+  font-size: 1.15rem;
   color: white;
 }
 .buttons {
@@ -40,7 +41,7 @@ header a {
 .header_img {
   width: 2vw;
   height: 4.2vh;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   /* margin-left: -2vw; */
 }
 
@@ -199,7 +200,7 @@ main {
   display: inline-block;
   text-align: center;
   text-decoration: none;
-  background-color: rgb(238, 238, 238);
+  background-color: white;
   /* border: 1px solid black; */
   padding: 1rem;
   margin-right: 2rem;

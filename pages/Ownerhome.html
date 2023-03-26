@@ -341,6 +341,7 @@
             }
             //console.log(formData)
             getUploadreq(formData)
+            location.reload();
         })
 
 
@@ -361,16 +362,18 @@
         let requirements = JSON.parse(localStorage.getItem("requirements"));
         let logIn = JSON.parse(localStorage.getItem("Login"));
         let UplodedJobsMatchedId = requirements.filter((F) => F.ownerId == logIn.id);
-        let UplodedJobsappendTag = document.querySelector(".ua_jobs")
-        let UplodedJobs;
+        console.log(UplodedJobsMatchedId);
+        let UplodedJobsappendTag = document.querySelector(".ua_jobs");
+        let UplodedJobs = [];
         //console.log(UplodedJobs);
-        for (let i = 0; i < UplodedJobsMatchedId; i++) {
-            if (UplodedJobsMatchedId[i]["isActive"] === true) {
+        for (let i = 0; i < UplodedJobsMatchedId.length; i++) {
+            if (UplodedJobsMatchedId[i]["isActive"] == true) {
                 UplodedJobs.push(UplodedJobsMatchedId[i]);
             }
         }
 
-        if (UplodedJobs == undefined) {
+        console.log(UplodedJobs[0]);
+        if (UplodedJobs[0] == undefined) {
             //console.log(undefined);
             let rect_cards = document.createElement("div");
             rect_cards.setAttribute("class", "rect_cards_notFound");
@@ -398,9 +401,9 @@
         // let logIn = JSON.parse(localStorage.getItem("Login"));
         // let UplodedJobs = requirements.filter((F) => F.ownerId == logIn.id);
         // let UplodedJobsappendTag = document.querySelector(".ua_jobs")
-        let localPen = JSON.parse(localStorage.getItem("requirements"))
+        // let localPen = JSON.parse(localStorage.getItem("requirements"))
         //console.log(localPen);
-        let pendingJobs = localPen.filter((F) => F.isCompleted == false)
+        let pendingJobs = UplodedJobsMatchedId.filter((F) => F.isCompleted == false)
         //console.log(pendingJobs)
         let pendingJobsappendTag = document.querySelector(".pen_jobs");
         //console.log(pendingJobs);
@@ -429,15 +432,15 @@
 
         //  Recently uploded
 
-        let recntUploadedJobs = UplodedJobs;
+        let recntUploadedJobs = UplodedJobsMatchedId;
         //console.log(rect_jobs);
-        rect_jobsTag = document.querySelector(".rect_jobs");
+        let rect_jobsTag = document.querySelector(".rect_jobs");
         // for (let i = 0; i < rect_jobsAll; i++) {
         //     if (rect_jobsAll[i]["isActive"] === true) {
         //         rect_jobs.push(rect_jobsAll[i]);
         //     }
         // }
-        if (UplodedJobs == undefined) {
+        if (UplodedJobsMatchedId[0] == undefined) {
             //console.log(undefined);
             let rect_cards = document.createElement("div");
             rect_cards.setAttribute("class", "rect_cards_notFound");
@@ -446,11 +449,11 @@
         }
         else {
             let rect_jobsAll = recntUploadedJobs.reverse();
-
+            console.log(rect_jobsAll);
             //console.log(rect_jobs);
-            for (let i = 0; i < rect_jobs.length; i++) {
+            for (let i = 0; i < rect_jobsAll.length; i++) {
 
-                test(rect_jobs, i, rect_jobsTag);
+                test(recntUploadedJobs, i, rect_jobsTag);
 
             }
 

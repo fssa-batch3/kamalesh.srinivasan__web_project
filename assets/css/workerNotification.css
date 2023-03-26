@@ -1,5 +1,6 @@
 body {
   color: black;
+  font-family: "Droid Serif", serif;
 }
 
 a {
@@ -36,6 +37,7 @@ a {
 .user_name {
   color: black;
   font-size: x-large;
+  width: 5.5rem;
 }
 
 .types {

@@ -294,18 +294,31 @@
         let filter = urlParams.get("filter");
         console.log(filter);
 
+        let bio = JSON.parse(localStorage.getItem("BIO"));
+
+
+
 
         let applyJobAll = JSON.parse(localStorage.getItem("apllyJob"));
         let logIn = JSON.parse(localStorage.getItem("Login"));
-        All = applyJobAll.filter((F) => applyJobAll.applierId == logIn.applierId)
+        let data = bio.find((B) => B.Email == logIn.Email)
+        console.log(data);
+        All = applyJobAll.filter((F) => F.applierId == logIn.id)
+        let user_name = document.querySelector(".user_name");
+        user_name.innerHTML = data.FN + data.LN;
+        console.log(applyJobAll);
+        console.log(All);
 
-        let applyJob = applyJobAll.filter((F) => applyJobAll.applierId == logIn.applierId);
+        let applyJob;
         if (filter == "All") {
-            applyJob = applyJobAll.filter((F) => applyJobAll.applierId == logIn.applierId)
+            applyJob = All.filter((F) => F.applierId == logIn.id);
+            // console.error(filtered);
+            // applyJob.push(filtered)
+            console.log(applyJob);
         }
 
         if (filter == "NotActioned") {
-            applyJob = applyJobAll.filter((F) => F.notificationAction == "NotActioned");
+            applyJob = All.filter((F) => F.notificationAction == "NotActioned");
         }
 
         if (filter == "Rejected") {
