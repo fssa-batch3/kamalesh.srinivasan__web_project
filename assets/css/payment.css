@@ -1,0 +1,301 @@
+main {
+  display: flex;
+  gap: 5rem;
+  padding-top: 5rem;
+}
+
+section {
+  filter: none;
+}
+.listView {
+  margin-top: -2rem;
+}
+
+.listProfile img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  margin-left: 1rem;
+}
+
+.listcard {
+  display: flex;
+  margin-left: 5rem;
+  /* gap: 2rem; */
+}
+
+.workerDetails {
+  margin-left: 4rem;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  margin-top: 1rem;
+  gap: 0.5rem;
+  /* justify-content: space-around; */
+}
+.status {
+  margin-top: 3rem;
+}
+
+.Pay {
+  margin-left: 15rem;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.Pay button {
+  width: 5rem;
+  height: 2rem;
+  background-color: aqua;
+  border: none;
+  border-radius: 0.2rem;
+}
+
+.name {
+  font-size: x-large;
+}
+
+.jobid {
+  font-size: larger;
+}
+
+.status {
+  font-size: large;
+}
+
+.listcard {
+  border-top: 1px solid white;
+  box-sizing: border-box;
+  width: 50rem;
+  padding-top: 1rem;
+  border-bottom: 1px solid white;
+  padding-bottom: 1rem;
+}
+
+.listcard:hover {
+  z-index: 1;
+  background-color: rgba(74, 63, 63, 0.546);
+}
+
+.Pay button:hover {
+  background-color: black;
+  color: white;
+}
+
+.detailView {
+  /* border: 1px solid white; */
+  height: 40rem;
+  width: 30rem;
+  border-radius: 2rem;
+  margin-top: -2rem;
+  display: none;
+}
+.detailProfile {
+  background-color: aqua;
+  display: flex;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  gap: 3rem;
+}
+
+.detailProfile img {
+  width: 8rem;
+  padding: 1rem;
+}
+
+.detailsworkerName {
+  font-size: x-large;
+  margin-top: 3rem;
+  color: black;
+}
+
+.Jid {
+  color: black;
+  font-size: x-large;
+}
+
+.bar {
+  margin-top: 0.5rem;
+  height: 1rem;
+  background-color: white;
+  margin-bottom: 0.5rem;
+}
+
+.workStatus {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.amountChanged {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.AmtChangeDetails {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.paymentStatus {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.workStatus,
+.amountChanged,
+.AmtChangeDetails,
+.paymentStatus {
+  margin-left: 6rem;
+}
+
+p {
+  font-size: x-large;
+  width: 10rem;
+}
+
+.workStatus,
+.amountChanged,
+.AmtChangeDetails,
+.paymentStatus div {
+  font-size: large;
+}
+
+.PaymentDetailsButtons button {
+  box-sizing: border-box;
+  width: 5rem;
+  /* background-color: blue; */
+  height: 1.5rem;
+}
+
+.PaymentDetailsButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#cancel {
+  background-color: aqua;
+  border: none;
+  border-radius: 0.1rem;
+}
+
+#pay {
+  background-color: blueviolet;
+  border: none;
+  border-radius: 0.1rem;
+  color: white;
+}
+
+.filters {
+  /* background-color: lightblue; */
+  height: 5rem;
+  width: 40rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 5rem;
+  margin-top: -1rem;
+}
+
+.filters a {
+  text-decoration: none;
+  color: black;
+  /* padding: 1rem; */
+  text-align: center;
+  background-color: lightblue;
+  box-sizing: border-box;
+  width: 5rem;
+  padding: 0.5rem 0rem;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.filters p {
+  color: lightblue;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.popUp {
+  position: absolute;
+  width: 30rem;
+  height: 10rem;
+  background-color: bisque;
+  margin-top: -30rem;
+  margin-left: 30rem;
+  z-index: 1;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 13px 1px rgba(249, 247, 247, 0.51);
+}
+
+.message {
+  color: black;
+  font-size: larger;
+  padding: 2rem;
+}
+
+.popUpBtn {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.popUpBtn button {
+  box-sizing: border-box;
+  width: 5rem;
+  /* background-color: red; */
+  border: none;
+  height: 1.5rem;
+  font-weight: bold;
+  /* font-size: small; */
+  border-radius: 0.5rem;
+}
+
+#CopyURL {
+  background-color: aqua;
+}
+
+.paycash {
+  background-color: rgb(52, 211, 52);
+}
+
+.cancel {
+  background-color: red;
+}
+
+.popUpBtn button:hover {
+  scale: 1.03;
+}
+
+.cashCard {
+  width: 20rem;
+  height: 15rem;
+  background-color: bisque;
+  margin-top: -24rem;
+  margin-left: 5rem;
+  border-radius: 0.5rem;
+  z-index: 1;
+  color: black;
+}
+
+.cashCard form {
+  border: none;
+  font-size: large;
+  padding-top: 2rem;
+}
+
+.cashCard input {
+  width: 10rem;
+  /* background-color: transparent; */
+  border: aqua;
+  border-radius: 0.5rem;
+}
+
+.cashCard button {
+  margin-right: 0.5rem;
+}

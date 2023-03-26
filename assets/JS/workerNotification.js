@@ -251,6 +251,7 @@ function completedWork(job) {
         amountChanges: document.getElementById("amountChanges").value,
         changedAmount: document.getElementById("changedAmount").value,
         reason: document.getElementById("reason").value,
+        paid: "Unpaid",
       };
 
       let arr = [];

@@ -8,8 +8,7 @@
     <title>Payment</title>
     <link rel="stylesheet" href="../assets/css/ownerhome.css">
     <link rel="stylesheet" href="../assets/css/workerHome.css">
-
-
+    <link rel="stylesheet" href="../assets/css/payment.css">
 
 </head>
 
@@ -31,16 +30,147 @@
             </div>
         </nav>
     </header>
-
+    <section class="filters">
+        <p>Filter By</p>
+        <a href="">All</a>
+        <a href="">Paid</a>
+        <a href="">Unpaid</a>
+        <a href="">Pending</a>
+    </section>
     <main>
-        <section class="filters">
-            <p>Filter By</p>
-            <a href="">All</a>
-            <a href="">Paid</a>
-            <a href="">Unpaid</a>
-            <a href="">Pending</a>
+
+
+        <section class="listView">
+            <!-- <div class="listcard">
+                <div class="listProfile">
+                    <img src="../assets/Images/profile2.jpg" alt="image">
+                </div>
+
+                <div class="workerDetails">
+                    <div class="name">
+                        Worker name
+                    </div>
+                    <div class="jobid">
+                        123456789098765tr4e
+                    </div>
+                    <div class="status">
+                        Unpaid
+                    </div>
+                </div>
+                <div class="Pay">
+                    <button>Pay</button>
+                </div>
+
+            </div> -->
+
+
         </section>
+
+
+        <section class="detailSec">
+            <!-- <div class="detailView">
+                <div class="detailProfile">
+                    <img src="../assets/Images/avatar (4).svg" alt="image" />
+                    <div>
+                        <div class="detailsworkerName">Worker Name</div>
+                        <div class="Jid">2345678765432</div>
+                    </div>
+                </div>
+
+                <div class="bar">
+
+                </div>
+
+                <div class="jobdetails">
+                    <div class="workStatus">
+                        <p> Work Completed</p>
+                        <div>(Yes)</div>
+                    </div>
+
+                    <div class="amountChanged">
+                        <p>Amount Changed</p>
+                        <div>(Yes)</div>
+                    </div>
+
+                    <div class="AmtChangeDetails">
+                        <p>Details For amount changed</p>
+                        <div>Metireial cost is not match</div>
+
+                    </div>
+
+                    <div class="paymentStatus">
+                        <p>Payment Status</p>
+                        <div>Unpaid</div>
+                    </div>
+
+                    <div class="PaymentDetailsButtons">
+                        <button id="cancel">Cancel</button>
+                        <button id="pay">Pay</button>
+                    </div>
+
+
+                </div> -->
+            </div>
+        </section>
+
+
     </main>
+
+
+
 </body>
+<script src="../assets/JS/payment.js"></script>
+<script>
+
+    let completedJobs = JSON.parse(localStorage.getItem("completedJobs"));
+
+    for (let i = 0; i < completedJobs.length; i++) {
+
+        let listcard = document.createElement("div");
+        listcard.setAttribute("class", "listcard");
+
+        let listProfile = document.createElement("div");
+        listProfile.setAttribute("class", "listProfile")
+        listcard.append(listProfile);
+
+        let listProfile_img = document.createElement("img");
+        listProfile_img.setAttribute("src", "../assets/Images/profile2.jpg");
+        listProfile_img.setAttribute("alt", "image");
+        listProfile.append(listProfile_img);
+
+        let workerDetails = document.createElement("div");
+        workerDetails.setAttribute("class", "workerDetails");
+        listcard.append(workerDetails);
+
+        let name = document.createElement("div");
+        name.setAttribute("class", "name");
+        name.innerHTML = `${completedJobs[i]["applierName"]}`;
+        workerDetails.append(name);
+
+        let jobid = document.createElement("div");
+        jobid.innerHTML = `${completedJobs[i]["jobID"]}`;
+        jobid.setAttribute("class", "jobid");
+        workerDetails.append(jobid);
+
+        let status = document.createElement("div");
+        status.innerHTML = "Unpaid";
+        status.setAttribute("class", "status");
+        workerDetails.append(status);
+
+        let Pay = document.createElement("div");
+        Pay.setAttribute("class", "Pay");
+        Pay.setAttribute("onclick", `detailView(${completedJobs[i]["aplliedJobId"]})`)
+        listcard.append(Pay);
+
+        let payButton = document.createElement("button");
+        payButton.innerHTML = "Pay";
+        Pay.append(payButton);
+
+        document.querySelector(".listView").append(listcard);
+    }
+
+
+
+</script>
 
 </html>
