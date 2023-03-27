@@ -12,6 +12,10 @@ Wireframe: https://drive.google.com/drive/folders/1dCALWqtEifowzzn-sDB8WBf8Luj7C
 
 // My web progress table
 
-CRUD For User signning page => Create user account [completed] => Read User Data For Profile Page [completed] => Update user details For Edit Page [completed] => Delete user details For deactivate [completed]
+CRUD For User signning page => Create user account [completed] => Read User Data For Profile Page [completed] => Update user details For Edit Page [completed] => Delete user details(deactivate) [completed]
 
-CRUD For User Features page => Create Job Feature [completed] => Read Job Feature [completed] => Update Job feature [completed] => Delete Job feature [completed]
+CRUD For User Features page => Create Job Feature [completed] => Read Job Feature [completed] => Update Job feature [completed] => Delete Job feature [completed] => Apply job [completed] => Approve Job [completed] => Reject Job [completed] => start Job [completed] => worker Notification [completed] => owner notification [completed].
+
+
+
+
