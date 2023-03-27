@@ -49,7 +49,7 @@ User Story
       User should redirected to the "Bio data" page.
       
       
- 3.Create User Bio data
+ 3.Create owner Bio data
 
    Steps:
        
@@ -60,5 +60,54 @@ User Story
    Expected Result:
      
        user should redirected to the "ownerhome" page.
+
+ 4. Create worker Bio data
+
+   Steps:
+       
+       a) Enter required datas in bio form.
+       
+       b) Enter the "submit" button.
+       
+   Expected Result:
+     
+       user should redirected to the "workerhome" page.
       
+      
+  5. View profile.
+  
+     Steps:
+         
+         a) Click "profile".
+         
+     Expected Result:
+        
+         User should redirected to the "profile" page and the page should display the user details.
+
+   6.Edit profile.
+   
+       Steps:
+           
+           a) Click the "Edit" button.
+           b) Change the datas as your need.
+           c) Enter the "Submit" button.
+ 
+     Expected Result:
+         
+           User should redirected to the "profile" page with edited details.
+
+   7. Delete profile.
+   
+      Steps:
+         
+          a) Click the "Delete User" button.
+          b) Enter the email id and click "ok".
+          c) Enter the password and click "ok".
+        
+     Expected Result:
+        
+           User should redirected to the "index" page.
+          
+          
+       
       
