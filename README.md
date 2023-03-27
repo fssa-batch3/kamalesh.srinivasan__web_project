@@ -46,13 +46,19 @@ User Story
       
   Expected Result:
   
-      User redirected to the "Bio data" page.
+      User should redirected to the "Bio data" page.
       
       
  3.Create User Bio data
 
    Steps:
        
-       a)Enter bio datas in 
+       a) Enter required datas in bio form.
+       
+       b) Enter the "submit" button.
+       
+   Expected Result:
+     
+       user should redirected to the "ownerhome" page.
       
       
