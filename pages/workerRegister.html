@@ -94,13 +94,19 @@
                 <p class="btns">
                     <button class="reg" type="submit"><a href="../pages/Bio.html">Register</a></button><br>
                     <a href=""><button class="cancel" type="reset"><a href="../index.html">Cancel </a></button><br></a>
-                    <button class="signin" type="submit"><a href="">Signin</a></button><br>
+                    <button class="signin" id="signIn" type="submit">Signin</button><br>
                 </p>
             </form>
 
         </div>
 
         <script>
+
+            document.getElementById("signIn").addEventListener("click", (event) => {
+                location.href = "Signin.html"
+            })
+
+
             const email = (document.getElementById("email").value)
             const name = (document.getElementById("name").value)
             const Username = (document.getElementById("username").value)
