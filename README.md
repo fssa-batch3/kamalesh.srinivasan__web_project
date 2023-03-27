@@ -15,3 +15,44 @@ Wireframe: https://drive.google.com/drive/folders/1dCALWqtEifowzzn-sDB8WBf8Luj7C
 CRUD For User signning page => Create user account [completed] => Read User Data For Profile Page [completed] => Update user details For Edit Page [completed] => Delete user details For deactivate [completed]
 
 CRUD For User Features page => Create Job Feature [completed] => Read Job Feature [completed] => Update Job feature [completed] => Delete Job feature [completed]
+
+
+
+User Story
+
+1.Create Owner Account.
+
+  Steps:
+  
+      a) Click "Join as owner".
+      
+      b) Enter the requirement.
+      
+      c) Click the "Register" button.
+      
+  Expected Result:
+  
+      User redirected to the "Bio data" page.
+
+ 2.Create Worker Account.
+
+  Steps:
+  
+      a) Click "Join as worker".
+      
+      b) Enter the requirement.
+      
+      c) Click the "Register" button.
+      
+  Expected Result:
+  
+      User redirected to the "Bio data" page.
+      
+      
+ 3.Create User Bio data
+
+   Steps:
+       
+       a)Enter bio datas in 
+      
+      
