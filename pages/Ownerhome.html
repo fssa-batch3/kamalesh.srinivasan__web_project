@@ -361,34 +361,45 @@
 
         let requirements = JSON.parse(localStorage.getItem("requirements"));
         let logIn = JSON.parse(localStorage.getItem("Login"));
-        let UplodedJobsMatchedId = requirements.filter((F) => F.ownerId == logIn.id);
-        console.log(UplodedJobsMatchedId);
-        let UplodedJobsappendTag = document.querySelector(".ua_jobs");
-        let UplodedJobs = [];
-        //console.log(UplodedJobs);
-        for (let i = 0; i < UplodedJobsMatchedId.length; i++) {
-            if (UplodedJobsMatchedId[i]["isActive"] == true) {
-                UplodedJobs.push(UplodedJobsMatchedId[i]);
-            }
-        }
-
-        console.log(UplodedJobs[0]);
-        if (UplodedJobs[0] == undefined) {
-            //console.log(undefined);
+        if (requirements == null) {
             let rect_cards = document.createElement("div");
             rect_cards.setAttribute("class", "rect_cards_notFound");
             rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
             UplodedJobsappendTag.append(rect_cards);
         }
+
         else {
 
+
+            let UplodedJobsMatchedId = requirements.filter((F) => F.ownerId == logIn.id);
+            console.log(UplodedJobsMatchedId);
+            let UplodedJobsappendTag = document.querySelector(".ua_jobs");
+            let UplodedJobs = [];
             //console.log(UplodedJobs);
-            for (let i = 0; i < UplodedJobs.length; i++) {
-                // //console.log("test")
-                test(UplodedJobs, i, UplodedJobsappendTag)
+            for (let i = 0; i < UplodedJobsMatchedId.length; i++) {
+                if (UplodedJobsMatchedId[i]["isActive"] == true) {
+                    UplodedJobs.push(UplodedJobsMatchedId[i]);
+                }
             }
 
+            console.log(UplodedJobs[0]);
+            if (UplodedJobs[0] == undefined) {
+                //console.log(undefined);
+                let rect_cards = document.createElement("div");
+                rect_cards.setAttribute("class", "rect_cards_notFound");
+                rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
+                UplodedJobsappendTag.append(rect_cards);
+            }
+            else {
 
+                //console.log(UplodedJobs);
+                for (let i = 0; i < UplodedJobs.length; i++) {
+                    // //console.log("test")
+                    test(UplodedJobs, i, UplodedJobsappendTag)
+                }
+
+
+            }
         }
 
 
