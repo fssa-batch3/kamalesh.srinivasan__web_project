@@ -361,6 +361,8 @@
 
         let requirements = JSON.parse(localStorage.getItem("requirements"));
         let logIn = JSON.parse(localStorage.getItem("Login"));
+        let UplodedJobsappendTag = document.querySelector(".ua_jobs");
+
         if (requirements == null) {
             let rect_cards = document.createElement("div");
             rect_cards.setAttribute("class", "rect_cards_notFound");
@@ -373,7 +375,6 @@
 
             let UplodedJobsMatchedId = requirements.filter((F) => F.ownerId == logIn.id);
             console.log(UplodedJobsMatchedId);
-            let UplodedJobsappendTag = document.querySelector(".ua_jobs");
             let UplodedJobs = [];
             //console.log(UplodedJobs);
             for (let i = 0; i < UplodedJobsMatchedId.length; i++) {
@@ -407,31 +408,41 @@
 
 
         //  Pending Jobs
-
-        // let requirements = JSON.parse(localStorage.getItem("requirements"));
-        // let logIn = JSON.parse(localStorage.getItem("Login"));
-        // let UplodedJobs = requirements.filter((F) => F.ownerId == logIn.id);
-        // let UplodedJobsappendTag = document.querySelector(".ua_jobs")
-        // let localPen = JSON.parse(localStorage.getItem("requirements"))
-        //console.log(localPen);
-        let pendingJobs = UplodedJobsMatchedId.filter((F) => F.isCompleted == false)
-        //console.log(pendingJobs)
         let pendingJobsappendTag = document.querySelector(".pen_jobs");
-        //console.log(pendingJobs);
-        if (pendingJobs[0] == undefined) {
-            //console.log(undefined);
+        if (requirements == null) {
             let rect_cards = document.createElement("div");
             rect_cards.setAttribute("class", "rect_cards_notFound");
             rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
             pendingJobsappendTag.append(rect_cards);
         }
+
         else {
+            // let requirements = JSON.parse(localStorage.getItem("requirements"));
+            // let logIn = JSON.parse(localStorage.getItem("Login"));
+            // let UplodedJobs = requirements.filter((F) => F.ownerId == logIn.id);
+            // let UplodedJobsappendTag = document.querySelector(".ua_jobs")
+            // let localPen = JSON.parse(localStorage.getItem("requirements"))
+            //console.log(localPen);
+            let pendingJobs = UplodedJobsMatchedId.filter((F) => F.isCompleted == false)
+            //console.log(pendingJobs)
 
             //console.log(pendingJobs);
-            for (let i = 0; i < pendingJobs.length; i++) {
-                // //console.log("test")
-                test(pendingJobs, i, pendingJobsappendTag)
+            if (pendingJobs[0] == undefined) {
+                //console.log(undefined);
+                let rect_cards = document.createElement("div");
+                rect_cards.setAttribute("class", "rect_cards_notFound");
+                rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
+                pendingJobsappendTag.append(rect_cards);
             }
+            else {
+
+                //console.log(pendingJobs);
+                for (let i = 0; i < pendingJobs.length; i++) {
+                    // //console.log("test")
+                    test(pendingJobs, i, pendingJobsappendTag)
+                }
+            }
+
 
 
         }
@@ -442,31 +453,42 @@
         // //console.log(rect_jobs);
 
         //  Recently uploded
-
-        let recntUploadedJobs = UplodedJobsMatchedId;
-        //console.log(rect_jobs);
         let rect_jobsTag = document.querySelector(".rect_jobs");
-        // for (let i = 0; i < rect_jobsAll; i++) {
-        //     if (rect_jobsAll[i]["isActive"] === true) {
-        //         rect_jobs.push(rect_jobsAll[i]);
-        //     }
-        // }
-        if (UplodedJobsMatchedId[0] == undefined) {
-            //console.log(undefined);
+        if (requirements == null) {
             let rect_cards = document.createElement("div");
             rect_cards.setAttribute("class", "rect_cards_notFound");
             rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
             rect_jobsTag.append(rect_cards);
         }
+
         else {
-            let rect_jobsAll = recntUploadedJobs.reverse();
-            console.log(rect_jobsAll);
+            let recntUploadedJobs = UplodedJobsMatchedId;
             //console.log(rect_jobs);
-            for (let i = 0; i < rect_jobsAll.length; i++) {
 
-                test(recntUploadedJobs, i, rect_jobsTag);
-
+            // for (let i = 0; i < rect_jobsAll; i++) {
+            //     if (rect_jobsAll[i]["isActive"] === true) {
+            //         rect_jobs.push(rect_jobsAll[i]);
+            //     }
+            // }
+            if (UplodedJobsMatchedId[0] == undefined) {
+                //console.log(undefined);
+                let rect_cards = document.createElement("div");
+                rect_cards.setAttribute("class", "rect_cards_notFound");
+                rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
+                rect_jobsTag.append(rect_cards);
             }
+            else {
+                let rect_jobsAll = recntUploadedJobs.reverse();
+                console.log(rect_jobsAll);
+                //console.log(rect_jobs);
+                for (let i = 0; i < rect_jobsAll.length; i++) {
+
+                    test(recntUploadedJobs, i, rect_jobsTag);
+
+                }
+            }
+
+
 
 
         }
