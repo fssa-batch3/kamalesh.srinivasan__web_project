@@ -211,7 +211,7 @@
                     return alert("User credentials not match");
                 }
 
-                let allEmailIndex = all.indexOf(FindedallEmail);
+                let allEmailIndex = allEmail.indexOf(FindedallEmail);
                 console.log(allEmailIndex)
                 allEmail.splice(allEmailIndex, 1);
                 localStorage.setItem("allEmail", JSON.stringify(allEmail));
@@ -237,7 +237,7 @@
                 location.href = "../index.html";
             }
 
-
+            location.href = "../index.html"
         }
 
 
