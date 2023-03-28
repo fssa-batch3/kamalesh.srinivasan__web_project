@@ -221,6 +221,45 @@ User Story
              
              
             
+ 
+  18. Apply Job.
+
+         Steps:
+           
+            a) Login as worker.
+            b) Click the "More details" button.
+            c) Click the Apply button.
+
+          Expected Result:
+           
+              The Apply button should change as Applied.
+
+ 
+ 19. Start Work.
+    
+         Steps:
+          
+            a) After owner approved the request, You get the Start Work button for the approved request.
+            b) Click the Start Work button.
+            c) Again click the Start Work button.
+          
+         Expected Result:
+          
+            The start work button should change as Started.
+
+20. Complete Work.
+
+          Steps:
+             
+             a) Click the completed button in the detail view of the started job.
+             b) Enter the requied deatils for complete the job.
+             b) Click completed.
+             
+          Expected Result:
+          
+             User should get the toast message like Job is completed.
+
+             
             
        
       
