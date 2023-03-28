@@ -109,5 +109,118 @@ User Story
            User should redirected to the "index" page.
           
           
+   8. Create Job.
+
+       Steps:
+          
+          a) Login as Owner.
+          b) Scroll to the "Upload your requirement part".
+          c) Enter required details for create jobs.
+          d) Enter the add button.
+        
+        Expected Result:
+        
+            User shohuld get the uploaded job in their "All Jobs section".
+            
+ 
+   9. Edit Job:
+        
+        Steps:
+        
+           a) Login as Owner.
+           b) Click the edit button in which job you want to edit.
+           c) Enter the edit details.
+           d) Enter the edit Button.
+           
+        Expected Result:
+         
+            User should redirected to the "Owner Home" page and edited job should display the edited deatils.
+
+   10. Delete Job:
+     
+        Steps:
+        
+            a) After the create the job click the delete button in job.
+        
+        Expected Result:
+         
+            Page shouldn't dispay the edited job.
+
+    11. Create Notification.
+
+         Steps:
+         
+             a) Worker have to apply for your job.
+          
+          Expected Result:
+          
+             Owner of the job should get the notification in notification page.
+
+    12. Approve request:
+          
+          Steps:
+           
+             a) After recieve request from the worker, You have to click Approve Button.
+
+          Expected Result:
+          
+             Approve button should change as Approved for the approved notification and the woker also get the notification status as Approved.
+
+
+    13. Reject Request:
+     
+          Steps:
+          
+              a) After recieve request from the worker, You have to click Reject Button.
+              
+          Expected Result:
+          
+             Reject button should change as Rejected for the Rejected notification and the woker also get the notification status as Rejected.
+
+          
+   14. Read Request:
+          
+          Steps:
+             
+             a) After recieve request from the worker, You have to click Read Button.
+       
+          Expected Result:
+          
+             Notification status should change as read.
+
+   15. Deatil view for the requested Job.
+
+          Steps:
+             
+             a) Click the Details button after any notificatin recieved.
+
+           Expected Result:
+           
+             Page should display the detail view of the requested job.
+
+   16. Notification Filters.
+
+          Steps:
+           
+            a) Click the filter as you need.
+
+          Expected Result:
+           
+             Page should display the result fot the filter.
+             
+             
+  17. Logout.
+       
+        Steps:
+           
+            a) Click the "logout" button.
+
+        Expected Result:
+         
+            User should redirected to the landing page.
+             
+             
+            
+            
        
       
