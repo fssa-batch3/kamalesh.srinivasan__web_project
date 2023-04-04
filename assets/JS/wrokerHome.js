@@ -97,14 +97,17 @@ function closeDetail() {
 }
 
 function getLocalreq(data) {
-  let arr = [];
-  if (data != null) {
-    arr = data;
-  }
+  // let arr = [];
+  // if (data != null) {
+  //   arr = data;
+  // }
 
-  let getLocal = JSON.parse(localStorage.getItem("requirements"));
-  arr.push(getLocal);
-  console.log(arr);
+  let localAll = JSON.parse(localStorage.getItem("requirements"));
+  let isActive = localAll.filter((F) => F.isActive == true);
+  let isCompleted = isActive.filter((F) => F.isCompleted == false);
+  let getLocal = isCompleted;
+  // arr.push(getLocal);
+  console.log(getLocal);
 
   return getLocal;
 }

@@ -62,7 +62,7 @@
                     <label for="Phone" id="tel-label">
                         Enter Your Phone Number
                     </label>
-                    <input type="tel" name="phone number" placeholder="Enter your phone number here"
+                    <input type="number" name="phone number" placeholder="Enter your phone number here"
                         class="form-columns" id="Phone" maxlength="10" minlenght="10" required />
                 </div>
 
@@ -72,7 +72,7 @@
 
                     </label>
                     <input type="tel" name="Aadhar_number" placeholder="Enter Your Aadhar Number" class="form-columns"
-                        id="Aadhar_number" maxlength="11" minlenght="11" required />
+                        id="Aadhar_number" maxlength="12" minlenght="12" required />
                 </div>
 
                 <div class="form-groupings">
@@ -115,15 +115,7 @@
                         </label>
 
                         <label>
-                            <input type="checkbox" class="checkbox-input" value="NCE" id="NCE" name="education" />NCE
-                        </label>
-
-                        <label>
                             <input type="checkbox" class="checkbox-input" value="ND" id="ND" name="education" />ND
-                        </label>
-
-                        <label>
-                            <input type="checkbox" class="checkbox-input" value="HND" id="HND" name="education" />HND
                         </label>
 
                         <label>
@@ -138,12 +130,17 @@
                             <input type="checkbox" class="checkbox-input" value="Ph.D" id="Ph.D" name="education" />Ph.D
                         </label>
 
+                        <label>
+                            <input type="checkbox" class="checkbox-input" value="Others" id="others"
+                                name="education" />NCE
+                        </label>
+
                 </div>
                 <div>
                     <label for="file">
                         Upload your expirience certificate or any certificate
                     </label>
-                    <input type="file" id="file" name="file" />
+                    <input type="file" id="file" name="file" required />
 
 
                 </div>
@@ -152,8 +149,8 @@
 
                 <div class="form-groupings">
                     <p>Address</p>
-                    <textarea class="textarea-input" id="Address" name="Address"
-                        placeholder="Enter your address"></textarea>
+                    <textarea class="textarea-input" id="Address" name="Address" placeholder="Enter your address"
+                        required></textarea>
                 </div>
 
                 <div class="form-groupings">
@@ -221,8 +218,8 @@
             let PrimarySchool = document.getElementById("PrimarySchool");
             let Secondary_School = document.getElementById("Secondary_School");
             let NCE = document.getElementById("NCE");
-            let ND = document.getElementById("ND");
-            let HND = document.getElementById("HND");
+            let others = document.getElementById("others");
+            // let HND = document.getElementById("HND");
             let BSc = document.getElementById("B.Sc");
             let MSc = document.getElementById("M.Sc");
             let Phd = document.getElementById("Ph.D")
@@ -240,14 +237,14 @@
                 Education.push("NCE")
             }
 
-            if (ND.checked == true) {
+            if (others.checked == true) {
                 Education.push("ND")
             }
 
 
-            if (HND.checked == true) {
-                Education.push("HND")
-            }
+            // if (HND.checked == true) {
+            //     Education.push("HND")
+            // }
 
 
             if (BSc.checked == true) {
@@ -265,7 +262,9 @@
             }
 
 
-
+            if (Education.length == 0) {
+                alert("Select atleast one education")
+            }
 
 
             console.log(Education);
@@ -301,7 +300,10 @@
                 window.location.href = "workerhome.html?from=register&&type=worker";
 
             }
+
+
         });
+
 
 
 
