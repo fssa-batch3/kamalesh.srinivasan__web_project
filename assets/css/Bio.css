@@ -157,7 +157,7 @@ span {
 }
 
 
-input:valid {
+input:invalid {
   background-color: red;
 }
 
