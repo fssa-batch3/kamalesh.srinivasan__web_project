@@ -158,9 +158,6 @@ span {
 
 
 input:valid {
-  background-color: palegreen;
+  background-color: red;
 }
 
-input:invalid {
-  background-color: lightpink;
-}
