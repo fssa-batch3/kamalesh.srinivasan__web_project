@@ -113,11 +113,6 @@
                             <input type="checkbox" class="checkbox-input" value="secondary-cert" name="education"
                                 id="Secondary_School" />Secondary School Cert
                         </label>
-
-                        <label>
-                            <input type="checkbox" class="checkbox-input" value="ND" id="ND" name="education" />ND
-                        </label>
-
                         <label>
                             <input type="checkbox" class="checkbox-input" value="B.Sc" id="B.Sc" name="education" />B.Sc
                         </label>
@@ -132,7 +127,7 @@
 
                         <label>
                             <input type="checkbox" class="checkbox-input" value="Others" id="others"
-                                name="education" />NCE
+                                name="education" />Others
                         </label>
 
                 </div>
@@ -217,7 +212,7 @@
             let file = document.getElementById("file").value;
             let PrimarySchool = document.getElementById("PrimarySchool");
             let Secondary_School = document.getElementById("Secondary_School");
-            let NCE = document.getElementById("NCE");
+            // let NCE = document.getElementById("NCE");
             let others = document.getElementById("others");
             // let HND = document.getElementById("HND");
             let BSc = document.getElementById("B.Sc");
@@ -263,7 +258,7 @@
 
 
             if (Education.length == 0) {
-                alert("Select atleast one education")
+                return alert("Select atleast one education")
             }
 
 
