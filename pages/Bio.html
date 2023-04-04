@@ -47,8 +47,8 @@
                     <label for="number" id="number-label">
                         DOB
                     </label>
-                    <input type="date" id="DOB" name="age" class="form-columns" min="18" max="90" id="number"
-                        placeholder="Enter your age" />
+                    <input type="date" id="DOB" name="age" class="form-columns" max="2010-01-01" id="number"
+                        title="Your DOB should be before 2010" placeholder="Enter your age" required />
                 </div>
 
                 <div class="form-groupings">
@@ -63,8 +63,8 @@
                         Enter Your Phone Number
                     </label>
                     <input type="number" name="phone number" placeholder="Enter your phone number here"
-                        class="form-columns" id="Phone" pattern="[0-9]{10}" title="number should be 10 digits"
-                        required />
+                        class="form-columns" id="Phone" pattern="[0-9]{10}" max="10" min="10"
+                        title="number should be 10 digits" required />
                 </div>
 
                 <div class="form-groupings">
@@ -73,8 +73,8 @@
 
                     </label>
                     <input type="number" name="Aadhar_number" placeholder="Enter Your Aadhar Number"
-                        class="form-columns" id="Aadhar_number" pattern="[0-9]{12}" title="number should be 12 digits"
-                        required />
+                        class="form-columns" id="Aadhar_number" pattern="[0-9]{12}" max="12" min="12"
+                        title="number should be 12 digits" required />
                 </div>
 
                 <div class="form-groupings">
