@@ -1,6 +1,11 @@
 function yourJobsClick(index) {
   event.preventDefault();
-  let jobs = JSON.parse(localStorage.getItem("requirements"));
+  let localAll = JSON.parse(localStorage.getItem("requirements"));
+  let isActive = localAll.filter((F) => F.isActive == true);
+  let isCompleted = isActive.filter((F) => F.isCompleted == false);
+  let isApplied = isCompleted.filter((F) => F.isCompleted == false);
+  let jobs = isApplied;
+  // let  = JSON.parse(localStorage.getItem("requirements"));
   let yourJobsCardP = document.getElementsByClassName("desc");
   let yourJobs_card = document.getElementsByClassName("yourJobs_card");
   console.log(yourJobs_card);
@@ -105,7 +110,8 @@ function getLocalreq(data) {
   let localAll = JSON.parse(localStorage.getItem("requirements"));
   let isActive = localAll.filter((F) => F.isActive == true);
   let isCompleted = isActive.filter((F) => F.isCompleted == false);
-  let getLocal = isCompleted;
+  let isApplied = isCompleted.filter((F) => F.isCompleted == false);
+  let getLocal = isApplied;
   // arr.push(getLocal);
   console.log(getLocal);
 
@@ -154,4 +160,42 @@ function applyJob() {
 
   arr.push(apply);
   localStorage.setItem("apllyJob", JSON.stringify(arr));
+
+  // document.querySelector(".apply").disabled = true;
+
+  // insert applied id in requirements
+  for (let i = 0; i < requirements.length; i++) {
+    if (jobID == requirements[i]["id"]) {
+      console.log(requirements[i]["Applied"]);
+      let id;
+      for (let j = 0; j < requirements[i]["Applied"]; j++) {
+        if (requirements[i]["Applied"][j] == applier.id) {
+          id = "applied";
+        }
+      }
+
+      if (id == undefined) {
+        if (requirements[i]["Applied"] == undefined) {
+          let obj = requirements[i];
+          obj = { Applied: [applier.id] };
+          let cObj = requirements[i];
+          let newObj = Object.assign(cObj, obj);
+          console.log(newObj);
+          requirements[i] = newObj;
+        } else {
+          // let obj = requirements[i];
+          // obj = { Applied: [applier.id] };
+          // let cObj = requirements[i];
+          // let newObj = Object.assign(cObj, obj);
+          // console.log(newObj);
+          // requirements[i] = newObj;
+          requirements[i]["Applied"].push(applier.id);
+        }
+      } else {
+        return alert("Already applied");
+      }
+    }
+  }
+
+  localStorage.setItem("requirements", JSON.stringify(requirements));
 }
