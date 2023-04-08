@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="types">
-                        <div onclick="filterAll()">
+                        <!-- <div onclick="filterAll()">
                             All
                         </div>
                         <div onclick="filterRead()">
@@ -51,7 +51,17 @@
                         </div>
                         <div onclick="filterUnread()">
                             Unread
+                        </div> -->
+                        <div class="ftrbtn">
+                            <a id="ftrbtn">Filter</a>
                         </div>
+
+                        <select name="" id="filter" class="filter">
+                            <option value="All">All</option>
+                            <option value="Read">Read</option>
+                            <option value="Unread">Unread</option>
+
+                        </select>
                     </div>
                 </div>
 
@@ -195,6 +205,21 @@
         </section>
     </main>
     <script>
+
+        document.getElementById("ftrbtn").addEventListener("click", (event) => {
+            let clicked = document.getElementById("filter").value;
+            if (clicked == "All") {
+                filterAll()
+            }
+            if (clicked == "Read") {
+                filterRead()
+            }
+            if (clicked == "Unread") {
+                filterUnread()
+            }
+
+        })
+
 
         //  Notification
 

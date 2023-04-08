@@ -3,6 +3,11 @@ body {
   font-family: "Droid Serif", serif;
 }
 
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
 a {
   text-decoration: none;
   cursor: pointer;
@@ -20,6 +25,8 @@ a {
 .notificationTop {
   display: flex;
   gap: 3rem;
+  /* position: relative; */
+  justify-content: space-between;
 }
 
 .profile {
@@ -45,7 +52,11 @@ a {
   flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  /* gap: 0.5rem; */
+  position: relative;
+  /* right: 0px; */
+  /* left: 100px; */
+  margin-right: 1rem;
 }
 
 .filterButtons {
@@ -73,7 +84,7 @@ a {
   background-color: white;
   box-sizing: 20rem;
   margin-top: 1rem;
-  padding: 1rem;
+  padding: 0.2rem 0.5rem;
   display: flex;
   gap: 2rem;
   border-radius: 0.5rem;
@@ -242,4 +253,10 @@ a:active {
 select,
 textarea {
   margin-bottom: 1rem;
+}
+
+.ftrbtn a {
+  background-color: aquamarine;
+  padding: 0.3rem 0.6rem;
+  /* width: 1000rem; */
 }

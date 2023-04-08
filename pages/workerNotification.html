@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="types">
-                        <div class="firstHead">
+                        <!-- <div class="firstHead">
                             <div class="filterButtons" onclick="filterAll()">
                                 All
                             </div>
@@ -62,8 +62,24 @@
                             <div class="filterButtons" onclick="filterStarted()">
                                 Started
                             </div>
+                        </div> -->
+
+                        <div class="ftrbtn">
+                            <a id="ftrbtn">Filter</a>
                         </div>
+
+                        <select name="" id="filter" class="filter">
+                            <option value="All">All</option>
+                            <option value="NotActioned">NotActioned</option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Started">Started</option>
+                        </select>
                     </div>
+
+
+
+
                 </div>
 
 
@@ -365,6 +381,11 @@
             jobId.setAttribute("class", "jobId");
             applierDetails.append(jobId);
 
+            let jobName = document.createElement("p");
+            jobName.innerHTML = `Job Name : ${applyJob[i]["title"]}`;
+            jobName.setAttribute("class", "jobName");
+            applierDetails.append(jobName);
+
             let buttons = document.createElement("div");
             buttons.setAttribute("class", "buttons");
             notifyCards.append(buttons);
@@ -391,12 +412,18 @@
                 // Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
                 buttons.append(Approve);
 
-                if (applyJob[i]["start"] == true) {
+                if (applyJob[i]["start"] == true && applyJob[i]["isCompleted"] == false) {
                     let startWork = document.createElement("a");
                     startWork.setAttribute("id", "startWork");
                     startWork.innerHTML = "Started";
                     startWork.setAttribute("onclick", `setCurrentNotificationId(${applyJob[i]["aplliedJobId"]})`)
                     buttons.append(startWork);
+                }
+                else if (applyJob[i]["isCompleted"] == true) {
+                    let completed = document.createElement("a");
+                    completed.setAttribute("id", "completed");
+                    completed.innerHTML = "Completed";
+                    buttons.append(completed);
                 }
                 else {
                     let startWork = document.createElement("a");
@@ -435,7 +462,24 @@
         // let getCompletedDetails = document.createElement("div");
         // getCompletedDetails.setAttribute("class", "getCompletedDetails");
         // document.querySelector(".details").append(getCompletedDetails);
-
+        document.getElementById("ftrbtn").addEventListener("click", (event) => {
+            let clicked = document.getElementById("filter").value;
+            if (clicked == "All") {
+                filterAll()
+            }
+            if (clicked == "NotActioned") {
+                filterNotActioned()
+            }
+            if (clicked == "Rejected") {
+                filterRejected()
+            }
+            if (clicked == "Approved") {
+                filterApproved()
+            }
+            if (clicked == "Started") {
+                filterStarted()
+            }
+        })
     </script>
 </body>
 

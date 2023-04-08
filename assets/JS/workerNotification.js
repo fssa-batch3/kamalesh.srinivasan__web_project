@@ -66,7 +66,7 @@ function createDetails(currentJob) {
       `completedWork(${currentJob.aplliedJobId})`
     );
     // console.log(`completedWork(${currentJob["location"]})`);
-    startWork.innerHTML = "Completed";
+    startWork.innerHTML = "Completed?";
     details.append(startWork);
   } else {
     let startWork = document.createElement("div");
@@ -181,7 +181,7 @@ function aprove(aplliedJobId) {
   applyJob[index] = findedObject;
   localStorage.setItem("apllyJob", JSON.stringify(applyJob));
 }
-
+filterApproved;
 function reject(aplliedJobId) {
   let findedObject = applyJob.find((A) => A.aplliedJobId == aplliedJobId);
   findedObject.notificationAction = "Rejected";
@@ -223,7 +223,9 @@ function urlNotif() {
 function addstartWork() {
   let crntJobId = JSON.parse(localStorage.getItem("CurrentNotificationId"));
   let applyJOb = JSON.parse(localStorage.getItem("apllyJob"));
+  let requirements = JSON.parse(localStorage.getItem("requirements"));
   let selectedObj = applyJOb.find((F) => F.aplliedJobId == crntJobId);
+  console.log(selectedObj);
   let index = applyJOb.indexOf(selectedObj);
   if (selectedObj["start"]) {
     return alert("Job already started");
@@ -233,6 +235,20 @@ function addstartWork() {
   applyJOb[index] = selectedObj;
 
   localStorage.setItem("apllyJob", JSON.stringify(applyJOb));
+  console.log(requirements[0].id + " " + selectedObj.jobID);
+  let finded = requirements.find((F) => F.id == selectedObj.jobID);
+  console.log(finded);
+  let reqIndex = requirements.indexOf(finded);
+  console.log(reqIndex);
+  let started = {
+    started: true,
+  };
+
+  let Newfinded = Object.assign(finded, started);
+  console.log(finded);
+  requirements[reqIndex] = Newfinded;
+
+  localStorage.setItem("requirements", JSON.stringify(requirements));
 }
 
 function completedWork(job) {
@@ -265,16 +281,24 @@ function completedWork(job) {
           arr[i]["aplliedJobId"] == completedJobs["aplliedJobId"] &&
           arr[i]["applierId"] == completedJobs["applierId"]
         ) {
+          i = arr.length;
           return toastr.error("This job is already completed");
         }
       }
       arr.push(completedJobs);
       localStorage.setItem("completedJobs", JSON.stringify(arr));
+      let findedIndex = applyJob.indexOf(finded);
+      finded.isCompleted = true;
+      applyJob[findedIndex] = finded;
+      localStorage.setItem("apllyJob", JSON.stringify(applyJob));
+      getCompletedDetails.style.display = "none";
+      location.reload();
       toastr.success("Job Completed");
     });
 }
 
 let close = document.querySelector("#close");
+
 close.addEventListener("click", (event) => {
   getCompletedDetails.style.display = "none";
 });
