@@ -74,7 +74,7 @@
                 <input type="number" id="Aadhar_number" placeholder="Aadhar number" value="1234567890"><br>
                 <input type="file" style="border: none;" placeholder="Upload your expirience certificate here" />
                 <button type="submit">Submit</button>
-                <button type="reset" onclick="location.href = 'profile.html'">Cancel </button>`;
+                <button type="reset" onclick="cancelEdit()">Cancel </button>`;
         document.querySelector(".details").append(form);
 
 
@@ -158,7 +158,7 @@
 
 
                 localStorage.setItem("BIO", JSON.stringify(BIO));
-                location.href = "profile.html?type=" + type;
+                location.href = "profile.html" + location.search;
 
             }
 
@@ -170,6 +170,9 @@
         })
 
 
+        function cancelEdit() {
+            location.href = "profile.html" + location.search;
+        }
 
 
 

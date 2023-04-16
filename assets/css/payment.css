@@ -4,6 +4,11 @@ main {
   padding-top: 5rem;
 }
 
+#main {
+  display: flex;
+  gap: 10rem;
+}
+
 section {
   filter: none;
 }
@@ -12,8 +17,8 @@ section {
 }
 
 .listProfile img {
-  width: 10rem;
-  height: 10rem;
+  width: 8rem;
+  height: 8rem;
   border-radius: 50%;
   margin-left: 1rem;
 }
@@ -34,7 +39,7 @@ section {
   /* justify-content: space-around; */
 }
 .status {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 .Pay {
@@ -67,7 +72,7 @@ section {
 .listcard {
   border-top: 1px solid white;
   box-sizing: border-box;
-  width: 50rem;
+  width: 43rem;
   padding-top: 1rem;
   border-bottom: 1px solid white;
   padding-bottom: 1rem;
@@ -225,7 +230,7 @@ p {
   position: absolute;
   width: 30rem;
   height: 10rem;
-  background-color: bisque;
+  background-color: white;
   margin-top: -30rem;
   margin-left: 30rem;
   z-index: 1;
@@ -275,7 +280,7 @@ p {
 .cashCard {
   width: 20rem;
   height: 15rem;
-  background-color: bisque;
+  background-color: white;
   margin-top: -24rem;
   margin-left: 5rem;
   border-radius: 0.5rem;
@@ -299,3 +304,29 @@ p {
 .cashCard button {
   margin-right: 0.5rem;
 }
+
+#paidFrom {
+  height: 12rem;
+  color: black;
+  margin-top: -20rem;
+  margin-left: 7.5rem;
+  /* display: flex; */
+  width: 10rem;
+  margin-bottom: 6rem;
+  background-color: navajowhite;
+  border: none;
+}
+
+#paidFrom input {
+  width: 10rem;
+}
+
+#paidFrom button {
+  margin-bottom: 0.5rem;
+}
+
+#amountbox {
+  background-color: aqua;
+}
+
+

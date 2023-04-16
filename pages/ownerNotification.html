@@ -25,6 +25,7 @@
                 <!-- <a>Search</a> -->
                 <a href="">Chat</a>
                 <a>Notification</a>
+                <a onclick="payment()"> payment</a>
                 <a onclick="urlData()">profile</a>
                 <a href="../index.html">LogOut</a>
             </div>
@@ -586,7 +587,9 @@
 
 
 
-
+        function payment() {
+            location.href = "payment.html" + location.search;
+        }
     </script>
 </body>
 

@@ -25,7 +25,7 @@
                 <!-- <a>Search</a> -->
                 <a href="">Chat</a>
                 <a>Notification</a>
-                <a href="payment.html">Payment</a>
+                <!-- <a href="payment.html">Payment</a> -->
                 <a onclick="urlData()" href="profile.html">profile</a>
                 <a href="../index.html">LogOut</a>
             </div>
@@ -390,58 +390,76 @@
             buttons.setAttribute("class", "buttons");
             notifyCards.append(buttons);
 
+            if (applyJob[i]["paid"] == "Paid") {
+                let paid = document.createElement("a");
+                // paid.setAttribute("id", "paid");
+                paid.innerHTML = "Paid";
+                paid.setAttribute("onclick", `paid(${applyJob[i]["aplliedJobId"]})`)
+                paid.setAttribute("class", "tooltip")
+                buttons.append(paid);
 
-
-
-            if (applyJob[i]["notificationAction"] == "Rejected") {
-                let Reject = document.createElement("a");
-                Reject.setAttribute("id", "reject");
-                Reject.innerHTML = "Rejected";
-                // Reject.setAttribute("onclick", `reject(${applyJob[i]["aplliedJobId"]})`)
-                buttons.append(Reject);
-
-
-
-            }
-
-            else if (applyJob[i]["notificationAction"] == "Approved") {
-
-                let Approve = document.createElement("a");
-                Approve.setAttribute("id", "approve")
-                Approve.innerHTML = "Approved";
-                // Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
-                buttons.append(Approve);
-
-                if (applyJob[i]["start"] == true && applyJob[i]["isCompleted"] == false) {
-                    let startWork = document.createElement("a");
-                    startWork.setAttribute("id", "startWork");
-                    startWork.innerHTML = "Started";
-                    startWork.setAttribute("onclick", `setCurrentNotificationId(${applyJob[i]["aplliedJobId"]})`)
-                    buttons.append(startWork);
-                }
-                else if (applyJob[i]["isCompleted"] == true) {
-                    let completed = document.createElement("a");
-                    completed.setAttribute("id", "completed");
-                    completed.innerHTML = "Completed";
-                    buttons.append(completed);
-                }
-                else {
-                    let startWork = document.createElement("a");
-                    startWork.setAttribute("id", "startWork");
-                    startWork.innerHTML = "Start Work";
-                    startWork.setAttribute("onclick", `setCurrentNotificationId(${applyJob[i]["aplliedJobId"]})`)
-                    buttons.append(startWork);
-                }
+                let tooltipMsg = document.createElement("div");
+                tooltipMsg.setAttribute("class", "tooltiptext");
+                tooltipMsg.innerHTML = "Paid amount is " + applyJob[i]["paidAmount"];
+                paid.append(tooltipMsg);
 
             }
-
             else {
-                let Approve = document.createElement("a");
-                Approve.setAttribute("id", "NotActioned")
-                Approve.innerHTML = "NotActioned";
-                // Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
-                buttons.append(Approve);
+
+                if (applyJob[i]["notificationAction"] == "Rejected") {
+                    let Reject = document.createElement("a");
+                    Reject.setAttribute("id", "reject");
+                    Reject.innerHTML = "Rejected";
+                    // Reject.setAttribute("onclick", `reject(${applyJob[i]["aplliedJobId"]})`)
+                    buttons.append(Reject);
+
+
+
+
+                }
+
+                else if (applyJob[i]["notificationAction"] == "Approved") {
+
+                    let Approve = document.createElement("a");
+                    Approve.setAttribute("id", "approve")
+                    Approve.innerHTML = "Approved";
+                    // Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
+                    buttons.append(Approve);
+
+                    if (applyJob[i]["start"] == true && applyJob[i]["isCompleted"] == false) {
+                        let startWork = document.createElement("a");
+                        startWork.setAttribute("id", "startWork");
+                        startWork.innerHTML = "Started";
+                        startWork.setAttribute("onclick", `setCurrentNotificationId(${applyJob[i]["aplliedJobId"]})`)
+                        buttons.append(startWork);
+                    }
+                    else if (applyJob[i]["isCompleted"] == true) {
+                        let completed = document.createElement("a");
+                        completed.setAttribute("id", "completed");
+                        completed.innerHTML = "Completed";
+                        buttons.append(completed);
+                    }
+                    else {
+                        let startWork = document.createElement("a");
+                        startWork.setAttribute("id", "startWork");
+                        startWork.innerHTML = "Start Work";
+                        startWork.setAttribute("onclick", `setCurrentNotificationId(${applyJob[i]["aplliedJobId"]})`)
+                        buttons.append(startWork);
+                    }
+
+                }
+
+                else {
+                    let Approve = document.createElement("a");
+                    Approve.setAttribute("id", "NotActioned")
+                    Approve.innerHTML = "NotActioned";
+                    // Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
+                    buttons.append(Approve);
+                }
             }
+
+
+
 
 
 

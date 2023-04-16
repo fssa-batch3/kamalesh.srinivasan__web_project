@@ -21,6 +21,7 @@
                 <!-- <a>Search</a> -->
                 <a>Chat</a>
                 <a onclick="OWnotification()">Notification</a>
+                <a onclick="rdToPayment()">Payment</a>
                 <a onclick="urlData()">profile</a>
                 <a href="../index.html">LogOut</a>
             </div>
@@ -486,6 +487,7 @@
 
             }
 
+
         }
 
 
@@ -497,6 +499,9 @@
 
 
 
+        function rdToPayment() {
+            location.href = `payment.html${location.search}`
+        }
 
 
 
@@ -554,7 +559,9 @@
         //  create jobs 
 
 
-
+        function payment() {
+            location.href = `payment.html?${location.search}`
+        }
 
 
     </script>

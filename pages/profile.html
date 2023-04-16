@@ -67,15 +67,26 @@
 
         function back() {
             if (type == "owner") {
-                location.href = "OwnerHome.html?from=register&&type=owner";
+                if (from == "logIn") {
+                    location.href = "OwnerHome.html?from=logIn&&type=owner"
+                }
+                else {
+                    location.href = "OwnerHome.html?from=register&&type=owner";
+                }
             }
-            else {
-                location.href = "workerHome.html?from=register&&type=worker"
+            if (type == "worker") {
+                if (from == "logIn") {
+                    location.href = "workerHome.html?from=logIn&&type=worker"
+                }
+                else {
+                    location.href = "workerHome.html?from=register&&type=worker"
+                }
+
             }
         }
 
         function navEdit() {
-            location.href = "editProfile.html?email=" + userBio["Email"] + "&&type=" + type;
+            location.href = "editProfile.html" + location.search + "&&email=" + userBio["Email"];
         }
 
 

@@ -78,6 +78,15 @@
                 </div>
 
                 <div class="form-groupings">
+                    <label for="upi" id=" upi">
+                        Enter Your UPI id
+
+                    </label>
+                    <input type="text" name="upi" placeholder="Enter Your UPI id" class="form-columns" id="upi"
+                        required />
+                </div>
+
+                <div class="form-groupings">
                     <p>Your Occupation</p>
                     <select id="dropdown" name="occupation" class="form-columns" required>
                         <option disabled selected value>Select current role
@@ -191,9 +200,6 @@
         }
 
 
-
-
-
         let bioFn = document.getElementById("survey-form");
         bioFn.addEventListener("submit", (event) => {
             event.preventDefault();
@@ -220,7 +226,9 @@
             let BSc = document.getElementById("B.Sc");
             let MSc = document.getElementById("M.Sc");
             let Phd = document.getElementById("Ph.D")
+            let upi = document.getElementById("upi").value;
             let Education = [];
+
 
             if (PrimarySchool.checked == true) {
                 Education.push("PrimarySchool")
@@ -281,7 +289,8 @@
                 Current_occupation,
                 Expect_in,
                 Aadhar_number,
-                Phone
+                Phone,
+                upi
             }
 
             arr.push(bio);

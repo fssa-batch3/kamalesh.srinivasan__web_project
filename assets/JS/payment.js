@@ -17,8 +17,8 @@ function detailView(currentData) {
   detailView.innerHTML = `<div class="detailProfile">
                 <img src="../assets/Images/avatar (4).svg" alt="image" />
                 <div>
-                    <div class="detailsworkerName">TETS</div>
-                    <div class="Jid">2345678765432</div>
+                    <div class="detailsworkerName">${finded["title"]}</div>
+                    <div class="Jid">${finded["jobID"]}</div>
                 </div>
             </div>
 
@@ -76,8 +76,20 @@ function payPopup() {
   buttons.setAttribute("class", "popUpBtn");
   popUp.append(buttons);
 
+  // get the current worker's upi id
+  let cntAppliedJobId = JSON.parse(
+    localStorage.getItem("currentDataPayDetail")
+  );
+  let applyJob = JSON.parse(localStorage.getItem("apllyJob"));
+  let cntApplyJob = applyJob.find((F) => F.aplliedJobId == cntAppliedJobId);
+  let workerReg = JSON.parse(localStorage.getItem("workerRegister"));
+  let cntworkerReg = workerReg.find((F) => F.id == cntApplyJob.applierId);
+  let bio = JSON.parse(localStorage.getItem("BIO"));
+  let cntBio = bio.find((F) => F.Email == cntworkerReg.Email);
+
+  //
   let copyUPI = document.createElement("button");
-  copyUPI.setAttribute("value", "34243y554y4352454");
+  copyUPI.setAttribute("value", cntBio["upi"]);
   copyUPI.innerHTML = "Copy UPI";
   copyUPI.setAttribute("id", "CopyURL");
   copyUPI.setAttribute("onclick", "copyUPI()");
@@ -107,6 +119,7 @@ function copyUPI() {
   let copyText = document.getElementById("CopyURL");
   console.log(copyText);
   navigator.clipboard.writeText(copyText.value);
+  copyText.innerHTML = "Coppied";
 }
 
 function cancel() {
@@ -120,6 +133,13 @@ function cancel() {
 }
 
 function payCash() {
+  if (document.querySelector(".cashCard") != undefined) {
+    document.querySelector(".cashCard").remove();
+  }
+
+  if (document.querySelector("#paidFrom") != undefined) {
+    document.querySelector("#paidFrom").remove();
+  }
   let cashCard = document.createElement("div");
   cashCard.setAttribute("class", "cashCard");
   let popUp = document.querySelector(".popUp");
@@ -134,6 +154,7 @@ function payCash() {
 
   let amountbox = document.createElement("input");
   amountbox.setAttribute("id", "amountbox");
+  amountbox.setAttribute("Required", "");
   form.append(amountbox);
 
   let uploadPhoto = document.createElement("div");
@@ -144,6 +165,7 @@ function payCash() {
   let uploadPhotobox = document.createElement("input");
   uploadPhotobox.setAttribute("id", "uploadPhotobox");
   uploadPhotobox.setAttribute("type", "file");
+  uploadPhotobox.setAttribute("Required", "");
   form.append(uploadPhotobox);
 
   let br = document.createElement("br");
@@ -174,9 +196,95 @@ function cashSubmit() {
   event.preventDefault();
   let paymentJob = JSON.parse(localStorage.getItem("currentDataPayDetail"));
   let completedJobs = JSON.parse(localStorage.getItem("completedJobs"));
+  let paidAmount = document.getElementById("amountbox").value;
+  let refImage = document.getElementById("uploadPhotobox").value;
 
   let currentPaymentJob = completedJobs.find(
-    (F) => F.paymentJob == completedJobs
+    (F) => F.aplliedJobId == paymentJob
   );
   console.log(currentPaymentJob);
+  if (currentPaymentJob["paid"] != "Paid") {
+    //    add payment datas in completed jobs
+    currentPaymentJob["paid"] = "Paid";
+    currentPaymentJob["paidAmount"] = paidAmount;
+    currentPaymentJob["refImage"] = refImage;
+
+    //    add payment datas in apllyJob
+    let applyJobs = JSON.parse(localStorage.getItem("apllyJob"));
+    let cntApplyJob = applyJobs.find(
+      (F) => F.aplliedJobId == currentPaymentJob.aplliedJobId
+    );
+    let cntApplyJobIndex = applyJobs.indexOf(cntApplyJob);
+
+    cntApplyJob["paid"] = "Paid";
+    cntApplyJob["paidAmount"] = paidAmount;
+    cntApplyJob["refImage"] = refImage;
+
+    applyJobs[cntApplyJobIndex] = cntApplyJob;
+    localStorage.setItem("apllyJob", JSON.stringify(applyJobs));
+
+    // place a completed job
+
+    console.log(currentPaymentJob);
+    let index = completedJobs.indexOf(currentPaymentJob);
+    completedJobs[index] = currentPaymentJob;
+    localStorage.setItem("completedJobs", JSON.stringify(completedJobs));
+    console.log(currentPaymentJob);
+    cancelPaid();
+    return toastr.success("You paid to " + currentPaymentJob["applierName"]);
+  } else {
+    return toastr.error(
+      "You already paid to " +
+        currentPaymentJob["applierName"] +
+        " for this job"
+    );
+  }
+}
+
+function paid() {
+  if (document.querySelector(".cashCard") != undefined) {
+    document.querySelector(".cashCard").remove();
+  }
+
+  if (document.querySelector("#paidFrom") != undefined) {
+    document.querySelector("#paidFrom").remove();
+  }
+  let form = document.createElement("form");
+  form.setAttribute("id", "paidFrom");
+
+  let inputAmount = document.createElement("input");
+  inputAmount.setAttribute("id", "amountboxUPI");
+  inputAmount.setAttribute("required", "");
+  inputAmount.setAttribute("placeholder", "Enter the paid amount");
+  form.append(inputAmount);
+
+  let inputAmountimglabel = document.createElement("label");
+  inputAmountimglabel.innerHTML = "Upload the payment screnshot";
+  form.append(inputAmountimglabel);
+
+  let inputAmountimg = document.createElement("input");
+  inputAmountimg.setAttribute("id", "uploadPhotoboxUPI");
+  inputAmountimg.setAttribute("required", "");
+  inputAmountimg.setAttribute("type", "file");
+  form.append(inputAmountimg);
+
+  let submitButton = document.createElement("button");
+  submitButton.setAttribute("id", "subbtn");
+  submitButton.setAttribute("type", "submit");
+  submitButton.setAttribute("onclick", "paidDetails()");
+  submitButton.innerHTML = "Submit";
+  form.append(submitButton);
+
+  let cancelButton = document.createElement("button");
+  cancelButton.setAttribute("id", "cancelButton");
+  cancelButton.setAttribute("type", "reset");
+  cancelButton.setAttribute("onclick", "cancelPaid()");
+  cancelButton.innerHTML = "Cancel";
+  form.append(cancelButton);
+
+  document.querySelector(".message").append(form);
+}
+
+function cancelPaid() {
+  document.getElementById("paidFrom").remove();
 }
