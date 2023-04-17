@@ -21,8 +21,9 @@
                 </div>
 
                 <div class="search">
-                    <input type="text" placeholder="Search Workers">
-                    <img src="../assets/Images/Search-icon.png" alt="searchImage" class="searchImg">
+                    <input type="text" placeholder="Search Workers" id="searchOwners">
+                    <img src="../assets/Images/Search-icon.png" alt="searchImage" class="searchImg"
+                        onclick="searchOwners()">
 
                 </div>
 
@@ -33,7 +34,10 @@
                             <img src="../assets/Images/avatar (6).svg" alt="workerImage">
                         </div>
 
-                        <div class="name">Ajmal</div>
+                        <div class="middle">
+                            <p class="name">Ajmal</p>
+                            <p class="expertChat">HTML,CSS,JS</p>
+                        </div>
 
                     </div>
                 </div>
@@ -111,13 +115,13 @@
             </div>
 
             <div class="chatApproval">
-                <p>Aprroved</p>
-                <img src="../assets/Images/label.svg" alt="label">
+                Chat Approved
 
             </div>
         </section>
 
     </main>
+    <script src="../assets/JS/workerChat.js"></script>
 </body>
 
 </html>

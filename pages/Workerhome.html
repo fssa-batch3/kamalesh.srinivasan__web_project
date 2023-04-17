@@ -18,7 +18,7 @@
         <nav>
             <div>
                 <a>Requirement List</a>
-                <a>Chat</a>
+                <a onclick="chat()">Chat</a>
                 <a href="workerNotification.html?from=register&&type=worker&&filter=All">Notification</a>
                 <a onclick="urlData()">profile</a>
                 <a href="../index.html">LogOut</a>
@@ -453,6 +453,9 @@
 
 
 
+        function chat() {
+            location.href = "Worker_Chat.html" + location.search;
+        }
 
 
 
