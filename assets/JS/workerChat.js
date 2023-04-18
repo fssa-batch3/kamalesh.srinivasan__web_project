@@ -10,3 +10,24 @@ function searchOwners() {
     }
   }
 }
+
+function createSearchChatList() {
+  let chatCard = document.createElement("div");
+  chatCard.setAttribute("class", "chatCard");
+
+  let chatCardImg = document.createElement("div");
+  chatCardImg.setAttribute("class", "chatCardImg");
+  chatCard.append(chatCardImg);
+
+  let workerImage = document.createElement("img");
+  workerImage.setAttribute("src", "../assets/Images/avatar (6).svg");
+  workerImage.setAttribute("alt", "workerImage");
+  chatCardImg.append(workerImage);
+
+  let middle = document.createElement("div");
+  middle.setAttribute("class", "middle");
+  chatCard.append(middle);
+
+  let name = document.createElement("p");
+  name.setAttribute("");
+}
