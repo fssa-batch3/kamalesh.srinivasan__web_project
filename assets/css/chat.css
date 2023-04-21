@@ -28,9 +28,13 @@ section {
   margin-right: 1rem;
 }
 
+.chat_with_us-P p {
+  margin-top: -0.4rem;
+}
+
 .chat_with_us img {
-  height: 40px;
-  width: 40px;
+  height: 3rem;
+  width: 3rem;
 }
 
 .chat_with_us {
@@ -57,7 +61,7 @@ section {
 
 .main {
   margin: 20px;
-  height: 35.5rem;
+  height: 35.05rem;
   width: 40rem;
 }
 
@@ -113,11 +117,17 @@ section {
   border-radius: 5px;
   padding-left: 2px;
   background-color: lightblue;
+  /* margin-top: -5rem; */
 }
 
 .typebar_div2 input:focus {
   outline: none;
 }
+
+/* .typebar_div2 img {
+  margin-top: -1rem;
+  margin-left: -2rem;
+} */
 
 .date p {
   background-color: black;
@@ -196,6 +206,9 @@ section {
   display: flex;
   align-items: center;
   gap: 2rem;
+  margin-bottom: 0.5rem;
+  background-color: black;
+  border-radius: 0.5rem;
 }
 
 .chatCardImg img {
@@ -205,7 +218,7 @@ section {
 }
 
 .recentChats {
-  background-color: black;
+  /* background-color: black; */
   margin: 0.5rem;
   border-radius: 0.2rem;
 }
@@ -292,4 +305,56 @@ section {
 .expertChat {
   margin-top: -1rem;
   font-size: medium;
+}
+
+.chatDeatilName {
+  font-size: x-large;
+}
+
+.chatSendBtn {
+  margin-left: -6rem;
+}
+
+.leftChat {
+  background-color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 0.1rem;
+  border-top-right-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+  /* right: 3rem; */
+  margin-top: 0.5rem;
+}
+
+.leftChatDiv {
+  display: flex;
+  justify-content: flex-start;
+  font-size: medium;
+}
+
+.rightChatDiv {
+  display: flex;
+  justify-content: flex-end;
+  font-size: medium;
+  margin-right: 3rem;
+}
+
+.rightChat {
+  /* display: block;a */
+  /* width: 100%; */
+  background-color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 0.1rem;
+  border-top-right-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+  right: 3rem;
+  margin-top: 0.5rem;
+  max-width: 15rem;
+  /* max-height: 20rem; */
+  overflow-wrap: break-word;
+}
+
+.chat {
+  overflow: auto;
+  height: 30rem;
+  font-size: larger;
 }

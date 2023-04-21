@@ -19,7 +19,7 @@
             <div>
                 <a>Requirement List</a>
                 <!-- <a>Search</a> -->
-                <a>Chat</a>
+                <a onclick="chatRD()">Chat</a>
                 <a onclick="OWnotification()">Notification</a>
                 <a onclick="rdToPayment()">Payment</a>
                 <a onclick="urlData()">profile</a>
@@ -501,6 +501,10 @@
 
         function rdToPayment() {
             location.href = `payment.html${location.search}`
+        }
+
+        function chatRD() {
+            location.href = "Worker_Chat.html" + location.search;
         }
 
 

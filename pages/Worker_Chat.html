@@ -57,7 +57,7 @@
                 <div class="chat_profile">
                     <img src="../assets/Images/avatar (2).svg" alt="">
                     <div>
-                        <p>Worker Name</p>
+                        <p class="chatDeatilName">Worker Name</p>
                         <div class="profile_logo"><img src="../assets/Images/Logo.png" alt="Logo">
                             <p>Needs To Be Done</p>
                         </div>
@@ -71,18 +71,12 @@
                     <span>____________________</span>
                     <p>Today</p><span>____________________</span>
                 </div>
-
-                <div class="leftchat">
-                    <p>Hello Sir </p><br>
-                    <p>I am kamalesh</p><br>
-                    <p>You accepted my request sir</p><br>
-                    <p>Please tell the full Requirements </p><br>
+                <div class="chat">
+                    <!-- <p class="leftChat">LC</p>
+                    <p class="rightChat">RC</p>
+                    <p class="leftChat">LC</p> -->
                 </div>
 
-                <div class="right_chat">
-                    <p>Hi Sir</p><br>
-                    <p class="right_chat_p2">I will send more details</p><br>
-                </div>
             </div>
 
             <div class="typebar">
@@ -91,8 +85,10 @@
                 </div>
 
                 <div class="typebar_div2">
-                    <input type="text" placeholder="Type here" />
+                    <input id="chatText" type="text" placeholder="Type here" />
+
                 </div>
+                <img class="chatSendBtn" src="../assets/Images/chatSendBtn.png" alt="chatsendbutton">
                 <div class="typebar_div3">
                     Languages &emsp; +
                 </div>
@@ -122,6 +118,86 @@
 
     </main>
     <script src="../assets/JS/workerChat.js"></script>
+    <script>
+
+
+
+
+
+
+
+
+
+
+        document.querySelector(".chatSendBtn").addEventListener("click", (event) => {
+            let chatText = document.querySelector("#chatText").value;
+            let detailViewChat = JSON.parse(localStorage.getItem("cuntDVChat"));
+            let detailViewChatObj = JSON.parse(localStorage.getItem("register")).find((F) => F.Email == detailViewChat)
+            if (detailViewChatObj == null || detailViewChatObj == undefined) {
+                detailViewChatObj = JSON.parse(localStorage.getItem("workerRegister")).find((F) => F.Email == detailViewChat)
+            }
+            let Obj = {};
+            if (localStorage.getItem("chatData") != null) {
+                Obj = JSON.parse(localStorage.getItem("chatData"));
+            }
+
+            // Get URL Params
+            let url = location.search;
+            let urlParams = new URLSearchParams(url);
+            let type = urlParams.get("type");
+            let from = urlParams.get("from");
+            console.log(type, from);
+            // get the id's
+            let cntUser;
+            let cntUserAll;
+            if (type == "owner" && from == "register") {
+                let ownerReg = JSON.parse(localStorage.getItem("register"))
+                cntUser = ownerReg[ownerReg.length - 1].id;
+                cntUserAll = ownerReg[ownerReg.length - 1];
+            }
+            else if (type == "worker" && from == "register") {
+                let ownerReg = JSON.parse(localStorage.getItem("workerRegister"))
+                cntUser = ownerReg[ownerReg.length - 1].id;
+                cntUserAll = ownerReg[ownerReg.length - 1];
+            }
+
+            else if (from == "logIn") {
+                let LogIn = JSON.parse(localStorage.getItem("Login"));
+                cntUser = LogIn.id;
+                cntUserAll = LogIn;
+            }
+
+            chatText = chatText + "-" + cntUser;
+
+            let id = cntUser + "to" + detailViewChatObj.id;
+
+            // Find the id is already present in the object or not
+            let setIdValue = Obj[id];
+            if (setIdValue == undefined) {
+                let SplitId = id.split("to");
+                let reverseArray = SplitId[1] + "to" + SplitId[0];
+                // let JoinReverse = reverseArray.join("");
+                setIdValue = Obj[reverseArray];
+                console.log(reverseArray);
+            }
+            if (setIdValue == undefined || setIdValue == null) {
+                Obj[id] = [chatText];
+            }
+            else {
+                setIdValue.push(chatText);
+                Obj[id] = setIdValue;
+            }
+
+
+
+
+
+            localStorage.setItem("chatData", JSON.stringify(Obj));
+            let cntEmail = cntUserAll.Email;
+
+            searchedChat();
+        })
+    </script>
 </body>
 
 </html>
