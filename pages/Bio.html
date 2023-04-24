@@ -29,16 +29,16 @@
                     <label for="name" id="name-label">
                         First Name
                     </label>
-                    <input type="text" id="First_Name" name="name" placeholder="Enter your name" class="form-columns"
-                        required />
+                    <input type="text" pattern="[A-Za-z]{20}" id="First_Name" name="name" placeholder="Enter your name"
+                        title="Enter alphabet only" class="form-columns" required />
                 </div>
 
                 <div class="form-groupings">
                     <label for="name" id="name-label">
                         Last Name
                     </label>
-                    <input type="text" id="Last_Name" name="name" placeholder="Enter your name" class="form-columns"
-                        required />
+                    <input type="text" id="Last_Name" name="name" pattern="[A-Za-z]{20}" title="Enter alphabet only"
+                        placeholder="Enter your name" class="form-columns" required />
                 </div>
 
 
@@ -63,8 +63,8 @@
                         Enter Your Phone Number
                     </label>
                     <input type="number" name="phone number" placeholder="Enter your phone number here"
-                        class="form-columns" id="Phone" pattern="[0-9]{10}" maxlength="10" minlength="10"
-                        title="number should be 10 digits" required />
+                        class="form-columns" id="Phone" pattern="[0-9]{10}" title="number should be 10 digits"
+                        required />
                 </div>
 
                 <div class="form-groupings">
@@ -73,8 +73,8 @@
 
                     </label>
                     <input type="number" name="Aadhar_number" placeholder="Enter Your Aadhar Number"
-                        class="form-columns" id="Aadhar_number" pattern="[0-9]{12}" maxlength="12" minlength="12"
-                        title="number should be 12 digits" required />
+                        class="form-columns" id="Aadhar_number" pattern="[0-9]{12}" title="number should be 12 digits"
+                        required />
                 </div>
 
                 <div class="form-groupings">
@@ -155,7 +155,8 @@
 
                 <div class="form-groupings">
                     <p>Address</p>
-                    <textarea class="textarea-input" id="Address" name="Address" placeholder="Enter your address"
+                    <textarea class="textarea-input" id="Address" name="Address" pattern="[A-Za-z][0-9]{20}"
+                        title="Space and special charecters not allowed" pattern placeholder="Enter your address"
                         required></textarea>
                 </div>
 

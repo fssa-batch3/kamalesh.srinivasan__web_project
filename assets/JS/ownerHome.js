@@ -1,3 +1,6 @@
+const { promises } = require("fs");
+const { resolve } = require("path");
+
 function getUploadreq(obj) {
   let arr = [];
 
@@ -36,7 +39,11 @@ function goLeftUa() {
 }
 
 function test(jobs, i, appendTag) {
-  //console.log(jobs, i, appendTag);
+  console.log(jobs, i, appendTag);
+  let workerReg = JSON.parse(localStorage.getItem("workerRegister"));
+  let ownerReg = JSON.parse(localStorage.getItem("register"));
+  let mergedReg = workerReg.concat(ownerReg);
+  let bio = JSON.parse(localStorage.getItem("BIO"));
 
   let rect_cards = document.createElement("div");
   rect_cards.setAttribute("class", "rect_cards");
@@ -74,8 +81,14 @@ function test(jobs, i, appendTag) {
   profileImg.setAttribute("alt", "Profile");
   secondCard.append(profileImg);
 
+  //  Get the job created owner name
+
+  let cntOwner = mergedReg.find((F) => F.id == jobs[i]["ownerId"]);
+  let cntOwnerBio = bio.find((F) => F.Email == cntOwner.Email);
+  console.log(cntOwner);
+
   let Prof_name = document.createElement("p");
-  Prof_name.innerText = "Mr.Krish";
+  Prof_name.innerText = cntOwnerBio["FN"] + cntOwnerBio["LN"];
   Prof_name.setAttribute("class", "Prof_name");
   secondCard.append(Prof_name);
 
@@ -139,7 +152,12 @@ function test(jobs, i, appendTag) {
     jobs[indexOfThis]["isActive"] = false;
     localStorage.setItem("requirements", JSON.stringify(jobs));
     //console.log(jobs);
-    window.location.reload();
+    toastr.success("Job deleted Successfully");
+    let await = new Promise((r) => setTimeout(r, 3000));
+
+    await.then(() => {
+      location.reload();
+    });
   });
 
   // if()

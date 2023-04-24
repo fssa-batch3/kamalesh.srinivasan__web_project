@@ -392,7 +392,12 @@
 
             document.querySelector("#form").reset();
             jobToast("success", "Jos has been created")
-            scrollTo(0, 0);
+            let await = new Promise((r) => setTimeout(r, 1500));
+            scrollTo(0, 0)
+            await.then(() => {
+                location.reload();
+            });
+
         })
 
 
