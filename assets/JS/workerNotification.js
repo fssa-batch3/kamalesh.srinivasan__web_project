@@ -249,6 +249,9 @@ function addstartWork() {
   requirements[reqIndex] = Newfinded;
 
   localStorage.setItem("requirements", JSON.stringify(requirements));
+
+  location.reload();
+  return alert("Job started");
 }
 
 function completedWork(job) {
@@ -302,3 +305,11 @@ let close = document.querySelector("#close");
 close.addEventListener("click", (event) => {
   getCompletedDetails.style.display = "none";
 });
+
+function jobToast(type, message) {
+  if (type == "success") {
+    toastr.success(message);
+  } else {
+    toastr.error(message);
+  }
+}
