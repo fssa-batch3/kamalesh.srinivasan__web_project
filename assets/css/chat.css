@@ -259,22 +259,18 @@ section {
 }
 
 .rightName {
-  margin-left: auto;
-  margin-right: auto;
-  width: 15%;
   margin-top: 2rem;
   color: white;
   font-size: x-large;
   font-weight: bold;
+  text-align: center;
 }
 
 .expert {
-  margin-left: auto;
-  margin-right: auto;
-  width: 25%;
   margin-top: 0.5rem;
   color: white;
   font-size: large;
+  text-align: center;
 }
 
 .amountPaid {

@@ -38,14 +38,14 @@ function createSearchChatList(data) {
 
   document.querySelector(".recentChats").innerHTML = null;
   for (let i = 0; i < data.length; i++) {
-    let cntGmail;
-    if (from == "logIn") {
-      let Login = JSON.parse(localStorage.getItem("Login"));
-      cntGmail = Login.Email;
-    } else {
-      let register = JSON.parse(localStorage.getItem("register"));
-      cntGmail = register[register.length - 1].Email;
-    }
+    // let cntGmail;
+    // if (from == "logIn") {
+    //   let Login = JSON.parse(localStorage.getItem("Login"));
+    //   cntGmail = Login.Email;
+    // } else {
+    //   let register = JSON.parse(localStorage.getItem("register"));
+    //   cntGmail = register[register.length - 1].Email;
+    // }
 
     if (cntGmail != data[i].Email) {
       let cntEmail = JSON.stringify(data[i]["Email"]);
@@ -86,12 +86,81 @@ function createSearchChatList(data) {
 function deatilChatName(email) {
   let data = JSON.parse(localStorage.getItem("BIO"));
   let finded = data.find((F) => F.Email == email);
-
+  console.log(finded);
   document.querySelector(".chatDeatilName").innerHTML =
     finded["FN"] + " " + finded["LN"];
 
   localStorage.setItem("cuntDVChat", JSON.stringify(email));
+  chatProfileDetails(finded);
   searchedChat();
+}
+
+function chatProfileDetails(finded) {
+  document.querySelector(".rightName").innerHTML =
+    finded["FN"] + " " + finded["LN"];
+  document.querySelector(".expert").innerHTML = finded["Expect_in"];
+
+  // Total Amount Paid by owners
+  let workerReg = JSON.parse(localStorage.getItem("workerRegister"));
+  let ownerReg = JSON.parse(localStorage.getItem("register"));
+  let mergedReg = workerReg.concat(ownerReg);
+  console.log(mergedReg);
+  let applyJob = JSON.parse(localStorage.getItem("apllyJob"));
+  let currentChatEmail = JSON.parse(localStorage.getItem("cuntDVChat"));
+  let currentChatID = mergedReg.find((F) => F.Email == currentChatEmail);
+  console.log(currentChatID);
+  let currentChatIDJobs = applyJob.filter(
+    (F) => F.applierId == currentChatID.id
+  );
+  console.log(currentChatIDJobs);
+  let completedJobs = JSON.parse(localStorage.getItem("completedJobs"));
+  let filteredCompletedJobs = completedJobs.filter(
+    (F) => F.applierId == currentChatID
+  );
+
+  let currentChatIDJPaid = currentChatIDJobs.filter((F) => F["paid"] == "Paid");
+  console.log(currentChatIDJPaid);
+  let Amounts = [];
+  let totalPaidAmount = 0;
+  for (let i = 0; i < currentChatIDJPaid.length; i++) {
+    Amounts.push(currentChatIDJPaid[i]["paidAmount"]);
+    totalPaidAmount += parseInt(currentChatIDJPaid[i]["paidAmount"]);
+  }
+
+  if (totalPaidAmount != 0) {
+    document.querySelector(".totalAmountPaid").innerHTML =
+      "Total Amount Paid by owners : Rs. " + totalPaidAmount;
+
+    //Highest Amount Paid by owners
+
+    document.querySelector(".highAmount").innerHTML =
+      "Highest Amount Paid by owners : Rs. " + Math.max(...Amounts);
+
+    document.querySelector(".lowAmount").innerHTML =
+      "Lowset Amount Paid by owners : Rs. " + Math.min(...Amounts);
+  } else {
+    document.querySelector(".totalAmountPaid").innerHTML =
+      "Total Amount Paid by owners : Rs. " + 0;
+
+    //Highest Amount Paid by owners
+
+    document.querySelector(".highAmount").innerHTML =
+      "Highest Amount Paid by owners : Rs. " + 0;
+
+    document.querySelector(".lowAmount").innerHTML =
+      "Lowset Amount Paid by owners : Rs. " + 0;
+  }
+
+  //No of jobs completed
+
+  document.querySelector(".noOfJobs").innerHTML =
+    "Number of jobs completed : " + currentChatIDJPaid.length + " Jobs";
+
+  // No of pending jobs
+
+  let pendingJobs = currentChatIDJobs.length - currentChatIDJPaid.length;
+  document.querySelector(".pendingJobs").innerHTML =
+    "Number of pending jobs : " + pendingJobs + " Jobs";
 }
 
 function searchedChat() {

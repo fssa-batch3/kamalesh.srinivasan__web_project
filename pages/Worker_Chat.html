@@ -110,24 +110,140 @@
 
             </div>
 
-            <div class="chatApproval">
+            <!-- <div class="chatApproval">
                 Chat Approved
 
-            </div>
+            </div> -->
         </section>
 
     </main>
     <script src="../assets/JS/workerChat.js"></script>
     <script>
 
+        let url = location.search;
+        let urlParams = new URLSearchParams(url);
+        let from = urlParams.get("from");
+        console.log(from);
+
+
+        let cntGmail;
+        let currentID;
+        if (from == "logIn") {
+            let Login = JSON.parse(localStorage.getItem("Login"));
+            cntGmail = Login.Email;
+            currentID = Login.id;
+        } else {
+            let register = JSON.parse(localStorage.getItem("register"));
+            cntGmail = register[register.length - 1].Email;
+            currentID = register[register.length - 1].id;
+        }
+
+
+        //   Recent Chats
+
+        let chatData = JSON.parse(localStorage.getItem("chatData"));
+        console.log(currentID);
+        console.log(chatData);
+        //  Get the keys of the chatData
+        let chatDatakeys = Object.keys(chatData);
+        console.log(chatDatakeys);
+        let recentChat = [];
+
+        //  create a array with id and lastdata
+        for (let i = 0; i < chatDatakeys.length; i++) {
+            let lastIndex = chatData[chatDatakeys[i]].length - 1;
+            let cntArray = chatData[chatDatakeys[i]];
+            let splited = cntArray[lastIndex].split("-");
+            let cntObj = {
+                key: chatDatakeys[i],
+                date: splited[2],
+            }
+            recentChat.push(cntObj)
+        }
+
+        let customSort = (a, b) => {
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            if (dateA < dateB) return 1;
+            else if (dateA > dateB) return -1;
+            return 0;
+        }
+
+        console.log(customSort);
+
+        //  create array with recentCaht
+        console.log(recentChat.sort(customSort));
+
+        // Find the currentUser to chatters
+
+        let sortedRecent = recentChat.sort(customSort);
+        //  get the key of the sorted Array
+        let sortedRecentKeys = [];
+        for (let i = 0; i < sortedRecent.length; i++) {
+            sortedRecentKeys.push(sortedRecent[i].key);
+        }
+        sortedRecentKeys.push("169080929027644to168890929138185");
+        console.log(sortedRecentKeys);
+        let currentIdArr = [currentID];
+        let currentUserIdInordredKeys = sortedRecentKeys.filter((F) => F.includes(currentID));
+        console.log(currentUserIdInordredKeys);
+        let removedCurrentUID = [];
+
+        for (let i = 0; i < currentUserIdInordredKeys.length; i++) {
+
+            let splitedcurrentUserIdInordredKeys = currentUserIdInordredKeys[i].split("to");
+            console.log(splitedcurrentUserIdInordredKeys);
+            for (let i = 0; i < splitedcurrentUserIdInordredKeys.length; i++) {
+                if (splitedcurrentUserIdInordredKeys[i] != currentID) {
+                    removedCurrentUID.push(splitedcurrentUserIdInordredKeys[i]);
+                }
+            }
+
+        }
+
+        console.log(removedCurrentUID);
 
 
 
 
+        //  create a card with finded id
+        let recentBio = JSON.parse(localStorage.getItem("BIO"));
+        let workerRegister = JSON.parse(localStorage.getItem("workerRegister"));
+        let ownerRegister = JSON.parse(localStorage.getItem("register"));
+        let mergedArray = workerRegister.concat(ownerRegister);
+        console.log(mergedArray);
 
+        let filterdwithchatsId = [];
+        for (let i = 0; i < mergedArray.length; i++) {
+            for (let j = 0; j < removedCurrentUID.length; j++) {
+                // console.log(mergedArray[i]["id"] + " " + removedCurrentUID[0]);
+                if (mergedArray[i]["id"] == removedCurrentUID[j]) {
+                    filterdwithchatsId.push(mergedArray[i])
+                    break;
+                }
+            }
 
+        }
 
+        // console.log();
+        console.log(filterdwithchatsId);
+        console.log("test");
 
+        //  Find the same values in Bio 
+
+        let filterdwithchatsIdBio = [];
+
+        for (let i = 0; i < recentBio.length; i++) {
+            for (let j = 0; j < filterdwithchatsId.length; j++) {
+                if (recentBio[i]["Email"] == filterdwithchatsId[j]["Email"]) {
+                    filterdwithchatsIdBio.push(recentBio[i])
+                    break;
+                }
+            }
+        }
+
+        console.log(filterdwithchatsIdBio);
+        createSearchChatList(filterdwithchatsIdBio)
 
         document.querySelector(".chatSendBtn").addEventListener("click", (event) => {
             let chatText = document.querySelector("#chatText").value;
@@ -166,8 +282,9 @@
                 cntUser = LogIn.id;
                 cntUserAll = LogIn;
             }
+            let currentTime = new Date()
+            chatText = chatText + "-" + cntUser + "-" + currentTime;
 
-            chatText = chatText + "-" + cntUser;
 
             let id = cntUser + "to" + detailViewChatObj.id;
 
