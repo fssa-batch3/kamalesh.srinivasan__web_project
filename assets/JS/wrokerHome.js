@@ -210,4 +210,5 @@ function applyJob() {
   localStorage.setItem("apllyJob", JSON.stringify(arr));
 
   localStorage.setItem("requirements", JSON.stringify(requirements));
+  toastr.success("Job Applied successfully");
 }
