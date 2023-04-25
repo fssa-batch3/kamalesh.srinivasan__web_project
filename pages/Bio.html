@@ -29,15 +29,15 @@
                     <label for="name" id="name-label">
                         First Name
                     </label>
-                    <input type="text" pattern="[A-Za-z]{20}" id="First_Name" name="name" placeholder="Enter your name"
-                        title="Enter alphabet only" class="form-columns" required />
+                    <input type="text" pattern="[A-Za-z]{1-20}" id="First_Name" name="name"
+                        placeholder="Enter your name" title="Enter alphabet only" class="form-columns" required />
                 </div>
 
                 <div class="form-groupings">
                     <label for="name" id="name-label">
                         Last Name
                     </label>
-                    <input type="text" id="Last_Name" name="name" pattern="[A-Za-z]{20}" title="Enter alphabet only"
+                    <input type="text" id="Last_Name" name="name" pattern="[A-Za-z]{1-20}" title="Enter alphabet only"
                         placeholder="Enter your name" class="form-columns" required />
                 </div>
 
@@ -155,7 +155,7 @@
 
                 <div class="form-groupings">
                     <p>Address</p>
-                    <textarea class="textarea-input" id="Address" name="Address" pattern="[A-Za-z][0-9]{20}"
+                    <textarea class="textarea-input" id="Address" name="Address" pattern="[A-Za-z][0-9]{1-20}"
                         title="Space and special charecters not allowed" pattern placeholder="Enter your address"
                         required></textarea>
                 </div>
