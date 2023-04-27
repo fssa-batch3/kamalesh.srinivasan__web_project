@@ -258,6 +258,40 @@ User Story
           Expected Result:
           
              User should get the toast message like Job is completed.
+             
+ 
+21. Payment.
+        
+          Steps:
+             
+             a)Go to the payment page.
+             b)Click pay button.
+             c)Select the payment type.
+             d)Enter the deatils.
+             e)Click pay.
+             
+          Expected Result:
+          
+              Card status should chaged as Paid.
+              
+
+
+22.Chat.
+           
+           Steps:
+             
+              a)Go to the chat page.
+              b)Find the person whom do you want to chat.
+              c)Type the chat in the chat box.
+              d)Click the rocket button.
+              
+              
+           Expected Result:
+            
+              The selected user should recieve you chat and you also can view the chat.
+              
+             
+           
 
              
             
