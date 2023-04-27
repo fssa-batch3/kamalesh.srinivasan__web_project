@@ -1,3 +1,12 @@
+body {
+  background-color: #effffd;
+  color: #42c2ff;
+}
+
+nav a {
+  color: #42c2ff;
+}
+
 main {
   display: flex;
   gap: 5rem;
@@ -70,11 +79,11 @@ section {
 }
 
 .listcard {
-  border-top: 1px solid white;
+  border-top: 1px solid #42c2ff;
   box-sizing: border-box;
   width: 43rem;
   padding-top: 1rem;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #42c2ff;
   padding-bottom: 1rem;
 }
 
@@ -328,5 +337,3 @@ p {
 #amountbox {
   background-color: aqua;
 }
-
-

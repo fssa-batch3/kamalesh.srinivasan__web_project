@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: #effffd;
 }
 section {
   width: 700px;
@@ -34,7 +34,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #a2e8dd;
+  background-color: #85f4ff;
   margin-left: 200px;
   margin-right: 200px;
   padding-bottom: 20px;

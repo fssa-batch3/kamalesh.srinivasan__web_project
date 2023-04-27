@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(185, 180, 245);
+  background-color: #effffd;
   /* background-image: url(../Images/colors.jpg); */
   background-size: cover;
   /* padding-left: ; */
@@ -11,8 +11,8 @@ a {
 }
 
 header img {
-  width: 10vw;
-  height: 20vh;
+  width: 10rem;
+  height: 10rem;
   border: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -21,7 +21,8 @@ header img {
 header {
   display: flex;
   align-items: center;
-  gap: 35vw;
+  gap: 40vw;
+  margin-top: -1rem;
 }
 
 .header_div1 {
@@ -30,12 +31,19 @@ header {
 }
 header a {
   margin-top: 1vh;
-  font-size: 1.15rem;
-  color: white;
+  font-size: 1.3rem;
+  color: #42c2ff;
+  font-family: "Barlow", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
+  font-family: "Outfit", sans-serif;
+  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Slab", serif;
+  font-family: "Space Mono", monospace;
 }
 .buttons {
   display: flex;
-  gap: 2vw;
+  gap: 5vw;
+  margin-top: -5rem;
 }
 
 .header_img {
@@ -173,6 +181,7 @@ header a {
   overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  /* border-radius: 1rem; */
 }
 
 main {
@@ -200,14 +209,15 @@ main {
   display: inline-block;
   text-align: center;
   text-decoration: none;
-  background-color: white;
+  background-color: #b8fff9;
   /* border: 1px solid black; */
   padding: 1rem;
   margin-right: 2rem;
+  border-radius: 1rem;
 }
 
 .TJ-Heading {
-  color: white;
+  color: #42c2ff;
   font-size: x-large;
   margin-bottom: 0.5rem;
   /* position: sticky; */
@@ -223,6 +233,7 @@ main {
   font-size: 17px;
   border-top-left-radius: 5px;
   border-end-start-radius: 5px;
+  background-color: #42c2ff;
 }
 
 .card {
@@ -237,6 +248,7 @@ main {
   /* filter: blur(5px); */
   transition: 1s;
   margin-bottom: 2rem;
+  border-radius: 0.5rem;
 }
 
 .card_profile_img {
@@ -249,7 +261,7 @@ main {
 .card-h2 {
   text-align: center;
   margin-top: -15rem;
-  color: white;
+  color: #42c2ff;
 }
 
 main {
@@ -261,6 +273,11 @@ main {
   height: 2rem;
   margin-left: 1rem;
   margin-left: 1rem;
+  /* padding-bottom: -0.4rem; */
+}
+
+#phone {
+  transform: rotate(90deg);
 }
 
 .card p {
@@ -275,7 +292,7 @@ main {
 }
 
 .card_details {
-  background-image: linear-gradient(rgba(244, 241, 241, 0.743), rgb(3, 1, 14));
+  background-image: linear-gradient(#b8fff9, rgb(3, 1, 14));
 
   margin-top: 1.7vh;
   /* margin-left: 5rem; */
@@ -318,6 +335,7 @@ h4 {
 
 .card:hover .card_details {
   display: block;
+  border-radius: 0.5rem;
   /* filter: brightness(1); */
   animation: fadeIn 0.9s;
 }
@@ -341,6 +359,7 @@ h4 {
   );
   text-align: center;
   padding: 1rem 0rem;
+  border-radius: 0.5rem;
 }
 
 button:hover {
@@ -365,14 +384,15 @@ button:hover {
 .feedback h2 {
   margin-left: -3rem;
   padding-top: 2rem;
-  color: white;
+  color: #42c2ff;
 }
 
 .FB-card {
   height: 20rem;
   width: 15rem;
   padding: 1rem 1rem;
-  background-color: lightblue;
+  background-color: #b8fff9;
+  border-radius: 0.3rem;
 }
 
 .FB-card_img {

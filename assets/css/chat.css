@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(185, 180, 245);
+  background-color: #effffd;
 }
 
 main {
@@ -38,7 +38,7 @@ section {
 }
 
 .chat_with_us {
-  background-color: rgb(167, 137, 216);
+  background-color: #85f4ff;
   /* border-radius: 10px 10px 0px 0px; */
   color: white;
   width: 40rem;
@@ -227,7 +227,7 @@ section {
   /* background-color: aqua; */
   border-top-right-radius: 0rem;
   border-bottom-right-radius: 0rem;
-  background-color: rgb(171, 161, 239);
+  background-color: #85f4ff;
   height: 50rem;
 }
 
@@ -236,12 +236,13 @@ section {
   border-bottom-left-radius: 0rem;
   /* width: 400rem; */
   height: 50rem;
+  /* background-color: #85f4ff; */
 }
 
 .rightSec {
   width: 30rem;
   height: 50rem;
-  background-color: rgb(171, 161, 239);
+  background-color: #85f4ff;
   margin-left: -2.5rem;
   border-bottom-left-radius: 0rem;
   border-top-left-radius: 0rem;

@@ -37,14 +37,14 @@
 
 body {
   max-width: 20rem;
-  background-color: black;
+  background-color: #effffd;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10rem;
 }
 
 h1 {
-  color: white;
+  color: #42c2ff;
   margin-left: 5rem;
 }
 

@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: rgb(185, 180, 245);
+  background-color: #effffd;
 }
 
 section {
@@ -45,7 +45,7 @@ section :nth-child(2) {
 }
 
 .signin div {
-  background-color: white;
+  background-color: #85f4ff;
   width: 20rem;
   /* height: 800px; */
   margin-left: 190%;

@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Needs To Be Done</title>
     <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -28,10 +33,7 @@
                     Join as worker
                 </a>
             </div>
-            <div class="header_div2">
-                <input class="header_input" type="text" placeholder="Search Jobs here...." /><img class="header_img"
-                    alt="searchIcon" src="assets/Images/Search-icon.png" />
-            </div>
+
             <a href="pages/Signin.html">
                 Log In
             </a>
@@ -231,7 +233,7 @@
                 <!-- <div class="card">
                     <img class="card_profile_img" src="assets/Images/user-profile_img_01.avif" alt="User_profile" />
                     <h2 class="card-h2">Ms.Ileana citaristi.</h2>
-                    <p class="email"> <img src="assets/Images/email.svg" alt="email-logo"> Ileanacitaristi@gmail.com</p>
+                    <p class="email"> <img src="assets/Images/email.svg" alt="email-logo" id="phone"> Ileanacitaristi@gmail.com</p>
                     <p class="email"> <img src="assets/Images/phone_new.svg" alt="phone-logo"> +91 9876543210</p>
                     <p class="email"> <img src="assets/Images/location.svg" alt="location-logo"> chennai</p>
                     <p class="review"> Rreview </p>
@@ -756,8 +758,8 @@
             card.setAttribute("data-aos", "fade-right");
             card.innerHTML = `<img class="card_profile_img" src=${Frequent_users[i]["image"]["src"]} alt=${Frequent_users[i]["image"]["alt"]} />
                     <h2 class="card-h2">${Frequent_users[i]["name"]}</h2>
-                    <p class="email"> <img src="assets/Images/email.svg" alt="email-logo"> ${Frequent_users[i]["mail"]}</p>
-                    <p class="email"> <img src="assets/Images/phone_new.svg" alt="phone-logo"> ${Frequent_users[i]["phone"]}</p>
+                    <p class="email"> <img src="assets/Images/email.svg" alt="email-logo" > ${Frequent_users[i]["mail"]}</p>
+                    <p class="email"> <img src="assets/Images/phone_new.svg" alt="phone-logo" id="phone"> ${Frequent_users[i]["phone"]}</p>
                     <p class="email"> <img src="assets/Images/location.svg" alt="location-logo"> ${Frequent_users[i]["location"]}</p>
                     <p class="review"> Rreview </p>
 

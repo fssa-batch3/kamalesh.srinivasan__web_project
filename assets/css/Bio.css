@@ -15,9 +15,9 @@
 body {
   font-size: 1rem;
   font-weight: 400;
-  color: var(--color-white);
+  color: #42C2FF;
   margin: 0;
-  background-color: rgb(185, 180, 245);
+  background-color: #effffd;
   font-family: "Droid Serif", serif;
 
 }
@@ -113,7 +113,7 @@ p {
 .form-columns:focus {
   border-color: #ff4500;
   outline: 0;
-  box-shadow: 0 0 0 0.15rem yellow;
+  /* box-shadow: 0 0 0 0.15rem yellow; */
 }
 
 .radio-input,
@@ -157,7 +157,16 @@ span {
 }
 
 
-input:invalid {
+/* input:invalid {
   background-color: red;
+} */
+
+textarea{
+  border: none;
 }
 
+textarea:focus{
+  /* border-color: #ff4500; */
+  outline: 0;
+  box-shadow: 0 0 0 0.15rem #ff4500;
+}

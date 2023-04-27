@@ -146,18 +146,22 @@ function test(jobs, i, appendTag) {
     // jobs = JSON.parse(localStorage.getItem("requirements"));
     // jobs[i]["isActive"] = false;
     // const findOfThis = jobs.find(e => e.id = jobs[i]["id"])
-    const indexOfThis = jobs.indexOf(jobs[i]);
-    //console.log(jobs);
-    // jobs.splice(indexOfThis, 1)
-    jobs[indexOfThis]["isActive"] = false;
-    localStorage.setItem("requirements", JSON.stringify(jobs));
-    //console.log(jobs);
-    toastr.success("Job deleted Successfully");
-    let await = new Promise((r) => setTimeout(r, 3000));
 
-    await.then(() => {
-      location.reload();
-    });
+    let text = "Are you sure to delete this job";
+    if (confirm(text) == true) {
+      const indexOfThis = jobs.indexOf(jobs[i]);
+      //console.log(jobs);
+      // jobs.splice(indexOfThis, 1)
+      jobs[indexOfThis]["isActive"] = false;
+      localStorage.setItem("requirements", JSON.stringify(jobs));
+      //console.log(jobs);
+      toastr.success("Job deleted Successfully");
+      let await = new Promise((r) => setTimeout(r, 3000));
+
+      await.then(() => {
+        location.reload();
+      });
+    }
   });
 
   // if()
