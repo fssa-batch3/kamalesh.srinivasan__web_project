@@ -1,5 +1,6 @@
 body {
   background-color: #effffd;
+  font-family: "Roboto Slab", serif;
 }
 
 main {
@@ -207,7 +208,7 @@ section {
   align-items: center;
   gap: 2rem;
   margin-bottom: 0.5rem;
-  background-color: black;
+  background-color: #42c2ff;
   border-radius: 0.5rem;
 }
 
@@ -313,7 +314,7 @@ section {
 }
 
 .leftChat {
-  background-color: white;
+  background-color: #42c2ff;
   padding: 0.3rem 1rem;
   border-radius: 0.1rem;
   border-top-right-radius: 1.5rem;
@@ -338,7 +339,7 @@ section {
 .rightChat {
   /* display: block;a */
   /* width: 100%; */
-  background-color: white;
+  background-color: #42c2ff;
   padding: 0.3rem 1rem;
   border-radius: 0.1rem;
   border-top-right-radius: 1.5rem;

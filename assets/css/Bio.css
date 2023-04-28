@@ -18,8 +18,7 @@ body {
   color: #42C2FF;
   margin: 0;
   background-color: #effffd;
-  font-family: "Droid Serif", serif;
-
+font-family: "Roboto Slab", serif;
 }
 
 /* mobile friendly alternative to using background-attachment: fixed */

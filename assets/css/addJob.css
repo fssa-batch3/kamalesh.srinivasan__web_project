@@ -4,8 +4,8 @@ html,
 body {
   background-color: #00bfff;
   text-align: center;
-  font-family: "Raleway", Helvetica, sans-serif;
   min-width: 320px;
+  font-family: "Roboto Slab", serif;
 }
 
 header {

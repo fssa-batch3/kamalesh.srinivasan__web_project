@@ -7,7 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="../assets/css/owner_profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
+        rel="stylesheet">
 </head>
+
+<script src="../assets/JS/index.js"></script>
 
 <body>
     <!-- This is worker profile -->
@@ -23,8 +30,8 @@
                 </div>
 
                 <div class="profile">
-                    <div>
-                        <img alt="image" src="../assets/Images/avatar (4).svg">
+                    <div class="profileDiv">
+
                     </div>
                 </div>
             </div>
@@ -174,6 +181,15 @@
         let phone = document.createElement("p");
         phone.innerHTML = `${userBio["Phone"]}`;
         document.querySelector(".icons").append(phone);
+
+        // Profile Name
+
+        let profileDiv = document.querySelector(".profileDiv");
+        let profileDivImg = document.createElement("img");
+        profileDivImg.setAttribute("src", profileImg(userBio.FN, userBio.LN));
+        profileDivImg.setAttribute("alt", "ProfileImage");
+
+        profileDiv.append(profileDivImg);
 
 
         function deleteUser() {

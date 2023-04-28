@@ -4,7 +4,8 @@ body {
   transition: o.5s;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: rgb(185, 180, 245);
+  background-color: #effffd;
+  font-family: "Roboto Slab", serif;
 }
 
 a {
@@ -19,7 +20,7 @@ header {
 }
 
 nav a {
-  color: white;
+  color: #42c2ff;
   margin-right: 2rem;
   font-size: larger;
   text-decoration: none;
@@ -70,10 +71,10 @@ a:hover {
 }
 
 .yourJobs_card {
-  background-color: white;
+  background-color: #85f4ff;
   box-sizing: border-box;
   width: 50rem;
-  height: 15rem;
+  height: 16rem;
   border-radius: 0.5rem;
   display: flex;
   gap: 2rem;
@@ -189,7 +190,7 @@ ul {
 
 .Deatils {
   width: 45rem;
-  background-color: white;
+  background-color: #b8fff9;
   /* color: white; */
   margin-top: 8rem;
   /* height: 70rem; */
@@ -201,6 +202,8 @@ ul {
   padding-top: 3rem;
   padding-bottom: 0.5rem;
   color: black;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 main {
@@ -217,7 +220,7 @@ main {
 }
 
 .head {
-  background-color: lightblue;
+  background-color: #85f4ff;
   padding: 1rem;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -229,7 +232,7 @@ main {
   /* margin-top: 2rem; */
   padding: 2rem;
   margin-bottom: 2rem;
-  background-color: whitesmoke;
+  background-color: white;
   /* height: 57rem; */
   overflow: auto;
   overflow-x: hidden;
@@ -244,6 +247,7 @@ main {
   margin-top: 1rem;
   transition: 0.3s;
   border-radius: 2px;
+  background-color: #85f4ff;
 }
 
 .apply:hover {

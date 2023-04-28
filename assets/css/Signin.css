@@ -5,6 +5,7 @@
 
 body {
   background-color: #effffd;
+  font-family: "Roboto Slab", serif;
 }
 
 section {
@@ -71,12 +72,12 @@ form input {
 
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid wheat;
+  border-bottom: 1px solid white;
 }
 
 form input::placeholder {
-  color: rgb(205, 28, 28);
-  font-size: 10px;
+  color: white;
+  font-size: 1rem;
 }
 
 form label {

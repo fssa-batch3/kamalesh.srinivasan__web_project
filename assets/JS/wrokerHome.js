@@ -13,7 +13,7 @@ function yourJobsClick(index) {
   for (let i = 0; i < yourJobs_card.length; i++) {
     console.log("for");
     yourJobs_card[i].style.width = "30rem";
-    yourJobs_card[i].style.height = "15rem";
+    yourJobs_card[i].style.height = "16rem";
     yourJobsCardP[i].style.maxWidth = "20rem";
     yourJobsCardP[i].style.textOverflow = "ellipsis";
     yourJobsCardP[i].style.overflow = "hidden";

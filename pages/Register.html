@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="../assets/css/Register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
+        rel="stylesheet">
 </head>
 <!-- This is register page -->
 
@@ -260,6 +265,26 @@
 
 
                 }
+
+                let allReg;
+                let Bio = JSON.parse(localStorage.getItem("BIO"));
+                if (type == "worker") {
+                    allReg = JSON.parse(localStorage.getItem("workerRegister"));
+                    Bio = Bio.find((F) => F.Email == allReg[allReg.length - 1].Email);
+                }
+
+                let Login = {
+                    Email: Bio.Email,
+                    id: Bio.id,
+
+                }
+
+
+
+
+
+
+                localStorage.setItem("Login", JSON.stringify(Login))
 
 
             })

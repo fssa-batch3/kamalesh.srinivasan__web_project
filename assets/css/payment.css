@@ -1,6 +1,7 @@
 body {
   background-color: #effffd;
   color: #42c2ff;
+  font-family: "Roboto Slab", serif;
 }
 
 nav a {
@@ -221,16 +222,17 @@ p {
   color: black;
   /* padding: 1rem; */
   text-align: center;
-  background-color: lightblue;
+  background-color: #85f4ff;
   box-sizing: border-box;
   width: 5rem;
   padding: 0.5rem 0rem;
   border-radius: 5px;
-  border: 1px solid black;
+  border: none;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .filters p {
-  color: lightblue;
+  color: #42c2ff;
   font-size: large;
   font-weight: bolder;
 }

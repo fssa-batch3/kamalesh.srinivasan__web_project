@@ -112,3 +112,12 @@ function TPJLess() {
   document.getElementById("TPJMore").style.display = "block";
   document.getElementById("TPJLess").style.display = "none";
 }
+
+function profileImg(Fname, Lname) {
+  return (
+    `https://ui-avatars.com/api/?name=` +
+    Fname +
+    Lname +
+    `&&background=random&&rounded=true`
+  );
+}

@@ -3,7 +3,7 @@ body {
   /* background-image: url(../Images/colors.jpg); */
   background-size: cover;
   /* padding-left: ; */
-  font-family: "Droid Serif", serif;
+  font-family: "Roboto Slab", serif;
 }
 
 a {
@@ -33,12 +33,7 @@ header a {
   margin-top: 1vh;
   font-size: 1.3rem;
   color: #42c2ff;
-  font-family: "Barlow", sans-serif;
-  font-family: "Barlow Condensed", sans-serif;
-  font-family: "Outfit", sans-serif;
-  font-family: "Roboto Mono", monospace;
-  font-family: "Roboto Slab", serif;
-  font-family: "Space Mono", monospace;
+  font-family: "Lato", sans-serif;
 }
 .buttons {
   display: flex;
@@ -243,7 +238,7 @@ main {
   );
   margin-top: 1.7vh;
   margin-left: 5rem;
-  height: 24rem;
+  height: 26rem;
   box-shadow: 0 0 5px #faffff1f;
   /* filter: blur(5px); */
   transition: 1s;
@@ -338,6 +333,7 @@ h4 {
   border-radius: 0.5rem;
   /* filter: brightness(1); */
   animation: fadeIn 0.9s;
+  height: 25.5rem;
 }
 @keyframes fadeIn {
   0% {

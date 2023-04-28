@@ -1,6 +1,6 @@
 body {
   background-color: #effffd;
-  font-family: "Droid Serif", serif;
+  font-family: "Roboto Slab", serif;
 }
 
 section {
@@ -54,6 +54,7 @@ section {
   height: 400px;
   margin-top: 80px;
   margin-left: 80px;
+  border-radius: 50%;
 }
 
 .second_div_profile {

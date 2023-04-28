@@ -2,7 +2,7 @@ body {
   /* background-image: url(/assets/Images/colors.jpg); */
   color: #42c2ff;
   background-color: #effffd;
-  font-family: "Droid Serif", serif;
+  font-family: "Roboto Slab", serif;
 }
 
 a {
@@ -57,7 +57,7 @@ nav a:hover {
 .rect_cards {
   width: 15rem;
   /* background-color: white; */
-  height: 20rem;
+  height: 22rem;
   border-radius: 0.2rem;
   margin-right: 2rem;
   background-color: #85f4ff;
@@ -68,7 +68,6 @@ nav a:hover {
   flex-direction: column;
   justify-content: center;
 }
-
 .rect_cards img {
   width: 3rem;
   height: 3rem;
@@ -328,7 +327,7 @@ form {
   /* background-color: grey; */
   padding: 1rem;
   border: 2px solid white;
-  background-color: #ffffd0;
+  background-color: #85f4ff;
   border: none;
 }
 
