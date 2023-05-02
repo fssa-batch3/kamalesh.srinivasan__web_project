@@ -103,18 +103,13 @@ function closeDetail() {
 }
 
 function getLocalreq(data) {
-  // let arr = [];
-  // if (data != null) {
-  //   arr = data;
-  // }
-
   let localAll = JSON.parse(localStorage.getItem("requirements"));
   let isActive = localAll.filter((F) => F.isActive == true);
   let isCompleted = isActive.filter((F) => F.isCompleted == false);
   let isApplied = isCompleted.filter((F) => F.isCompleted == false);
   let started = isApplied.filter((F) => F.started == false);
   let getLocal = started;
-  // arr.push(getLocal);
+
   console.log(getLocal);
 
   return getLocal;
@@ -127,8 +122,11 @@ function applyJob() {
   let loggedIn = JSON.parse(localStorage.getItem("Login"));
   let requirements = JSON.parse(localStorage.getItem("requirements"));
   let workers = JSON.parse(localStorage.getItem("workerRegister"));
+  let Bio = JSON.parse(localStorage.getItem("BIO"));
 
   let applier = workers.find((W) => W.id == loggedIn.id);
+  let applierBio = Bio.find((F) => F.Email == loggedIn.Email);
+
   console.log(applier);
 
   let owner = requirements.find((R) => R.id == jobID);
@@ -149,7 +147,7 @@ function applyJob() {
   let apply = {
     jobID,
     applierId: applier.id,
-    applierName: applier.FullName,
+    applierName: applierBio["FN"] + " " + applierBio["LN"],
     aplliedJobId: Date.now(),
     readed: false,
     notificationAction: "NotActioned",

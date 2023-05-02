@@ -1,5 +1,5 @@
-const { promises } = require("fs");
-const { resolve } = require("path");
+// const { promises } = require("fs");
+// const { resolve } = require("path");
 
 function getUploadreq(obj) {
   let arr = [];
@@ -40,9 +40,19 @@ function goLeftUa() {
 
 function test(jobs, i, appendTag) {
   console.log(jobs, i, appendTag);
+  let mergedReg;
   let workerReg = JSON.parse(localStorage.getItem("workerRegister"));
   let ownerReg = JSON.parse(localStorage.getItem("register"));
-  let mergedReg = workerReg.concat(ownerReg);
+  if (workerReg != undefined && ownerReg != undefined) {
+    mergedReg = workerReg.concat(ownerReg);
+  } else if (workerReg != null && ownerReg != null) {
+    mergedReg = workerReg.concat(ownerReg);
+  } else if (workerReg != undefined) {
+    mergedReg = workerReg;
+  } else if (ownerReg != undefined) {
+    mergedReg = ownerReg;
+  }
+
   let bio = JSON.parse(localStorage.getItem("BIO"));
 
   let rect_cards = document.createElement("div");
@@ -76,10 +86,11 @@ function test(jobs, i, appendTag) {
   let secondCard = document.createElement("div");
   secondCard.setAttribute("class", "secondCard");
 
-  let profileImg = document.createElement("img");
-  profileImg.setAttribute("src", "../assets/Images/profiel1.jpg");
-  profileImg.setAttribute("alt", "Profile");
-  secondCard.append(profileImg);
+  let profileData = profileImg(jobs[i]["FN"], jobs[i]["LN"]);
+  let profileImg1 = document.createElement("img");
+  profileImg1.setAttribute("src", profileData);
+  profileImg1.setAttribute("alt", "Profile");
+  secondCard.append(profileImg1);
 
   //  Get the job created owner name
 
@@ -97,7 +108,7 @@ function test(jobs, i, appendTag) {
   TypeP.innerText = `${jobs[i]["title"]}`;
 
   let TypeSpan = document.createElement("span");
-  TypeSpan.innerText = "Type :";
+  TypeSpan.innerText = "Title :";
   TypeP.prepend(TypeSpan);
 
   secondCard.append(TypeP);

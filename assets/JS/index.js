@@ -117,6 +117,7 @@ function profileImg(Fname, Lname) {
   return (
     `https://ui-avatars.com/api/?name=` +
     Fname +
+    " " +
     Lname +
     `&&background=random&&rounded=true`
   );

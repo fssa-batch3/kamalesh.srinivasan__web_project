@@ -58,7 +58,7 @@ function createSearchChatList(data) {
       chatCard.append(chatCardImg);
 
       let workerImage = document.createElement("img");
-      workerImage.setAttribute("src", "../assets/Images/avatar (6).svg");
+      workerImage.setAttribute("src", profileImg(data[i]["FN"], data[i]["LN"]));
       workerImage.setAttribute("alt", "workerImage");
       chatCardImg.append(workerImage);
 
@@ -87,36 +87,64 @@ function deatilChatName(email) {
   let data = JSON.parse(localStorage.getItem("BIO"));
   let finded = data.find((F) => F.Email == email);
   console.log(finded);
+  // document.querySelector("chatDeatilName").innerHTML = null;
   document.querySelector(".chatDeatilName").innerHTML =
     finded["FN"] + " " + finded["LN"];
 
+  if (document.querySelector(".middleProfileImage") != null) {
+    document.querySelector(".middleProfileImage").remove();
+  }
+
+  let middleProfileImage = document.createElement("img");
+  middleProfileImage.setAttribute(
+    "src",
+    profileImg(finded["FN"], finded["LN"])
+  );
+  middleProfileImage.setAttribute("alt", "Image");
+  middleProfileImage.setAttribute("class", "middleProfileImage");
+  document.querySelector(".chat_profile").prepend(middleProfileImage);
+
   localStorage.setItem("cuntDVChat", JSON.stringify(email));
   chatProfileDetails(finded);
+
   searchedChat();
 }
 
 function chatProfileDetails(finded) {
   document.querySelector(".rightName").innerHTML =
     finded["FN"] + " " + finded["LN"];
+
+  let chatDetailImg = document.createElement("img");
+  chatDetailImg.setAttribute("src", profileImg(finded["FN"], finded["LN"]));
+  chatDetailImg.setAttribute("alt", "Image");
+  document.querySelector(".rightProfile").innerHTML = null;
+  document.querySelector(".rightProfile").append(chatDetailImg);
+
   document.querySelector(".expert").innerHTML = finded["Expect_in"];
 
   // Total Amount Paid by owners
   let workerReg = JSON.parse(localStorage.getItem("workerRegister"));
   let ownerReg = JSON.parse(localStorage.getItem("register"));
+  let currentChatEmail = JSON.parse(localStorage.getItem("cuntDVChat"));
+  let workerRegFinded = workerReg.find((F) => F.Email == currentChatEmail);
+
   let mergedReg = workerReg.concat(ownerReg);
   console.log(mergedReg);
   let applyJob = JSON.parse(localStorage.getItem("apllyJob"));
-  let currentChatEmail = JSON.parse(localStorage.getItem("cuntDVChat"));
   let currentChatID = mergedReg.find((F) => F.Email == currentChatEmail);
   console.log(currentChatID);
-  let currentChatIDJobs = applyJob.filter(
-    (F) => F.applierId == currentChatID.id
-  );
-  console.log(currentChatIDJobs);
+  let currentChatIDJobs;
+  if (workerRegFinded != undefined || null) {
+    currentChatIDJobs = applyJob.filter((F) => F.applierId == currentChatID.id);
+  } else {
+    currentChatIDJobs = applyJob.filter((F) => F.ownerId == currentChatID.id);
+  }
+
+  // console.log(currentChatIDJobs);
   let completedJobs = JSON.parse(localStorage.getItem("completedJobs"));
-  let filteredCompletedJobs = completedJobs.filter(
-    (F) => F.applierId == currentChatID
-  );
+  // let filteredCompletedJobs = completedJobs.filter(
+  //   (F) => F.applierId == currentChatID
+  // );
 
   let currentChatIDJPaid = currentChatIDJobs.filter((F) => F["paid"] == "Paid");
   console.log(currentChatIDJPaid);
@@ -126,29 +154,60 @@ function chatProfileDetails(finded) {
     Amounts.push(currentChatIDJPaid[i]["paidAmount"]);
     totalPaidAmount += parseInt(currentChatIDJPaid[i]["paidAmount"]);
   }
+  if (workerRegFinded != undefined || null) {
+    if (totalPaidAmount != 0) {
+      document.querySelector(".chatterType").innerText = "Worker";
+      document.querySelector(".totalAmountPaid").innerHTML =
+        "Total Amount Paid by owners : Rs. " + totalPaidAmount;
 
-  if (totalPaidAmount != 0) {
-    document.querySelector(".totalAmountPaid").innerHTML =
-      "Total Amount Paid by owners : Rs. " + totalPaidAmount;
+      //Highest Amount Paid by owners
 
-    //Highest Amount Paid by owners
+      document.querySelector(".highAmount").innerHTML =
+        "Highest Amount Paid by owners : Rs. " + Math.max(...Amounts);
 
-    document.querySelector(".highAmount").innerHTML =
-      "Highest Amount Paid by owners : Rs. " + Math.max(...Amounts);
+      document.querySelector(".lowAmount").innerHTML =
+        "Lowset Amount Paid by owners : Rs. " + Math.min(...Amounts);
+    } else {
+      document.querySelector(".chatterType").innerText = "Worker";
+      document.querySelector(".totalAmountPaid").innerHTML =
+        "Total Amount Paid by owners : Rs. " + 0;
 
-    document.querySelector(".lowAmount").innerHTML =
-      "Lowset Amount Paid by owners : Rs. " + Math.min(...Amounts);
+      //Highest Amount Paid by owners
+
+      document.querySelector(".highAmount").innerHTML =
+        "Highest Amount Paid by owners : Rs. " + 0;
+
+      document.querySelector(".lowAmount").innerHTML =
+        "Lowset Amount Paid by owners : Rs. " + 0;
+    }
   } else {
-    document.querySelector(".totalAmountPaid").innerHTML =
-      "Total Amount Paid by owners : Rs. " + 0;
+    if (totalPaidAmount != 0) {
+      document.querySelector(".chatterType").innerText = "Owner";
 
-    //Highest Amount Paid by owners
+      document.querySelector(".totalAmountPaid").innerHTML =
+        "Total Amount Paid to workers : Rs. " + totalPaidAmount;
 
-    document.querySelector(".highAmount").innerHTML =
-      "Highest Amount Paid by owners : Rs. " + 0;
+      //Highest Amount Paid by owners
 
-    document.querySelector(".lowAmount").innerHTML =
-      "Lowset Amount Paid by owners : Rs. " + 0;
+      document.querySelector(".highAmount").innerHTML =
+        "Highest Amount Paid to worker : Rs. " + Math.max(...Amounts);
+
+      document.querySelector(".lowAmount").innerHTML =
+        "Lowset Amount Paid to worker : Rs. " + Math.min(...Amounts);
+    } else {
+      document.querySelector(".chatterType").innerText = "Owner";
+
+      document.querySelector(".totalAmountPaid").innerHTML =
+        "Total Amount Paid to workers : Rs. " + 0;
+
+      //Highest Amount Paid by owners
+
+      document.querySelector(".highAmount").innerHTML =
+        "Highest Amount Paid to worker : Rs. " + 0;
+
+      document.querySelector(".lowAmount").innerHTML =
+        "Lowset Amount Paid to worker : Rs. " + 0;
+    }
   }
 
   //No of jobs completed

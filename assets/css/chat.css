@@ -62,7 +62,7 @@ section {
 
 .main {
   margin: 20px;
-  height: 35.05rem;
+  height: 34.3rem;
   width: 40rem;
 }
 
@@ -170,7 +170,7 @@ section {
   padding: 1rem;
   padding-left: 5rem;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .profilePic {

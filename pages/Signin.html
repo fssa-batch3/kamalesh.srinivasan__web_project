@@ -12,14 +12,21 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
         rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("-8KQyDSKFLkXwptRu");
+        })();
+    </script>
+    <script src="../assets/JS/signIn.js"></script>
+
 </head>
 <!-- This is sign in -->
 
 <body>
     <section>
-        <!-- <div>
-            <img alt="image" src="../assets/Images/signin_Background.webp" />
-        </div> -->
+
         <div class="signin">
             <div>
                 <marquee scrollamount="10" behavior="alternate">
@@ -34,6 +41,8 @@
 
                     <label>Password</label><br>
                     <input type="text" id="Password" placeholder="Enter Password" /><br>
+
+                    <a class="ftPwd" onclick="forgotPwdEmail()">Forgot Password?</a>
 
                     <button class="btn1" type="submit">Sign In</button><br>
                     <button class="btn2" type="reset" onclick="index()">Cancel</button><br>
@@ -64,8 +73,6 @@
             event.preventDefault();
             let defaultData = JSON.parse(localStorage.getItem("register"));
             let WorkerdefaultData = JSON.parse(localStorage.getItem("workerRegister"));
-            console.log(defaultData);
-            console.log(defaultData)
             let Email = document.getElementById("Email").value.toLowerCase();
             let Password = document.getElementById("Password").value;
 
@@ -75,13 +82,16 @@
 
             if (defaultData != null) {
                 for (let i = 0; i < defaultData.length; i++) {
-                    if (Email == defaultData[i].Email && Password == defaultData[i].Password) {
-                        match = true
-                        id = defaultData[i]["id"];
-                        console.log(defaultData[i]["id"]);
-                        type = "owner";
-                        break;
-                        // i = i + defaultData.length;
+                    if (Email == defaultData[i].Email) {
+                        if (comparePassword(Password, defaultData[i].Password) == true) {
+                            match = true
+                            id = defaultData[i]["id"];
+                            console.log(defaultData[i]["id"]);
+                            type = "owner";
+                            break;
+                            // i = i + defaultData.length;
+                        }
+
 
                     }
                 }
@@ -91,11 +101,15 @@
             if (WorkerdefaultData != null) {
                 for (let i = 0; i < WorkerdefaultData.length; i++) {
                     console.log("worker")
-                    if (Email == WorkerdefaultData[i]["Email"] && Password == WorkerdefaultData[i]["Password"]) {
-                        match = true;
-                        id = WorkerdefaultData[i]["id"];
-                        type = "worker";
-                        break;
+                    if (Email == WorkerdefaultData[i]["Email"]) {
+                        if (comparePassword(Password, WorkerdefaultData[i].Password) == true) {
+                            match = true;
+                            id = WorkerdefaultData[i]["id"];
+                            type = "worker";
+                            break;
+                        }
+
+
                     }
                 }
             }
@@ -112,7 +126,6 @@
 
                 let SuccessLogin = {
                     "Email": Email,
-                    "password": Password,
                     "id": id,
                 }
 

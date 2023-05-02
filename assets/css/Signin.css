@@ -160,3 +160,68 @@ a {
     margin: auto;
   }
 }
+
+.ftPwd {
+  margin-bottom: 1rem;
+  text-decoration: underline;
+}
+
+.getEmailDiv {
+  background-color: #b8fff9;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.getEmailDiv h2 {
+  color: #42c2ff;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.cancel {
+  background-color: red;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  gap: 2rem;
+}
+
+.buttons button {
+  padding: 0.4rem;
+  border-radius: 0.2rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0;
+  margin-left: 0;
+}
+
+.sendEmail {
+  background-color: #85f4ff;
+}
+
+body {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+}
+
+.enterEmail {
+  width: 15rem;
+  height: 1.5rem;
+  margin: auto;
+  border: none;
+}
+
+.enterEmail:focus {
+  outline: none;
+}

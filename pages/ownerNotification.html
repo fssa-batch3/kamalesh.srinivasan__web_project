@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    <script src="../assets/JS/index.js"></script>
 
 
     <header>
@@ -43,7 +44,7 @@
                 <div class="notificationTop">
 
                     <div class="profile">
-                        <img src="../assets/Images/avatar (3).svg" alt="image" />
+                        <!-- <img src="../assets/Images/avatar (3).svg" alt="image" /> -->
                         <p class="user_name">kamalesh</p>
 
                     </div>
@@ -226,6 +227,20 @@
 
         })
 
+        //  Default Images
+
+        let Login = JSON.parse(localStorage.getItem("Login"));
+        let Bio = JSON.parse(localStorage.getItem("BIO"));
+
+        let findedBio = Bio.find((F) => F.Email == Login.Email);
+
+        let cntProfileImg = document.createElement("img");
+        cntProfileImg.setAttribute("src", profileImg(findedBio["FN"], findedBio["LN"]));
+        cntProfileImg.setAttribute("alt", "image");
+        document.querySelector(".profile").prepend(cntProfileImg);
+
+        document.querySelector(".user_name").innerHTML = findedBio["FN"] + " " + findedBio["LN"];
+
 
         //  Notification
 
@@ -297,7 +312,8 @@
             notifications.append(notifyCards);
 
             let notifyCardsImage = document.createElement("img");
-            notifyCardsImage.setAttribute("src", "../assets/Images/boy-avatar.svg");
+            let imageProfile = profileImg(applyJob[i]["applierName"], applyJob[i]["LN"])
+            notifyCardsImage.setAttribute("src", imageProfile);
             notifyCardsImage.setAttribute("alt", "Image");
             notifyCards.append(notifyCardsImage);
 
@@ -595,6 +611,11 @@
         function payment() {
             location.href = "payment.html" + location.search;
         }
+
+
+
+
+
     </script>
 </body>
 

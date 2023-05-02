@@ -14,7 +14,9 @@
         rel="stylesheet">
 </head>
 
+
 <body>
+    <script src="../assets/JS/index.js"></script>
     <header>
         <div>
             <img src="../assets/Images/Logo.png" alt="Logo">
@@ -373,11 +375,18 @@
 
             oId = JSON.parse(localStorage.getItem("Login"));
             ownerId = oId["id"];
+            console.log(oId);
+
+            let Bio = JSON.parse(localStorage.getItem("BIO"));
+            let BioFind = Bio.find((F) => F.Email == oId.Email);
+            console.log(BioFind);
 
 
             // let removedSummary = summary.replace('\n', '');
             let formData = {
                 id: Date.now(),
+                FN: BioFind.FN,
+                LN: BioFind.LN,
                 title: document.getElementById("title").value,
                 location: document.getElementById("location").value,
                 Salary: document.getElementById("Salary").value,

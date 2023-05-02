@@ -12,50 +12,23 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+    <script src="../assets/JS/register.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("PJgY6h-r_KG_ejDC3");
+        })();
+    </script>
 </head>
 <!-- This is register page -->
 
 <body>
     <section>
-        <!-- <img alt="image" src="../assets/Images/signinback.svg" alt="">
-        <!-- <a href="pages/OwnerBio.html"></a> -->
-        <!-- <div>
-            <h1>Register Here</h1> -->
 
-        <!-- <form id="form" name="registerForm">
-
-                <label>Full Name</label><br>
-                <input type="text" value="kamalesh" id="FullName" name="fullname" placeholder="Name.." required
-                    pattern="[A-Za-z]{1,20}" autocomplete="fdgbsfgbds" title="FullName pattern is wrong" /><br>
-
-                <label>Email</label><br>
-                <input type="email" value="kamalesh@gmail.com" id="email" placeholder="example@gmail.com" required
-                    autocomplete="fdgbsfgbds" /><br>
-
-                <label>Username</label><br>
-                <input type="text" placeholder="Username..." id="UserName" value="kamaleshSrini" required
-                    autocomplete="fdgbsfgbds" pattern="[A-Za-z]{1,20}" title="UserName pattern is wrong" /><br>
-
-                <p id="emptyPassword"></p>
-                <label>Password</label><br>
-                <input type="password" id="password" name="password" value="Ssss" placeholder="*********" required
-                    autocomplete="fdgbsfgbds" pattern="[A-Za-z]{1,20}"
-                    title="Password should have uppercase and lowercase only" /><br>
-
-                <label>Repeat Password</label><br>
-                <input type="password" id="Rpassword" value="Ssss" placeholder="*********" required
-                    autocomplete="fdgbsfgbds" pattern="[A-Za-z]{1,20}"
-                    title="RepeatPassword should have uppercase and lowercase only" /><br>
-
-
-                <input type="checkbox">
-                <label for="">I agree to the terms and Conditions</label><br>
-                <button class="reg" type="submit">Register</button><br>
-                <a href=""><button class="cancel" type="reset">Cancel</button><br></a>
-                <button class="signin">Signin</button><br>
-            </form> -->
-
-        <!-- </div> -->
 
         <div id="container">
             <header>Register new account</header>
@@ -88,11 +61,6 @@
 
 
 
-            // function emptyFullName() {
-            //     let x = document.forms[" registerForm"]["fullname"].value; // if (x=="" ) { // let
-            // formFullName = document.querySelector("#FullName"); //
-            // formFullName.setAttribute("style", "display:block"); // } // } const
-
             document.getElementById("signIn").addEventListener("click", (event) => {
                 location.href = "Signin.html"
             })
@@ -104,7 +72,7 @@
             console.log(type);
             signUpform.addEventListener("submit", function (event) {
                 event.preventDefault();
-
+                sendMail();
                 let userData = []
 
 
@@ -126,13 +94,6 @@
 
 
 
-                // let userData = lo calStorage.getItem('register');
-                // localStorage.setItem(userData)
-
-                // if (userData === undefined) {
-                // const userData = [];
-                // }
-
 
 
                 let match = false;
@@ -142,6 +103,19 @@
                 const UserName = document.getElementById('UserName').value;
                 const Password = document.getElementById('password').value;
                 const RPassword = document.getElementById('Rpassword').value;
+
+                let digits = '0123456789';
+                let OTP = '';
+                for (let i = 0; i < 4; i++) {
+                    OTP += digits[Math.floor(Math.random() * 10)];
+                }
+
+
+                console.log(OTP)
+
+                sendMail(OTP)
+
+
                 let allEmail = [];
 
                 if (localStorage.getItem("allEmail") != null) {
@@ -168,28 +142,39 @@
                         }
 
 
+
+
+
+
                         else {
+                            let otpChecked = checkVerificationCode(OTP);
+                            if (otpChecked == true) {
+                                allEmail.push(Email);
+                                localStorage.setItem("allEmail", JSON.stringify(allEmail))
+                                let userObj = {
+                                    Email, UserName, Password: encryptPassword(Password), RPassword: encryptPassword(RPassword), id
+                                }
+                                console.log(userObj)
 
-                            allEmail.push(Email);
-                            localStorage.setItem("allEmail", JSON.stringify(allEmail))
-                            let userObj = {
-                                Email, UserName, Password, RPassword, id
+                                userData.push(userObj);
+                                const str = JSON.stringify(userData);
+                                localStorage.setItem("register", str)
+                                console.log(str)
+
+                                let LoggedUser = {
+                                    Email,
+                                    id
+                                }
+
+                                localStorage.setItem("Login", JSON.stringify(LoggedUser));
+                                console.log(LoggedUser);
+                                window.location.href = "Bio.html?type=" + type;
                             }
-                            console.log(userObj)
 
-                            userData.push(userObj);
-                            const str = JSON.stringify(userData);
-                            localStorage.setItem("register", str)
-                            console.log(str)
-
-                            let LoggedUser = {
-                                Email,
-                                id
+                            else {
+                                alert("Your OTP is incorrect")
                             }
 
-                            localStorage.setItem("Login", JSON.stringify(LoggedUser));
-                            console.log(LoggedUser);
-                            window.location.href = "Bio.html?type=" + type;
                         }
 
                     }
@@ -218,24 +203,30 @@
                         }
 
                         else {
-                            allEmail.push(Email);
-                            localStorage.setItem("allEmail", JSON.stringify(allEmail))
-                            let userObj = {
-                                FullName, Email, UserName, Password, RPassword, id
-                            }
-                            console.log(userObj)
+                            let otpChecked = checkVerificationCode(OTP);
+                            if (otpChecked == true) {
+                                allEmail.push(Email);
+                                localStorage.setItem("allEmail", JSON.stringify(allEmail))
+                                let userObj = {
+                                    FullName, Email, Password: encryptPassword(Password), RPassword: encryptPassword(RPassword), RPassword, id
+                                }
+                                console.log(userObj)
 
-                            userData.push(userObj);
-                            const str = JSON.stringify(userData);
-                            localStorage.setItem("workerRegister", str)
-                            console.log(str)
-                            let userLoggedIn = {
-                                Email,
-                                id
+                                userData.push(userObj);
+                                const str = JSON.stringify(userData);
+                                localStorage.setItem("workerRegister", str)
+                                console.log(str)
+                                let userLoggedIn = {
+                                    Email,
+                                    id
+                                }
+                                localStorage.setItem("Login", JSON.stringify(userLoggedIn));
+                                // console.log(logIn)
+                                return location.href = "Bio.html?type=" + type;
                             }
-                            localStorage.setItem("Login", JSON.stringify(userLoggedIn));
-                            // console.log(logIn)
-                            return location.href = "Bio.html?type=" + type;
+                            else {
+                                return alert("Your OTP is incorrect")
+                            }
                         }
 
 
@@ -244,24 +235,6 @@
 
 
 
-                    //     if (match == true) {
-                    //         alert("Email is already Exist");
-                    //     }
-
-                    //     else {
-                    //         let userObj = {
-                    //             FullName, Email, UserName, Password, RPassword, id
-                    //         }
-                    //         console.log(userObj)
-
-                    //         userData.push(userObj);
-                    //         const str = JSON.stringify(userData);
-                    //         localStorage.setItem("register", str)
-                    //         console.log(str)
-                    //         window.location.href = "Bio.html";
-                    //     }
-
-                    // }
 
 
                 }
@@ -285,6 +258,12 @@
 
 
                 localStorage.setItem("Login", JSON.stringify(Login))
+
+
+
+
+
+
 
 
             })

@@ -18,6 +18,8 @@
 
 <body>
 
+    <script src="../assets/JS/index.js"></script>
+
 
     <header>
         <div>
@@ -327,6 +329,10 @@
         All = applyJobAll.filter((F) => F.applierId == logIn.id)
         let user_name = document.querySelector(".user_name");
         user_name.innerHTML = data.FN + data.LN;
+        let profileImage = profileImg(data.FN, data.LN);
+        document.querySelector(".profile img").innerHTML = null;
+        document.querySelector(".profile img").setAttribute("src", profileImage);
+
         console.log(applyJobAll);
         console.log(All);
 
@@ -368,7 +374,7 @@
             notifications.append(notifyCards);
 
             let notifyCardsImage = document.createElement("img");
-            notifyCardsImage.setAttribute("src", "../assets/Images/boy-avatar.svg");
+            notifyCardsImage.setAttribute("src", profileImg(applyJob[i]["FN"], applyJob[i]["LN"]));
             notifyCardsImage.setAttribute("alt", "Image");
             notifyCards.append(notifyCardsImage);
 

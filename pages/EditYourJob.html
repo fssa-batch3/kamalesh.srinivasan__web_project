@@ -18,14 +18,36 @@
 
     <section id="form" class="section_form">
         <h1>Edit Your Job</h1>
-        <!-- <form id="consultation-form" class="feed-form" action="#">
-            <input required="" placeholder="Title" id="Title" type="text" type="text">
-            <input name="phone" required="" placeholder="Location" id="Location" type="text">
-            <input name="email" required="" placeholder="Salary" id="Salary" type="text">
-            <button class="button_submit" type="submit">Edit</button>
-            <button class="button_submit" onclick="back()">Back</button>
+        <form id="consultation-form" class="feed-form" action="#">
+            <!-- <div class="datas">
+                <div class="inputs">
+                    <input required="" placeholder="Title" id="Title" type="text" type="text">
+                    <input name="phone" required="" placeholder="Location" id="Location" type="text">
+                    <input name="email" required="" placeholder="Salary" id="Salary" type="text">
+                    <input name="decp" required placeholder="description" id="description" />
+                </div>
 
-        </form> -->
+                <div class="textareaOne">
+                    <textarea class="summary" placeholder="summary" rows="17" cols="40"></textarea>
+
+                </div>
+
+                <div class="textareaTwo">
+                    <textarea class="Qualification" placeholder="Qualification" rows="17" cols="40"></textarea>
+
+                </div>
+
+                <div class="textareaThree">
+                    <textarea class="Responsibilities" placeholder="Responsibilities" rows="17" cols="40"></textarea>
+
+                </div>
+
+            </div>
+            <button class="button_submit" type="submit">Edit</button>
+            <button class="button_submit" onclick="back()">Back</button> -->
+
+
+        </form>
     </section>
 </body>
 
@@ -41,13 +63,43 @@
         alert("Id Not Match")
     }
     else {
+        console.log(oldJob)
         let form = document.createElement("form");
         form.setAttribute("id", "consultation-form");
         form.setAttribute("class", "feed-form");
         form.setAttribute("action", "#")
-        form.innerHTML = ` <input required="" value="${oldJob["title"]}" placeholder="Title" id="Title" type="text" type="text">
-            <input name="phone" required="" placeholder="Location" value="${oldJob["location"]}" id="Location" type="text">
-            <input name="email" required="" placeholder="Salary" id="Salary" value="${oldJob["Salary"]}" type="text">
+        // form.innerHTML = ` <input required="" value="${oldJob["title"]}" placeholder="Title" id="Title" type="text" type="text">
+        //     <input name="phone" required="" placeholder="Location" value="${oldJob["location"]}" id="Location" type="text">
+        //     <input name="email" required="" placeholder="Salary" id="Salary" value="${oldJob["Salary"]}" type="text">
+
+        //     <button class="button_submit" type="submit">Edit</button>
+        //     <button class="button_submit" onclick="back()">Back</button>`;
+
+
+        form.innerHTML = ` <div class="datas">
+                <div class="inputs">
+                    <input required="" value="${oldJob["title"]}" placeholder="Title" id="Title" type="text" type="text">
+             <input name="phone" required="" placeholder="Location" value="${oldJob["location"]}" id="Location" type="text">
+             <input name="email" required="" placeholder="Salary" id="Salary" value="${oldJob["Salary"]}" type="text">
+                    <input name="decp" id="decp" required placeholder="description" value="${oldJob["disc"]}" id="description" />
+                </div>
+
+                <div class="textareaOne">
+                    <textarea class="summary" placeholder="summary" rows="17"  cols="40">${oldJob["summary"]}</textarea>
+
+                </div>
+
+                <div class="textareaTwo">
+                    <textarea class="Qualification" placeholder="Qualification"  rows="17" cols="40">${oldJob["Qualifications"]}</textarea>
+
+                </div>
+
+                <div class="textareaThree">
+                    <textarea class="Responsibilities" placeholder="Responsibilities"  rows="17" cols="40">${oldJob["Responsibilities"]}</textarea>
+
+                </div>
+
+            </div>
             <button class="button_submit" type="submit">Edit</button>
             <button class="button_submit" onclick="back()">Back</button>`;
 
@@ -67,11 +119,19 @@
         let title = document.getElementById("Title").value;
         let Salary = document.getElementById("Salary").value;
         let location = document.getElementById("Location").value;
+        let disc = document.getElementById("decp").value;
+        let Qualifications = document.querySelector(".Qualification").value;
+        let summary = document.querySelector(".summary").value;
+        let Responsibilities = document.querySelector(".Responsibilities").value;
 
         let editedJob = {
             title,
             Salary,
-            location
+            location,
+            disc,
+            Qualifications,
+            summary,
+            Responsibilities
         }
 
 
