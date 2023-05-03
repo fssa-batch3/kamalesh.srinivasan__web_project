@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Needs To Be Done</title>
+    <link rel="stylesheet" href="./assets/css/index1.css">
+    <script src="./assets/JS/index.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -13,7 +18,157 @@
         <div class="logo">
             <img src="./assets/Images/Logo.png" alt="LOGO">
         </div>
+        <nav>
+            <a>Join as a owner <img src="./assets/Images/owner.png" alt="Owner" /></a>
+            <a>Join as a worker <img src="./assets/Images/worker.png" alt="Owner" /></a>
+            <a>Login</a>
+        </nav>
+
     </header>
+
+    <section>
+        <div class="halfCircle">
+
+        </div>
+        <div class="halfCircletexts">
+            <span> Find Your Jobs and Workers In online</span>
+            <p class="workerPoint">Workers can easily find more requiresments</p>
+        </div>
+        <a class="signUp">SignUp <span>></span></a>
+
+        <div class="mainImage">
+            <img src="./assets/Images/indexMain.jpg" alt="index Image">
+        </div>
+
+
+    </section>
+
+    <section class="topFeatures">
+        <div class="notification">
+            <img src="./assets/Images/notification.png" alt="notification image">
+            <div class="details">
+                <h3>Notification</h3>
+                <p>You will recive and send notification to you owner or worker once the job status changed.</p>
+            </div>
+        </div>
+
+        <div class="chat">
+            <img src="./assets/Images/chatIndex.png" alt="notification image">
+            <div class="details">
+                <h3>Chat</h3>
+                <p>You chat with you owner or worker with their known language.</p>
+            </div>
+        </div>
+
+
+
+        <div class="payment">
+            <img src="./assets/Images/payment.png" alt="notification image">
+            <div class="details">
+                <h3>Payment</h3>
+                <p>You can pay with by UPI id or Cash to the owner or worker.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="topJobs">
+        <h2>Top Jobs</h2>
+        <div class="cards">
+
+
+        </div>
+    </section>
+
+
+
+
+
+    <script>
+
+        let Datas = [{
+            title: "Web Development",
+            prize: "Rs. 1lakh to Rs. 3lakhs",
+            location: "Chennai",
+            name: "Kamalesh Srinivasan"
+
+        },
+        {
+            title: "Fullstack Development",
+            prize: "Rs.3lakh to Rs. 5lakhs",
+            location: "Trichy",
+            name: "Mohammed Ajmal"
+
+        },
+        {
+            title: "Plumbing",
+            prize: "Rs. 1k to Rs. 3k",
+            location: "Chennai",
+            name: "Utchi Kanna"
+
+        },
+        {
+            title: "Event Organizer",
+            prize: "Rs. 5lakh to Rs. 10lakhs",
+            location: "Chennai",
+            name: "Chandru Raj"
+
+        }, {
+            title: "Manual Web Testing",
+            prize: "Rs. 1lakh to Rs. 3lakhs",
+            location: "Chennai",
+            name: "Saran selvaraj"
+
+        }
+            , {
+            title: "Automation Testing",
+            prize: "Rs. 1lakh to Rs. 3lakhs",
+            location: "Chennai",
+            name: "Kamalesh Srinivasan"
+
+        }]
+
+
+        for (let i = 0; i < Datas.length; i++) {
+
+            let card = document.createElement("div")
+            card.className = "card";
+            let nameSplit = Datas[i]["name"].split(" ");
+            let imageSrc = profileImg(nameSplit[0], nameSplit[1])
+            card.innerHTML = ` <div class="ProfileImage"><img src ="${imageSrc}" alt="Image"/></div>
+                <div class="datas">
+                    <div class="Title">${Datas[i]["title"]}</div>
+                    <div class="Datas">
+                        <div class="prize"> <img src="./assets/Images/Rs.png" alt="Rs Image"> ${Datas[i]["prize"]}
+                        </div>
+                        <div class="location"> <img src="./assets/Images/location.png" alt="location"> ${Datas[i]["location"]}</div>
+                    </div>
+                    <a class="apply">Apply</a>
+                </div>`;
+
+
+
+
+            // let profileImage = document.createElement("img");
+            // profileImage.setAttribute("src", imageSrc);
+            // profileImage.setAttribute("alt", "profileImage");
+            // document.querySelector(".ProfileImage").append(profileImage)
+
+
+            document.querySelector(".cards").append(card)
+
+
+
+
+
+
+        }
+
+
+    </script>
+
+
+
+
 </body>
 
 </html>

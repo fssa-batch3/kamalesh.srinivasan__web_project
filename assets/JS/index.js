@@ -114,6 +114,7 @@ function TPJLess() {
 }
 
 function profileImg(Fname, Lname) {
+  console.log(Fname, Lname);
   return (
     `https://ui-avatars.com/api/?name=` +
     Fname +
