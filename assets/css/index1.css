@@ -1,6 +1,7 @@
 body {
   background-color: #effffd;
   font-family: "Inter", sans-serif;
+  position: relative;
 }
 .logo img {
   width: 10rem;
@@ -30,6 +31,10 @@ header {
   margin-top: -0.5rem;
 }
 
+header a {
+  text-decoration: none;
+  color: black;
+}
 nav {
   display: flex;
   gap: 2rem;
@@ -178,8 +183,11 @@ nav a:hover {
   /* background-color: #b8fff9; */
   padding: 0.5rem 1rem;
   border-radius: 1rem;
+  overflow-x: hidden;
 }
 .cards {
+  animation: scroll 10s linear infinite;
+
   margin: 1rem;
 }
 
@@ -190,11 +198,12 @@ nav a:hover {
   border-radius: 1rem;
   display: flex;
   padding: 1rem;
-  animation: scroll 10s linear infinite;
-  overflow: hidden;
+
   gap: 2rem;
 }
-
+.cards:hover {
+  animation-play-state: paused;
+}
 .ProfileImage {
   display: flex;
   align-items: center;
@@ -251,14 +260,21 @@ nav a:hover {
   gap: 2rem;
 }
 
-/* @keyframes scroll {
+@keyframes scroll {
   0% {
-    transform: translateX(1000px);
+    transform: translateX(0px);
   }
+  /* 25% {
+    transform: translateX(-500px);
+  }
+  75% {
+    transform: translateX(1000px);
+  } */
   100% {
     transform: translateX(-1000px);
+    /* transform: translateX(-1500px); */
   }
-} */
+}
 
 .TrendingJobs {
   margin-top: 2rem;
@@ -269,10 +285,11 @@ nav a:hover {
   /* background-color: #b8fff9; */
   padding: 0.5rem 1rem;
   border-radius: 1rem;
+  overflow-x: hidden;
 }
 
 .footer {
-  margin-top: 7rem;
+  margin-top: 15rem;
   position: relative;
   width: 93.6%;
   background: #3586ff;
@@ -386,4 +403,41 @@ nav a:hover {
   100% {
     background-positon-x: 0px;
   }
+}
+
+.registerType {
+  background-color: rgb(215, 195, 195);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 20;
+  padding: 2rem 1rem 2rem 1rem;
+  border-radius: 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  gap: 3rem;
+  margin-left: 40rem;
+  margin-top: 17rem;
+  margin-right: auto;
+}
+
+.typeBtn {
+  display: flex;
+  gap: 1rem;
+}
+
+.typeBtn button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: rgb(194, 161, 224);
+}
+
+.Cancel {
+  display: flex;
+  background-color: red;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
 }

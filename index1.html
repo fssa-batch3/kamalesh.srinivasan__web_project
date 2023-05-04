@@ -1,244 +1,801 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Needs To Be Done</title>
-    <link rel="stylesheet" href="./assets/css/index1.css">
-    <script src="./assets/JS/index.js"></script>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
+    <!-- Header -->
     <header>
-        <div class="logo">
-            <img src="./assets/Images/Logo.png" alt="LOGO">
+        <div>
+            <img src="assets/Images/Logo.png" />
         </div>
-        <nav>
-            <a>Join as a owner <img src="./assets/Images/owner.png" alt="Owner" /></a>
-            <a>Join as a worker <img src="./assets/Images/worker.png" alt="Owner" /></a>
-            <a>Login</a>
-        </nav>
+        <div class="buttons">
+            <div class="header_div1">
+                <a>
+                    Jobs
+                </a>
+                <a onclick="ownerlogin()">
+                    Join as owner
+                </a>
 
+                <a onclick="workerLogin()">
+                    Join as worker
+                </a>
+            </div>
+
+            <a href="pages/Signin.html">
+                Log In
+            </a>
+        </div>
     </header>
 
-    <section>
-        <div class="halfCircle">
+    <main>
+        <!-- Top Jobs -->
+        <section>
+            <section class="all">
+                <div class="left">
+                    <img class="all_arrow_img" src="assets/Images/left.svg" alt="leftButton" onclick="goLeft()" />
+                </div>
 
-        </div>
-        <div class="halfCircletexts">
-            <span> Find Your Jobs and Workers In online</span>
-            <p class="workerPoint">Workers can easily find more requiresments</p>
-        </div>
-        <a class="signUp">SignUp <span>></span></a>
-
-        <div class="mainImage">
-            <img src="./assets/Images/indexMain.jpg" alt="index Image">
-        </div>
-
-
-    </section>
-
-    <section class="topFeatures">
-        <div class="notification">
-            <img src="./assets/Images/notification.png" alt="notification image">
-            <div class="details">
-                <h3>Notification</h3>
-                <p>You will recive and send notification to you owner or worker once the job status changed.</p>
-            </div>
-        </div>
-
-        <div class="chat">
-            <img src="./assets/Images/chatIndex.png" alt="notification image">
-            <div class="details">
-                <h3>Chat</h3>
-                <p>You chat with you owner or worker with their known language.</p>
-            </div>
-        </div>
-
-
-
-        <div class="payment">
-            <img src="./assets/Images/payment.png" alt="notification image">
-            <div class="details">
-                <h3>Payment</h3>
-                <p>You can pay with by UPI id or Cash to the owner or worker.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="topJobs">
-        <h2>Top Jobs</h2>
-        <div class="cards">
-
-
-        </div>
-    </section>
-
-
-    <section class="TrendingJobs">
-        <h2>Trending Jobs</h2>
-        <div class="cards">
-
-
-        </div>
-    </section>
-
-
-    <footer class="footer">
-        <div class="waves">
-            <div class="wave" id="wave1"></div>
-            <div class="wave" id="wave2"></div>
-            <div class="wave" id="wave3"></div>
-            <div class="wave" id="wave4"></div>
-        </div>
-        <ul class="social-icon">
-            <li class="social-icon__item"><a class="social-icon__link" href="#">
-                    <ion-icon name="logo-facebook"></ion-icon>
-                </a></li>
-            <li class="social-icon__item"><a class="social-icon__link" href="#">
-                    <ion-icon name="logo-twitter"></ion-icon>
-                </a></li>
-            <li class="social-icon__item"><a class="social-icon__link" href="#">
-                    <ion-icon name="logo-linkedin"></ion-icon>
-                </a></li>
-            <li class="social-icon__item"><a class="social-icon__link" href="#">
-                    <ion-icon name="logo-instagram"></ion-icon>
-                </a></li>
-        </ul>
-
-        <p>&copy;2023 Needs To Be Done | All Rights Reserved</p>
-    </footer>
+                <div class="total">
+                    <h2 class="TJ-Heading" id="top_jobs">Top Jobs</h2>
+                    <section class="Top_Jobs scrollmenu">
 
 
 
 
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script>
+                        <div>
 
-        let Datas = [{
-            title: "Web Development",
-            prize: "Rs. 1lakh to Rs. 3lakhs",
-            location: "Chennai",
-            name: "Kamalesh Srinivasan"
-
-        },
-        {
-            title: "Fullstack Development",
-            prize: "Rs.3lakh to Rs. 5lakhs",
-            location: "Trichy",
-            name: "Mohammed Ajmal"
-
-        },
-        {
-            title: "Plumbing",
-            prize: "Rs. 1k to Rs. 3k",
-            location: "Chennai",
-            name: "Utchi Kanna"
-
-        },
-        {
-            title: "Event Organizer",
-            prize: "Rs. 5lakh to Rs. 10lakhs",
-            location: "Chennai",
-            name: "Chandru Raj"
-
-        }, {
-            title: "Manual Web Testing",
-            prize: "Rs. 1lakh to Rs. 3lakhs",
-            location: "Chennai",
-            name: "Saran selvaraj"
-
-        }
-            , {
-            title: "Automation Testing",
-            prize: "Rs. 1lakh to Rs. 3lakhs",
-            location: "Chennai",
-            name: "Kamalesh Srinivasan"
-
-        }]
-
-
-        for (let i = 0; i < Datas.length - 3; i++) {
-
-            let card = document.createElement("div")
-            card.className = "card";
-            let nameSplit = Datas[i]["name"].split(" ");
-            let imageSrc = profileImg(nameSplit[0], nameSplit[1])
-            card.innerHTML = ` <div class="ProfileImage"><img src ="${imageSrc}" alt="Image"/></div>
-                <div class="datas">
-                    <div class="Title">${Datas[i]["title"]}</div>
-                    <div class="Datas">
-                        <div class="prize"> <img src="./assets/Images/Rs.png" alt="Rs Image"> ${Datas[i]["prize"]}
                         </div>
-                        <div class="location"> <img src="./assets/Images/location.png" alt="location"> ${Datas[i]["location"]}</div>
+                    </section>
+
+                </div>
+
+                <div class="right">
+                    <img class="all_arrow_img" src="assets/Images/right.svg" alt="right" onclick="goRight()" />
+                </div>
+
+            </section>
+
+
+            <!-- Trending Jobs -->
+            <section class="all">
+                <div class="left">
+                    <img class="all_arrow_img" src="assets/Images/left.svg" alt="leftButton"
+                        onclick="TrendingJobsGoLeft()" />
+                </div>
+                <div class="total">
+                    <h2 class="TJ-Heading">Trending Jobs</h2>
+                    <section class="Trending_Jobs scrollmenu_1">
+
+
+
+                    </section>
+
+                </div>
+                <div class="right">
+                    <img class="all_arrow_img" src="assets/Images/right.svg" alt="right"
+                        onclick="TrendingJobsGoright()" />
+                </div>
+            </section>
+
+
+
+            <section>
+                <div class="feedback">
+                    <h2>
+                        FeedBack
+                    </h2>
+
+                    <div class="cards">
+
+                        <div class="FB-card">
+                            <img class="FB-card_img" src="assets/Images/avatar (1).svg" alt="profile">
+                            <p class="FB-card_p">I am using this application for last 10 years. This makes my life great
+                                and
+                                much easy.I
+                                earned more then my 9-5 job.now I am become a entrepreneur</p>
+
+                            <p class="review"> Rreview </p>
+
+                            <p class="stars"><img src="assets/Images/star.svg" />
+                                <img src="assets/Images/star.svg" />
+                                <img src="assets/Images/star.svg" />
+                                <img src="assets/Images/star.svg" />
+                                <img src="assets/Images/star.svg" />
+                            </p>
+                        </div>
+
+
+                        <div class="FB-card">
+                            <img class="FB-card_img" src="assets/Images/avatar (1).svg" alt="profile">
+                            <p class="FB-card_p">I am using this application for last 10 years. This makes my life great
+                                and
+                                much easy.I
+                                earned more then my 9-5 job.now I am become a entrepreneur</p>
+
+                            <p class="review"> Rreview </p>
+
+                            <p class="stars"><img src="assets/Images/star.svg" />
+                                <img src="assets/Images/star.svg" />
+                                <img src="assets/Images/star.svg" />
+                                <img src="assets/Images/star.svg" />
+                                <img src="assets/Images/star.svg" />
+                            </p>
+                        </div>
+
+                        <!-- test -->
+
+                        <div class="FB-card">
+                            <img class="FB-card_img" src="assets/Images/avatar (1).svg" alt="profile">
+                            <p class="FB-card_p">I am using this application for last 10 years. This makes my life great
+                                and
+                                much easy.I
+                                earned more then my 9-5 job.now I am become a entrepreneur</p>
+
+                            <p class="review"> Review </p>
+
+                            <p class="stars"><img src="assets/Images/star.svg" />
+                                <img src="assets/Images/star.svg" />
+                                <img src="assets/Images/star.svg" />
+                                <img src="assets/Images/star.svg" />
+                                <img src="assets/Images/star.svg" />
+                            </p>
+                        </div>
+
+
+
+                        <div class="FB-card">
+                            <img class="FB-card_img" src="assets/Images/avatar (1).svg" alt="profile">
+                            <p class="FB-card_p">I am using this application for last 10 years. This makes my life great
+                                and
+                                much easy.I
+                                earned more then my 9-5 job.now I am become a entrepreneur</p>
+
+                            <p class="review"> Rreview </p>
+
+                            <p class="stars"><img src="assets/Images/star.svg" />
+                                <img src="assets/Images/star.svg" />
+                                <img src="assets/Images/star.svg" />
+                                <img src="assets/Images/star.svg" />
+                                <img src="assets/Images/star.svg" />
+                            </p>
+                        </div>
+
+
+
+
                     </div>
-                    <a class="apply">Apply</a>
-                </div>`;
+                </div>
+                </div>
+            </section>
+
+        </section>
+        <section>
+            <div class="FUcards">
+
+                <div class="FUsers">Frequent Users</div>
+                <!-- <div class="card">
+                    <img class="card_profile_img" src="assets/Images/user-profile_img_01.avif" alt="User_profile" />
+                    <h2 class="card-h2">Ms.Ileana citaristi.</h2>
+                    <p class="email"> <img src="assets/Images/email.svg" alt="email-logo" id="phone"> Ileanacitaristi@gmail.com</p>
+                    <p class="email"> <img src="assets/Images/phone_new.svg" alt="phone-logo"> +91 9876543210</p>
+                    <p class="email"> <img src="assets/Images/location.svg" alt="location-logo"> chennai</p>
+                    <p class="review"> Rreview </p>
+
+                    <p><img src="assets/Images/star.svg" />
+                        <img src="assets/Images/star.svg" />
+                        <img src="assets/Images/star.svg" />
+                        <img src="assets/Images/star.svg" />
+                        <img src="assets/Images/star.svg" />
+                    </p>
+
+
+                    <div class="card_details">
+                        <p class="education">Education : B.tech</p>
+                        <h2 class="domains">Domains:</h2>
+                        <h4>Web Development</h4>
+                        <h4>Web Designer</h4>
+                        <h4>Comments</h4>
+                        <h4>3 years Experience</h4>
+
+                        <button>contact</button>
 
 
 
+                    </div>
 
-            // let profileImage = document.createElement("img");
-            // profileImage.setAttribute("src", imageSrc);
-            // profileImage.setAttribute("alt", "profileImage");
-            // document.querySelector(".ProfileImage").append(profileImage)
-
-
-            document.querySelector(".cards").append(card)
+                </div> -->
 
 
 
-
-
-
-        }
-
-
-        for (let i = 0; i < Datas.length - 3; i++) {
-
-            let card = document.createElement("div")
-            card.className = "card";
-            let nameSplit = Datas[i]["name"].split(" ");
-            let imageSrc = profileImg(nameSplit[0], nameSplit[1])
-            card.innerHTML = ` <div class="ProfileImage"><img src ="${imageSrc}" alt="Image"/></div>
-    <div class="datas">
-        <div class="Title">${Datas[i]["title"]}</div>
-        <div class="Datas">
-            <div class="prize"> <img src="./assets/Images/Rs.png" alt="Rs Image"> ${Datas[i]["prize"]}
             </div>
-            <div class="location"> <img src="./assets/Images/location.png" alt="location"> ${Datas[i]["location"]}</div>
+
+        </section>
+
+
+    </main>
+
+    <footer>
+        <div>
+            <div class="logo">
+                <img src="assets/Images/Logo.png" alt="logo" />
+            </div>
         </div>
-        <a class="apply">Apply</a>
-    </div>`;
+
+        <div class="Registered_Users">
+            <p>64,653,006<br>
+                Registered Users</p>
+        </div>
+
+        <div class="Total_Jobs_Posted">
+
+            <p>22,357,427<br>
+                Total Jobs Posted</p>
+        </div>
+
+        <div class="last">
+            <p>Apps</p>
+            <div class="apps">
+                <img src="assets/Images/icons8-instagram.svg" alt="instagram" />
+                <img src="assets/Images/icons8-twitter.svg" alt="twitter" />
+                <img src="assets/Images/icons8-facebook.svg" alt="facebook" />
+                <img src="assets/Images/icons8-youtube.svg" alt="youtube" />
+            </div>
+        </div>
+    </footer>
+    <section>
+        <div class="Copyright">
+            NeedsToBeDone ® is a registered Trademark of NTBD Technology Pty Limited.
+            Copyright © 2023 NTBD Technology Pty Limited.
+        </div>
+    </section>
+
+
+    <script>
+        let top_jobs = [{
+            image: {
+                "image": "assets/Images/UX.jfif",
+                "alt": "UX- Image"
+            },
+            title: "UsereXperience Designer",
+            price_one: "1lakh ",
+            price_two: "3lakhs",
+            video: "https://www.youtube.com/embed/SRec90j6lTY",
+            heart_image: {
+                "image": "assets/Images/heart.svg",
+                "alt": "image"
+            },
+            days_ago: 20,
+        },
+        {
+            image: {
+                "image": "assets/Images/frontend.svg",
+                "alt": "Image"
+            },
+            title: "FrontEnd Development",
+            price_one: "2lakh ",
+            price_two: "5akhs",
+            video: "https://www.youtube.com/embed/-_X6PhkjpzU",
+            heart_image: {
+                "image": "assets/Images/heart.svg",
+                "alt": "heart_image"
+            },
+            days_ago: 10,
+        },
+        {
+            image: {
+                "image": "assets/Images/backend.svg",
+                "alt": "Image"
+            },
+            title: "BackEnd web Development",
+            price_one: "1lakh ",
+            price_two: "3lakhs",
+            video: "https://www.youtube.com/embed/cbSrsYiRamo",
+            heart_image: {
+                "image": "assets/Images/heart.svg",
+                "alt": "heart_image"
+            },
+            days_ago: 5,
+        },
+
+
+        {
+            image: {
+                "image": "assets/Images/plumber.svg",
+                "alt": "Image"
+            },
+            title: "Plumber",
+            price_one: "2lakh ",
+            price_two: "3lakhs",
+            video: "https://www.youtube.com/embed/8jxRn-T_LCs",
+            heart_image: {
+                "image": "assets/Images/heart.svg",
+                "alt": "heart_image"
+            },
+            days_ago: 2,
+        },
 
 
 
+        {
+            image: {
+                "image": "assets/Images/farmer.svg",
+                "alt": "UX- Image"
+            },
+            title: "Farming",
+            price_one: "1lakh ",
+            price_two: "3lakhs",
+            video: "https://www.youtube.com/embed/8t_ZfpMtjzg",
+            heart_image: {
+                "image": "assets/Images/heart.svg",
+                "alt": "heart_image"
+            },
+            days_ago: 10,
+        },
 
-            // let profileImage = document.createElement("img");
-            // profileImage.setAttribute("src", imageSrc);
-            // profileImage.setAttribute("alt", "profileImage");
-            // document.querySelector(".ProfileImage").append(profileImage)
+
+        {
+            image: {
+                "image": "assets/Images/electrician.svg",
+                "alt": "Image"
+            },
+            title: "Electrician",
+            price_one: "400",
+            price_two: "1k",
+            video: "https://www.youtube.com/embed/TMFO61oKXKo",
+            heart_image: {
+                "image": "assets/Images/heart.svg",
+                "alt": "heart_image"
+            },
+            days_ago: 10,
+        },
 
 
-            document.querySelector(".TrendingJobs .cards").append(card)
+        ]
+
+        let Trending_Jobs = [
+            {
+                image: {
+                    "image": "assets/Images/UX.jfif",
+                    "alt": "UX- Image"
+                },
+                title: "UsereXperience Designer",
+                price_one: "1lakh ",
+                price_two: "3lakhs",
+                video: "https://www.youtube.com/embed/SRec90j6lTY",
+                heart_image: {
+                    "image": "assets/Images/heart.svg",
+                    "alt": "image"
+                },
+                days_ago: 20,
+            }, {
+                image: {
+                    "image": "assets/Images/electrician.svg",
+                    "alt": "Image"
+                },
+                title: "Electrician",
+                price_one: "400",
+                price_two: "1k",
+                video: "https://www.youtube.com/embed/TMFO61oKXKo",
+                heart_image: {
+                    "image": "assets/Images/heart.svg",
+                    "alt": "heart_image"
+                },
+                days_ago: 10,
+            },
+            {
+                image: {
+                    "image": "assets/Images/frontend.svg",
+                    "alt": "Image"
+                },
+                title: "FrontEnd Development",
+                price_one: "2lakh ",
+                price_two: "5akhs",
+                video: "https://www.youtube.com/embed/-_X6PhkjpzU",
+                heart_image: {
+                    "image": "assets/Images/heart.svg",
+                    "alt": "heart_image"
+                },
+                days_ago: 10,
+            },
+            {
+                image: {
+                    "image": "assets/Images/backend.svg",
+                    "alt": "Image"
+                },
+                title: "BackEnd web Development",
+                price_one: "1lakh ",
+                price_two: "3lakhs",
+                video: "https://www.youtube.com/embed/cbSrsYiRamo",
+                heart_image: {
+                    "image": "assets/Images/heart.svg",
+                    "alt": "heart_image"
+                },
+                days_ago: 5,
+            },
+
+
+            {
+                image: {
+                    "image": "assets/Images/plumber.svg",
+                    "alt": "Image"
+                },
+                title: "Plumber",
+                price_one: "2lakh ",
+                price_two: "3lakhs",
+                video: "https://www.youtube.com/embed/8jxRn-T_LCs",
+                heart_image: {
+                    "image": "assets/Images/heart.svg",
+                    "alt": "heart_image"
+                },
+                days_ago: 2,
+            },
 
 
 
+            {
+                image: {
+                    "image": "assets/Images/farmer.svg",
+                    "alt": "UX- Image"
+                },
+                title: "Farming",
+                price_one: "1lakh ",
+                price_two: "3lakhs",
+                video: "https://www.youtube.com/embed/8t_ZfpMtjzg",
+                heart_image: {
+                    "image": "assets/Images/heart.svg",
+                    "alt": "heart_image"
+                },
+                days_ago: 10,
+            },
+
+
+
+        ]
+
+
+        let Frequent_users = [{
+            image: {
+                "src": "assets/Images/user-profile_img_01.avif",
+                "alt": "User_profile"
+            },
+            name: "Ms.Ileana citaristi.",
+            mail: "Ileanacitaristi@gmail.com",
+            phone: "+91 9876543210",
+            location: "chennai",
+        },
+        {
+            image: {
+                "src": "assets/Images/user-profile_img_02.jfif",
+                "alt": "User_profile"
+            },
+            name: "Ms.Ileana citaristi.",
+            mail: "Ileanacitaristi@gmail.com",
+            phone: "+91 9876543210",
+            location: "chennai",
+        },
+        {
+            image: {
+                "src": "assets/Images/user-profile_img_03.jfif",
+                "alt": "User_profile"
+            },
+            name: "Ms.Ileana citaristi.",
+            mail: "Ileanacitaristi@gmail.com",
+            phone: "+91 9876543210",
+            location: "chennai",
+        },
+        {
+            image: {
+                "src": "assets/Images/user-profile_img_04.jfif",
+                "alt": "User_profile"
+            },
+            name: "Ms.Ileana citaristi.",
+            mail: "Ileanacitaristi@gmail.com",
+            phone: "+91 9876543210",
+            location: "chennai",
+        }
+        ]
+
+        for (let i = 0; i < top_jobs.length; i++) {
+            let JobCard = document.createElement("div");
+            JobCard.setAttribute("class", "Job-Card");
+            JobCard.setAttribute("class", "scrollmenu_a");
+
+            let jobhead = document.createElement("div");
+            jobhead.setAttribute("class", "job-head")
+            JobCard.append(jobhead);
+
+            let head_div1 = document.createElement("div");
+            head_div1.setAttribute("class", "head_div1");
+            jobhead.append(head_div1);
+
+            let jobimage = document.createElement("div");
+            jobimage.setAttribute("class", "job-image");
+            head_div1.append(jobimage);
+
+            let jobimage_img = document.createElement("img");
+            jobimage_img.setAttribute("src", top_jobs[i]["image"]["image"]);
+            jobimage_img.setAttribute("alt", top_jobs[i]["image"]["alt"]);
+            jobimage.append(jobimage_img);
+
+            let JobTitle = document.createElement("div");
+            JobTitle.setAttribute("class", "Job-Title");
+            JobTitle.innerText = top_jobs[i]["title"];
+            head_div1.append(JobTitle);
+
+            let like = document.createElement("div");
+            like.setAttribute("class", "like");
+            jobhead.append(like);
+
+            let like_img = document.createElement("img");
+            like_img.setAttribute("src", "assets/Images/heart.svg");
+            like_img.setAttribute("alt", "heart-img");
+            like.append(like_img);
+
+
+            let Price = document.createElement("div");
+            Price.setAttribute("class", "Price");
+            Price.innerText = `Rs. ${top_jobs[i]["price_one"]} to Rs. ${top_jobs[i]["price_two"]}`;
+            JobCard.append(Price);
+
+            let worktype = document.createElement("div");
+            worktype.setAttribute("class", "worktype");
+            JobCard.append(worktype);
+
+            let FT = document.createElement("div");
+            FT.setAttribute("class", "FT");
+            FT.innerText = "FullTime";
+            worktype.append(FT);
+
+            let PT = document.createElement("div");
+            PT.setAttribute("class", "PT");
+            PT.innerText = "PartTime";
+            worktype.append(PT);
+
+
+            let job_video = document.createElement("div");
+            job_video.setAttribute("class", "job-video");
+            JobCard.append(job_video);
+
+            // let job_video_iframe = document.createElement("iframe");
+            // job_video_iframe.setAttribute("class", "job-video");
+            // job_video_iframe.setAttribute("width", "560");
+            // job_video_iframe.setAttribute("height", "315");
+            // job_video_iframe.setAttribute("src", "https://www.youtube.com/embed/SRec90j6lTY");
+            // job_video_iframe.setAttribute("title", "YouTube video player");
+            // job_video_iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+            // job_video_iframe.setAttribute("allowfullscreen");
+            // job_video.append(job_video_iframe)
+
+
+
+            job_video.innerHTML = `<iframe class="job-video" width="560" height="315" src=${top_jobs[i]["video"]} title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen ></iframe >`;
+
+
+
+            let ActivityBar = document.createElement("div");
+            ActivityBar.setAttribute("class", "ActivityBar");
+            JobCard.append(ActivityBar);
+
+            let ago = document.createElement("div");
+            ago.setAttribute("class", "ago");
+            ago.innerText = `${top_jobs[i]["days_ago"]} days ago`;
+            ActivityBar.append(ago);
+
+            let apply = document.createElement("div");
+            apply.setAttribute("class", "Apply");
+            apply.innerText = "Apply Now"
+            ActivityBar.append(apply);
+
+            document.querySelector('.Top_Jobs').append(JobCard);
 
 
 
         }
+
+        for (let i = top_jobs.length - 1; i >= 0; i--) {
+            let JobCard = document.createElement("div");
+            JobCard.setAttribute("class", "Job-Card");
+            JobCard.setAttribute("class", "scrollmenu_a");
+
+            let jobhead = document.createElement("div");
+            jobhead.setAttribute("class", "job-head")
+            JobCard.append(jobhead);
+
+            let head_div1 = document.createElement("div");
+            head_div1.setAttribute("class", "head_div1");
+            jobhead.append(head_div1);
+
+            let jobimage = document.createElement("div");
+            jobimage.setAttribute("class", "job-image");
+            head_div1.append(jobimage);
+
+            let jobimage_img = document.createElement("img");
+            jobimage_img.setAttribute("src", top_jobs[i]["image"]["image"]);
+            jobimage_img.setAttribute("alt", top_jobs[i]["image"]["alt"]);
+            jobimage.append(jobimage_img);
+
+            let JobTitle = document.createElement("div");
+            JobTitle.setAttribute("class", "Job-Title");
+            JobTitle.innerText = top_jobs[i]["title"];
+            head_div1.append(JobTitle);
+
+            let like = document.createElement("div");
+            like.setAttribute("class", "like");
+            jobhead.append(like);
+
+            let like_img = document.createElement("img");
+            like_img.setAttribute("src", "assets/Images/heart.svg");
+            like_img.setAttribute("alt", "heart-img");
+            like.append(like_img);
+
+
+            let Price = document.createElement("div");
+            Price.setAttribute("class", "Price");
+            Price.innerText = `Rs. ${top_jobs[i]["price_one"]} to Rs. ${top_jobs[i]["price_two"]}`;
+            JobCard.append(Price);
+
+            let worktype = document.createElement("div");
+            worktype.setAttribute("class", "worktype");
+            JobCard.append(worktype);
+
+            let FT = document.createElement("div");
+            FT.setAttribute("class", "FT");
+            FT.innerText = "FullTime";
+            worktype.append(FT);
+
+            let PT = document.createElement("div");
+            PT.setAttribute("class", "PT");
+            PT.innerText = "PartTime";
+            worktype.append(PT);
+
+
+            let job_video = document.createElement("div");
+            job_video.setAttribute("class", "job-video");
+            JobCard.append(job_video);
+
+            // let job_video_iframe = document.createElement("iframe");
+            // job_video_iframe.setAttribute("class", "job-video");
+            // job_video_iframe.setAttribute("width", "560");
+            // job_video_iframe.setAttribute("height", "315");
+            // job_video_iframe.setAttribute("src", "https://www.youtube.com/embed/SRec90j6lTY");
+            // job_video_iframe.setAttribute("title", "YouTube video player");
+            // job_video_iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+            // job_video_iframe.setAttribute("allowfullscreen");
+            // job_video.append(job_video_iframe)
+
+
+
+            job_video.innerHTML = `<iframe class="job-video" width="560" height="315" src=${top_jobs[i]["video"]} title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen ></iframe >`;
+
+
+
+            let ActivityBar = document.createElement("div");
+            ActivityBar.setAttribute("class", "ActivityBar");
+            JobCard.append(ActivityBar);
+
+            let ago = document.createElement("div");
+            ago.setAttribute("class", "ago");
+            ago.innerText = `${top_jobs[i]["days_ago"]} days ago`;
+            ActivityBar.append(ago);
+
+            let apply = document.createElement("div");
+            apply.setAttribute("class", "Apply");
+            apply.innerText = "Apply Now"
+            ActivityBar.append(apply);
+
+            document.querySelector('.Trending_Jobs').append(JobCard);
+
+
+
+        }
+
+
+
+        //  ******   Frequent Users cards   ********
+
+        for (let i = 0; i < Frequent_users.length; i++) {
+            let card = document.createElement("div");
+            card.setAttribute("class", "card");
+            card.setAttribute("data-aos", "fade-right");
+            card.innerHTML = `<img class="card_profile_img" src=${Frequent_users[i]["image"]["src"]} alt=${Frequent_users[i]["image"]["alt"]} />
+                    <h2 class="card-h2">${Frequent_users[i]["name"]}</h2>
+                    <p class="email"> <img src="assets/Images/email.svg" alt="email-logo" > ${Frequent_users[i]["mail"]}</p>
+                    <p class="email"> <img src="assets/Images/phone_new.svg" alt="phone-logo" id="phone"> ${Frequent_users[i]["phone"]}</p>
+                    <p class="email"> <img src="assets/Images/location.svg" alt="location-logo"> ${Frequent_users[i]["location"]}</p>
+                    <p class="review"> Rreview </p>
+
+                    <p><img src="assets/Images/star.svg" />
+                        <img src="assets/Images/star.svg" />
+                        <img src="assets/Images/star.svg" />
+                        <img src="assets/Images/star.svg" />
+                        <img src="assets/Images/star.svg" />
+                    </p>
+
+
+                    <div class="card_details">
+                        <p class="education">Education : B.tech</p>
+                        <h2 class="domains">Domains:</h2>
+                        <h4>Web Development</h4>
+                        <h4>Web Designer</h4>
+                        <h4>Comments</h4>
+                        <h4>3 years Experience</h4>
+
+                        <button>contact</button>
+
+
+
+                    </div>
+`;
+
+            document.querySelector(".FUcards").append(card);
+
+        }
+
+
+
+
+        // let card_profile_img = document.createElement("img");
+        // card_profile_img.setAttribute("src", "assets/Images/user-profile_img_01.avif");
+        // card_profile_img.setAttribute("alt", "User_profile");
+        // card.append(card_profile_img);
+
+        // let card_h2 = document.createElement("h2");
+        // card_h2.setAttribute("class", "card-h2");
+
+
+        function goRight() {
+            document.querySelector(".scrollmenu").scrollLeft += 786;
+        }
+
+
+        function goLeft() {
+            document.querySelector(".scrollmenu").scrollLeft -= 786;
+        }
+
+        function TrendingJobsGoright() {
+            document.querySelector(".scrollmenu_1").scrollLeft += 786;
+
+        }
+
+        function TrendingJobsGoLeft() {
+            document.querySelector(".scrollmenu_1").scrollLeft -= 786;
+        }
+
+
+
+        function workerLogin() {
+            location.href = 'pages/Register.html?type=worker'
+        }
+
+        function ownerlogin() {
+            location.href = 'pages/Register.html?type=owner'
+        }
+
+
+
+
+
+
+
+
 
 
     </script>
-
-
 
 
 </body>

@@ -1,7 +1,8 @@
 html {
   height: 100%;
   width: 100%;
-  font-family: "Roboto Slab", serif;}
+  font-family: "Roboto Slab", serif;
+}
 
 body {
   /* background: url("https://images.unsplash.com/photo-1485802007047-7774de7208e5?dpr=1&auto=compress,format&fit=crop&w=1800&h")
@@ -28,9 +29,9 @@ header {
   vertical-align: middle;
   line-height: 3rem;
   height: 3rem;
-  background: rgba(3, 3, 55, 0.7);
+  background: #b8fff9;
   font-size: 1.4rem;
-  color: #d3d3d3;
+  color: black;
 }
 
 fieldset {
@@ -42,7 +43,7 @@ input[type="submit"] {
   background: rgba(235, 30, 54, 1);
   border: 0;
   display: block;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   color: white;
   padding: 0.7rem;
@@ -90,7 +91,7 @@ input[type="password"]:focus {
   background: rgba(235, 30, 54, 1);
   border: 0;
   display: block;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   color: white;
   padding: 0.7rem;
