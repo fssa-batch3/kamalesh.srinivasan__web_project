@@ -1,34 +1,44 @@
 function sendMail(OTP) {
-  var params = {
-    name: "kamalesh",
-    email: document.getElementById("email").value.toLowerCase(),
-    to_name: document.getElementById("FullName").value,
-    code: OTP,
-  };
-
-  const serviceID = "service_aknvqm8";
-  const templateID = "template_5iy14s1";
-
-  emailjs
-    .send(serviceID, templateID, params)
-    .then((res) => {
-      console.log(res);
-      alert("Your message sent successfully!!");
-    })
-    .catch((err) => console.log(err));
+  try {
+    var params = {
+      name: "kamalesh",
+      email: document.getElementById("email").value.toLowerCase(),
+      to_name: document.getElementById("FullName").value,
+      code: OTP,
+    };
+  
+    const serviceID = "service_aknvqm8";
+    const templateID = "template_5iy14s1";
+  
+    emailjs
+      .send(serviceID, templateID, params)
+      .then((res) => {
+        console.log(res);
+        alert("Your message sent successfully!!");
+      })
+      .catch((err) => console.log(err));
+  }
+  catch(err) {
+              console.error(err);
+  }
 }
 
 function checkVerificationCode(OTP) {
-  // Create prompt
-
-  let code = prompt(
-    "You should recieved a mail with a code, Please type the code here"
-  );
-
-  if (code == OTP) {
-    return true;
-  } else {
-    return false;
+  try {
+    // Create prompt
+  
+    let code = prompt(
+      "You should recieved a mail with a code, Please type the code here"
+    );
+  
+    if (code == OTP) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  catch(err) {
+              console.error(err);
   }
 }
 

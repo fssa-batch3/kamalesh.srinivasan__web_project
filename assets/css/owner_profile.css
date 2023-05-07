@@ -90,7 +90,8 @@ section {
 .icons {
   display: flex;
   gap: 15px;
-  margin-left: 130px;
+  margin-left: 30px;
+  margin-top: -1rem;
 }
 
 .icons img {
@@ -99,9 +100,9 @@ section {
   margin-top: 20px;
 }
 
-/* .top_icons {
-    margin-top: 40px;
-  } */
+.top_icons {
+  margin-top: 40px;
+}
 
 .icons p {
   margin-top: 25px;
@@ -188,4 +189,8 @@ a {
   background-color: black;
   color: rgb(181, 132, 231);
   transition: 0.5s;
+}
+
+#gmail p {
+  width: 5rem;
 }

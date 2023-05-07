@@ -36,19 +36,18 @@
 
 
                 <form id="form">
-                    <label class="tag">Email Id</label><br>
-                    <input type="text" id="Email" placeholder="Enter Email" /><br>
+                    <input type="email" name="email" id="Email" placeholder="E-mail" required>
+                    <br /><br />
+                    <input type="password" name="password" id="Password" placeholder="Password" required
+                        autocomplete="fdgbsfgbds" pattern="[A-Za-z]{1,20}"
+                        title="Password should have uppercase and lowercase only">
+                    <br /><br />
 
-                    <label>Password</label><br>
-                    <input type="text" id="Password" placeholder="Enter Password" /><br>
+                    <label for="submit"></label>
 
-                    <a class="ftPwd" onclick="forgotPwdEmail()">Forgot Password?</a>
 
                     <button class="btn1" type="submit">Sign In</button><br>
-                    <button class="btn2" type="reset" onclick="index()">Cancel</button><br>
-                    <!-- <p>Or</p><br>
-                    <button class="btn3">Sign In with Google</button><br>
-                    <button class="btn4">Sign In with Facebook</button><br> -->
+                    <button class="btn2" type="reset" onclick="index()">Cancel</button>
 
 
 
@@ -66,104 +65,101 @@
     </section>
 
     <script>
-
+        // To get the form id to access the form for add a addeventlistener
         let logIn = document.getElementById("form");
-
+        // Add a eventlostener while clicking the submit in the form
         logIn.addEventListener("submit", (event) => {
-            event.preventDefault();
-            let defaultData = JSON.parse(localStorage.getItem("register"));
-            let WorkerdefaultData = JSON.parse(localStorage.getItem("workerRegister"));
-            let Email = document.getElementById("Email").value.toLowerCase();
-            let Password = document.getElementById("Password").value;
+            try {
+                event.preventDefault();
+                // To get the restered datas and the form datas
+                let defaultData = JSON.parse(localStorage.getItem("register"));
+                let WorkerdefaultData = JSON.parse(localStorage.getItem("workerRegister"));
+                let Email = document.getElementById("Email").value.toLowerCase();
+                let Password = document.getElementById("Password").value;
 
-            let match = false;
-            let id;
-            let type;
+                let match = false;
+                let id;
+                let type;
+                // To check the entered form datas is present in the owner register
+                if (defaultData != null) {
+                    for (let i = 0; i < defaultData.length; i++) {
+                        if (Email == defaultData[i].Email) {
+                            if (comparePassword(Password, defaultData[i].Password) == true) {
+                                match = true
+                                id = defaultData[i]["id"];
+                                console.log(defaultData[i]["id"]);
+                                type = "owner";
+                                break;
+                            }
 
-            if (defaultData != null) {
-                for (let i = 0; i < defaultData.length; i++) {
-                    if (Email == defaultData[i].Email) {
-                        if (comparePassword(Password, defaultData[i].Password) == true) {
-                            match = true
-                            id = defaultData[i]["id"];
-                            console.log(defaultData[i]["id"]);
-                            type = "owner";
-                            break;
-                            // i = i + defaultData.length;
+
                         }
+                    }
+
+                }
+                // To check the entered form datas is present in the worker regsiter
+
+                if (WorkerdefaultData != null) {
+                    for (let i = 0; i < WorkerdefaultData.length; i++) {
+                        if (Email == WorkerdefaultData[i]["Email"]) {
+                            if (comparePassword(Password, WorkerdefaultData[i].Password) == true) {
+                                match = true;
+                                id = WorkerdefaultData[i]["id"];
+                                type = "worker";
+                                break;
+                            }
 
 
+                        }
                     }
                 }
 
-            }
-
-            if (WorkerdefaultData != null) {
-                for (let i = 0; i < WorkerdefaultData.length; i++) {
-                    console.log("worker")
-                    if (Email == WorkerdefaultData[i]["Email"]) {
-                        if (comparePassword(Password, WorkerdefaultData[i].Password) == true) {
-                            match = true;
-                            id = WorkerdefaultData[i]["id"];
-                            type = "worker";
-                            break;
-                        }
 
 
+                // To redirect to the ownerHome if the email and password matched in the owner Regiter
+                if (match == true && type == "owner") {
+                    let SuccessLogin = {
+                        "Email": Email,
+                        "id": id,
                     }
+
+                    let str = JSON.stringify(SuccessLogin);
+                    localStorage.setItem("Login", str);
+
+
+
+
+                    console.log(SuccessLogin)
+                    window.location.href = "OwnerHome.html?from=logIn&&type=owner";
+                }
+                // To redirect to the workerHome if the email and password matched in the worker Regiter
+
+                else if (match == true && type == "worker") {
+                    let SuccessLogin = {
+                        "Email": Email,
+                        "password": Password,
+                        "id": id,
+                    }
+
+                    let str = JSON.stringify(SuccessLogin);
+                    localStorage.setItem("Login", str);
+
+                    console.log(SuccessLogin)
+                    window.location.href = "workerHome.html?from=logIn&&type=worker";
+                }
+                // To display the error message if the email and password not matched to the  owner and worker Regiter
+                else {
+                    alert("Login credentials not correct")
                 }
             }
-
-
-
-
-            if (match == true && type == "owner") {
-                // let arr = [];
-
-                // if (localStorage.getItem("Login") != null) {
-                //     arr = JSON.parse(localStorage.getItem("Login"))
-                // }
-
-                let SuccessLogin = {
-                    "Email": Email,
-                    "id": id,
-                }
-
-                // arr.push(SuccessLogin);
-                let str = JSON.stringify(SuccessLogin);
-                localStorage.setItem("Login", str);
-
-
-
-
-                console.log(SuccessLogin)
-                window.location.href = "OwnerHome.html?from=logIn&&type=owner";
-            }
-
-            else if (match == true && type == "worker") {
-                let SuccessLogin = {
-                    "Email": Email,
-                    "password": Password,
-                    "id": id,
-                }
-
-                // arr.push(SuccessLogin);
-                let str = JSON.stringify(SuccessLogin);
-                localStorage.setItem("Login", str);
-
-                console.log(SuccessLogin)
-                window.location.href = "workerHome.html?from=logIn&&type=worker";
-            }
-            else {
-                alert("Login credentials not correct")
+            catch (err) {
+                console.error(err);
             }
 
         })
 
 
-        function index() {
-            location.href = "../index.html"
-        }
+
 
 
 

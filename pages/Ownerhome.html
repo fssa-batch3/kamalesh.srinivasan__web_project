@@ -236,182 +236,163 @@
             }
         });
 
-        // Toast Image and Progress Bar
-        $('#image').click(function (event) {
-            toastr.options.progressBar = true,
-                toastr.info('<img src="https://image.flaticon.com/icons/svg/34/34579.svg" style="width:150px;">', 'Toast Image')
-        });
+        // // Toast Image and Progress Bar
+        // $('#image').click(function (event) {
+        //     toastr.options.progressBar = true,
+        //         toastr.info('<img src="https://image.flaticon.com/icons/svg/34/34579.svg" style="width:150px;">', 'Toast Image')
+        // });
 
 
         // Toast Position
-        $('#position').click(function (event) {
-            var pos = $('input[name=position]:checked', '#positionForm').val();
-            toastr.options.positionClass = "toast-" + pos;
-            toastr.options.preventDuplicates = false;
-            toastr.info('This sample position', 'Toast Position')
-        });
+        // $('#position').click(function (event) {
+        //     var pos = $('input[name=position]:checked', '#positionForm').val();
+        //     toastr.options.positionClass = "toast-" + pos;
+        //     toastr.options.preventDuplicates = false;
+        //     toastr.info('This sample position', 'Toast Position')
+        // });
     </script>
 
     <script>
-
-        //  Toaster
-
-
-
-        function OWnotification() {
-            // let url = location.search
-            // url = url + "filter=all";
-            location.href = "ownerNotification.html?from=logIn&&type=owner&filter=all";
-        }
-
-
-        function urlData() {
-            location.href = "profile.html" + url;
-        }
-
-
-        //Get form data
-
-
-
+        //Get url params
         let url = location.search;
         let urlParams = new URLSearchParams(url);
         let from = urlParams.get("from");
-        //console.log(from);
         let id;
 
-
-
-
-
+        // To get and store the Job datas
 
         document.getElementById("form").addEventListener("submit", (event) => {
 
             event.preventDefault();
-            let summary = document.getElementById("summary").value;
-            let removedSummary = "";
-            let dot = false;
-            for (let i = 0; i < summary.length; i++) {
+            try {
+                let summary = document.getElementById("summary").value;
+                let removedSummary = "";
+                let dot = false;
+                for (let i = 0; i < summary.length; i++) {
 
-                if (summary[i] == ".") {
-                    dot = true;
-                }
-            }
-            for (let i = 0; i < summary.length; i++) {
-
-
-                if (dot == true) {
-                    let isHere = false;
-                    if (summary[i] == "\n") {
-                        isHere = true;
+                    if (summary[i] == ".") {
+                        dot = true;
                     }
+                }
+                for (let i = 0; i < summary.length; i++) {
 
-                    if (isHere == false) {
-                        removedSummary += summary[i];
+
+                    if (dot == true) {
+                        let isHere = false;
+                        if (summary[i] == "\n") {
+                            isHere = true;
+                        }
+
+                        if (isHere == false) {
+                            removedSummary += summary[i];
+                        }
+                        //console.log(removedSummary)
                     }
-                    //console.log(removedSummary)
-                }
-                else {
-                    return alert("Summary should have dot for separate the para")
-                }
-            }
-
-            let qualification = document.getElementById("Qualifications").value;
-            let removedQualification = "";
-            dot = false;
-            for (let i = 0; i < qualification.length; i++) {
-                if (qualification[i] == ".") {
-                    dot = true;
-                }
-            }
-            for (let i = 0; i < qualification.length; i++) {
-
-
-                if (dot == true) {
-                    let isHere = false;
-                    if (removedQualification[i] == "\n") {
-                        isHere = true;
+                    else {
+                        return alert("Summary should have dot for separate the para")
                     }
+                }
 
-                    if (isHere == false) {
-                        removedQualification += qualification[i];
+                let qualification = document.getElementById("Qualifications").value;
+                let removedQualification = "";
+                dot = false;
+                for (let i = 0; i < qualification.length; i++) {
+                    if (qualification[i] == ".") {
+                        dot = true;
                     }
-                    //console.log(removedQualification)
                 }
-                else {
-                    return alert("Qualification should have dot for separate the para")
-                }
-            }
-
-            let Responsibilities = document.getElementById("Responsibilities").value
-            let removedResponsibilities = "";
-            dot = false;
-            for (let i = 0; i < Responsibilities.length; i++) {
-                if (Responsibilities[i] == ".") {
-                    dot = true;
-                }
-            }
-            for (let i = 0; i < Responsibilities.length; i++) {
+                for (let i = 0; i < qualification.length; i++) {
 
 
-                if (dot == true) {
-                    let isHere = false;
-                    if (removedResponsibilities[i] == "\n") {
-                        isHere = true;
+                    if (dot == true) {
+                        let isHere = false;
+                        if (removedQualification[i] == "\n") {
+                            isHere = true;
+                        }
+
+                        if (isHere == false) {
+                            removedQualification += qualification[i];
+                        }
+                        //console.log(removedQualification)
                     }
-
-                    if (isHere == false) {
-                        removedResponsibilities += Responsibilities[i];
+                    else {
+                        return alert("Qualification should have dot for separate the para")
                     }
-                    //console.log(removedResponsibilities)
                 }
-                else {
-                    return alert("Responsibilities should have dot for separate the para")
+
+                let Responsibilities = document.getElementById("Responsibilities").value
+                let removedResponsibilities = "";
+                dot = false;
+                for (let i = 0; i < Responsibilities.length; i++) {
+                    if (Responsibilities[i] == ".") {
+                        dot = true;
+                    }
                 }
+                for (let i = 0; i < Responsibilities.length; i++) {
+
+
+                    if (dot == true) {
+                        let isHere = false;
+                        if (removedResponsibilities[i] == "\n") {
+                            isHere = true;
+                        }
+
+                        if (isHere == false) {
+                            removedResponsibilities += Responsibilities[i];
+                        }
+                        //console.log(removedResponsibilities)
+                    }
+                    else {
+                        return alert("Responsibilities should have dot for separate the para")
+                    }
+                }
+
+                let old;
+                let ownerId;
+
+                oId = JSON.parse(localStorage.getItem("Login"));
+                ownerId = oId["id"];
+                console.log(oId);
+
+                let Bio = JSON.parse(localStorage.getItem("BIO"));
+                let BioFind = Bio.find((F) => F.Email == oId.Email);
+                console.log(BioFind);
+
+
+                // let removedSummary = summary.replace('\n', '');
+                let formData = {
+                    id: Date.now(),
+                    FN: BioFind.FN,
+                    LN: BioFind.LN,
+                    title: document.getElementById("title").value,
+                    location: document.getElementById("location").value,
+                    Salary: document.getElementById("Salary").value,
+                    disc: document.getElementById("disc").value,
+                    // summary: document.getElementById("summary").value,
+                    // Qualifications: document.getElementById("Qualifications").value,
+                    // Responsibilities: document.getElementById("Responsibilities").value,
+                    summary: removedSummary,
+                    Qualifications: removedQualification,
+                    Responsibilities: removedResponsibilities,
+                    isActive: true,
+                    ownerId,
+                    isCompleted: false,
+                    started: false
+                }
+                //console.log(formData)
+                getUploadreq(formData)
+
+                document.querySelector("#form").reset();
+                jobToast("success", "Jos has been created")
+                let await = new Promise((r) => setTimeout(r, 1500));
+                scrollTo(0, 0)
+                await.then(() => {
+                    location.reload();
+                });
             }
-
-            let old;
-            let ownerId;
-
-            oId = JSON.parse(localStorage.getItem("Login"));
-            ownerId = oId["id"];
-            console.log(oId);
-
-            let Bio = JSON.parse(localStorage.getItem("BIO"));
-            let BioFind = Bio.find((F) => F.Email == oId.Email);
-            console.log(BioFind);
-
-
-            // let removedSummary = summary.replace('\n', '');
-            let formData = {
-                id: Date.now(),
-                FN: BioFind.FN,
-                LN: BioFind.LN,
-                title: document.getElementById("title").value,
-                location: document.getElementById("location").value,
-                Salary: document.getElementById("Salary").value,
-                disc: document.getElementById("disc").value,
-                // summary: document.getElementById("summary").value,
-                // Qualifications: document.getElementById("Qualifications").value,
-                // Responsibilities: document.getElementById("Responsibilities").value,
-                summary: removedSummary,
-                Qualifications: removedQualification,
-                Responsibilities: removedResponsibilities,
-                isActive: true,
-                ownerId,
-                isCompleted: false,
-                started: false
+            catch (err) {
+                console.error(err);
             }
-            //console.log(formData)
-            getUploadreq(formData)
-
-            document.querySelector("#form").reset();
-            jobToast("success", "Jos has been created")
-            let await = new Promise((r) => setTimeout(r, 1500));
-            scrollTo(0, 0)
-            await.then(() => {
-                location.reload();
-            });
 
         })
 
@@ -440,6 +421,20 @@
             rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
             UplodedJobsappendTag.append(rect_cards);
         }
+        else if (requirements == null) {
+            let rect_cards = document.createElement("div");
+            rect_cards.setAttribute("class", "rect_cards_notFound");
+            rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
+            pendingJobsappendTag.append(rect_cards);
+        }
+
+        else if (requirements == null) {
+            let rect_cards = document.createElement("div");
+            rect_cards.setAttribute("class", "rect_cards_notFound");
+            rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
+            rect_jobsTag.append(rect_cards);
+        }
+
 
         else {
 
@@ -447,7 +442,6 @@
             let UplodedJobsMatchedId = requirements.filter((F) => F.ownerId == logIn.id);
             console.log(UplodedJobsMatchedId);
             let UplodedJobs = [];
-            //console.log(UplodedJobs);
             for (let i = 0; i < UplodedJobsMatchedId.length; i++) {
                 if (UplodedJobsMatchedId[i]["isActive"] == true) {
                     UplodedJobs.push(UplodedJobsMatchedId[i]);
@@ -456,7 +450,6 @@
 
             console.log(UplodedJobs[0]);
             if (UplodedJobs[0] == undefined) {
-                //console.log(undefined);
                 let rect_cards = document.createElement("div");
                 rect_cards.setAttribute("class", "rect_cards_notFound");
                 rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
@@ -464,10 +457,9 @@
             }
             else {
 
-                //console.log(UplodedJobs);
                 for (let i = 0; i < UplodedJobs.length; i++) {
                     // //console.log("test")
-                    test(UplodedJobs, i, UplodedJobsappendTag)
+                    createJobCard(UplodedJobs, i, UplodedJobsappendTag)
                 }
 
 
@@ -484,18 +476,10 @@
             }
 
             else {
-                // let requirements = JSON.parse(localStorage.getItem("requirements"));
-                // let logIn = JSON.parse(localStorage.getItem("Login"));
-                // let UplodedJobs = requirements.filter((F) => F.ownerId == logIn.id);
-                // let UplodedJobsappendTag = document.querySelector(".ua_jobs")
-                // let localPen = JSON.parse(localStorage.getItem("requirements"))
-                //console.log(localPen);
-                let pendingJobs = UplodedJobs.filter((F) => F.isCompleted == false)
-                //console.log(pendingJobs)
 
-                //console.log(pendingJobs);
+                let pendingJobs = UplodedJobs.filter((F) => F.isCompleted == false)
+
                 if (pendingJobs[0] == undefined) {
-                    //console.log(undefined);
                     let rect_cards = document.createElement("div");
                     rect_cards.setAttribute("class", "rect_cards_notFound");
                     rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
@@ -503,17 +487,14 @@
                 }
                 else {
 
-                    //console.log(pendingJobs);
                     for (let i = 0; i < pendingJobs.length; i++) {
-                        // //console.log("test")
-                        test(pendingJobs, i, pendingJobsappendTag)
+                        createJobCard(pendingJobs, i, pendingJobsappendTag)
                     }
                 }
 
 
 
             }
-            // //console.log(rect_jobs);
 
             //  Recently uploded
             let rect_jobsTag = document.querySelector(".rect_jobs");
@@ -526,15 +507,7 @@
 
             else {
                 let recntUploadedJobs = UplodedJobs;
-                //console.log(rect_jobs);
-
-                // for (let i = 0; i < rect_jobsAll; i++) {
-                //     if (rect_jobsAll[i]["isActive"] === true) {
-                //         rect_jobs.push(rect_jobsAll[i]);
-                //     }
-                // }
                 if (UplodedJobs[0] == undefined) {
-                    //console.log(undefined);
                     let rect_cards = document.createElement("div");
                     rect_cards.setAttribute("class", "rect_cards_notFound");
                     rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
@@ -543,10 +516,9 @@
                 else {
                     let rect_jobsAll = recntUploadedJobs.reverse();
                     console.log(rect_jobsAll);
-                    //console.log(rect_jobs);
                     for (let i = 0; i < rect_jobsAll.length; i++) {
 
-                        test(recntUploadedJobs, i, rect_jobsTag);
+                        createJobCard(recntUploadedJobs, i, rect_jobsTag);
 
                     }
                 }
@@ -567,14 +539,6 @@
 
 
 
-
-        function rdToPayment() {
-            location.href = `payment.html${location.search}`
-        }
-
-        function chatRD() {
-            location.href = "Worker_Chat.html" + location.search;
-        }
 
 
 

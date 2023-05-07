@@ -60,212 +60,221 @@
         <script>
 
 
-
+            // To redirect to the signIn page
             document.getElementById("signIn").addEventListener("click", (event) => {
-                location.href = "Signin.html"
+                try {
+                    location.href = "Signin.html"
+                }
+                catch (err) {
+                    console.error(err);
+                }
             })
-            signUpform = document.getElementById("form");
 
+
+
+
+
+            // To get the signUp form
+            signUpform = document.getElementById("form");
+            // To get the URL datas
             let url = location.search;
             let urlParams = new URLSearchParams(url);
             let type = urlParams.get("type");
             console.log(type);
+
+            // To add some functions while clicking the submit button
             signUpform.addEventListener("submit", function (event) {
-                event.preventDefault();
-                sendMail();
-                let userData = []
-
-
-                if (type == "owner") {
-                    if (localStorage.getItem("register") != null) {
-                        userData = JSON.parse(localStorage.getItem("register"))
-                    }
-
-
-                }
-
-                else {
-
-                    if (localStorage.getItem("workerRegister") != null) {
-
-                        userData = JSON.parse(localStorage.getItem("workerRegister"))
-                    }
-                }
-
-
-
-
-
-                let match = false;
-                let id = Date.now();
-                const FullName = document.getElementById('FullName').value;
-                const Email = document.getElementById('email').value.toLowerCase();
-                const UserName = document.getElementById('UserName').value;
-                const Password = document.getElementById('password').value;
-                const RPassword = document.getElementById('Rpassword').value;
-
-                let digits = '0123456789';
-                let OTP = '';
-                for (let i = 0; i < 4; i++) {
-                    OTP += digits[Math.floor(Math.random() * 10)];
-                }
-
-
-                console.log(OTP)
-
-                sendMail(OTP)
-
-
-                let allEmail = [];
-
-                if (localStorage.getItem("allEmail") != null) {
-                    allEmail = JSON.parse(localStorage.getItem("allEmail"))
-                }
-                if (Password != RPassword) {
-                    alert("Password and Repeat password not match")
-                }
-
-                else {
-
+                try {
+                    event.preventDefault();
+                    // To check the type of the register
+                    let userData = []
                     if (type == "owner") {
-                        for (let i = 0; i < allEmail.length; i++) {
-                            if (Email == allEmail[i]) {
-                                match = true;
-                            }
-
-
+                        if (localStorage.getItem("register") != null) {
+                            userData = JSON.parse(localStorage.getItem("register"))
                         }
 
-                        if (match == true) {
-                            return alert("Email is already Exist");
-
-                        }
-
-
-
-
-
-
-                        else {
-                            let otpChecked = checkVerificationCode(OTP);
-                            if (otpChecked == true) {
-                                allEmail.push(Email);
-                                localStorage.setItem("allEmail", JSON.stringify(allEmail))
-                                let userObj = {
-                                    Email, UserName, Password: encryptPassword(Password), RPassword: encryptPassword(RPassword), id
-                                }
-                                console.log(userObj)
-
-                                userData.push(userObj);
-                                const str = JSON.stringify(userData);
-                                localStorage.setItem("register", str)
-                                console.log(str)
-
-                                let LoggedUser = {
-                                    Email,
-                                    id
-                                }
-
-                                localStorage.setItem("Login", JSON.stringify(LoggedUser));
-                                console.log(LoggedUser);
-                                window.location.href = "Bio.html?type=" + type;
-                            }
-
-                            else {
-                                alert("Your OTP is incorrect")
-                            }
-
-                        }
 
                     }
-
-
-
 
                     else {
-                        for (let i = 0; i <= allEmail.length; i++) {
-                            console.log("workerElse")
 
-                            if (Email == allEmail[i]) {
+                        if (localStorage.getItem("workerRegister") != null) {
 
-                                match = true;
-
-                            }
-
+                            userData = JSON.parse(localStorage.getItem("workerRegister"))
                         }
-
-
-
-
-
-                        if (match == true) {
-                            return alert("Email is already Exist");
-                        }
-
-                        else {
-                            let otpChecked = checkVerificationCode(OTP);
-                            if (otpChecked == true) {
-                                allEmail.push(Email);
-                                localStorage.setItem("allEmail", JSON.stringify(allEmail))
-                                let userObj = {
-                                    FullName, Email, Password: encryptPassword(Password), RPassword: encryptPassword(RPassword), RPassword, id
-                                }
-                                console.log(userObj)
-
-                                userData.push(userObj);
-                                const str = JSON.stringify(userData);
-                                localStorage.setItem("workerRegister", str)
-                                console.log(str)
-                                let userLoggedIn = {
-                                    Email,
-                                    id
-                                }
-                                localStorage.setItem("Login", JSON.stringify(userLoggedIn));
-                                // console.log(logIn)
-                                return location.href = "Bio.html?type=" + type;
-                            }
-                            else {
-                                return alert("Your OTP is incorrect")
-                            }
-                        }
-
-
                     }
 
 
 
 
+                    // To get the register form datas
+                    let match = false;
+                    let id = Date.now();
+                    const FullName = document.getElementById('FullName').value;
+                    const Email = document.getElementById('email').value.toLowerCase();
+                    const UserName = document.getElementById('UserName').value;
+                    const Password = document.getElementById('password').value;
+                    const RPassword = document.getElementById('Rpassword').value;
+                    // To generate the OTP
+                    let digits = '0123456789';
+                    let OTP = '';
+                    for (let i = 0; i < 4; i++) {
+                        OTP += digits[Math.floor(Math.random() * 10)];
+                    }
+                    // To send email for verification with the OTP
+                    sendMail(OTP)
 
 
+                    // To get the all login Emails
+                    let allEmail = [];
+                    if (localStorage.getItem("allEmail") != null) {
+                        allEmail = JSON.parse(localStorage.getItem("allEmail"))
+                    }
+                    // To check the password and repeat password is equal
+                    if (Password != RPassword) {
+                        alert("Password and Repeat password not match")
+                    }
+
+                    else {
+
+                        // To check the email is already exist or not
+                        if (type == "owner") {
+                            for (let i = 0; i < allEmail.length; i++) {
+                                if (Email == allEmail[i]) {
+                                    match = true;
+                                }
+
+
+                            }
+
+                            if (match == true) {
+                                return alert("Email is already Exist");
+
+                            }
+
+
+
+
+
+
+                            else {
+                                // To verify the OTP
+                                let otpChecked = checkVerificationCode(OTP);
+                                if (otpChecked == true) {
+                                    // To add the datas in the owner register and biodata
+                                    allEmail.push(Email);
+                                    localStorage.setItem("allEmail", JSON.stringify(allEmail))
+                                    let userObj = {
+                                        Email, UserName, Password: encryptPassword(Password), RPassword: encryptPassword(RPassword), id
+                                    }
+                                    console.log(userObj)
+
+                                    userData.push(userObj);
+                                    const str = JSON.stringify(userData);
+                                    localStorage.setItem("register", str)
+                                    console.log(str)
+
+                                    let LoggedUser = {
+                                        Email,
+                                        id
+                                    }
+
+                                    localStorage.setItem("Login", JSON.stringify(LoggedUser));
+                                    console.log(LoggedUser);
+                                    window.location.href = "Bio.html?type=" + type;
+                                }
+
+                                else {
+                                    alert("Your OTP is incorrect")
+                                }
+
+                            }
+
+                        }
+
+
+
+
+                        else {
+                            // To check the email is already exist or not
+                            for (let i = 0; i <= allEmail.length; i++) {
+
+                                if (Email == allEmail[i]) {
+
+                                    match = true;
+
+                                }
+
+                            }
+
+
+
+
+
+                            if (match == true) {
+                                return alert("Email is already Exist");
+                            }
+
+                            else {
+                                // To verify the OTP
+                                let otpChecked = checkVerificationCode(OTP);
+                                if (otpChecked == true) {
+                                    // To add the datas in workerRegister and the biodata
+                                    allEmail.push(Email);
+                                    localStorage.setItem("allEmail", JSON.stringify(allEmail))
+                                    let userObj = {
+                                        FullName, Email, Password: encryptPassword(Password), RPassword: encryptPassword(RPassword), RPassword, id
+                                    }
+                                    console.log(userObj)
+
+                                    userData.push(userObj);
+                                    const str = JSON.stringify(userData);
+                                    localStorage.setItem("workerRegister", str)
+                                    console.log(str)
+                                    let userLoggedIn = {
+                                        Email,
+                                        id
+                                    }
+                                    localStorage.setItem("Login", JSON.stringify(userLoggedIn));
+                                    return location.href = "Bio.html?type=" + type;
+                                }
+                                else {
+                                    return alert("Your OTP is incorrect")
+                                }
+                            }
+
+
+                        }
+
+
+
+
+
+
+                    }
+
+                    // To add last registered data in localStorage as logIn
+                    let allReg;
+                    let Bio = JSON.parse(localStorage.getItem("BIO"));
+                    if (type == "worker") {
+                        allReg = JSON.parse(localStorage.getItem("workerRegister"));
+                        Bio = Bio.find((F) => F.Email == allReg[allReg.length - 1].Email);
+                    }
+                    else {
+                        allReg = JSON.parse(localStorage.getItem("Register"));
+                        Bio = Bio.find((F) => F.Email == allReg[allReg.length - 1].Email);
+                    }
+
+                    let Login = {
+                        Email: Bio.Email,
+                        id: Bio.id,
+
+                    }
+                    localStorage.setItem("Login", JSON.stringify(Login))
                 }
-
-                let allReg;
-                let Bio = JSON.parse(localStorage.getItem("BIO"));
-                if (type == "worker") {
-                    allReg = JSON.parse(localStorage.getItem("workerRegister"));
-                    Bio = Bio.find((F) => F.Email == allReg[allReg.length - 1].Email);
+                catch (err) {
+                    console.error(err);
                 }
-
-                let Login = {
-                    Email: Bio.Email,
-                    id: Bio.id,
-
-                }
-
-
-
-
-
-
-                localStorage.setItem("Login", JSON.stringify(Login))
-
-
-
-
-
-
-
-
             })
 
 

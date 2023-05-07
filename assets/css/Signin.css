@@ -97,6 +97,7 @@ button {
   border: none;
   margin-left: 2rem;
   margin-right: -1rem;
+  margin-top: -1rem;
 }
 
 input:invalid {
@@ -224,4 +225,8 @@ body {
 
 .enterEmail:focus {
   outline: none;
+}
+
+button[type="reset"] {
+  margin-bottom: 1rem;
 }

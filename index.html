@@ -123,6 +123,9 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script>
 
+
+        // sample datas for the top jobs and trending jobs
+
         let Datas = [{
             title: "Web Development",
             prize: "Rs. 1lakh to Rs. 3lakhs",
@@ -165,7 +168,7 @@
 
         }]
 
-
+        // Create the top jobs card with the sample datas
         for (let i = 0; i < Datas.length; i++) {
 
             let card = document.createElement("div")
@@ -182,25 +185,10 @@
                     </div>
                     <a class="apply">Apply</a>
                 </div>`;
-
-
-
-
-            // let profileImage = document.createElement("img");
-            // profileImage.setAttribute("src", imageSrc);
-            // profileImage.setAttribute("alt", "profileImage");
-            // document.querySelector(".ProfileImage").append(profileImage)
-
-
-            document.querySelector(".cards").append(card)
-
-
-
-
-
-
+            document.querySelector(".cards").append(card);
         }
 
+        // Create the trending jobs card with the sample datas
 
         for (let i = 0; i < Datas.length; i++) {
 
@@ -218,120 +206,11 @@
         </div>
         <a class="apply">Apply</a>
     </div>`;
-
-
-
-
-            // let profileImage = document.createElement("img");
-            // profileImage.setAttribute("src", imageSrc);
-            // profileImage.setAttribute("alt", "profileImage");
-            // document.querySelector(".ProfileImage").append(profileImage)
-
-
-            document.querySelector(".TrendingJobs .cards").append(card)
-
-
-
-
-
-
+            document.querySelector(".TrendingJobs .cards").append(card);
         }
 
 
     </script>
-
-
-
-    <script>
-        function goRight() {
-            document.querySelector(".scrollmenu").scrollLeft += 786;
-        }
-
-
-        function goLeft() {
-            document.querySelector(".scrollmenu").scrollLeft -= 786;
-        }
-
-        function TrendingJobsGoright() {
-            document.querySelector(".scrollmenu_1").scrollLeft += 786;
-
-        }
-
-        function TrendingJobsGoLeft() {
-            document.querySelector(".scrollmenu_1").scrollLeft -= 786;
-        }
-
-
-
-        function workerLogin() {
-            location.href = 'pages/Register.html?type=worker'
-        }
-
-        function ownerlogin() {
-            location.href = 'pages/Register.html?type=owner'
-        }
-
-
-        function registerType() {
-
-            document.querySelector("main").style.display = "none";
-
-            console.log("registerType")
-            let type = document.createElement("div");
-            type.className = "registerType";
-
-
-            let typeBtn = document.createElement("div");
-            typeBtn.setAttribute("class", "typeBtn");
-            type.append(typeBtn);
-
-
-            let OwnerType = document.createElement("button");
-            OwnerType.setAttribute("value", "Owner");
-            OwnerType.setAttribute("id", "owner");
-            OwnerType.setAttribute("onclick", "ownerlogin()")
-            OwnerType.innerHTML = "Owner"
-            typeBtn.append(OwnerType);
-
-            let workerType = document.createElement("button");
-            workerType.setAttribute("value", "Worker");
-            workerType.setAttribute("onclick", "workerLogin()")
-            workerType.setAttribute("id", "worker");
-            workerType.innerHTML = "Worker";
-            typeBtn.append(workerType);
-
-            let cancel = document.createElement("button");
-            cancel.innerHTML = "Cancel";
-            cancel.setAttribute("onclick", "cancel()")
-            cancel.setAttribute("class", "Cancel");
-            cancel.setAttribute("value", "Cancel");
-            type.append(cancel);
-
-            document.querySelector("body").append(type);
-
-
-        }
-
-
-        function cancel() {
-            document.querySelector("main").style.display = "block";
-            document.querySelector(".registerType").remove();
-
-        }
-
-
-
-
-
-
-
-
-
-
-    </script>
-
-
-
 
 
 </body>

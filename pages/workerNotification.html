@@ -311,36 +311,31 @@
 
     <script src="../assets/JS/workerNotification.js"></script>
     <script>
-
+        // To get the URl Params    
         let url = location.search;
         let urlParams = new URLSearchParams(url);
         let filter = urlParams.get("filter");
         console.log(filter);
-
+        // To get the localstorage datas
         let bio = JSON.parse(localStorage.getItem("BIO"));
-
-
-
-
         let applyJobAll = JSON.parse(localStorage.getItem("apllyJob"));
         let logIn = JSON.parse(localStorage.getItem("Login"));
+        // To find the current user biodata
         let data = bio.find((B) => B.Email == logIn.Email)
         console.log(data);
         All = applyJobAll.filter((F) => F.applierId == logIn.id)
+        // Create the user profile image with the name
         let user_name = document.querySelector(".user_name");
         user_name.innerHTML = data.FN + data.LN;
         let profileImage = profileImg(data.FN, data.LN);
         document.querySelector(".profile img").innerHTML = null;
         document.querySelector(".profile img").setAttribute("src", profileImage);
 
-        console.log(applyJobAll);
-        console.log(All);
 
+        // add notification datas as per the filter in the applyJob
         let applyJob;
         if (filter == "All") {
             applyJob = All.filter((F) => F.applierId == logIn.id);
-            // console.error(filtered);
-            // applyJob.push(filtered)
             console.log(applyJob);
         }
 
@@ -364,7 +359,7 @@
         console.log(All);
         console.log(applyJob)
 
-
+        // Create the notification as with applyjobs
         for (let i = 0; i < applyJob.length; i++) {
             let notifications = document.createElement("div");
             notifications.setAttribute("class", "notifications");
@@ -421,7 +416,6 @@
                     let Reject = document.createElement("a");
                     Reject.setAttribute("id", "reject");
                     Reject.innerHTML = "Rejected";
-                    // Reject.setAttribute("onclick", `reject(${applyJob[i]["aplliedJobId"]})`)
                     buttons.append(Reject);
 
 
@@ -434,7 +428,6 @@
                     let Approve = document.createElement("a");
                     Approve.setAttribute("id", "approve")
                     Approve.innerHTML = "Approved";
-                    // Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
                     buttons.append(Approve);
 
                     if (applyJob[i]["start"] == true && applyJob[i]["isCompleted"] == false) {
@@ -464,49 +457,37 @@
                     let Approve = document.createElement("a");
                     Approve.setAttribute("id", "NotActioned")
                     Approve.innerHTML = "NotActioned";
-                    // Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
                     buttons.append(Approve);
                 }
             }
-
-
-
-
-
-
-
-
-
-
-
             let b2 = document.createElement("div");
             b2.setAttribute("class", "b2");
             buttons.append(b2);
-
-
             document.querySelector(".notificationEntire").append(notifications);
         }
 
-
-        // let getCompletedDetails = document.createElement("div");
-        // getCompletedDetails.setAttribute("class", "getCompletedDetails");
-        // document.querySelector(".details").append(getCompletedDetails);
+        // To add filter type in the url
         document.getElementById("ftrbtn").addEventListener("click", (event) => {
-            let clicked = document.getElementById("filter").value;
-            if (clicked == "All") {
-                filterAll()
+            try {
+                let clicked = document.getElementById("filter").value;
+                if (clicked == "All") {
+                    filterAll()
+                }
+                if (clicked == "NotActioned") {
+                    filterNotActioned()
+                }
+                if (clicked == "Rejected") {
+                    filterRejected()
+                }
+                if (clicked == "Approved") {
+                    filterApproved()
+                }
+                if (clicked == "Started") {
+                    filterStarted()
+                }
             }
-            if (clicked == "NotActioned") {
-                filterNotActioned()
-            }
-            if (clicked == "Rejected") {
-                filterRejected()
-            }
-            if (clicked == "Approved") {
-                filterApproved()
-            }
-            if (clicked == "Started") {
-                filterStarted()
+            catch (err) {
+                console.error(err);
             }
         })
     </script>

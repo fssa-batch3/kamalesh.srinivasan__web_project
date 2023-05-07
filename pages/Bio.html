@@ -184,136 +184,133 @@
     </section>
     <script>
 
-
+        // Get url datas to check the type of the user 
         let url = location.search;
         let urlParams = new URLSearchParams(url);
         console.log(urlParams)
         let type = urlParams.get("type");
         console.log(type);
+
+        //  To get the current user's Email is from the register.
         let Email;
         if (type == "owner") {
             let register = JSON.parse(localStorage.getItem("register"));
-            // console.log(register)
             Email = register[register.length - 1]["Email"]
             console.log(Email)
         }
 
         else {
             let workerRegister = JSON.parse(localStorage.getItem("workerRegister"));
-            // console.log(register)
             Email = workerRegister[workerRegister.length - 1]["Email"]
             console.log(Email)
         }
 
 
+        // To get the form data 
+
         let bioFn = document.getElementById("survey-form");
         bioFn.addEventListener("submit", (event) => {
             event.preventDefault();
-            let arr = [];
-            if (localStorage.getItem("BIO") != null) {
-                arr = JSON.parse(localStorage.getItem("BIO"))
-            }
-
-            let FN = document.getElementById("First_Name").value;
-            let LN = document.getElementById("Last_Name").value;
-            let DOB = document.getElementById("DOB").value;
-            let Address = document.getElementById("Address").value;
-            // let Education = document.getElementById("Education").value;
-            let Current_occupation = document.getElementById("dropdown").value;
-            let Expect_in = document.getElementById("Expect_in").value;
-            let Aadhar_number = document.getElementById("Aadhar_number").value;
-            let Phone = document.getElementById("Phone").value;
-            let file = document.getElementById("file").value;
-            let PrimarySchool = document.getElementById("PrimarySchool");
-            let Secondary_School = document.getElementById("Secondary_School");
-            // let NCE = document.getElementById("NCE");
-            let others = document.getElementById("others");
-            // let HND = document.getElementById("HND");
-            let BSc = document.getElementById("B.Sc");
-            let MSc = document.getElementById("M.Sc");
-            let Phd = document.getElementById("Ph.D")
-            let upi = document.getElementById("upi").value;
-            let Education = [];
+            try {
 
 
-            if (PrimarySchool.checked == true) {
-                Education.push("PrimarySchool")
-            }
 
-            if (Secondary_School.checked == true) {
-                Education.push("Secondary_School")
-            }
+                let arr = [];
+                if (localStorage.getItem("BIO") != null) {
+                    arr = JSON.parse(localStorage.getItem("BIO"))
+                }
 
-            // if (NCE.checked == true) {
-            //     Education.push("NCE")
-            // }
+                let FN = document.getElementById("First_Name").value;
+                let LN = document.getElementById("Last_Name").value;
+                let DOB = document.getElementById("DOB").value;
+                let Address = document.getElementById("Address").value;
+                let Current_occupation = document.getElementById("dropdown").value;
+                let Expect_in = document.getElementById("Expect_in").value;
+                let Aadhar_number = document.getElementById("Aadhar_number").value;
+                let Phone = document.getElementById("Phone").value;
+                let file = document.getElementById("file").value;
+                let PrimarySchool = document.getElementById("PrimarySchool");
+                let Secondary_School = document.getElementById("Secondary_School");
+                let others = document.getElementById("others");
+                let BSc = document.getElementById("B.Sc");
+                let MSc = document.getElementById("M.Sc");
+                let Phd = document.getElementById("Ph.D")
+                let upi = document.getElementById("upi").value;
+                let Education = [];
 
-            if (others.checked == true) {
-                Education.push("ND")
-            }
+                // Check and store the eduction in the Education array. 
+                if (PrimarySchool.checked == true) {
+                    Education.push("PrimarySchool")
+                }
+
+                if (Secondary_School.checked == true) {
+                    Education.push("Secondary_School")
+                }
+
+                if (others.checked == true) {
+                    Education.push("ND")
+                }
+
+                if (BSc.checked == true) {
+                    Education.push("B.Sc")
+                }
 
 
-            // if (HND.checked == true) {
-            //     Education.push("HND")
-            // }
+                if (MSc.checked == true) {
+                    Education.push("M.Sc")
+                }
 
 
-            if (BSc.checked == true) {
-                Education.push("B.Sc")
-            }
+                if (Phd.checked == true) {
+                    Education.push("Ph.D")
+                }
 
 
-            if (MSc.checked == true) {
-                Education.push("M.Sc")
-            }
+                if (Education.length == 0) {
+                    return alert("Select atleast one education")
+                }
 
 
-            if (Phd.checked == true) {
-                Education.push("Ph.D")
-            }
-
-
-            if (Education.length == 0) {
-                return alert("Select atleast one education")
-            }
-
-
-            console.log(Education);
+                console.log(Education);
 
 
 
 
+                // Create the object with the recieved dataa.
+
+                let bio = {
+                    Email,
+                    FN,
+                    LN,
+                    DOB,
+                    Address,
+                    Education,
+                    Current_occupation,
+                    Expect_in,
+                    Aadhar_number,
+                    Phone,
+                    upi
+                }
+
+                arr.push(bio);
+                let str = JSON.stringify(arr);
+                localStorage.setItem("BIO", str);
 
 
-            let bio = {
-                Email,
-                FN,
-                LN,
-                DOB,
-                Address,
-                Education,
-                Current_occupation,
-                Expect_in,
-                Aadhar_number,
-                Phone,
-                upi
-            }
+                // REdirect to the respective user's home page
 
-            arr.push(bio);
-            let str = JSON.stringify(arr);
-            localStorage.setItem("BIO", str);
+                if (type == "owner") {
+                    window.location.href = "ownerhome.html?from=register&&type=owner";
+                }
+                else {
+                    window.location.href = "workerhome.html?from=register&&type=worker";
 
-
-
-            if (type == "owner") {
-                window.location.href = "ownerhome.html?from=register&&type=owner";
-            }
-            else {
-                window.location.href = "workerhome.html?from=register&&type=worker";
+                }
 
             }
-
-
+            catch (err) {
+                console.error(err);
+            }
         });
 
 

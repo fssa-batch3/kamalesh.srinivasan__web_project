@@ -1,3 +1,7 @@
 function logIn() {
-  location.href = "Signin.html";
+  try {
+    location.href = "Signin.html";
+  } catch (err) {
+    console.error(err);
+  }
 }

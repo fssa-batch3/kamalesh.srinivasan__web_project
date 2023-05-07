@@ -127,12 +127,13 @@
     <script src="../assets/JS/workerChat.js"></script>
     <script>
 
+        // To get the url params
         let url = location.search;
         let urlParams = new URLSearchParams(url);
         let from = urlParams.get("from");
         console.log(from);
 
-
+        //  To get the current user Email and Id
         let cntGmail;
         let currentID;
         if (from == "logIn") {
@@ -286,74 +287,80 @@
 
 
         }
+        // To send the chat
         document.querySelector(".chatSendBtn").addEventListener("click", (event) => {
-            let chatText = document.querySelector("#chatText").value;
-            let detailViewChat = JSON.parse(localStorage.getItem("cuntDVChat"));
-            let detailViewChatObj = JSON.parse(localStorage.getItem("register")).find((F) => F.Email == detailViewChat)
-            if (detailViewChatObj == null || detailViewChatObj == undefined) {
-                detailViewChatObj = JSON.parse(localStorage.getItem("workerRegister")).find((F) => F.Email == detailViewChat)
+            try {
+                let chatText = document.querySelector("#chatText").value;
+                let detailViewChat = JSON.parse(localStorage.getItem("cuntDVChat"));
+                let detailViewChatObj = JSON.parse(localStorage.getItem("register")).find((F) => F.Email == detailViewChat)
+                if (detailViewChatObj == null || detailViewChatObj == undefined) {
+                    detailViewChatObj = JSON.parse(localStorage.getItem("workerRegister")).find((F) => F.Email == detailViewChat)
+                }
+                let Obj = {};
+                if (localStorage.getItem("chatData") != null) {
+                    Obj = JSON.parse(localStorage.getItem("chatData"));
+                }
+
+                // Get URL Params
+                let url = location.search;
+                let urlParams = new URLSearchParams(url);
+                let type = urlParams.get("type");
+                let from = urlParams.get("from");
+                console.log(type, from);
+                // get the id's
+                let cntUser;
+                let cntUserAll;
+                if (type == "owner" && from == "register") {
+                    let ownerReg = JSON.parse(localStorage.getItem("register"))
+                    cntUser = ownerReg[ownerReg.length - 1].id;
+                    cntUserAll = ownerReg[ownerReg.length - 1];
+                }
+                else if (type == "worker" && from == "register") {
+                    let ownerReg = JSON.parse(localStorage.getItem("workerRegister"))
+                    cntUser = ownerReg[ownerReg.length - 1].id;
+                    cntUserAll = ownerReg[ownerReg.length - 1];
+                }
+
+                else if (from == "logIn") {
+                    let LogIn = JSON.parse(localStorage.getItem("Login"));
+                    cntUser = LogIn.id;
+                    cntUserAll = LogIn;
+                }
+                let currentTime = new Date()
+                chatText = chatText + "-" + cntUser + "-" + currentTime;
+
+
+                let id = cntUser + "to" + detailViewChatObj.id;
+
+                // Find the id is already present in the object or not
+                let setIdValue = Obj[id];
+                if (setIdValue == undefined) {
+                    let SplitId = id.split("to");
+                    let reverseArray = SplitId[1] + "to" + SplitId[0];
+                    // let JoinReverse = reverseArray.join("");
+                    setIdValue = Obj[reverseArray];
+                    console.log(reverseArray);
+                }
+                if (setIdValue == undefined || setIdValue == null) {
+                    Obj[id] = [chatText];
+                }
+                else {
+                    setIdValue.push(chatText);
+                    Obj[id] = setIdValue;
+                }
+
+
+
+
+
+                localStorage.setItem("chatData", JSON.stringify(Obj));
+                let cntEmail = cntUserAll.Email;
+                // To search the chat
+                searchedChat();
             }
-            let Obj = {};
-            if (localStorage.getItem("chatData") != null) {
-                Obj = JSON.parse(localStorage.getItem("chatData"));
+            catch (err) {
+                console.error(err);
             }
-
-            // Get URL Params
-            let url = location.search;
-            let urlParams = new URLSearchParams(url);
-            let type = urlParams.get("type");
-            let from = urlParams.get("from");
-            console.log(type, from);
-            // get the id's
-            let cntUser;
-            let cntUserAll;
-            if (type == "owner" && from == "register") {
-                let ownerReg = JSON.parse(localStorage.getItem("register"))
-                cntUser = ownerReg[ownerReg.length - 1].id;
-                cntUserAll = ownerReg[ownerReg.length - 1];
-            }
-            else if (type == "worker" && from == "register") {
-                let ownerReg = JSON.parse(localStorage.getItem("workerRegister"))
-                cntUser = ownerReg[ownerReg.length - 1].id;
-                cntUserAll = ownerReg[ownerReg.length - 1];
-            }
-
-            else if (from == "logIn") {
-                let LogIn = JSON.parse(localStorage.getItem("Login"));
-                cntUser = LogIn.id;
-                cntUserAll = LogIn;
-            }
-            let currentTime = new Date()
-            chatText = chatText + "-" + cntUser + "-" + currentTime;
-
-
-            let id = cntUser + "to" + detailViewChatObj.id;
-
-            // Find the id is already present in the object or not
-            let setIdValue = Obj[id];
-            if (setIdValue == undefined) {
-                let SplitId = id.split("to");
-                let reverseArray = SplitId[1] + "to" + SplitId[0];
-                // let JoinReverse = reverseArray.join("");
-                setIdValue = Obj[reverseArray];
-                console.log(reverseArray);
-            }
-            if (setIdValue == undefined || setIdValue == null) {
-                Obj[id] = [chatText];
-            }
-            else {
-                setIdValue.push(chatText);
-                Obj[id] = setIdValue;
-            }
-
-
-
-
-
-            localStorage.setItem("chatData", JSON.stringify(Obj));
-            let cntEmail = cntUserAll.Email;
-
-            searchedChat();
         })
     </script>
 </body>

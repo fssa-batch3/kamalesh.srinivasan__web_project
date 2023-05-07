@@ -108,6 +108,7 @@
 <script src="../assets/JS/payment.js"></script>
 <script>
 
+    // Top get the url datas    
     let url = location.search;
     let urlParams = new URLSearchParams(url);
     let paymentfilter = urlParams.get("paymentfilter");
@@ -115,6 +116,8 @@
 
     let allCompletedJobs = JSON.parse(localStorage.getItem("completedJobs"));
     let completedJobs = JSON.parse(localStorage.getItem("completedJobs"))
+
+    // Filter the data buy the selected filter
     if (paymentfilter == "paid") {
         completedJobs = allCompletedJobs.filter((F) => F.paid == "Paid");
     }
@@ -124,7 +127,7 @@
     }
 
 
-
+    // To create the payment cards
 
     for (let i = 0; i < completedJobs.length; i++) {
 
@@ -171,99 +174,7 @@
         document.querySelector(".listView").append(listcard);
     }
 
-    function reqList() {
-        location.href = "Ownerhome.html" + location.search;
-    }
 
-    function paidDetails() {
-        event.preventDefault();
-        let paymentJob = JSON.parse(localStorage.getItem("currentDataPayDetail"));
-        let completedJobs = JSON.parse(localStorage.getItem("completedJobs"));
-        let paidAmount = document.getElementById("amountboxUPI").value;
-        let refImage = document.getElementById("uploadPhotoboxUPI").value;
-
-        let currentPaymentJob = completedJobs.find(
-            (F) => F.aplliedJobId == paymentJob
-        );
-
-        if (currentPaymentJob["paid"] != "Paid") {
-            //    add payment datas in completed jobs
-            currentPaymentJob["paid"] = "Paid";
-            currentPaymentJob["paidAmount"] = paidAmount;
-            currentPaymentJob["refImage"] = refImage;
-
-            //    add payment datas in apllyJob
-            let applyJobs = JSON.parse(localStorage.getItem("apllyJob"));
-            let cntApplyJob = applyJobs.find((F) => F.aplliedJobId == currentPaymentJob.aplliedJobId);
-            let cntApplyJobIndex = applyJobs.indexOf(cntApplyJob);
-
-            cntApplyJob["paid"] = "Paid";
-            cntApplyJob["paidAmount"] = paidAmount;
-            cntApplyJob["refImage"] = refImage;
-
-            applyJobs[cntApplyJobIndex] = cntApplyJob;
-            localStorage.setItem("apllyJob", JSON.stringify(applyJobs));
-
-            // place a completed job 
-
-            console.log(currentPaymentJob);
-            let index = completedJobs.indexOf(currentPaymentJob);
-            completedJobs[index] = currentPaymentJob;
-            localStorage.setItem("completedJobs", JSON.stringify(completedJobs));
-            console.log(currentPaymentJob);
-            cancelPaid();
-            return toastr.success("You paid to " + currentPaymentJob["applierName"]);
-        }
-        else {
-            return toastr.error("You already paid to " + currentPaymentJob["applierName"] + " for this job");
-
-        }
-
-    }
-
-    function notification() {
-        location.href = "ownerNotification.html" + location.search;
-    }
-
-    function profile() {
-        location.href = "profile.html" + location.search;
-    }
-
-
-
-
-    function allJobs() {
-        if (paymentfilter == null) {
-            location.href = location + "&&paymentfilter=all"
-        }
-        else {
-            urlParams.set('paymentfilter', 'all');
-            location.href = "payment.html?" + urlParams;
-
-        }
-
-    }
-
-    function Fpaid() {
-        if (paymentfilter == null) {
-            location.href = location + "&&paymentfilter=paid"
-        }
-        else {
-            urlParams.set('paymentfilter', 'paid');
-            location.href = "payment.html?" + urlParams;
-        }
-    }
-
-    function unPaid() {
-        if (paymentfilter == null) {
-            location.href = location + "&&paymentfilter=unpaid"
-        }
-        else {
-            urlParams.set('paymentfilter', 'unpaid');
-            location.href = "payment.html?" + urlParams;
-
-        }
-    }
 
 
 
