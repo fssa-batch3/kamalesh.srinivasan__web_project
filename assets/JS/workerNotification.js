@@ -192,7 +192,7 @@ function aprove(aplliedJobId) {
     console.error(err);
   }
 }
-filterApproved;
+// filterApproved
 function reject(aplliedJobId) {
   try {
     let findedObject = applyJob.find((A) => A.aplliedJobId == aplliedJobId);
@@ -341,7 +341,6 @@ function completedWork(job) {
     console.error(err);
   }
 }
-
 
 function jobToast(type, message) {
   try {

@@ -326,9 +326,8 @@ form {
   border-radius: 0.2rem;
   /* background-color: grey; */
   padding: 1rem;
-  border: 2px solid white;
+  border: 2px solid none;
   background-color: #85f4ff;
-  border: none;
 }
 
 .form {

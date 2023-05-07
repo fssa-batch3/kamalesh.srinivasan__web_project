@@ -232,8 +232,6 @@ a:active {
   padding-top: 2rem;
   display: none;
   box-shadow: gainsboro;
-  -webkit-box-shadow: 10px 10px 81px 8px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 81px 8px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 81px 8px rgba(0, 0, 0, 0.75);
   margin-left: -15rem;
 }
