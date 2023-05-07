@@ -88,21 +88,6 @@
             'hideMethod': 'fadeOut',
         }
     });
-
-    // Toast Image and Progress Bar
-    $('#image').click(function (event) {
-        toastr.options.progressBar = true,
-            toastr.info('<img src="https://image.flaticon.com/icons/svg/34/34579.svg" style="width:150px;">', 'Toast Image')
-    });
-
-
-    // Toast Position
-    $('#position').click(function (event) {
-        var pos = $('input[name=position]:checked', '#positionForm').val();
-        toastr.options.positionClass = "toast-" + pos;
-        toastr.options.preventDuplicates = false;
-        toastr.info('This sample position', 'Toast Position')
-    });
 </script>
 <script src="../assets/JS/payment.js"></script>
 <script>
