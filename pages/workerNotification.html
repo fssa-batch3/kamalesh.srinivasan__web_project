@@ -490,6 +490,18 @@
                 console.error(err);
             }
         })
+
+
+        //To close the detail view
+        let close = document.querySelector("#close");
+
+        close.addEventListener("click", (event) => {
+            try {
+                getCompletedDetails.style.display = "none";
+            } catch (err) {
+                console.error(err);
+            }
+        });
     </script>
 </body>
 

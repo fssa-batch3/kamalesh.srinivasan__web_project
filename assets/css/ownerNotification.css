@@ -20,6 +20,27 @@ a {
 .notificationTop {
   display: flex;
   gap: 6rem;
+  background-color: #87d0f2c5;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+#filter {
+  height: 2rem;
+  width: 5rem;
+  outline: none;
+  border: none;
+  background-color: rgb(146, 209, 88);
+  border-radius: 0.2rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-top: 1.5rem;
+  margin-right: 10rem;
+}
+
+#ftrbtn {
+  background-color: blanchedalmond;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .profile {

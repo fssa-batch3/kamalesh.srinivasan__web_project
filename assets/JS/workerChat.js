@@ -6,11 +6,7 @@ function searchOwners() {
 
     for (let i = 0; i < bio.length; i++) {
       console.log(bio[i]);
-      // let finded = false;
-      // let finded = bio.filter((F) => F.FN == searched);
       let pattern = "/" + searched + "/i";
-      // console.log(pattern);
-      // console.log(bio[i]["FN"]);
       let finded = false;
       finded = bio[i]["Expect_in"].includes(searched);
 
@@ -25,7 +21,12 @@ function searchOwners() {
       }
       console.log(finded);
     }
-    createSearchChatList(searchedData);
+    if (searchedData[0] != null || undefined) {
+      createSearchChatList(searchedData);
+    } else {
+      console.log("log");
+      toastr.error("User Not Found");
+    }
   } catch (err) {
     console.error(err);
   }
@@ -37,21 +38,12 @@ function createSearchChatList(data) {
     let url = location.search;
     let urlParams = new URLSearchParams(url);
     let from = urlParams.get("from");
-    console.log(from);
+    console.log(data + "          gsfdhjkl;khgfdhjkl;khg");
 
     // Create chat list
 
     document.querySelector(".recentChats").innerHTML = null;
     for (let i = 0; i < data.length; i++) {
-      // let cntGmail;
-      // if (from == "logIn") {
-      //   let Login = JSON.parse(localStorage.getItem("Login"));
-      //   cntGmail = Login.Email;
-      // } else {
-      //   let register = JSON.parse(localStorage.getItem("register"));
-      //   cntGmail = register[register.length - 1].Email;
-      // }
-
       if (cntGmail != data[i].Email) {
         let cntEmail = JSON.stringify(data[i]["Email"]);
         let chatCard = document.createElement("div");
@@ -283,6 +275,7 @@ function searchedChat() {
     let chatData = Obj[id];
     if (chatData == undefined) {
       let SplitId = id.split("to");
+      console.log(SplitId);
       let reverseArray = SplitId[1] + "to" + SplitId[0];
       // let JoinReverse = reverseArray.join("");
       chatData = Obj[reverseArray];

@@ -235,21 +235,6 @@
                 'hideMethod': 'fadeOut',
             }
         });
-
-        // // Toast Image and Progress Bar
-        // $('#image').click(function (event) {
-        //     toastr.options.progressBar = true,
-        //         toastr.info('<img src="https://image.flaticon.com/icons/svg/34/34579.svg" style="width:150px;">', 'Toast Image')
-        // });
-
-
-        // Toast Position
-        // $('#position').click(function (event) {
-        //     var pos = $('input[name=position]:checked', '#positionForm').val();
-        //     toastr.options.positionClass = "toast-" + pos;
-        //     toastr.options.preventDuplicates = false;
-        //     toastr.info('This sample position', 'Toast Position')
-        // });
     </script>
 
     <script>
@@ -368,9 +353,6 @@
                     location: document.getElementById("location").value,
                     Salary: document.getElementById("Salary").value,
                     disc: document.getElementById("disc").value,
-                    // summary: document.getElementById("summary").value,
-                    // Qualifications: document.getElementById("Qualifications").value,
-                    // Responsibilities: document.getElementById("Responsibilities").value,
                     summary: removedSummary,
                     Qualifications: removedQualification,
                     Responsibilities: removedResponsibilities,
@@ -414,25 +396,25 @@
         let requirements = JSON.parse(localStorage.getItem("requirements"));
         let logIn = JSON.parse(localStorage.getItem("Login"));
         let UplodedJobsappendTag = document.querySelector(".ua_jobs");
-
+        console.log(requirements);
         if (requirements == null) {
             let rect_cards = document.createElement("div");
             rect_cards.setAttribute("class", "rect_cards_notFound");
             rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
             UplodedJobsappendTag.append(rect_cards);
         }
-        else if (requirements == null) {
+        if (requirements == null) {
             let rect_cards = document.createElement("div");
             rect_cards.setAttribute("class", "rect_cards_notFound");
             rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
-            pendingJobsappendTag.append(rect_cards);
+            document.querySelector(".pen_jobs").append(rect_cards);
         }
 
-        else if (requirements == null) {
+        if (requirements == null) {
             let rect_cards = document.createElement("div");
             rect_cards.setAttribute("class", "rect_cards_notFound");
             rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
-            rect_jobsTag.append(rect_cards);
+            document.querySelector(".rect_jobs").append(rect_cards);
         }
 
 

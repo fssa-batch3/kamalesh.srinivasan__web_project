@@ -34,18 +34,6 @@
                 </div>
 
                 <div class="recentChats">
-                    <!-- <div class="chatCard">
-                        <div class="chatCardImg">
-
-                            <img src="../assets/Images/avatar (6).svg" alt="workerImage">
-                        </div>
-
-                        <div class="middle">
-                            <p class="name">Ajmal</p>
-                            <p class="expertChat">HTML,CSS,JS</p>
-                        </div>
-
-                    </div> -->
                 </div>
             </div>
         </section>
@@ -62,7 +50,6 @@
                 </div>
 
                 <div class="chat_profile">
-                    <!-- <img src="../assets/Images/avatar (2).svg" alt=""> -->
                     <div>
                         <p class="chatDeatilName">Worker Name</p>
                         <div class="profile_logo"><img src="../assets/Images/Logo.png" alt="Logo">
@@ -79,9 +66,6 @@
                     <p>Today</p><span>____________________</span>
                 </div>
                 <div class="chat">
-                    <!-- <p class="leftChat">LC</p>
-                    <p class="rightChat">RC</p>
-                    <p class="leftChat">LC</p> -->
                 </div>
 
             </div>
@@ -116,14 +100,36 @@
                 <p class="pendingJobs">No of pending jobs : 0 jobs</p>
 
             </div>
-
-            <!-- <div class="chatApproval">
-                Chat Approved
-
-            </div> -->
         </section>
 
     </main>
+    <!-- Toastr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        // Default Configuration
+        $(document).ready(function () {
+            toastr.options = {
+                'closeButton': true,
+                'debug': false,
+                'newestOnTop': false,
+                'progressBar': false,
+                'positionClass': 'toast-top-right',
+                'preventDuplicates': false,
+                'showDuration': '1000',
+                'hideDuration': '1000',
+                'timeOut': '5000',
+                'extendedTimeOut': '1000',
+                'showEasing': 'swing',
+                'hideEasing': 'linear',
+                'showMethod': 'fadeIn',
+                'hideMethod': 'fadeOut',
+            }
+        });
+    </script>
     <script src="../assets/JS/workerChat.js"></script>
     <script>
 
@@ -357,6 +363,7 @@
                 let cntEmail = cntUserAll.Email;
                 // To search the chat
                 searchedChat();
+                document.getElementById("chatText").value = null;
             }
             catch (err) {
                 console.error(err);

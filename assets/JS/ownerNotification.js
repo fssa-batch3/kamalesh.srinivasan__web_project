@@ -262,3 +262,7 @@ function createDetails(currentJob) {
     console.error(err);
   }
 }
+
+function redirectChat() {
+  location.href = "Worker_Chat.html?from=logIn&&type=owner&filter=all";
+}

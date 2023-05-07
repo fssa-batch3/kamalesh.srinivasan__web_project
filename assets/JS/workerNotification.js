@@ -342,15 +342,6 @@ function completedWork(job) {
   }
 }
 
-let close = document.querySelector("#close");
-
-close.addEventListener("click", (event) => {
-  try {
-    getCompletedDetails.style.display = "none";
-  } catch (err) {
-    console.error(err);
-  }
-});
 
 function jobToast(type, message) {
   try {

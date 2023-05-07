@@ -15,7 +15,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
         rel="stylesheet">
-
+    <script src="../assets/JS/ownerNotification.js"></script>
 </head>
 
 <body>
@@ -27,8 +27,7 @@
         <nav>
             <div>
                 <a onclick="reqList()">Requirement List</a>
-                <!-- <a>Search</a> -->
-                <a href="">Chat</a>
+                <a onclick="redirectChat()">Chat</a>
                 <a onclick="notification()">Notification</a>
                 <a>Payment</a>
                 <a onclick="profile()">profile</a>
@@ -161,15 +160,27 @@
         status.innerHTML = `${completedJobs[i]["paid"]}`;
         status.setAttribute("class", "status");
         workerDetails.append(status);
+        if (completedJobs[i]["paid"] == "paid") {
+            let Pay = document.createElement("div");
+            Pay.setAttribute("class", "Pay");
+            Pay.setAttribute("onclick", `detailView(${completedJobs[i]["aplliedJobId"]})`)
+            listcard.append(Pay);
+            let payButton = document.createElement("button");
+            payButton.innerHTML = "Pay";
+            Pay.append(payButton);
 
-        let Pay = document.createElement("div");
-        Pay.setAttribute("class", "Pay");
-        Pay.setAttribute("onclick", `detailView(${completedJobs[i]["aplliedJobId"]})`)
-        listcard.append(Pay);
+        }
+        else {
+            let Pay = document.createElement("div");
+            Pay.setAttribute("class", "Pay");
+            listcard.append(Pay);
+            let payButton = document.createElement("button");
+            payButton.innerHTML = "Paid";
+            Pay.append(payButton);
 
-        let payButton = document.createElement("button");
-        payButton.innerHTML = "Pay";
-        Pay.append(payButton);
+        }
+
+
 
         document.querySelector(".listView").append(listcard);
     }

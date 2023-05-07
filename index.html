@@ -68,7 +68,7 @@
                 <img src="./assets/Images/payment.png" alt="notification image">
                 <div class="details">
                     <h3>Payment</h3>
-                    <p>You can pay with by UPI id or Cash to the owner or worker.</p>
+                    <p>You can pay with by UPI or Cash to the owner or worker.</p>
                 </div>
             </div>
         </section>
@@ -183,7 +183,7 @@
                         </div>
                         <div class="location"> <img src="./assets/Images/location.png" alt="location"> ${Datas[i]["location"]}</div>
                     </div>
-                    <a class="apply">Apply</a>
+                    <a class="apply" onclick="workerLogin()">Apply</a>
                 </div>`;
             document.querySelector(".cards").append(card);
         }
@@ -204,7 +204,7 @@
             </div>
             <div class="location"> <img src="./assets/Images/location.png" alt="location"> ${Datas[i]["location"]}</div>
         </div>
-        <a class="apply">Apply</a>
+        <a class="apply" onclick="workerLogin()">Apply</a>
     </div>`;
             document.querySelector(".TrendingJobs .cards").append(card);
         }
