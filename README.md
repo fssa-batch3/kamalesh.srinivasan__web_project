@@ -30,6 +30,10 @@ User Story
       
       c) Click the "Register" button.
       
+      D) You should recieve a OTP to your registered mail.
+      
+      E) Enter the OTP.
+      
   Expected Result:
   
       User redirected to the "Bio data" page.
@@ -43,6 +47,10 @@ User Story
       b) Enter the requirement.
       
       c) Click the "Register" button.
+      
+      D) You should recieve a OTP to your registered mail.
+      
+      E) Enter the OTP.
       
   Expected Result:
   
