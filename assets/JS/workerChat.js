@@ -6,7 +6,6 @@ function searchOwners() {
 
     for (let i = 0; i < bio.length; i++) {
       console.log(bio[i]);
-      let pattern = "/" + searched + "/i";
       let finded = false;
       finded = bio[i]["Expect_in"].includes(searched);
 
@@ -14,6 +13,8 @@ function searchOwners() {
         finded = true;
       } else if (searched == bio[i]["FN"]) {
         finded = true;
+      } else {
+        finded = false;
       }
 
       if (finded == true) {
@@ -35,11 +36,6 @@ function searchOwners() {
 function createSearchChatList(data) {
   try {
     // Get URL Params
-    let url = location.search;
-    let urlParams = new URLSearchParams(url);
-    let from = urlParams.get("from");
-    console.log(data + "          gsfdhjkl;khgfdhjkl;khg");
-
     // Create chat list
 
     document.querySelector(".recentChats").innerHTML = null;
@@ -91,7 +87,6 @@ function deatilChatName(email) {
     let data = JSON.parse(localStorage.getItem("BIO"));
     let finded = data.find((F) => F.Email == email);
     console.log(finded);
-    // document.querySelector("chatDeatilName").innerHTML = null;
     document.querySelector(".chatDeatilName").innerHTML =
       finded["FN"] + " " + finded["LN"];
 
@@ -149,12 +144,6 @@ function chatProfileDetails(finded) {
     } else {
       currentChatIDJobs = applyJob.filter((F) => F.ownerId == currentChatID.id);
     }
-
-    // console.log(currentChatIDJobs);
-    let completedJobs = JSON.parse(localStorage.getItem("completedJobs"));
-    // let filteredCompletedJobs = completedJobs.filter(
-    //   (F) => F.applierId == currentChatID
-    // );
 
     let currentChatIDJPaid = currentChatIDJobs.filter(
       (F) => F["paid"] == "Paid"
@@ -269,7 +258,7 @@ function searchedChat() {
       let LogIn = JSON.parse(localStorage.getItem("Login"));
       cntUser = LogIn.id;
     }
-    Obj = JSON.parse(localStorage.getItem("chatData"));
+    let Obj = JSON.parse(localStorage.getItem("chatData"));
 
     let id = cntUser + "to" + detailViewChatObj.id;
     let chatData = Obj[id];
@@ -277,15 +266,12 @@ function searchedChat() {
       let SplitId = id.split("to");
       console.log(SplitId);
       let reverseArray = SplitId[1] + "to" + SplitId[0];
-      // let JoinReverse = reverseArray.join("");
       chatData = Obj[reverseArray];
       console.log(reverseArray);
     }
     console.log(chatData);
     document.querySelector(".chat").innerHTML = null;
     for (let i = 0; i < chatData.length; i++) {
-      let include = chatData[i].includes(id);
-
       // Split the message
       let splitted = chatData[i].split("-");
       // Create left message

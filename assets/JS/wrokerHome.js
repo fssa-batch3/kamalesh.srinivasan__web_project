@@ -29,11 +29,9 @@ function yourJobsClick(index) {
     cross.style.display = "block";
     console.log(index);
     localStorage.setItem("moreDetails", JSON.stringify(jobs[index]["id"]));
-    // let detailData = jobs[index]["id"];
     // return detailData;
     console.log(jobs);
     console.log(jobs[index]["id"]);
-    // let moreData = jobs[index];
     changeDatas();
   } catch (err) {
     console.error(err);

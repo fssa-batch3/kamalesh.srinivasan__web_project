@@ -1,42 +1,41 @@
 function forgotPwdEmail() {
   try {
     //  Creating a email get div
-  
+
     document.querySelector("body").innerHTML = null;
-  
+
     let getEmailDiv = document.createElement("div");
     getEmailDiv.setAttribute("class", "getEmailDiv");
-  
+
     let title = document.createElement("h2");
     title.innerHTML = "Forgot Password";
     getEmailDiv.append(title);
-  
+
     let enterEmail = document.createElement("input");
     enterEmail.setAttribute("class", "enterEmail");
     enterEmail.setAttribute("placeholder", "Enter your Email");
     getEmailDiv.append(enterEmail);
-  
+
     let buttons = document.createElement("div");
     buttons.setAttribute("class", "buttons");
-  
+
     let cancel = document.createElement("button");
     cancel.setAttribute("class", "cancel");
     cancel.setAttribute("onclick", "cancel()");
     cancel.innerHTML = "Cancel";
     buttons.append(cancel);
-  
+
     let sendEmail = document.createElement("button");
     sendEmail.setAttribute("class", "sendEmail");
     sendEmail.setAttribute("onclick", "sendMail()");
     sendEmail.innerHTML = "Send Email";
     buttons.append(sendEmail);
-  
+
     getEmailDiv.append(buttons);
-  
+
     document.querySelector("body").append(getEmailDiv);
-  }
-  catch(err) {
-              console.error(err);
+  } catch (err) {
+    console.error(err);
   }
 }
 
@@ -45,29 +44,29 @@ function forgotPwdEmail() {
 function sendMail() {
   try {
     // OTP generation
-  
+
     localStorage.setItem(
       "forgotEmail",
       JSON.stringify(document.querySelector(".enterEmail").value.toLowerCase())
     );
-  
+
     let digits = "0123456789";
     let OTP = "";
     for (let i = 0; i < 4; i++) {
       OTP += digits[Math.floor(Math.random() * 10)];
     }
-  
+
     //   Send mail with user datas
-    var params = {
+    let params = {
       name: "kamalesh",
       email: document.querySelector(".enterEmail").value.toLowerCase(),
       to_name: "User",
       code: OTP,
     };
-  
+
     const serviceID = "service_aknvqm8";
     const templateID = "template_svuyx0c";
-  
+
     emailjs
       .send(serviceID, templateID, params)
       .then((res) => {
@@ -75,28 +74,26 @@ function sendMail() {
         checkVerificationCode(OTP);
       })
       .catch((err) => console.log(err));
-  }
-  catch(err) {
-              console.error(err);
+  } catch (err) {
+    console.error(err);
   }
 }
 
 function checkVerificationCode(OTP) {
   try {
     // Create prompt
-  
+
     let code = prompt(
       "You should recieved a mail with a code, Please type the code here"
     );
-  
+
     if (code == OTP) {
       location.href = "resetPassword.html";
     } else {
       alert("Your OTP is incorrect");
     }
-  }
-  catch(err) {
-              console.error(err);
+  } catch (err) {
+    console.error(err);
   }
 }
 
@@ -128,9 +125,8 @@ function cancel() {
         </div>
     </div>
   </section>`;
-  }
-  catch(err) {
-              console.error(err);
+  } catch (err) {
+    console.error(err);
   }
 }
 
@@ -157,8 +153,7 @@ function comparePassword(userInputPassword, saltAndHashedPassword) {
 function index() {
   try {
     location.href = "../index.html";
-  }
-  catch(err) {
-              console.error(err);
+  } catch (err) {
+    console.error(err);
   }
 }

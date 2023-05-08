@@ -191,7 +191,6 @@ function payCash() {
     let cashSubmit = document.createElement("button");
     cashSubmit.setAttribute("type", "submit");
     cashSubmit.innerHTML = "Piad";
-    //   cashSubmit.setAttribute("id", "cashSubmit");
     cashSubmit.setAttribute("onclick", "cashSubmit()");
     form.append(cashSubmit);
 

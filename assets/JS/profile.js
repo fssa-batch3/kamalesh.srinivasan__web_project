@@ -31,8 +31,6 @@ function navEdit() {
 function deleteUser() {
   try {
     let email = prompt("Enter your email");
-
-    let password = prompt("Enter your password");
     let register;
     let BIO = JSON.parse(localStorage.getItem("BIO"));
     if (type == "owner") {
@@ -40,7 +38,6 @@ function deleteUser() {
     } else {
       register = JSON.parse(localStorage.getItem("workerRegister"));
     }
-    let login = JSON.parse(localStorage.getItem("Login"));
     let allEmail = JSON.parse(localStorage.getItem("allEmail"));
 
     if (localStorage.getItem("BIO") != null) {
@@ -73,10 +70,6 @@ function deleteUser() {
 
     if (localStorage.getItem("Login") != null) {
       console.log("test");
-      // let FindedEmail = login.find(L => L["Email"] == email);
-      // let loginIndex = login.indexOf(FindedEmail);
-      // console.log(loginIndex)
-      // login.splice(loginIndex, 1);
       localStorage.setItem("Login", "");
     }
 

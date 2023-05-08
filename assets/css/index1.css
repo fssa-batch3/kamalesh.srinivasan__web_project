@@ -264,25 +264,16 @@ nav a:hover {
   0% {
     transform: translateX(0px);
   }
-  /* 25% {
-    transform: translateX(-500px);
-  }
-  75% {
-    transform: translateX(1000px);
-  } */
   100% {
     transform: translateX(-1000px);
-    /* transform: translateX(-1500px); */
   }
 }
 
 .TrendingJobs {
   margin-top: 2rem;
   margin-left: 2rem;
-  /* width: ; */
   margin-right: 2rem;
   height: 20rem;
-  /* background-color: #b8fff9; */
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   overflow-x: hidden;
@@ -385,24 +376,6 @@ nav a:hover {
   opacity: 0.7;
   bottom: 20px;
   animation: animate 3s linear infinite;
-}
-
-@keyframes animateWaves {
-  0% {
-    background-position-x: 1000px;
-  }
-  100% {
-    background-positon-x: 0px;
-  }
-}
-
-@keyframes animate {
-  0% {
-    background-position-x: -1000px;
-  }
-  100% {
-    background-positon-x: 0px;
-  }
 }
 
 .registerType {

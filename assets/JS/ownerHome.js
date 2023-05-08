@@ -102,7 +102,6 @@ function createJobCard(jobs, i, appendTag) {
 
     let deleteImg = document.createElement("img");
     deleteImg.setAttribute("src", "../assets/Images/delete.svg");
-    // deleteImg.setAttribute("onclick", "deleteJob()");
     deleteImg.setAttribute("alt", "Image");
     deleteImg.setAttribute("id", "btn");
     ED.append(deleteImg);
@@ -160,7 +159,6 @@ function createJobCard(jobs, i, appendTag) {
 
     let rectButtons = document.createElement("div");
     rectButtons.setAttribute("class", "rect-buttons");
-    // rectButtons.innerHTML = `<button class="ck_work" id="MAC">Mark as completed</button>`;
     secondCard.append(rectButtons);
 
     let mac = document.createElement("button");
@@ -173,7 +171,6 @@ function createJobCard(jobs, i, appendTag) {
     rect_cards.append(secondCard);
 
     appendTag.append(rect_cards);
-    let btn = document.getElementById("btn");
     // To to add a addEventlistener in the delete button
     deleteImg.addEventListener("click", () => {
       let text = "Are you sure to delete this job";
@@ -183,9 +180,9 @@ function createJobCard(jobs, i, appendTag) {
         jobs[indexOfThis]["isActive"] = false;
         localStorage.setItem("requirements", JSON.stringify(jobs));
         toastr.success("Job deleted Successfully");
-        let await = new Promise((r) => setTimeout(r, 3000));
+        let timeOut = new Promise((r) => setTimeout(r, 3000));
 
-        await.then(() => {
+        timeOut.then(() => {
           location.reload();
         });
       }
@@ -219,35 +216,31 @@ function marckAsDelete(id) {
 function OWnotification() {
   try {
     location.href = "ownerNotification.html?from=logIn&&type=owner&filter=all";
-  }
-  catch(err) {
-              console.error(err);
+  } catch (err) {
+    console.error(err);
   }
 }
 
 function urlData() {
   try {
     location.href = "profile.html" + url;
-  }
-  catch(err) {
-              console.error(err);
+  } catch (err) {
+    console.error(err);
   }
 }
 
 function rdToPayment() {
   try {
     location.href = `payment.html${location.search}`;
-  }
-  catch(err) {
-              console.error(err);
+  } catch (err) {
+    console.error(err);
   }
 }
 
 function chatRD() {
   try {
     location.href = "Worker_Chat.html" + location.search;
-  }
-  catch(err) {
-              console.error(err);
+  } catch (err) {
+    console.error(err);
   }
 }

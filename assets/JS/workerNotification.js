@@ -18,7 +18,6 @@ function createDetails(currentJob) {
       document.querySelector(".details").remove();
     }
 
-    // let details = null;
     let details = document.createElement("div");
     details.setAttribute("class", "details");
 
@@ -61,7 +60,6 @@ function createDetails(currentJob) {
         "onclick",
         `completedWork(${currentJob.aplliedJobId})`
       );
-      // console.log(`completedWork(${currentJob["location"]})`);
       startWork.innerHTML = "Completed?";
       details.append(startWork);
     } else {
@@ -169,9 +167,7 @@ function oncDetails() {
 
 function closeDetail() {
   try {
-    // event.preventDefault();
     let detail = document.querySelector(".secS");
-    // console.log(detail + "test")
     detail.style.display = "none";
 
     let notificationEntire = document.querySelector(".notificationEntire");
@@ -323,7 +319,6 @@ function completedWork(job) {
             arr[i]["aplliedJobId"] == completedJobs["aplliedJobId"] &&
             arr[i]["applierId"] == completedJobs["applierId"]
           ) {
-            i = arr.length;
             return toastr.error("This job is already completed");
           }
         }

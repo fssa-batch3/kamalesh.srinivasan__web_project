@@ -1,6 +1,6 @@
 function sendMail(OTP) {
   try {
-    var params = {
+    let params = {
       name: "kamalesh",
       email: document.getElementById("email").value.toLowerCase(),
       to_name: document.getElementById("FullName").value,
@@ -32,9 +32,8 @@ function checkVerificationCode(OTP) {
 
     if (code == OTP) {
       return true;
-    } else {
-      return false;
     }
+    return false;
   } catch (err) {
     console.error(err);
   }
