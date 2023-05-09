@@ -254,7 +254,7 @@ function cashSubmit() {
       completedJobs[index] = currentPaymentJob;
       localStorage.setItem("completedJobs", JSON.stringify(completedJobs));
       console.log(currentPaymentJob);
-      cancelPaid();
+      cancelCashform();
       return toastr.success("You paid to " + currentPaymentJob["applierName"]);
     } else {
       return toastr.error(

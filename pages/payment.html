@@ -145,13 +145,13 @@
         status.innerHTML = `${completedJobs[i]["paid"]}`;
         status.setAttribute("class", "status");
         workerDetails.append(status);
-        if (completedJobs[i]["paid"] == "paid") {
+        if (completedJobs[i]["paid"] != "Paid") {
             let Pay = document.createElement("div");
             Pay.setAttribute("class", "Pay");
             Pay.setAttribute("onclick", `detailView(${completedJobs[i]["aplliedJobId"]})`)
             listcard.append(Pay);
             let payButton = document.createElement("button");
-            payButton.innerHTML = "Pay";
+            payButton.innerHTML = "pay";
             Pay.append(payButton);
 
         }
@@ -162,7 +162,6 @@
             let payButton = document.createElement("button");
             payButton.innerHTML = "Paid";
             Pay.append(payButton);
-
         }
 
 

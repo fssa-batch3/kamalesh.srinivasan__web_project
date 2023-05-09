@@ -167,13 +167,20 @@ main {
 
 .data {
   background-color: aliceblue;
-  padding: 1rem;
+  padding: 2rem;
   margin: 1rem;
+  border-radius: 0.3rem;
 }
 
 .data p {
   font-size: larger;
   font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.data ul {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 a:active {
