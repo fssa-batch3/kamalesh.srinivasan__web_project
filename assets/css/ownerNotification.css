@@ -19,7 +19,7 @@ a {
 
 .notificationTop {
   display: flex;
-  gap: 6rem;
+  gap: 4.5rem;
   background-color: #87d0f2c5;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;

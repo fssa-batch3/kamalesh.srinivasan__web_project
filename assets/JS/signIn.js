@@ -42,41 +42,37 @@ function forgotPwdEmail() {
 // Send mail for the forgotPassword
 
 function sendMail() {
-  try {
-    // OTP generation
+  // OTP generation
 
-    localStorage.setItem(
-      "forgotEmail",
-      JSON.stringify(document.querySelector(".enterEmail").value.toLowerCase())
-    );
+  localStorage.setItem(
+    "forgotEmail",
+    JSON.stringify(document.querySelector(".enterEmail").value.toLowerCase())
+  );
 
-    let digits = "0123456789";
-    let OTP = "";
-    for (let i = 0; i < 4; i++) {
-      OTP += digits[Math.floor(Math.random() * 10)];
-    }
-
-    //   Send mail with user datas
-    let params = {
-      name: "kamalesh",
-      email: document.querySelector(".enterEmail").value.toLowerCase(),
-      to_name: "User",
-      code: OTP,
-    };
-
-    const serviceID = "service_aknvqm8";
-    const templateID = "template_svuyx0c";
-
-    emailjs
-      .send(serviceID, templateID, params)
-      .then((res) => {
-        console.log(res);
-        checkVerificationCode(OTP);
-      })
-      .catch((err) => console.log(err));
-  } catch (err) {
-    console.error(err);
+  let digits = "0123456789";
+  let OTP = "";
+  for (let i = 0; i < 4; i++) {
+    OTP += digits[Math.floor(Math.random() * 10)];
   }
+
+  //   Send mail with user datas
+  let params = {
+    name: "kamalesh",
+    email: document.querySelector(".enterEmail").value.toLowerCase(),
+    to_name: "User",
+    code: OTP,
+  };
+
+  const serviceID = "service_aknvqm8";
+  const templateID = "template_svuyx0c";
+
+  emailjs
+    .send(serviceID, templateID, params)
+    .then((res) => {
+      console.log(res);
+      checkVerificationCode(OTP);
+    })
+    .catch((err) => console.log(err));
 }
 
 function checkVerificationCode(OTP) {
