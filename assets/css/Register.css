@@ -1,100 +1,124 @@
-html {
-  height: 100%;
-  width: 100%;
-  font-family: "Roboto Slab", serif;
-}
-
 body {
-  /* background: url("https://images.unsplash.com/photo-1485802007047-7774de7208e5?dpr=1&auto=compress,format&fit=crop&w=1800&h")
-    no-repeat center center fixed; */
-  /* background-size: cover; */
-  font-family: "Droid Serif", serif;
-  background-color: #effffd;
+  background-color: #f6f6f6;
+  font-family: "Aref Ruqaa Ink", serif;
 }
 
-#container {
-  background: rgba(3, 3, 55, 0.5);
-  width: 18.75rem;
-  height: 28rem;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+form {
+  height: 32rem;
+  width: 25rem;
+  background-color: #9eabf7;
+  border-radius: 0.5rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-header {
-  text-align: center;
-  vertical-align: middle;
-  line-height: 3rem;
-  height: 3rem;
-  background: #b8fff9;
-  font-size: 1.4rem;
-  color: black;
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+  margin-left: 4rem;
+  gap: 2rem;
 }
 
-fieldset {
-  border: 0;
+form h2 {
+  margin-top: 1rem;
   text-align: center;
 }
 
-input[type="submit"] {
-  background: rgba(235, 30, 54, 1);
-  border: 0;
-  display: block;
-  width: 100%;
-  margin: 0 auto;
-  color: white;
-  padding: 0.7rem;
-  cursor: pointer;
+.inputs {
+  margin-top: 2rem;
+  margin-left: 4rem;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 input {
-  background: transparent;
-  border: 0;
-  border-left: 4px solid;
-  border-color: #ff0000;
-  padding: 10px;
+  border: none;
+  border-radius: 0.2rem;
+  width: 16rem;
+  outline: none;
+  height: 2.3rem;
+  transition: 0.12s;
+}
+
+input:focus {
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.inputs p {
+  font-size: small;
   color: white;
+  width: 18rem;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-  outline: 0;
-  background: rgba(235, 30, 54, 0.3);
-  border-radius: 1.2rem;
-  border-color: transparent;
+.repeatPassword {
+  margin-top: -2rem;
 }
 
-::placeholder {
-  color: #d3d3d3;
-}
-
-/*Media queries */
-
-@media all and (min-width: 481px) and (max-width: 568px) {
-  #container {
-    margin-top: 10%;
-    margin-bottom: 10%;
+#repeatPassword:invalid {
+  .inputs p {
+    font-size: small;
+    color: red;
+    width: 18rem;
   }
 }
-@media all and (min-width: 569px) and (max-width: 768px) {
-  #container {
-    margin-top: 5%;
-    margin-bottom: 5%;
+
+#password:invalid {
+  .inputs p {
+    font-size: small;
+    color: red;
+    width: 18rem;
   }
 }
 
-#signIn {
-  background: rgba(235, 30, 54, 1);
-  border: 0;
-  display: block;
-  width: 100%;
-  margin: 0 auto;
-  color: white;
-  padding: 0.7rem;
-  cursor: pointer;
-  margin-top: 0.5rem;
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: -0.3rem;
+}
+
+button img {
+  width: 5rem;
+  transition: 0.2s;
+}
+
+button img:hover {
+  scale: 0.9;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+#reset:focus {
+  border: none;
+  outline: none;
+}
+
+#submit:focus {
+  border: none;
+  outline: none;
+}
+
+#repeatPasswordEye {
+  margin-left: -1.5rem;
+}
+
+#passwordEye {
+  margin-left: -1.7rem;
+}
+
+.signIn {
+  margin-left: 4rem;
 }

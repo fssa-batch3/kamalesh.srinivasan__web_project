@@ -1,10 +1,15 @@
+* {
+  font-family: "Aref Ruqaa Ink", serif;
+  padding: 0.2rem;
+}
+
 body {
   /* background-image: url(/assets/Images/colors.jpg); */
   color: white;
   transition: o.5s;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #effffd;
+  background-color: #f6f6f6;
   font-family: "Roboto Slab", serif;
 }
 

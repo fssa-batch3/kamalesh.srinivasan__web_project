@@ -1,8 +1,22 @@
+* {
+  font-family: "Aref Ruqaa Ink", serif;
+  padding: 0.2rem;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
 body {
   /* background-image: url(/assets/Images/colors.jpg); */
-  color: #42c2ff;
-  background-color: #effffd;
+  color: #382d5e;
+  background-color: #f6f6f6;
   font-family: "Roboto Slab", serif;
+}
+main {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 a {
@@ -24,6 +38,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 nav a:hover {
@@ -322,20 +338,32 @@ nav a:hover {
 }
 
 form {
+  position: fixed;
   text-align: center;
-  border-radius: 0.2rem;
+  border-radius: 0.5rem;
   /* background-color: grey; */
   padding: 1rem;
   border: 2px solid none;
   background-color: #85f4ff;
+  margin-top: -110rem;
+  right: 2rem;
+  left: 2rem;
+  z-index: 10;
+}
+
+.blur {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.23);
+  pointer-events: fill;
 }
 
 .form {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 4rem;
 }
 
 form button {
@@ -359,7 +387,7 @@ form textarea {
   border: none;
 }
 
-button[type="reset"] {
+#closeCreateJob {
   background-color: red;
   border: none;
   border-radius: 0.2rem;
@@ -367,6 +395,24 @@ button[type="reset"] {
   padding: 0.2rem;
   opacity: 0.8;
   font-size: large;
+  transition: 0.3s;
+  width: 5rem;
+  transition: 0.3s;
+}
+
+#closeCreateJob:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  scale: 0.9;
+}
+
+.formButttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
 }
 
 button[type="submit"] {
@@ -377,10 +423,14 @@ button[type="submit"] {
   opacity: 0.8;
   padding: 0.2rem;
   font-size: large;
+  transition: 0.3s;
 }
 
 button:hover {
-  opacity: 1;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  scale: 0.9;
 }
 
 button:active {
@@ -448,7 +498,7 @@ footer {
 
 textarea {
   width: 40rem;
-  height: 20rem;
+  height: 12rem;
 }
 
 .rect_cards_notFound {
@@ -471,4 +521,250 @@ textarea {
 
 .rect_cards_notFound p {
   transform: rotate(-60deg);
+}
+
+header a {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #382d5e;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 17px;
+  padding: 0.2rem 0.5rem;
+  width: 7rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+a span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+a span:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 0.1rem;
+  right: -15px;
+  transition: 0.5s;
+}
+
+a:hover span {
+  padding-right: 15px;
+}
+
+a:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#logout {
+  background-color: #c84449;
+}
+
+.left_discover {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.left_discover input {
+  width: 20rem;
+  height: 3rem;
+  border: none;
+  border-radius: 1rem;
+  outline: none;
+  font-size: 1.4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.left_discover i {
+  margin-left: -3rem;
+  transition: 0.3s;
+}
+
+.left_discover i:hover {
+  scale: 1.2;
+}
+
+.left_discover i:active {
+  scale: 1;
+}
+
+.finds {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#filter {
+  width: 8rem;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.cards {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  row-gap: 1rem;
+}
+
+.card {
+  width: 25rem;
+  height: 15rem;
+  background-color: white;
+  border-radius: 0.4rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  color: #9fa5b0;
+  position: relative;
+}
+
+.topLeft {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #48dc91;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  width: 0.7rem;
+  height: 0.7rem;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: 0.3s;
+}
+
+.topRight img {
+  background-color: black;
+  border-radius: 50%;
+  width: 2rem;
+}
+
+.topRight {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.jobTitle {
+  font-size: 1.4rem;
+  margin-left: 1rem;
+  color: #474857;
+  font-weight: 800;
+}
+.description {
+  margin-top: 0.8rem;
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
+  font-size: 1.1rem;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  position: absolute;
+  bottom: 1rem;
+  width: 23rem;
+  align-items: center;
+}
+
+.buttons button {
+  width: 5rem;
+  background-color: #48dc91;
+  border: none;
+  color: white;
+  font-weight: 900;
+  border-radius: 0.3rem;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.buttons button:hover {
+  scale: 1.1;
+}
+
+.circle .tooltiptext {
+  visibility: hidden;
+  width: 10rem;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 110%;
+  transition: 0.3s;
+}
+
+.circle .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+.circle:hover .tooltiptext {
+  visibility: visible;
+}
+
+.amount {
+  position: absolute;
+  right: 0.6rem;
+}
+
+.datas {
+  display: flex;
+}
+
+#plusIcon {
+  background-color: #85f4ff;
+  width: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  border-radius: 0.3rem;
+  gap: 1rem;
+  margin-left: 2rem;
 }

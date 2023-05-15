@@ -18,9 +18,7 @@
 
     <section id="form" class="section_form">
         <h1>Edit Your Job</h1>
-        <form id="consultation-form" class="feed-form" action="#">
 
-        </form>
     </section>
 </body>
 
@@ -38,6 +36,7 @@
     // To find the current job in the requirements using the Id that recieved from url  
     let oldJob = requirements.find(R => R["id"] == id);
     // To check the url param id is present in the reqiurements are not
+    console.log(oldJob);
     if (oldJob == undefined) {
         alert("Id Not Match")
     }
@@ -71,7 +70,7 @@
 
             </div>
             <button class="button_submit" type="submit">Edit</button>
-            <button class="button_submit" onclick="back()">Back</button>`;
+            <button class="button_submit" type="reset" onclick="back()">Back</button>`;
 
         document.querySelector(".section_form").append(form);
     }
@@ -103,17 +102,20 @@
             }
 
 
-
-            if (oldJob == undefined) {
-                return alert("Id not match");
-            }
-
+            console.log(editedJob);
+            // if (oldJob == undefined || null) {
+            //     return alert("Id not match");
+            // }
+            // else {
             let updated = Object.assign(oldJob, editedJob);
             let index = requirements.indexOf(id);
             requirements[index] = updated;
 
             localStorage.setItem("requirements", JSON.stringify(requirements));
             window.location.href = "OwnerHome.html?from=register&&type=owner";
+            // }
+
+
         }
         catch (err) {
             console.error(err);

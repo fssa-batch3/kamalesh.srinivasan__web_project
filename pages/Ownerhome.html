@@ -12,6 +12,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
 </head>
 
 
@@ -19,24 +23,24 @@
     <script src="../assets/JS/index.js"></script>
     <header>
         <div>
-            <img src="../assets/Images/Logo.png" alt="Logo">
+            <img src="../assets/Images/logo-transparent-svg.svg" alt="Logo">
         </div>
 
         <nav>
             <div>
-                <a>Requirement List</a>
+                <a><span>Home</span></a>
                 <!-- <a>Search</a> -->
-                <a onclick="chatRD()">Chat</a>
-                <a onclick="OWnotification()">Notification</a>
-                <a onclick="rdToPayment()">Payment</a>
-                <a onclick="urlData()">profile</a>
-                <a href="../index.html">LogOut</a>
+                <a onclick="chatRD()"> <span>Chat</span> </a>
+                <a onclick="OWnotification()"><span>Notification</span></a>
+                <a onclick="rdToPayment()"><span>Payment</span></a>
+                <a onclick="urlData()"><span>profile</span></a>
+                <a id="logout" href="../index.html"><span>LogOut</span></a>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="recent_sec">
+        <!-- <section class="recent_sec">
             <h2>
                 Recently uploded
             </h2>
@@ -45,22 +49,6 @@
                 <img src="../../assets/Images/left.svg" onclick="goLeft()" alt="image">
             </div>
             <div class="rect_jobs">
-
-
-
-
-
-                <!-- <div class="rect_cards">
-                    <img src="/../assets/Images/profiel1.jpg">
-                    <p class="Prof_name">Mr.Krish</p>
-                    <p class="Type"><span> Type :</span> WebDevelopment</p>
-                    <p class="NOE"><span>No of Employees : </span> 10</p>
-                    <p class="uploaded_date"><span>uploaded date:</span> 12:02:2023</p>
-                    <div class="rect-buttons">
-                        <button class="ck_work">Check Workers</button>
-                        <button class="cnl">Cancel</button>
-                    </div>
-                </div> -->
 
             </div>
 
@@ -80,23 +68,6 @@
             </div>
             <div class="pen_jobs">
 
-
-
-
-
-                <!-- <div class="rect_cards">
-                    <img src="../assets/Images/profiel1.jpg">
-                    <p class="Prof_name">Mr.Krish</p>
-                    <p class="Type"><span> Type :</span> WebDevelopment</p>
-                    <p class="NOE"><span>No of Employees : </span> 10</p>
-                    <p class="uploaded_date"><span>uploaded date:</span> 12:02:2023</p>
-                    <div class="rect-buttons">
-                        <button class="ck_work">Mark as completed</button>
-                        <button class="ck_work">Check Workers</button>
-                        <button class="cnl">Cancel</button>
-                    </div>
-                </div> -->
-
             </div>
 
             <div class="right_pen">
@@ -114,60 +85,118 @@
             </div>
             <div class="ua_jobs">
 
-
-
-
-
-                <!-- <div class="rect_cards">
-                    <div class="ED">
-                        <img src="../assets/Images/edit.svg" alt="Image" />
-                        <img src="../assets/Images/delete.svg" alt="Image" />
-                    </div>
-                    <div class="secondCard">
-                        <img src="../assets/Images/profiel1.jpg">
-                        <p class="Prof_name">Mr.Krish</p>
-                        <p class="Type"><span> Type :</span> WebDevelopment</p>
-                        <p class="NOE"><span>Location : </span> 10</p>
-                        <p class="uploaded_date"><span>Salary</span> 12:02:2023</p>
-                        <div class="rect-buttons">
-                            <button class="ck_work">Check Workers</button>
-                            <button class="cnl">Cancel</button>
-                        </div>
-                    </div>
-                </div> -->
-
             </div>
 
             <div class="right_ua">
                 <img src="../../assets/Images/right.svg" onclick="goRightUa()" alt="image">
             </div>
+        </section> -->
+
+
+
+
+        <section>
+            <div class="discoverJobs">
+                <h2>Discover Jobs</h2>
+                <div class="finds">
+                    <div class="left_discover">
+                        <input type="text" id="search" />
+                        <i class="fa fa-search" style="font-size:35px;color:rgb(220, 204, 204)" onclick="search()"></i>
+
+                        <i class="fa fa-plus" id="plusIcon" onclick="openCreateJob()">Create Job</i>
+
+
+                    </div>
+
+                    <div class="rightDiscover">
+                        <i class="fa fa-filter"></i>
+                        <select name="Filter" id="filter">
+                            <option value="Recent Jobs">Recent Jobs</option>
+                            <option value="Pendig Jobs">Pending Jobs</option>
+
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="cards">
+            <!-- <div class="card">
+                <div class="top">
+                    <div class="topLeft">
+                        <div class="circle"><i class="fa fa-check" style="color: black;"></i>
+                            <div class="tooltiptext">Merk as completed</div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="topRight">
+                        <img src="../assets/Images/avatar (1).svg" alt="imge">
+                        <div class="name">Name</div>
+                    </div>
+                </div>
+
+                <div class="middle">
+                    <div class="jobTitle">
+                        Web Development
+                    </div>
+                    <div class="description">A web developer is responsible for designing, developing, and maintaining
+                        websites and web applications.</div>
+
+                </div>
+
+                <div class="bottom">
+                    <div class="buttons">
+                        <button class="delete">Delete</button>
+                        <button class="edit">Edit</button>
+
+                    </div>
+
+                    <div class="amount">
+                        Rs.10,000
+                    </div>
+                </div>
+            </div> -->
         </section>
 
 
-        <section class="form">
-            <form id="form">
-                <h2>Upload your Requirement</h2>
-                <input type="text" id="title" placeholder="Title of the job" /><BR>
-                <input type="text" id="location" placeholder="Location" /><br>
-                <input type="text" id="Salary" placeholder="Salary" /><br>
-                <input type="text" id="disc" placeholder="Description" /><br>
-                <textarea id="summary" placeholder="Summary"></textarea>
-                <br>
-                <textarea id="Qualifications" placeholder="Qualifications"></textarea>
-                <br>
-                <textarea id="Responsibilities" placeholder="Responsibilities"></textarea><br>
 
-                <button type="reset">Cancel</button>
-                <button type="submit">Add</button>
+        <section class="form">
+            <div class="blur"></div>
+            <form id="form">
+
+                <h2>Upload your Requirement</h2>
+                <div class="datas">
+                    <div> <input type="text" id="title" placeholder="Title of the job" required /><BR>
+                        <input type="text" id="location" placeholder="Location" required /><br>
+                        <input type="text" id="Salary" placeholder="Salary" required /><br>
+                        <input type="text" id="disc" placeholder="Description" required /><br>
+
+                        <textarea id="summary" placeholder="Summary" required></textarea>
+                    </div>
+
+                    <div>
+                        <textarea id="Qualifications" placeholder="Qualifications" required></textarea>
+                        <textarea id="Responsibilities" placeholder="Responsibilities" required></textarea><br>
+                    </div>
+                </div>
+                <div class="formButttons">
+                    <div id="closeCreateJob" onclick="closeCreateJob()">Cancel</div>
+                    <button type="submit">Add</button>
+                </div>
             </form>
         </section>
 
 
 
 
+
+
     </main>
 
-    <footer>
+    <!-- <footer>
         <div>
             <div class="logo">
                 <img src="../assets/Images/Logo.png" alt="logo" />
@@ -201,14 +230,12 @@
             NeedsToBeDone ® is a registered Trademark of NTBD Technology Pty Limited.
             Copyright © 2023 NTBD Technology Pty Limited.
         </div>
-    </section>
+    </section> -->
 
 
 
     <script src="../assets/JS/ownerHome.js"></script>
     <script src="../assets/JS/workerNotification.js"></script>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Toastr -->
     <link rel="stylesheet" type="text/css"
@@ -238,11 +265,87 @@
     </script>
 
     <script>
-        //Get url params
-        let url = location.search;
-        let urlParams = new URLSearchParams(url);
-        let from = urlParams.get("from");
-        let id;
+        //Get filter data 
+
+
+
+
+
+
+
+
+
+
+
+
+        // loops
+
+
+        // All Jobs
+
+
+
+        let requirements = JSON.parse(localStorage.getItem("requirements"));
+        let logIn = JSON.parse(localStorage.getItem("Login"));
+        let UplodedJobsappendTag = document.querySelector(".cards");
+
+
+        if (requirements == null) {
+            let rect_cards = document.createElement("div");
+            rect_cards.setAttribute("class", "card");
+            rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
+            UplodedJobsappendTag.append(rect_cards);
+        }
+        else {
+
+
+            let UplodedJobsMatchedId = requirements.filter((F) => F.ownerId == logIn.id);
+            console.log(UplodedJobsMatchedId);
+            let UplodedJobs = [];
+            for (let i = 0; i < UplodedJobsMatchedId.length; i++) {
+                if (UplodedJobsMatchedId[i]["isActive"] == true) {
+                    UplodedJobs.push(UplodedJobsMatchedId[i]);
+                }
+            }
+
+            console.log(UplodedJobs[0]);
+            if (UplodedJobs[0] == undefined) {
+                let rect_cards = document.createElement("div");
+                rect_cards.setAttribute("class", "card");
+                rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
+                UplodedJobsappendTag.append(rect_cards);
+            }
+            else {
+
+                for (let i = 0; i < UplodedJobs.length; i++) {
+                    // //console.log("test")
+                    createJobCard(UplodedJobs, i, UplodedJobsappendTag)
+                }
+
+
+            }
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
         // To get and store the Job datas
 
@@ -364,7 +467,7 @@
                 //console.log(formData)
                 getUploadreq(formData)
 
-                document.querySelector("#form").reset();
+                // document.querySelector("#form").reset();
                 jobToast("success", "Jos has been created")
                 let await = new Promise((r) => setTimeout(r, 1500));
                 scrollTo(0, 0)
@@ -384,42 +487,35 @@
 
 
 
+        document.getElementById("filter").setAttribute("onchange", "filter()");
 
-
-        // loops
-
-
-        // All Jobs
-
-
-
-        let requirements = JSON.parse(localStorage.getItem("requirements"));
-        let logIn = JSON.parse(localStorage.getItem("Login"));
-        let UplodedJobsappendTag = document.querySelector(".ua_jobs");
-        console.log(requirements);
-        if (requirements == null) {
-            let rect_cards = document.createElement("div");
-            rect_cards.setAttribute("class", "rect_cards_notFound");
-            rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
-            UplodedJobsappendTag.append(rect_cards);
-        }
-        if (requirements == null) {
-            let rect_cards = document.createElement("div");
-            rect_cards.setAttribute("class", "rect_cards_notFound");
-            rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
-            document.querySelector(".pen_jobs").append(rect_cards);
-        }
-
-        if (requirements == null) {
-            let rect_cards = document.createElement("div");
-            rect_cards.setAttribute("class", "rect_cards_notFound");
-            rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
-            document.querySelector(".rect_jobs").append(rect_cards);
+        function recentJobs() {
+            location.reload();
         }
 
 
-        else {
 
+        function filter() {
+            let requirements = JSON.parse(localStorage.getItem("requirements"));
+            let logIn = JSON.parse(localStorage.getItem("Login"));
+            let UplodedJobsappendTag = document.querySelector(".cards");
+            let x = document.getElementById("filter").value;
+            if (x == "Recent Jobs") {
+                recentJobs();
+            }
+            else if (x == "Pendig Jobs") {
+                pendingJobs()
+            }
+        }
+
+
+
+
+
+        function pendingJobs() {
+            let requirements = JSON.parse(localStorage.getItem("requirements"));
+            let logIn = JSON.parse(localStorage.getItem("Login"));
+            let UplodedJobsappendTag = document.querySelector(".cards");
 
             let UplodedJobsMatchedId = requirements.filter((F) => F.ownerId == logIn.id);
             console.log(UplodedJobsMatchedId);
@@ -432,101 +528,24 @@
 
             console.log(UplodedJobs[0]);
             if (UplodedJobs[0] == undefined) {
+                document.querySelector(".cards").innerHTML = null;
                 let rect_cards = document.createElement("div");
-                rect_cards.setAttribute("class", "rect_cards_notFound");
+                rect_cards.setAttribute("class", "card");
                 rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
                 UplodedJobsappendTag.append(rect_cards);
             }
             else {
-
+                document.querySelector(".cards").innerHTML = null;
+                let pendingJobs = UplodedJobs.filter((F) => F.isCompleted == false)
                 for (let i = 0; i < UplodedJobs.length; i++) {
                     // //console.log("test")
-                    createJobCard(UplodedJobs, i, UplodedJobsappendTag)
+                    createJobCard(pendingJobs, i, UplodedJobsappendTag)
                 }
 
 
             }
-
-
-            //  Pending Jobs
-            let pendingJobsappendTag = document.querySelector(".pen_jobs");
-            if (requirements == null) {
-                let rect_cards = document.createElement("div");
-                rect_cards.setAttribute("class", "rect_cards_notFound");
-                rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
-                pendingJobsappendTag.append(rect_cards);
-            }
-
-            else {
-
-                let pendingJobs = UplodedJobs.filter((F) => F.isCompleted == false)
-
-                if (pendingJobs[0] == undefined) {
-                    let rect_cards = document.createElement("div");
-                    rect_cards.setAttribute("class", "rect_cards_notFound");
-                    rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
-                    pendingJobsappendTag.append(rect_cards);
-                }
-                else {
-
-                    for (let i = 0; i < pendingJobs.length; i++) {
-                        createJobCard(pendingJobs, i, pendingJobsappendTag)
-                    }
-                }
-
-
-
-            }
-
-            //  Recently uploded
-            let rect_jobsTag = document.querySelector(".rect_jobs");
-            if (requirements == null) {
-                let rect_cards = document.createElement("div");
-                rect_cards.setAttribute("class", "rect_cards_notFound");
-                rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
-                rect_jobsTag.append(rect_cards);
-            }
-
-            else {
-                let recntUploadedJobs = UplodedJobs;
-                if (UplodedJobs[0] == undefined) {
-                    let rect_cards = document.createElement("div");
-                    rect_cards.setAttribute("class", "rect_cards_notFound");
-                    rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
-                    rect_jobsTag.append(rect_cards);
-                }
-                else {
-                    let rect_jobsAll = recntUploadedJobs.reverse();
-                    console.log(rect_jobsAll);
-                    for (let i = 0; i < rect_jobsAll.length; i++) {
-
-                        createJobCard(recntUploadedJobs, i, rect_jobsTag);
-
-                    }
-                }
-
-
-
-
-            }
-
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

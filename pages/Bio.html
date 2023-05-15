@@ -34,15 +34,18 @@
                     <label for="name" id="name-label">
                         First Name
                     </label>
-                    <input type="text" pattern="[A-Za-z]{1-20}" id="First_Name" name="name"
-                        placeholder="Enter your name" title="Enter alphabet only" class="form-columns" required />
+                    <input type="text" pattern="[A-Za-z]{5,100}" id="First_Name" name="name" value="Kamalesh"
+                        placeholder="Enter your name"
+                        title="Enter atleast one capital and small letter and 5 charecters" class="form-columns"
+                        required />
                 </div>
 
                 <div class="form-groupings">
                     <label for="name" id="name-label">
                         Last Name
                     </label>
-                    <input type="text" id="Last_Name" name="name" pattern="[A-Za-z]{1-20}" title="Enter alphabet only"
+                    <input type="text" id="Last_Name" name="name" pattern="[A-Za-z]{5,100}" value="Srinivasan"
+                        title="Enter atleast one capital and small letter and 5 charecters"
                         placeholder="Enter your name" class="form-columns" required />
                 </div>
 
@@ -67,9 +70,9 @@
                     <label for="Phone" id="tel-label">
                         Enter Your Phone Number
                     </label>
-                    <input type="number" name="phone number" placeholder="Enter your phone number here"
-                        class="form-columns" id="Phone" pattern="[0-9]{10}" title="number should be 10 digits"
-                        required />
+                    <input type="text" name="phone number" placeholder="Enter your phone number here"
+                        class="form-columns" id="Phone" pattern="[0-9]{10,10}"
+                        title="number should have 10 numbers only" required />
                 </div>
 
                 <div class="form-groupings">
@@ -77,8 +80,8 @@
                         Enter Your Aadhar Number
 
                     </label>
-                    <input type="number" name="Aadhar_number" placeholder="Enter Your Aadhar Number"
-                        class="form-columns" id="Aadhar_number" pattern="[0-9]{12}" title="number should be 12 digits"
+                    <input type="text" name="Aadhar_number" placeholder="Enter Your Aadhar Number" class="form-columns"
+                        id="Aadhar_number" pattern="[0-9]{12}" title="Aadhar number should be 12 numbers only"
                         required />
                 </div>
 
@@ -102,9 +105,6 @@
                         <option value="unemployed">
                             Unemployed
                         </option>
-                        <option value="nysc">
-                            NYSC
-                        </option>
                         <option value="civil servant">
                             Civil Servant
                         </option>
@@ -122,12 +122,12 @@
                     <p> Educational Background<span class="clue"> (check all that apply)</span>
                         <label>
                             <input type="checkbox" class="checkbox-input" value="primary-cert" name="education"
-                                id="PrimarySchool" />Primary School Cert
+                                id="PrimarySchool" />Primary School
                         </label>
 
                         <label>
                             <input type="checkbox" class="checkbox-input" value="secondary-cert" name="education"
-                                id="Secondary_School" />Secondary School Cert
+                                id="Secondary_School" />Secondary School
                         </label>
                         <label>
                             <input type="checkbox" class="checkbox-input" value="B.Sc" id="B.Sc" name="education" />B.Sc

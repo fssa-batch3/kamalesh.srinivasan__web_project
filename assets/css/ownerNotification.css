@@ -30,7 +30,7 @@ a {
   width: 5rem;
   outline: none;
   border: none;
-  background-color: rgb(146, 209, 88);
+  background-color: #48dc91;
   border-radius: 0.2rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   margin-top: 1.5rem;
@@ -46,7 +46,6 @@ a {
 .profile {
   display: flex;
   height: 5rem;
-  margin-left: 1rem;
   align-items: center;
   gap: 1rem;
 }
@@ -81,18 +80,17 @@ a {
 }
 
 .notifications {
-  background-color: aqua;
+  background-color: rgb(50 50 93 / 11%);
   /* margin-bottom: 2rem; */
-  padding: 0.1rem 1rem 0.5rem 1rem;
-  border-end-end-radius: 5px;
-  border-end-start-radius: 5px;
+  padding: 1rem 1rem 0rem 1rem;
+  /* border-end-end-radius: 5px; */
+  /* border-end-start-radius: 5px; */
+  /* padding-top: 1rem;*/
 }
-
 .notifyCards {
   background-color: white;
   box-sizing: 20rem;
-  margin-top: 1rem;
-  padding: 1rem;
+  /* margin-top: 1rem; */
   display: flex;
   gap: 2rem;
   border-radius: 0.5rem;
@@ -119,11 +117,13 @@ a {
 
 .buttons a {
   padding: 5px;
-  background-color: aqua;
+  background-color: #382d5e;
   text-align: center;
-  border-radius: 2px;
+  border-radius: 5px;
   box-sizing: border-box;
   width: 10rem;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .b1 a {
