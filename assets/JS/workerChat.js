@@ -8,13 +8,11 @@ function searchOwners() {
       console.log(bio[i]);
       let finded = false;
       finded = bio[i]["Expect_in"].includes(searched);
-
+      console.log(finded);
       if (searched == bio[i]["LN"]) {
         finded = true;
       } else if (searched == bio[i]["FN"]) {
         finded = true;
-      } else {
-        finded = false;
       }
 
       if (finded == true) {
@@ -25,7 +23,8 @@ function searchOwners() {
     if (searchedData[0] != null || undefined) {
       createSearchChatList(searchedData);
     } else {
-      console.log("log");
+      // console.log("log");
+      console.log(searchedData);
       toastr.error("User Not Found");
     }
   } catch (err) {
@@ -39,6 +38,7 @@ function createSearchChatList(data) {
     // Create chat list
 
     document.querySelector(".recentChats").innerHTML = null;
+
     for (let i = 0; i < data.length; i++) {
       if (cntGmail != data[i].Email) {
         let cntEmail = JSON.stringify(data[i]["Email"]);

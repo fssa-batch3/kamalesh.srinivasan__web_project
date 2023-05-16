@@ -101,7 +101,8 @@
                 <div class="finds">
                     <div class="left_discover">
                         <input type="text" id="search" />
-                        <i class="fa fa-search" style="font-size:35px;color:rgb(220, 204, 204)" onclick="search()"></i>
+                        <i class="fa fa-search" style="font-size:35px;color:rgb(220, 204, 204)"
+                            onclick="searchJob()"></i>
 
                         <i class="fa fa-plus" id="plusIcon" onclick="openCreateJob()">Create Job</i>
 
@@ -172,7 +173,7 @@
                     <div> <input type="text" id="title" placeholder="Title of the job" required /><BR>
                         <input type="text" id="location" placeholder="Location" required /><br>
                         <input type="text" id="Salary" placeholder="Salary" required /><br>
-                        <input type="text" id="disc" placeholder="Description" required /><br>
+                        <input type="text" id="disc" placeholder="Description" maxlength="110" required /><br>
 
                         <textarea id="summary" placeholder="Summary" required></textarea>
                     </div>
@@ -317,7 +318,7 @@
             }
             else {
 
-                for (let i = 0; i < UplodedJobs.length; i++) {
+                for (let i = UplodedJobs.length; i > 0; i--) {
                     // //console.log("test")
                     createJobCard(UplodedJobs, i, UplodedJobsappendTag)
                 }
@@ -490,7 +491,48 @@
         document.getElementById("filter").setAttribute("onchange", "filter()");
 
         function recentJobs() {
-            location.reload();
+            let requirements = JSON.parse(localStorage.getItem("requirements"));
+            let logIn = JSON.parse(localStorage.getItem("Login"));
+            let UplodedJobsappendTag = document.querySelector(".cards");
+
+
+            if (requirements == null) {
+                let rect_cards = document.createElement("div");
+                rect_cards.setAttribute("class", "card");
+                rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
+                UplodedJobsappendTag.append(rect_cards);
+            }
+            else {
+
+
+                let UplodedJobsMatchedId = requirements.filter((F) => F.ownerId == logIn.id);
+                console.log(UplodedJobsMatchedId);
+                let UplodedJobs = [];
+                for (let i = 0; i < UplodedJobsMatchedId.length; i++) {
+                    if (UplodedJobsMatchedId[i]["isActive"] == true) {
+                        UplodedJobs.push(UplodedJobsMatchedId[i]);
+                    }
+                }
+
+                console.log(UplodedJobs[0]);
+                if (UplodedJobs[0] == undefined) {
+                    let rect_cards = document.createElement("div");
+                    rect_cards.setAttribute("class", "card");
+                    rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
+                    UplodedJobsappendTag.append(rect_cards);
+                }
+                else {
+
+                    for (let i = UplodedJobs.length; i > 0; i--) {
+                        // //console.log("test")
+                        createJobCard(UplodedJobs, i, UplodedJobsappendTag)
+                    }
+
+
+                }
+
+
+            }
         }
 
 
@@ -504,7 +546,7 @@
                 recentJobs();
             }
             else if (x == "Pendig Jobs") {
-                pendingJobs()
+                pendingJobs();
             }
         }
 
@@ -547,6 +589,75 @@
 
         }
 
+
+        function searchJob() {
+            let searchedValue = document.getElementById("search").value;
+            let requirements = JSON.parse(localStorage.getItem("requirements"));
+            let logIn = JSON.parse(localStorage.getItem("Login"));
+            let UplodedJobsappendTag = document.querySelector(".cards");
+            let UplodedJobsMatchedId = requirements.filter((F) => F.ownerId == logIn.id);
+            let UplodedJobs = [];
+            for (let i = 0; i < UplodedJobsMatchedId.length; i++) {
+                if (UplodedJobsMatchedId[i]["isActive"] == true) {
+                    UplodedJobs.push(UplodedJobsMatchedId[i]);
+                }
+
+            }
+
+            let searchedJob = [];
+            for (let i = 0; i < UplodedJobs.length; i++) {
+                if (UplodedJobs[i]["FN"].includes(searchedValue)) {
+                    searchedJob.push(UplodedJobs[i]);
+                }
+                else if (UplodedJobs[i]["LN"].includes(searchedValue)) {
+                    searchedJob.push(UplodedJobs[i]);
+                }
+                else if (UplodedJobs[i]["Qualifications"].includes(searchedValue)) {
+                    searchedJob.push(UplodedJobs[i]);
+                }
+                else if (UplodedJobs[i]["location"].includes(searchedValue)) {
+                    searchedJob.push(UplodedJobs[i]);
+                }
+                else if (UplodedJobs[i]["Responsibilities"].includes(searchedValue)) {
+                    searchedJob.push(UplodedJobs[i]);
+
+                }
+                else if (UplodedJobs[i]["Salary"].includes(searchedValue)) {
+                    searchedJob.push(UplodedJobs[i]);
+                }
+                else if (UplodedJobs[i]["disc"].includes(searchedValue)) {
+                    searchedJob.push(UplodedJobs[i]);
+
+                }
+                else if (UplodedJobs[i]["summary"].includes(searchedValue)) {
+                    searchedJob.push(UplodedJobs[i]);
+
+                }
+                else if (UplodedJobs[i]["title"].includes(searchedValue)) {
+                    searchedJob.push(UplodedJobs[i]);
+                }
+
+            }
+
+            if (UplodedJobs[0] == undefined) {
+                document.querySelector(".cards").innerHTML = null;
+                let rect_cards = document.createElement("div");
+                rect_cards.setAttribute("class", "card");
+                rect_cards.innerHTML = `<p>JOBS NOT FOUND</p>`;
+                UplodedJobsappendTag.append(rect_cards);
+            }
+            else {
+                document.querySelector(".cards").innerHTML = null;
+                let pendingJobs = UplodedJobs.filter((F) => F.isCompleted == false)
+                for (let i = 0; i < UplodedJobs.length; i++) {
+                    // //console.log("test")
+                    createJobCard(searchedJob, i, UplodedJobsappendTag)
+                }
+
+
+            }
+
+        }
 
 
 

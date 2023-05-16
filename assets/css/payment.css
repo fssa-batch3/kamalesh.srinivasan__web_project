@@ -1,11 +1,6 @@
 body {
   background-color: #effffd;
-  color: #42c2ff;
   font-family: "Roboto Slab", serif;
-}
-
-nav a {
-  color: #42c2ff;
 }
 
 main {
@@ -207,28 +202,13 @@ p {
 }
 
 .filters {
-  /* background-color: lightblue; */
   height: 5rem;
   width: 40rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-left: 5rem;
   margin-top: -1rem;
-}
-
-.filters a {
-  text-decoration: none;
-  color: black;
-  /* padding: 1rem; */
-  text-align: center;
-  background-color: #85f4ff;
-  box-sizing: border-box;
-  width: 5rem;
-  padding: 0.5rem 0rem;
-  border-radius: 5px;
-  border: none;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-left: -10rem;
 }
 
 .filters p {
@@ -291,7 +271,7 @@ p {
 .cashCard {
   width: 20rem;
   height: 15rem;
-  background-color: white;
+  background-color: transparent;
   margin-top: -24rem;
   margin-left: 5rem;
   border-radius: 0.5rem;
@@ -303,6 +283,12 @@ p {
   border: none;
   font-size: large;
   padding-top: 2rem;
+  background-color: #42c2ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
 }
 
 .cashCard input {
@@ -310,10 +296,26 @@ p {
   /* background-color: transparent; */
   border: aqua;
   border-radius: 0.5rem;
+  padding-left: 1rem;
 }
 
 .cashCard button {
   margin-right: 0.5rem;
+  width: 5rem;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 0.4rem;
+  transition: 0.5s;
+}
+
+.cashCard button[type="reset"] {
+  background-color: red;
+  color: white;
+}
+
+.cashCard button:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 #paidFrom {
@@ -326,19 +328,101 @@ p {
   margin-bottom: 6rem;
   background-color: navajowhite;
   border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  border-radius: 1rem;
 }
 
-button[type="submit"] {
-  margin-right: 0.5rem;
+#paidFrom label {
+  font-size: 1rem;
+}
+
+#paidFrom button {
+  border: none;
+  width: 5rem;
+  margin-top: 0.5rem;
+}
+
+button[type="reset"] {
+  background-color: red;
 }
 #paidFrom input {
   width: 10rem;
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  padding-left: 1rem;
 }
 
 #paidFrom button {
   margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+#paidFrom button:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 #amountbox {
   background-color: white;
+}
+
+nav a {
+  color: #ffffff;
+}
+
+#paymentfilter {
+  margin-left: -30rem;
+  width: 8rem;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+header a {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #382d5e;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 17px;
+  padding: 0.2rem 0.5rem;
+  width: 7rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+a span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+a span:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 0.1rem;
+  right: -15px;
+  transition: 0.5s;
+}
+
+a:hover span {
+  padding-right: 15px;
+}
+
+a:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#logout {
+  background-color: #c84449;
 }

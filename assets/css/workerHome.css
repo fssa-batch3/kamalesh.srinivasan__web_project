@@ -5,7 +5,7 @@
 
 body {
   /* background-image: url(/assets/Images/colors.jpg); */
-  color: white;
+  /* color: white; */
   transition: o.5s;
   background-repeat: no-repeat;
   background-size: cover;
@@ -42,7 +42,6 @@ a:hover {
 
 .yourJobs {
   margin-left: 2rem;
-  margin-top: 5rem;
 }
 
 .filters {
@@ -96,6 +95,7 @@ a:hover {
 .content h2 {
   color: rgb(51, 165, 235);
   text-decoration: underline;
+  display: inline;
 }
 
 .Location {
@@ -181,7 +181,7 @@ footer {
 }
 
 .Copyright {
-  color: white;
+  /* color: white; */
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -189,15 +189,11 @@ footer {
   height: 10rem;
 }
 
-ul {
-  font-size: ;
-}
-
 .Deatils {
   width: 45rem;
-  background-color: #b8fff9;
+  background-color: #382d5e;
   /* color: white; */
-  margin-top: 8rem;
+  margin-top: 6.7rem;
   /* height: 70rem; */
   display: none;
   /* position: sticky;
@@ -219,18 +215,21 @@ main {
 }
 
 .title {
-  color: black;
-  font-size: x-large;
+  color: white;
+  font-size: 1.5rem;
   font-weight: bolder;
+  margin-top: 1rem;
+  margin-left: 1rem;
 }
 
 .head {
-  background-color: #85f4ff;
+  background-color: #4db6ac;
   padding: 1rem;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   display: flex;
   justify-content: space-between;
+  margin-right: -0.2rem;
 }
 
 .moredetails {
@@ -243,6 +242,7 @@ main {
   overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  margin-right: -0.2rem;
 }
 
 .apply {
@@ -252,7 +252,7 @@ main {
   margin-top: 1rem;
   transition: 0.3s;
   border-radius: 2px;
-  background-color: #85f4ff;
+  background-color: #4db6ac;
 }
 
 .apply:hover {
@@ -305,7 +305,18 @@ main {
 
 .cross img {
   width: 24px;
-  margin-top: -10;
+  position: absolute;
+  top: 6.7rem;
+  right: 0.5rem;
+  transition: 0.2s;
+}
+
+.cross img:hover {
+  scale: 1.5;
+}
+
+.cross img:active {
+  scale: 0.5;
 }
 
 .cross {
@@ -322,4 +333,163 @@ section {
 .right_sec {
   position: sticky;
   top: 20px;
+}
+
+header a {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #382d5e;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 17px;
+  padding: 0.2rem 0.5rem;
+  width: 7rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+a span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+a span:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 0.1rem;
+  right: -15px;
+  transition: 0.5s;
+}
+
+a:hover span {
+  padding-right: 15px;
+}
+
+a:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#logout {
+  background-color: #c84449;
+}
+
+.cards {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  row-gap: 1rem;
+  column-gap: 1em;
+  margin-left: 3.13rem;
+  transition: 0.5s;
+}
+
+.card {
+  width: 25rem;
+  height: 18rem;
+  background-color: #382d5e;
+  border-radius: 1rem;
+  transition: 0.3s;
+  position: relative;
+  color: white;
+}
+
+.card:hover {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.userName img {
+  width: 3rem;
+}
+
+.userName {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.5rem;
+  color: #2f8b65;
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+
+.description {
+  margin: 1rem 0.5rem 1rem 1rem;
+  font-size: 1.1rem;
+}
+
+.cardLast {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 1.1rem;
+  position: absolute;
+  bottom: 1rem;
+}
+
+.viewMore {
+  width: 25rem;
+}
+.viewMore img {
+  width: 3rem;
+  /* margin-left: 8rem; */
+  transition: 0.5s;
+  position: absolute;
+  left: 20rem;
+  top: -1rem;
+}
+
+.viewMore img:hover {
+  scale: 1.06;
+}
+
+.viewMore:active {
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.topYourJobs {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.jobSearch input {
+  border: none;
+  width: 20rem;
+  height: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  outline: none;
+  padding-left: 1rem;
+  font-size: large;
+}
+
+.jobSearch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jobSearch i {
+  margin-left: -3rem;
+  transition: 0.5s;
+}
+
+.jobSearch i:hover {
+  scale: 1.2;
+}
+
+.jobSearch i:active {
+  scale: 0.5;
 }

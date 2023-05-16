@@ -39,7 +39,7 @@ section {
 }
 
 .chat_with_us {
-  background-color: #85f4ff;
+  background-color: #382d5e;
   /* border-radius: 10px 10px 0px 0px; */
   color: white;
   width: 40rem;
@@ -161,6 +161,11 @@ section {
   margin-top: -20px;
 }
 
+.profile_logo img {
+  margin-right: 0.5rem;
+  border-radius: 2rem;
+}
+
 .left {
   width: 25rem;
 }
@@ -228,7 +233,7 @@ section {
   /* background-color: aqua; */
   border-top-right-radius: 0rem;
   border-bottom-right-radius: 0rem;
-  background-color: #85f4ff;
+  background-color: #382d5e;
   height: 50rem;
 }
 
@@ -243,7 +248,7 @@ section {
 .rightSec {
   width: 30rem;
   height: 50rem;
-  background-color: #85f4ff;
+  background-color: #382d5e;
   margin-left: -2.5rem;
   border-bottom-left-radius: 0rem;
   border-top-left-radius: 0rem;
@@ -277,6 +282,12 @@ section {
   margin-left: 2rem;
   margin-top: 4rem;
   font-size: large;
+  color: whitesmoke;
+}
+
+#searchOwners {
+  outline: none;
+  padding-left: 1rem;
 }
 
 .chatApproval {
@@ -312,11 +323,10 @@ section {
 }
 
 .leftChat {
-  background-color: #42c2ff;
+  background-color: #382d5e;
   padding: 0.3rem 1rem;
-  border-radius: 0.1rem;
-  border-top-right-radius: 1.5rem;
-  border-bottom-left-radius: 1.5rem;
+  border-radius: 1rem;
+  color: white;
   /* right: 3rem; */
   margin-top: 0.5rem;
 }
@@ -337,16 +347,15 @@ section {
 .rightChat {
   /* display: block;a */
   /* width: 100%; */
-  background-color: #42c2ff;
+  background-color: #382d5e;
   padding: 0.3rem 1rem;
-  border-radius: 0.1rem;
-  border-top-right-radius: 1.5rem;
-  border-bottom-left-radius: 1.5rem;
+  border-radius: 1rem;
   right: 3rem;
   margin-top: 0.5rem;
   max-width: 15rem;
   /* max-height: 20rem; */
   overflow-wrap: break-word;
+  color: white;
 }
 
 .chat {

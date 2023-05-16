@@ -9,223 +9,113 @@ body {
 }
 
 section {
-  /* background-color: rgb(224, 218, 218); */
-  width: 1480px;
-  /* height: 900px; */
-  display: flex;
-  /* color: white; */
-}
-
-section img {
-  width: 800px;
-  height: 860px;
-  margin-left: 100px;
-  margin-top: 20px;
-  border-radius: 10px;
-}
-
-section :nth-child(2) {
-  width: 500px;
-}
-
-.signin {
-  /* background-color: white; */
-  /* margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  border-radius: 10px;
-  margin-left: -15px;
-  */
-  background-size: cover;
-}
-.signin form {
-  width: 200px;
-  margin-left: 2rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.signin div {
-  background-color: #85f4ff;
-  width: 20rem;
-  /* height: 800px; */
-  margin-left: 190%;
   margin-top: 12rem;
-  border-radius: 5px;
-}
-
-.signin h1 {
-  padding-top: 20px;
-  color: rgba(255, 0, 0, 0.747);
-  text-shadow: 0px 0px 15px rgb(185, 180, 245);
-}
-
-.signin h3 {
-  margin-left: 30px;
-  margin-top: 2rem;
-  margin-bottom: 50px;
-}
-
-form input {
-  padding: 10px 20px 0px 5px;
-  width: 15rem;
-
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid white;
-}
-
-form input::placeholder {
-  color: white;
-  font-size: 1rem;
-}
-
-form label {
-  font-size: larger;
-}
-/* 
-.btn1 {
-  /* margin-top: 50px; */
-/* } */
-
-button {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-size: 15px;
-  font-weight: bold;
-  border-radius: 5px;
-  border: none;
-  margin-left: 2rem;
-  margin-right: -1rem;
-  margin-top: -1rem;
-}
-
-input:invalid {
-  border-color: red;
-}
-
-.btn2 {
-  background-color: red;
-}
-
-form p {
-  text-align: center;
-}
-
-.btn3,
-.btn4 {
-  background-color: aquamarine;
-}
-
-button:hover {
-  transition: 5ms;
-  scale: 1.2;
-}
-
-a {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-@media all and (max-width: 600px) {
-  img {
-    display: none;
-  }
-
-  section {
-    background-color: transparent;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    /* color: white; */
-  }
-
-  .signin div {
-    background-color: blueviolet;
-    width: 100%;
-    height: 100%;
-    margin-left: 60px;
-    margin-top: 30px;
-    border-radius: 10px;
-  }
-
-  .signin form {
-    width: 200px;
-    /* margin-left: 100px; */
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-  }
-
-  body {
-    margin: auto;
-  }
-}
-
-.ftPwd {
-  margin-bottom: 2rem;
-  margin-top: -1rem;
-  text-decoration: underline;
-}
-
-.getEmailDiv {
-  background-color: #b8fff9;
-  width: 20rem;
+  margin-left: 36rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
-}
-
-.getEmailDiv h2 {
-  color: #42c2ff;
-  text-align: center;
-  margin-bottom: 0.5rem;
-}
-
-.cancel {
-  background-color: red;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  margin: 0;
   gap: 2rem;
 }
 
-.buttons button {
-  padding: 0.4rem;
-  border-radius: 0.2rem;
+.login {
+  font-weight: bolder;
+  font-size: 2rem;
+  background-color: linear-gradient(to right, #00ec96, #00a6f3);
+}
+
+.login img {
+  width: 2rem;
+  height: 2rem;
+}
+
+#form {
+  margin-top: 3rem;
+}
+
+#form input {
   margin-top: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.sendEmail {
-  background-color: #85f4ff;
-}
-
-body {
+  width: 20rem;
+  height: 2rem;
+  border-radius: 1rem;
+  border: 1px solid lightblue;
+  padding-left: 1rem;
   display: flex;
-  /* flex-direction: column; */
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+#form label {
+  font-weight: bolder;
+}
+
+.ftPwd {
+  font-weight: 900;
+  color: blueviolet;
+  cursor: pointer;
+}
+
+#form .buttons {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  justify-content: center;
+  margin-left: 0.7rem;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.buttons button {
+  height: 2rem;
+  font-size: large;
+  border-radius: 0.5rem;
+  background-color: burlywood;
+  border: none;
+}
+
+.buttons button:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.right img {
+  width: 30rem;
+}
+
+.getEmailDiv {
+  margin-left: 40rem;
+  margin-top: 15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .enterEmail {
   width: 15rem;
-  height: 1.5rem;
-  margin: auto;
+  height: 1.8rem;
+  border-radius: 0.4rem;
   border: none;
-}
-
-.enterEmail:focus {
   outline: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 0.4rem;
 }
 
-button[type="reset"] {
-  margin-bottom: 1rem;
+.cancel {
+  margin-right: 1rem;
+  width: 7rem;
+}
+
+.sendEmail {
+  width: 7rem;
+}
+
+.inputs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputs i {
+  margin-left: -2rem;
+  margin-top: 1rem;
+}
+#Password {
+  margin-left: -1rem;
 }

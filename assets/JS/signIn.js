@@ -4,7 +4,7 @@ function forgotPwdEmail() {
 
     document.querySelector("body").innerHTML = null;
 
-    let getEmailDiv = document.createElement("div");
+    let getEmailDiv = document.createElement("form");
     getEmailDiv.setAttribute("class", "getEmailDiv");
 
     let title = document.createElement("h2");
@@ -14,6 +14,7 @@ function forgotPwdEmail() {
     let enterEmail = document.createElement("input");
     enterEmail.setAttribute("class", "enterEmail");
     enterEmail.setAttribute("placeholder", "Enter your Email");
+    enterEmail.setAttribute("required", "");
     getEmailDiv.append(enterEmail);
 
     let buttons = document.createElement("div");
@@ -28,6 +29,7 @@ function forgotPwdEmail() {
     let sendEmail = document.createElement("button");
     sendEmail.setAttribute("class", "sendEmail");
     sendEmail.setAttribute("onclick", "sendMail()");
+    sendEmail.setAttribute("type", "submit");
     sendEmail.innerHTML = "Send Email";
     buttons.append(sendEmail);
 
@@ -42,6 +44,7 @@ function forgotPwdEmail() {
 // Send mail for the forgotPassword
 
 function sendMail() {
+  event.preventDefault();
   // OTP generation
 
   localStorage.setItem(
@@ -72,7 +75,7 @@ function sendMail() {
       console.log(res);
       checkVerificationCode(OTP);
     })
-    .catch((err) => console.log(err));
+    .catch((err) => alert(err.text));
 }
 
 function checkVerificationCode(OTP) {
@@ -152,4 +155,20 @@ function index() {
   } catch (err) {
     console.error(err);
   }
+}
+
+function displayPassword() {
+  document.querySelector(".inputs i").classList.remove("fa-eye");
+  document.querySelector(".inputs i").classList.add("fa-eye-slash");
+  document.querySelector(".inputs input").setAttribute("type", "text");
+  document.querySelector(".inputs i").setAttribute("onclick", "hidePassword()");
+}
+
+function hidePassword() {
+  document.querySelector(".inputs i").classList.remove("fa-eye-slash");
+  document.querySelector(".inputs i").classList.add("fa-eye");
+  document.querySelector(".inputs input").setAttribute("type", "password");
+  document
+    .querySelector(".inputs i")
+    .setAttribute("onclick", "displayPassword()");
 }

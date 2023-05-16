@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
 
-    <link rel="stylesheet" href="../assets/css/ownerhome.css">
+    <!-- <link rel="stylesheet" href="../assets/css/ownerhome.css"> -->
     <link rel="stylesheet" href="../assets/css/workerHome.css">
     <link rel="stylesheet" href="../assets/css/payment.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,26 +21,32 @@
 <body>
     <header>
         <div>
-            <img src="../assets/Images/Logo.png" alt="Logo">
+            <img src="../assets/Images/logo-transparent-svg.svg" alt="Logo">
         </div>
 
         <nav>
             <div>
-                <a onclick="reqList()">Home</a>
-                <a onclick="redirectChat()">Chat</a>
-                <a onclick="notification()">Notification</a>
-                <a>Payment</a>
-                <a onclick="profile()">profile</a>
-                <a href="../index.html">LogOut</a>
+                <a onclick="reqList()"><span>Home</span></a>
+                <a onclick="redirectChat()"><span>Chat</span></a>
+                <a onclick="notification()"><span>Notification</span></a>
+                <a><span>Payment</span></a>
+                <a onclick="profile()"><span>profile</span></a>
+                <a href="../index.html" style="background-color: #c84449;"><span>LogOut</span></a>
             </div>
         </nav>
     </header>
     <section class="filters">
         <p>Filter By</p>
-        <a onclick="allJobs()">All</a>
-        <a onclick="Fpaid()">Paid</a>
-        <a onclick="unPaid()">Unpaid</a>
-        <a href="">Pending</a>
+        <!-- <a onclick="allJobs()">All</a>
+            <a onclick="Fpaid()">Paid</a>
+            <a onclick="unPaid()">Unpaid</a>
+            <a href="">Pending</a>  -->
+
+        <select name="filter" onchange="paymentfilterChange()" id="paymentfilter">
+            <option value="All">All</option>
+            <option value="Paid">Paid</option>
+            <option value="unPaid">Unpaid</option>
+        </select>
     </section>
     <main id="main">
 
@@ -92,6 +98,8 @@
 <script src="../assets/JS/payment.js"></script>
 <script>
 
+
+
     // Top get the url datas    
     let url = location.search;
     let urlParams = new URLSearchParams(url);
@@ -107,9 +115,22 @@
     }
 
     if (paymentfilter == "unpaid") {
-        completedJobs = allCompletedJobs.filter((F) => F.paid == "unPaid");
+        completedJobs = allCompletedJobs.filter((F) => F.paid == "Unpaid");
     }
 
+    // Get Filter data
+    function paymentfilterChange() {
+        let x = document.getElementById("paymentfilter").value;
+        if (x == "All") {
+            allJobs();
+        }
+        else if (x == "Paid") {
+            Fpaid();
+        }
+        else if (x == "unPaid") {
+            unPaid();
+        }
+    }
 
     // To create the payment cards
 
@@ -170,6 +191,54 @@
     }
 
 
+    function allJobs() {
+        try {
+            if (paymentfilter == null) {
+                location.href = location + "&&paymentfilter=all";
+            } else {
+                urlParams.set("paymentfilter", "all");
+                location.href = "payment.html?" + urlParams;
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    function Fpaid() {
+        try {
+            if (paymentfilter == null) {
+                location.href = location + "&&paymentfilter=paid";
+            } else {
+                urlParams.set("paymentfilter", "paid");
+                location.href = "payment.html?" + urlParams;
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    function unPaid() {
+        try {
+            if (paymentfilter == null) {
+                location.href = location + "&&paymentfilter=unpaid";
+            } else {
+                urlParams.set("paymentfilter", "unpaid");
+                location.href = "payment.html?" + urlParams;
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    document.getElementById("caseForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+        cashSubmit();
+    })
+
+    document.getElementById("paidFrom").addEventListener("submit", (event) => {
+        event.preventDefault();
+        paidDetails()
+    })
 
 
 

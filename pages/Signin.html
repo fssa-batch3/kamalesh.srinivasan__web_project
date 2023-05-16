@@ -20,6 +20,7 @@
         })();
     </script>
     <script src="../assets/JS/signIn.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <!-- This is sign in -->
@@ -27,7 +28,7 @@
 <body>
     <section>
 
-        <div class="signin">
+        <!-- <div class="signin">
             <div>
                 <marquee scrollamount="10" behavior="alternate">
                     <h1>Welcome Back</h1>
@@ -63,8 +64,61 @@
 
                 </form>
             </div>
+        </div> -->
+
+        <div class="left">
+            <p class="login"> <img src="../assets/Images/user (1).png" alt="image"> LogIn</p>
+            <form id="form">
+                <label for="email">Email*</label><br>
+
+                <input type="email" name="email" id="Email" placeholder="example@gmail.com" required /><br>
+
+                <label for="password">Password*</label><br>
+                <div class="inputs">
+                    <input type="password" name="password" id="Password" placeholder="*********" required /><i
+                        onclick="displayPassword()" class="fa fa-eye"></i>
+                </div>
+                <br>
+
+                <a class="ftPwd" onclick="forgotPwdEmail()">Forgot Password ?</a><br>
+                <div class="buttons">
+                    <button type="submit">LogIn</button>
+                    <button type="reset">Register</button>
+                </div>
+            </form>
         </div>
+
+
+
     </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Toastr -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        // Default Configuration
+        $(document).ready(function () {
+            toastr.options = {
+                'closeButton': true,
+                'debug': false,
+                'newestOnTop': false,
+                'progressBar': false,
+                'positionClass': 'toast-top-right',
+                'preventDuplicates': false,
+                'showDuration': '1000',
+                'hideDuration': '1000',
+                'timeOut': '5000',
+                'extendedTimeOut': '1000',
+                'showEasing': 'swing',
+                'hideEasing': 'linear',
+                'showMethod': 'fadeIn',
+                'hideMethod': 'fadeOut',
+            }
+        });
+    </script>
 
     <script>
         // To get the form id to access the form for add a addeventlistener
@@ -86,88 +140,47 @@
                 if (defaultData != null) {
                     for (let i = 0; i < defaultData.length; i++) {
                         if (Email == defaultData[i].Email) {
-                            if (comparePassword(Password, defaultData[i].Password) == true) {
-                                match = true
-                                id = defaultData[i]["id"];
-                                console.log(defaultData[i]["id"]);
-                                type = "owner";
-                                break;
-                            }
-
-
-                        }
-                    }
-
-                }
-                // To check the entered form datas is present in the worker regsiter
-
-                if (WorkerdefaultData != null) {
-                    for (let i = 0; i < WorkerdefaultData.length; i++) {
-                        if (Email == WorkerdefaultData[i]["Email"]) {
-                            if (comparePassword(Password, WorkerdefaultData[i].Password) == true) {
+                            if
+                                (comparePassword(Password, defaultData[i].Password) == true) {
                                 match = true;
-                                id = WorkerdefaultData[i]["id"];
-                                type = "worker";
-                                break;
+                                id = defaultData[i]["id"];
+                                console.log(defaultData[i]["id"]); type = "owner"; break;
                             }
-
-
+                        }
+                    }
+                } // To check the entered form datas is present in the worker regsiter 
+                if (WorkerdefaultData != null) {
+                    for (let i = 0; i <
+                        WorkerdefaultData.length; i++) {
+                        if (Email == WorkerdefaultData[i]["Email"]) {
+                            if
+                                (comparePassword(Password, WorkerdefaultData[i].Password) == true) {
+                                match = true;
+                                id = WorkerdefaultData[i]["id"]; type = "worker"; break;
+                            }
                         }
                     }
                 }
-
-
-
                 // To redirect to the ownerHome if the email and password matched in the owner Regiter
                 if (match == true && type == "owner") {
-                    let SuccessLogin = {
-                        "Email": Email,
-                        "id": id,
-                    }
-
+                    let
+                        SuccessLogin = { "Email": Email, "id": id, };
                     let str = JSON.stringify(SuccessLogin);
-                    localStorage.setItem("Login", str);
-
-
-
-
-                    console.log(SuccessLogin)
+                    localStorage.setItem("Login", str); console.log(SuccessLogin)
                     window.location.href = "OwnerHome.html?from=logIn&&type=owner";
                 }
-                // To redirect to the workerHome if the email and password matched in the worker Regiter
-
+                // To redirect to the workerHome if the email and password matched in the worker Regiter 
                 else if (match == true && type == "worker") {
-                    let SuccessLogin = {
-                        "Email": Email,
-                        "password": Password,
-                        "id": id,
-                    }
-
-                    let str = JSON.stringify(SuccessLogin);
-                    localStorage.setItem("Login", str);
-
-                    console.log(SuccessLogin)
+                    let
+                        SuccessLogin = { "Email": Email, "password": Password, "id": id, };
+                    let str = JSON.stringify(SuccessLogin); localStorage.setItem("Login", str); console.log(SuccessLogin)
                     window.location.href = "workerHome.html?from=logIn&&type=worker";
-                }
-                // To display the error message if the email and password not matched to the  owner and worker Regiter
+                } // To display the error message if the email and password not matched to the owner and worker Regiter 
                 else {
                     alert("Login credentials not correct")
                 }
-            }
-            catch (err) {
-                console.error(err);
-            }
-
-        })
-
-
-
-
-
-
-
-
-    </script>
+            } catch (err) { console.error(err); }
+        }) </script>
 </body>
 
 </html>

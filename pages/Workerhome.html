@@ -12,6 +12,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
@@ -23,11 +25,11 @@
 
         <nav>
             <div>
-                <a>Requirement List</a>
-                <a onclick="chat()">Chat</a>
-                <a href="workerNotification.html?from=register&&type=worker&&filter=All">Notification</a>
-                <a onclick="urlData()">profile</a>
-                <a href="../index.html">LogOut</a>
+                <a><span>Home</span></a>
+                <a onclick="chat()"><span>Chat</span></a>
+                <a href="workerNotification.html?from=register&&type=worker&&filter=All"><span>Notification</span></a>
+                <a onclick="urlData()"><span>profile</span></a>
+                <a href="../index.html" style="background-color: #c84449;"><span>LogOut</span></a>
 
             </div>
         </nav>
@@ -49,9 +51,38 @@
         <div class="left">
 
             <section class="yourJobs">
-                <h2>
-                    Your Jobs
-                </h2>
+                <div class="topYourJobs">
+                    <h2>
+                        Your Jobs
+                    </h2>
+
+                    <div class="jobSearch">
+                        <input type="text" id="jobSearch" />
+                        <i class="fa fa-search" style="font-size:35px;color:rgb(220, 204, 204)"
+                            onclick="jobSearch()"></i>
+                    </div>
+                </div>
+                <div class="cards">
+                    <!-- <div class="card">
+                        <div class="userName"> <img src="../assets/Images/avatar (3).svg" alt="image"> Kamalesh</div>
+                        <div class="title">
+                            Web Development
+                        </div>
+
+                        <div class="description">
+                            A web developer is responsible for designing, developing, and maintaining
+                            websites and web applications.
+                        </div>
+
+                        <div class="last">
+                            <div class="location">Chennai</div>
+                            <div class="salary">Rs.10,000</div>
+                            <div class="viewMore"><img src="../assets/Images/rightArrow.svg" alt="image"></div>
+                        </div>
+
+                    </div> -->
+
+                </div>
             </section>
 
         </div>
@@ -165,26 +196,24 @@
             //  get and split a applier Name
             let profileImage = profileImg(yourJobs[i]["FN"], yourJobs[i]["LN"]);
             console.log(from);
-            yourJobs_card.innerHTML = `<div class="profile">
-                    <img src="${profileImage}" alt="image">
-                </div>
-                <div class="content">
-                    <h2>${yourJobs[i]["title"]}</h2>
-                    <p class="Location">${yourJobs[i]["location"]}</p>
-                    <p class="Payment">${yourJobs[i]["Salary"]}t</p>
-                    <h3>Description</h3>
-                    <p class="desc">
-                
-                        ${yourJobs[i]["disc"]}</p>
-                    <div class="card_last">
-                        <div class="buttons">
-                            <a  onclick="yourJobsClick(${i})">More Deatils</a>
-
+            let card = document.createElement("div");
+            card.setAttribute("class", "card");
+            card.innerHTML = `   <div class="userName"> <img src="${profileImage}" alt="image"> ${yourJobs[i]["FN"] + yourJobs[i]["LN"]}</div>
+                        <div class="title">
+                            ${yourJobs[i]["title"]}
                         </div>
-                        <img src="../assets/Images/heart.svg" alt="image" />
-                    </div>
-                </div>`;
-            document.querySelector(".yourJobs").append(yourJobs_card);
+
+                        <div class="description">
+                            ${yourJobs[i]["disc"]}
+                        </div>
+
+                        <div class="cardLast">
+                            <div class="location">${yourJobs[i]["location"]}</div>
+                            <div class="salary">${yourJobs[i]["Salary"]}</div>
+                            <div class="viewMore" onclick="yourJobsClick(${i})"> <img src="../assets/Images/rightArrow.svg" alt="image"></div>
+                        </div>`;
+            document.querySelector(".cards").append(card);
+
         }
 
         // details
@@ -202,7 +231,7 @@
         right_sec.append(cross);
 
         let cross_img = document.createElement("img");
-        cross_img.setAttribute("src", "../assets/Images/close.svg");
+        cross_img.setAttribute("src", "../assets/Images/cross.svg");
         cross_img.setAttribute("onclick", "closeDetail()");
         cross_img.setAttribute("alt", "image");
         cross.append(cross_img);

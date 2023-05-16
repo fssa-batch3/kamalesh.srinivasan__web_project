@@ -14,6 +14,12 @@ function detailView(currentData) {
     }
     let detailView = document.createElement("div");
     detailView.setAttribute("class", "detailView");
+    let amount;
+    if (finded["changedAmount"] != undefined || nulll) {
+      amount = finded["changedAmount"];
+    } else {
+      amount = finded["Salary"];
+    }
     detailView.style.display = "block";
     detailView.innerHTML = `<div class="detailProfile">
                   <img src="../assets/Images/avatar (4).svg" alt="image" />
@@ -45,8 +51,8 @@ function detailView(currentData) {
                   </div>
   
                   <div class="paymentStatus">
-                      <p>Payment Status</p>
-                      <div>${finded["paid"]}</div>
+                      <p>Amount</p>
+                      <div>${amount}</div>
                   </div>
   
                   <div class="PaymentDetailsButtons">
@@ -171,6 +177,7 @@ function payCash() {
 
     let amountbox = document.createElement("input");
     amountbox.setAttribute("id", "amountbox");
+    amountbox.setAttribute("placeholder", "Rs.20,000");
     amountbox.setAttribute("Required", "");
     form.append(amountbox);
 
@@ -191,7 +198,7 @@ function payCash() {
     let cashSubmit = document.createElement("button");
     cashSubmit.setAttribute("type", "submit");
     cashSubmit.innerHTML = "Piad";
-    cashSubmit.setAttribute("onclick", "cashSubmit()");
+    // cashSubmit.setAttribute("onclick", "cashSubmit()");
     form.append(cashSubmit);
 
     let cashCancel = document.createElement("button");
@@ -255,6 +262,12 @@ function cashSubmit() {
       localStorage.setItem("completedJobs", JSON.stringify(completedJobs));
       console.log(currentPaymentJob);
       cancelCashform();
+      document.querySelector(".popUp").remove();
+      let bg = document.querySelector(".listView");
+      let bgd = document.querySelector(".detailView");
+      console.log(bg);
+      bg.style.filter = "none";
+      bgd.style.filter = "none";
       return toastr.success("You paid to " + currentPaymentJob["applierName"]);
     } else {
       return toastr.error(
@@ -299,7 +312,7 @@ function paid() {
     let submitButton = document.createElement("button");
     submitButton.setAttribute("id", "subbtn");
     submitButton.setAttribute("type", "submit");
-    submitButton.setAttribute("onclick", "paidDetails()");
+    // submitButton.setAttribute("onclick", "paidDetails()");
     submitButton.innerHTML = "Submit";
     form.append(submitButton);
 
@@ -396,45 +409,6 @@ function notification() {
 function profile() {
   try {
     location.href = "profile.html" + location.search;
-  } catch (err) {
-    console.error(err);
-  }
-}
-
-function allJobs() {
-  try {
-    if (paymentfilter == null) {
-      location.href = location + "&&paymentfilter=all";
-    } else {
-      urlParams.set("paymentfilter", "all");
-      location.href = "payment.html?" + urlParams;
-    }
-  } catch (err) {
-    console.error(err);
-  }
-}
-
-function Fpaid() {
-  try {
-    if (paymentfilter == null) {
-      location.href = location + "&&paymentfilter=paid";
-    } else {
-      urlParams.set("paymentfilter", "paid");
-      location.href = "payment.html?" + urlParams;
-    }
-  } catch (err) {
-    console.error(err);
-  }
-}
-
-function unPaid() {
-  try {
-    if (paymentfilter == null) {
-      location.href = location + "&&paymentfilter=unpaid";
-    } else {
-      urlParams.set("paymentfilter", "unpaid");
-      location.href = "payment.html?" + urlParams;
-    }
   } catch (err) {
     console.error(err);
   }

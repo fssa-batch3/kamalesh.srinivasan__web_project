@@ -345,7 +345,7 @@ form {
   padding: 1rem;
   border: 2px solid none;
   background-color: #85f4ff;
-  margin-top: -110rem;
+  top: 10rem;
   right: 2rem;
   left: 2rem;
   z-index: 10;
@@ -630,6 +630,12 @@ a:hover span:after {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   color: #9fa5b0;
   position: relative;
+  transition: 0.5s;
+}
+
+.card p {
+  margin-top: 7rem;
+  margin-left: 8rem;
 }
 
 .topLeft {
@@ -767,4 +773,20 @@ a:hover span:after {
   border-radius: 0.3rem;
   gap: 1rem;
   margin-left: 2rem;
+}
+
+.card:hover {
+  scale: 1.1;
+  background-color: #48dc91;
+  color: white;
+  .topLeft {
+    background-color: white;
+  }
+  .circle {
+    background-color: #48dc91;
+  }
+  .buttons button {
+    background-color: white;
+    color: black;
+  }
 }

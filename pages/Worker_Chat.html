@@ -52,7 +52,7 @@
                 <div class="chat_profile">
                     <div>
                         <p class="chatDeatilName">Worker Name</p>
-                        <div class="profile_logo"><img src="../assets/Images/Logo.png" alt="Logo">
+                        <div class="profile_logo"><img src="../assets/Images/barLogo.png" alt="Logo">
                             <p>Needs To Be Done</p>
                         </div>
                     </div>
@@ -332,22 +332,26 @@
                     cntUser = LogIn.id;
                     cntUserAll = LogIn;
                 }
-                let currentTime = new Date()
+                let currentTime = new Date();
                 chatText = chatText + "-" + cntUser + "-" + currentTime;
 
 
                 let id = cntUser + "to" + detailViewChatObj.id;
-
+                console.log(id);
                 // Find the id is already present in the object or not
                 let setIdValue = Obj[id];
+                console.log(setIdValue);
                 if (setIdValue == undefined) {
                     let SplitId = id.split("to");
+                    console.log(SplitId);
                     let reverseArray = SplitId[1] + "to" + SplitId[0];
+                    id = SplitId[1] + "to" + SplitId[0];
                     // let JoinReverse = reverseArray.join("");
                     setIdValue = Obj[reverseArray];
                     console.log(reverseArray);
                 }
-                if (setIdValue == undefined || setIdValue == null) {
+                if (setIdValue == undefined) {
+                    console.log("if")
                     Obj[id] = [chatText];
                 }
                 else {

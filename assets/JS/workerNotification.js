@@ -348,3 +348,7 @@ function jobToast(type, message) {
     console.error(err);
   }
 }
+
+function urlData() {
+  location.href = "profile.html" + location.search;
+}

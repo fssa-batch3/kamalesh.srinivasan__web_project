@@ -57,17 +57,17 @@
 
         let form = document.createElement("form")
         form.setAttribute("id", "form");
-        form.innerHTML = `<input type="text" id="First_Name" pattern="[A-Za-z]{1-20}" title="Enter alphabet only" placeholder="First Name" value="${defaultFormData["FN"]}"><br>
-                <input type="text" id="Last_Name" pattern="[A-Za-z]{1-20}" title="Enter alphabet only" placeholder="Last Name" value="${defaultFormData["LN"]}"><br>
-                <input type="email" id="Email" placeholder="Enter your Email" value="${defaultFormData["Email"]}"><br>
+        form.innerHTML = `<input type="text" id="First_Name" pattern="[A-Za-z]{1-20}" title="Enter alphabet only" placeholder="First Name" value="${defaultFormData["FN"]}" required><br>
+                <input type="text" id="Last_Name" pattern="[A-Za-z]{1-20}" title="Enter alphabet only" placeholder="Last Name" value="${defaultFormData["LN"]}" required><br>
+                <input type="email" id="Email" placeholder="Enter your Email" value="${defaultFormData["Email"]}" required desabled><br>
                 <label id="dob">DOB</label>
-                <input type="date" id="DOB" max="2010-01-01" title="Your DOB should be before 2010" placeholder="Date Of birth" value="${defaultFormData["DOB"]}"><br>
-                <input type="text" id="Address" pattern="[A-Za-z][0-9]{1-20}" title="Space and special charecters not allowed" placeholder="Address" value="${defaultFormData["Address"]}"><br>
-                <input type="text" id="Education" placeholder="Education" value="${defaultFormData["Education"]}"><br>
-                <input type="text" id="Current_occupation" placeholder="Current Occupation" value="${defaultFormData["Current_occupation"]}"><br>
-                <input type="text" id="Expect_in" placeholder="Expect in" value="${defaultFormData["Expect_in"]}" /><br>
-                <input type="number" id="Aadhar_number" pattern="[0-9]{12}" title="number should be 12 digits" placeholder="Aadhar number" value="1234567890"><br>
-                <input type="file" style="border: none;" placeholder="Upload your expirience certificate here" />
+                <input type="date" id="DOB" max="2010-01-01" title="Your DOB should be before 2010" placeholder="Date Of birth" value="${defaultFormData["DOB"]}" required><br>
+                <input type="text" id="Address" pattern="[A-Za-z][0-9]{1-20}" title="Space and special charecters not allowed" placeholder="Address" value="${defaultFormData["Address"]}" required><br>
+                <input type="text" id="Education" placeholder="Education" value="${defaultFormData["Education"]}" required><br>
+                <input type="text" id="Current_occupation" placeholder="Current Occupation" value="${defaultFormData["Current_occupation"]}" required><br>
+                <input type="text" id="Expect_in" placeholder="Expect in" value="${defaultFormData["Expect_in"]}" required/><br>
+                <input type="number" id="Aadhar_number" pattern="[0-9]{12}" title="number should be 12 digits" placeholder="Aadhar number" value="1234567890" required><br>
+                <input type="file" style="border: none;" placeholder="Upload your expirience certificate here" required/>
                 <button type="submit">Submit</button>
                 <button type="reset" onclick="cancelEdit()">Cancel </button>`;
         document.querySelector(".details").append(form);

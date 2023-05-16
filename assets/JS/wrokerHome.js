@@ -2,6 +2,12 @@
 function yourJobsClick(index) {
   try {
     event.preventDefault();
+    document.querySelector(".cards").style.display = "block";
+    let cards = document.querySelectorAll(".card");
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].style.marginBottom = "2rem";
+    }
+
     let localAll = JSON.parse(localStorage.getItem("requirements"));
     let isActive = localAll.filter((F) => F.isActive == true);
     let isCompleted = isActive.filter((F) => F.isCompleted == false);
@@ -96,6 +102,11 @@ function changeDatas() {
 
 function closeDetail() {
   try {
+    document.querySelector(".cards").style.display = "grid";
+    let cards = document.querySelectorAll(".card");
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].style.marginBottom = "0rem";
+    }
     console.log("text");
     let yourJobs_card = document.getElementsByClassName("yourJobs_card");
     for (let i = 0; i < yourJobs_card.length; i++) {
@@ -219,4 +230,67 @@ function applyJob() {
 
 function chat() {
   location.href = "Worker_Chat.html" + location.search;
+}
+
+function jobSearch() {
+  let yourJobs = getLocalreq();
+  let searchedValue = document.getElementById("jobSearch").value;
+  console.log(searchedValue);
+  if (searchedValue != "") {
+    let searchedJob = [];
+    for (let i = 0; i < yourJobs.length; i++) {
+      if (yourJobs[i]["FN"].includes(searchedValue)) {
+        searchedJob.push(yourJobs[i]);
+      } else if (yourJobs[i]["LN"].includes(searchedValue)) {
+        searchedJob.push(yourJobs[i]);
+      } else if (yourJobs[i]["Qualifications"].includes(searchedValue)) {
+        searchedJob.push(yourJobs[i]);
+      } else if (yourJobs[i]["location"].includes(searchedValue)) {
+        searchedJob.push(yourJobs[i]);
+      } else if (yourJobs[i]["Responsibilities"].includes(searchedValue)) {
+        searchedJob.push(yourJobs[i]);
+      } else if (yourJobs[i]["Salary"].includes(searchedValue)) {
+        searchedJob.push(yourJobs[i]);
+      } else if (yourJobs[i]["disc"].includes(searchedValue)) {
+        searchedJob.push(yourJobs[i]);
+      } else if (yourJobs[i]["summary"].includes(searchedValue)) {
+        searchedJob.push(yourJobs[i]);
+      } else if (yourJobs[i]["title"].includes(searchedValue)) {
+        searchedJob.push(yourJobs[i]);
+      }
+    }
+    createJob(searchedJob);
+  }
+}
+
+function createJob(yourJobs) {
+  document.querySelector(".cards").innerHTML = null;
+  for (let i = 0; i < yourJobs.length; i++) {
+    console.log(yourJobs[i]);
+    let yourJobs_card = document.createElement("div");
+    yourJobs_card.setAttribute("class", "yourJobs_card");
+
+    //  get and split a applier Name
+    let profileImage = profileImg(yourJobs[i]["FN"], yourJobs[i]["LN"]);
+    console.log(from);
+    let card = document.createElement("div");
+    card.setAttribute("class", "card");
+    card.innerHTML = `   <div class="userName"> <img src="${profileImage}" alt="image"> ${
+      yourJobs[i]["FN"] + yourJobs[i]["LN"]
+    }</div>
+                <div class="title">
+                    ${yourJobs[i]["title"]}
+                </div>
+
+                <div class="description">
+                    ${yourJobs[i]["disc"]}
+                </div>
+
+                <div class="cardLast">
+                    <div class="location">${yourJobs[i]["location"]}</div>
+                    <div class="salary">${yourJobs[i]["Salary"]}</div>
+                    <div class="viewMore" onclick="yourJobsClick(${i})"> <img src="../assets/Images/rightArrow.svg" alt="image"></div>
+                </div>`;
+    document.querySelector(".cards").append(card);
+  }
 }
