@@ -230,7 +230,7 @@ a:active {
 .getCompletedDetails {
   background-color: cyan;
   width: 40rem;
-  height: 20rem;
+  height: 8rem;
   position: absolute;
   margin: 15rem 2rem;
   border-radius: 1rem;
@@ -296,4 +296,15 @@ textarea {
 }
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+button[type="reset"] {
+  background-color: red;
+  border: none;
+  border-radius: 0.2rem;
+  color: white;
+  opacity: 0.8;
+  padding: 0.2rem;
+  font-size: large;
+  transition: 0.3s;
 }

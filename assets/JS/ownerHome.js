@@ -77,6 +77,8 @@ function createJobCard(jobs, i, appendTag) {
     } else if (ownerReg != undefined) {
       mergedReg = ownerReg;
     }
+
+    console.log(jobs[i]);
     // let bio = JSON.parse(localStorage.getItem("BIO"));
 
     // let rect_cards = document.createElement("div");
@@ -172,7 +174,7 @@ function createJobCard(jobs, i, appendTag) {
     // appendTag.append(rect_cards);
 
     // new card
-    document.querySelector(".cards").innerHTML = null;
+    // document.querySelector(".cards").innerHTML = null;
 
     let card = document.createElement("div");
     card.setAttribute("class", "card");

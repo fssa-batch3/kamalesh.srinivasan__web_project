@@ -148,17 +148,15 @@
 
                 </div>
                 <div>
-                    <label for="file">
-                        Upload your expirience certificate or any certificate
-                    </label>
-                    <input type="file" id="file" name="file" required />
 
+                    <label for="skils">Skils</label>
+                    <input type="text" id="skill" class="form-columns" placeholder="HTML,CSS,JS,plumbing">
 
                 </div>
 
 
 
-                <div class="form-groupings">
+                <div class=" form-groupings">
                     <p>Address</p>
                     <textarea class="textarea-input" id="Address" name="Address" pattern="[A-Za-z][0-9]{1-20}"
                         title="Space and special charecters not allowed" pattern placeholder="Enter your address"
@@ -228,7 +226,7 @@
                 let Expect_in = document.getElementById("Expect_in").value;
                 let Aadhar_number = document.getElementById("Aadhar_number").value;
                 let Phone = document.getElementById("Phone").value;
-                let file = document.getElementById("file").value;
+                let skils = document.getElementById("skill").value;
                 let PrimarySchool = document.getElementById("PrimarySchool");
                 let Secondary_School = document.getElementById("Secondary_School");
                 let others = document.getElementById("others");
@@ -276,6 +274,7 @@
 
 
 
+
                 // Create the object with the recieved dataa.
 
                 let bio = {
@@ -289,7 +288,8 @@
                     Expect_in,
                     Aadhar_number,
                     Phone,
-                    upi
+                    upi,
+                    skils
                 }
 
                 arr.push(bio);

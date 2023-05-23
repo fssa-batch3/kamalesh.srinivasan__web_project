@@ -170,17 +170,24 @@
 
                 <h2>Upload your Requirement</h2>
                 <div class="datas">
-                    <div> <input type="text" id="title" placeholder="Title of the job" required /><BR>
-                        <input type="text" id="location" placeholder="Location" required /><br>
-                        <input type="text" id="Salary" placeholder="Salary" required /><br>
-                        <input type="text" id="disc" placeholder="Description" maxlength="110" required /><br>
+                    <div> <input type="text" id="title" placeholder="Title of the job" value="Full Stack developer"
+                            required /><BR>
+                        <input type="text" id="location" placeholder="Location" value="Chennai" required /><br>
+                        <input type="number" id="Salary" placeholder="Salary" value="1000000" required /><br>
+                        <input type="text" id="disc" placeholder="Description" maxlength="110"
+                            value="A full stack developer is a versatile professional who works on both the front-end and back-end aspects of web development."
+                            required /><br>
 
-                        <textarea id="summary" placeholder="Summary" required></textarea>
+                        <textarea id="summary" placeholder="Summary"
+                            required>Developing and maintaining web applications from concept to deployment.Designing and implementing user interfaces using HTML, CSS, and JavaScript frameworks.Building and integrating back-end services and APIs using server-side languages such as Python, Java, Ruby, or Node.js.Developing and maintaining databases, including data modeling, querying, and optimization.Collaborating with designers, project managers, and other stakeholders to gather requirements and ensure smooth project execution.Writing clean, efficient, and maintainable code following coding standards and best practices.Conducting testing and debugging to identify and fix issues or bugs.Deploying and configuring applications on web servers and cloud platforms.Ensuring applications are secure, scalable, and optimized for performance.Staying up-to-date with emerging technologies and industry trends to suggest improvements and innovative solutions.</textarea>
                     </div>
 
                     <div>
-                        <textarea id="Qualifications" placeholder="Qualifications" required></textarea>
-                        <textarea id="Responsibilities" placeholder="Responsibilities" required></textarea><br>
+                        <textarea id="Qualifications" placeholder="Qualifications"
+                            required>Proficiency in front-end technologies such as HTML, CSS, JavaScript, and modern frameworks like React, Angular, or Vue Strong knowledge of server-side languages and frameworks such as Python/Django, Java/Spring, Ruby/Ruby on Rails, or Node.js/Express.js.
+Experience working with databases such as MySQL, PostgreSQL, MongoDB, or Oracle.Familiarity with version control systems like Git and collaborative development workflows.Knowledge of web servers and cloud platforms for deployment, such as AWS, Azure, or Google Cloud.Understanding of RESTful APIs, microservices architecture, and client-server communication.Strong problem-solving skills and ability to handle the full software development cycle.Excellent communication and collaboration skills to work effectively in a team environment.Continuous learning mindset and willingness to adapt to new technologies and tools.</textarea>
+                        <textarea id="Responsibilities" placeholder="Responsibilities"
+                            required>Developing and maintaining web applications from concept to deployment.Designing and implementing user interfaces using HTML, CSS, and JavaScript frameworks.Building and integrating back-end services and APIs using server-side languages such as Python, Java, Ruby, or Node.js.Developing and maintaining databases, including data modeling, querying, and optimization.Collaborating with designers, project managers, and other stakeholders to gather requirements and ensure smooth project execution.Writing clean, efficient, and maintainable code following coding standards and best practices.Conducting testing and debugging to identify and fix issues or bugs.Deploying and configuring applications on web servers and cloud platforms.Ensuring applications are secure, scalable, and optimized for performance.Staying up-to-date with emerging technologies and industry trends to suggest improvements and innovative solutions.</textarea><br>
                     </div>
                 </div>
                 <div class="formButttons">
@@ -318,7 +325,7 @@
             }
             else {
 
-                for (let i = UplodedJobs.length; i > 0; i--) {
+                for (let i = UplodedJobs.length - 1; i >= 0; i--) {
                     // //console.log("test")
                     createJobCard(UplodedJobs, i, UplodedJobsappendTag)
                 }
@@ -523,7 +530,7 @@
                 }
                 else {
 
-                    for (let i = UplodedJobs.length; i > 0; i--) {
+                    for (let i = UplodedJobs.length - 1; i > 0; i--) {
                         // //console.log("test")
                         createJobCard(UplodedJobs, i, UplodedJobsappendTag)
                     }
@@ -541,6 +548,7 @@
             let requirements = JSON.parse(localStorage.getItem("requirements"));
             let logIn = JSON.parse(localStorage.getItem("Login"));
             let UplodedJobsappendTag = document.querySelector(".cards");
+            UplodedJobsappendTag.innerHTML = null;
             let x = document.getElementById("filter").value;
             if (x == "Recent Jobs") {
                 recentJobs();

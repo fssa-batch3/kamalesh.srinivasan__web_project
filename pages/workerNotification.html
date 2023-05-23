@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WorkerNotification</title>
+    <link rel="icon" href="../assets/Images/barLogo.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/ownerhome.css">
     <link rel="stylesheet" href="../assets/css/workerNotification.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -242,24 +243,23 @@
                 </select><br>
 
                 <label for="Allrequirements">Have you complete the all requirements:</label>
-                <select id="Allrequirements" title="selection any option" required>
+                <select id="Allrequirements" title="select any option" required>
                     <option value="">None</option>
                     <option value="yes">Yes</option>
                     <option value="No">No</option>
                 </select><br>
 
                 <label for="amountChanges">Do you have any price changes:</label>
-                <select id="amountChanges" title="selection any option" required>
+                <select id="amountChanges" onchange="yesAmountChanged()" title="select any option" required>
                     <option value="">None</option>
                     <option value="yes">Yes</option>
                     <option value="No">No</option>
                 </select><br>
+                <div class="amountDatas">
 
-                <label for="changedAmount">If you have any changes in price</label>
-                <input id="changedAmount" placeholder="Enter the price here" title="selection any option" />
+                </div>
 
-                <label for="reason">Type the reason of price changes</label>
-                <textarea id="reason" placeholder="reason"></textarea>
+
 
                 <button id="getCompletedDetailsbutton" type="submit">Completed</button>
                 <button type="reset">Cancel</button>
@@ -488,6 +488,34 @@
                 console.error(err);
             }
         });
+
+
+        function yesAmountChanged() {
+            let x = document.getElementById("amountChanges").value;
+            if (x == "yes") {
+                console.log("yes");
+                amountChanges();
+                document.querySelector(".getCompletedDetails").style.height = "20rem";
+            }
+
+            if (x == "No") {
+                console.log("no");
+                document.querySelector(".amountDatas").innerHTML = null;
+                document.querySelector(".getCompletedDetails").style.height = "8rem";
+
+            }
+        }
+
+
+        function amountChanges() {
+            document.querySelector(".amountDatas").innerHTML = `<label for="changedAmount">If you have any changes in price</label>
+                <input id="changedAmount" type="number" placeholder="Enter the price here" title="enter numbers only"
+                    required />
+
+                <label for="reason">Type the reason of price changes</label>
+                <textarea id="reason" placeholder="reason" required></textarea>`;
+
+        }
     </script>
 </body>
 

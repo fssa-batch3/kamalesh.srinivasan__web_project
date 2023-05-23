@@ -52,7 +52,7 @@ function detailView(currentData) {
   
                   <div class="paymentStatus">
                       <p>Amount</p>
-                      <div>${amount}</div>
+                      <div>Rs.${amount}</div>
                   </div>
   
                   <div class="PaymentDetailsButtons">
@@ -195,11 +195,17 @@ function payCash() {
     let br = document.createElement("br");
     form.append(br);
 
-    let cashSubmit = document.createElement("button");
-    cashSubmit.setAttribute("type", "submit");
-    cashSubmit.innerHTML = "Piad";
-    // cashSubmit.setAttribute("onclick", "cashSubmit()");
-    form.append(cashSubmit);
+    let cashSubmitform = document.createElement("button");
+    cashSubmitform.setAttribute("type", "submit");
+    cashSubmitform.innerHTML = "Piad";
+    // cashSubmitform.setAttribute("onclick", "cashSubmitform()");
+    form.append(cashSubmitform);
+
+    cashSubmitform.addEventListener("click", (event) => {
+      event.preventDefault();
+      console.log("fomr");
+      cashSubmit();
+    });
 
     let cashCancel = document.createElement("button");
     cashCancel.setAttribute("type", "reset");
@@ -225,6 +231,7 @@ function cancelCashform() {
 function cashSubmit() {
   try {
     event.preventDefault();
+    console.log("test");
     let paymentJob = JSON.parse(localStorage.getItem("currentDataPayDetail"));
     let completedJobs = JSON.parse(localStorage.getItem("completedJobs"));
     let paidAmount = document.getElementById("amountbox").value;
@@ -315,6 +322,12 @@ function paid() {
     // submitButton.setAttribute("onclick", "paidDetails()");
     submitButton.innerHTML = "Submit";
     form.append(submitButton);
+
+    submitButton.addEventListener("clcik", (event) => {
+      event.preventDefault();
+      console.log("test");
+      paidDetails();
+    });
 
     let cancelButton = document.createElement("button");
     cancelButton.setAttribute("id", "cancelButton");

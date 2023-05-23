@@ -275,9 +275,9 @@ function createJob(yourJobs) {
     console.log(from);
     let card = document.createElement("div");
     card.setAttribute("class", "card");
-    card.innerHTML = `   <div class="userName"> <img src="${profileImage}" alt="image"> ${
+    card.innerHTML = `   <div class="userName"> <img  src="${profileImage}" alt="image"> ${
       yourJobs[i]["FN"] + yourJobs[i]["LN"]
-    }</div>
+    } </div>
                 <div class="title">
                     ${yourJobs[i]["title"]}
                 </div>
@@ -291,6 +291,75 @@ function createJob(yourJobs) {
                     <div class="salary">${yourJobs[i]["Salary"]}</div>
                     <div class="viewMore" onclick="yourJobsClick(${i})"> <img src="../assets/Images/rightArrow.svg" alt="image"></div>
                 </div>`;
+
     document.querySelector(".cards").append(card);
   }
+}
+
+function ownerDetails(id, i) {
+  if (document.querySelector(".detailDiv") != undefined) {
+    document.querySelector(".detailDiv").remove();
+  }
+
+  console.log(id);
+  let requirements = JSON.parse(localStorage.getItem("requirements"));
+  let completedJobs = JSON.parse(localStorage.getItem("completedJobs"));
+  let apllyJob = JSON.parse(localStorage.getItem("apllyJob"));
+
+  let totalJobs = requirements.filter((F) => F.ownerId == id);
+  let completedjobsOwner = completedJobs.filter((F) => F.ownerId == id);
+  let paymentPendingJobs = completedjobsOwner.filter((F) => F.paid == "Unpaid");
+  let paymentCompletedJobs = completedjobsOwner.filter((F) => F.paid == "Paid");
+  let totalAmount = 0;
+  for (let i = 0; i < paymentCompletedJobs.length; i++) {
+    totalAmount += paymentCompletedJobs[i]["paidAmount"];
+  }
+
+  let detailDiv = document.createElement("div");
+  detailDiv.setAttribute("class", "detailDiv");
+  document.querySelector(".cards").append(detailDiv);
+
+  let totalJobsP = document.createElement("p");
+  totalJobsP.setAttribute("class", "totalJobsP");
+  totalJobsP.innerHTML = `${totalJobs[0]["FN"]}${totalJobs[0]["LN"]}'s Total Jobs : ${totalJobs.length}`;
+  detailDiv.append(totalJobsP);
+
+  let completedJobsP = document.createElement("p");
+  completedJobsP.setAttribute("class", "completedJobsP");
+  completedJobsP.innerHTML = `${completedjobsOwner[0]["FN"]}${completedjobsOwner[0]["LN"]}'s Completed Jobs : ${completedjobsOwner.length}`;
+  detailDiv.append(completedJobsP);
+
+  let paymentPendingJobsP = document.createElement("p");
+  paymentPendingJobsP.setAttribute("class", "paymentPendingJobsP");
+  if (paymentPendingJobs[0] == null || undefined) {
+    paymentPendingJobsP.innerHTML = `${totalJobs[0]["FN"]}${totalJobs[0]["LN"]}'s Payment Pending Jobs : ${paymentPendingJobs.length}`;
+  } else {
+    paymentPendingJobsP.innerHTML = `${paymentPendingJobs[0]["FN"]}${paymentPendingJobs[0]["LN"]}'s Payment Pending Jobs : ${paymentPendingJobs.length}`;
+  }
+  detailDiv.append(paymentPendingJobsP);
+
+  let paymentCompletedJobsP = document.createElement("p");
+  paymentCompletedJobsP.setAttribute("class", "paymentCompletedJobsP");
+  if (paymentCompletedJobs[0] == undefined || null) {
+    paymentCompletedJobsP.innerHTML = `${totalJobs[0]["FN"]}${totalJobs[0]["LN"]}'s Payment Completed Jobs : ${paymentCompletedJobs.length}`;
+  } else {
+    paymentCompletedJobsP.innerHTML = `${paymentCompletedJobs[0]["FN"]}${paymentCompletedJobs[0]["LN"]}'s Payment Completed Jobs : ${paymentCompletedJobs.length}`;
+  }
+
+  let totalAmountP = document.createElement("p");
+  totalAmountP.setAttribute("class", "totalAmountP");
+  totalAmountP.innerHTML = `${totalJobs[0]["FN"]}${totalJobs[0]["LN"]}'s Total Amount : Rs.${totalAmount}`;
+  detailDiv.append(totalAmountP);
+
+  let closeBtn = document.createElement("img");
+  closeBtn.setAttribute("class", "closeBtn");
+  closeBtn.setAttribute("src", "../assets/Images/cross.svg");
+  closeBtn.setAttribute("onclick", "closeDetaillist()");
+  detailDiv.append(closeBtn);
+
+  detailDiv.append(paymentCompletedJobsP);
+}
+
+function closeDetaillist() {
+  document.querySelector(".detailDiv").remove();
 }

@@ -71,7 +71,19 @@
 
         </section>
 
-        <section class="secS">
+        <section class="profileDeatail">
+            <div class="works">
+                <h2>Works / Certificates</h2>
+
+
+
+            </div>
+
+            <div class="completedJobs">
+                <h2>Completed Jobs</h2>
+                <img class="cross" onclick="closeProfileDetails()" src="../assets/Images/cross.svg" alt="image">
+
+            </div>
         </section>
     </main>
     <script>
@@ -157,14 +169,15 @@
         for (let i = 0; i < applyJob.length; i++) {
             let notifications = document.createElement("div");
             notifications.setAttribute("class", "notifications");
-
+            console.log(applyJob[i]);
             let notifyCards = document.createElement("div");
             notifyCards.setAttribute("class", "notifyCards");
             notifications.append(notifyCards);
 
             let notifyCardsImage = document.createElement("img");
-            let imageProfile = profileImg(applyJob[i]["applierName"], applyJob[i]["LN"])
+            let imageProfile = profileImg(applyJob[i]["applierName"], applyJob[i]["applierName"])
             notifyCardsImage.setAttribute("src", imageProfile);
+            notifyCardsImage.setAttribute("onclick", `openprofileDetails(${applyJob[i]["applierId"]})`)
             notifyCardsImage.setAttribute("alt", "Image");
             notifyCards.append(notifyCardsImage);
 
@@ -178,7 +191,7 @@
             applierDetails.append(name);
 
             let jobId = document.createElement("p");
-            jobId.innerHTML = `Job Id : ${applyJob[i]["jobID"]}`;
+            jobId.innerHTML = `Job Title : ${applyJob[i]["title"]}`;
             jobId.setAttribute("class", "jobId");
             applierDetails.append(jobId);
 
@@ -244,6 +257,115 @@
 
 
 
+        function openprofileDetails(id) {
+            document.querySelector(".profileDeatail").style.display = "flex";
+            document.querySelector(".notificationEntire").style.height = null;
+            document.querySelector(".notificationEntire").style.marginLeft = "0%";
+            let workerRegister = JSON.parse(localStorage.getItem("workerRegister"));
+            let ownerRegister = JSON.parse(localStorage.getItem("register"));
+            let Register = ownerRegister.concat(workerRegister);
+            let currentRegister = Register.find((x) => x.id == id);
+            let Bio = JSON.parse(localStorage.getItem("BIO"));
+            let currentBio = Bio.find((F) => F.Email == currentRegister.Email);
+            let post = currentBio.post;
+            createposts(post);
+            completedJobs(id);
+
+        }
+
+
+        function closeProfileDetails() {
+            document.querySelector(".profileDeatail").style.display = "none";
+            document.querySelector(".notificationEntire").style.height = "5rem";
+            document.querySelector(".notificationEntire").style.marginLeft = "100%"
+        }
+
+        function createposts(data) {
+
+            if (data == undefined || null) {
+                if (document.querySelector(".worknull") != null || undefined) {
+                    document.querySelector(".worknull").remove();
+                }
+                let work = document.createElement("div");
+                work.innerHTML = "No Posts Yet";
+                work.style.display = "flex";
+                work.style.alignItems = "center"
+                work.style.justifyContent = "center"
+                work.style.fontSize = "2rem"
+                work.className = "worknull";
+                document.querySelector(".works").append(work);
+
+            }
+            else {
+                for (let i = 0; i < data.length; i++) {
+                    let work = document.createElement("div");
+                    work.className = "work";
+
+                    let work_title = document.createElement("div");
+                    work_title.className = "work_title";
+                    work_title.innerHTML = data[i]["description"];
+                    work.append(work_title);
+
+                    let work__img = document.createElement("div");
+                    work__img.className = "work__img";
+                    work__img.innerHTML = `<img src="${data[i]["url"]}" alt="image">`;
+                    work.append(work__img);
+
+                    document.querySelector(".works").append(work);
+
+                }
+
+
+
+
+
+            }
+        }
+
+
+        function completedJobs(id) {
+            let completedJobs = JSON.parse(localStorage.getItem("completedJobs"));
+            let filteredCompletedJobs = completedJobs.filter((F) => F.applierId == id);
+            let paid = filteredCompletedJobs.filter((F) => F.paid == "Paid");
+            if (document.querySelectorAll(".jobs") != null || undefined) {
+                let allJobs = document.querySelectorAll(".jobs");
+                for (let i = 0; i < allJobs.length; i++) {
+                    allJobs[i].remove();
+                }
+            }
+            if (paid.length > 0) {
+                for (let i = 0; i < paid.length; i++) {
+                    // Create the main container div
+                    var jobsDiv = document.createElement('div');
+                    jobsDiv.className = 'jobs';
+
+                    // Create the image element
+                    var image = document.createElement('img');
+                    image.src = profileImg(paid[i]["FN"], paid[i]["LN"]);
+                    image.alt = 'image';
+
+                    // Create the job title div
+                    var jobTitleDiv = document.createElement('div');
+                    jobTitleDiv.className = 'job__title';
+                    jobTitleDiv.textContent = paid[i]["title"];
+
+                    // Create the paid amount div
+                    var paidAmountDiv = document.createElement('div');
+                    paidAmountDiv.className = 'paidAmount';
+                    paidAmountDiv.textContent = `Rs.${paid[i]["paidAmount"]}`;
+
+                    // Append the image, job title, and paid amount divs to the main container div
+                    jobsDiv.appendChild(image);
+                    jobsDiv.appendChild(jobTitleDiv);
+                    jobsDiv.appendChild(paidAmountDiv);
+
+                    // Append the main container div to the desired parent element in your HTML
+                    var parentElement = document.querySelector(".completedJobs");
+                    parentElement.appendChild(jobsDiv);
+                }
+            }
+
+        }
 
 
 

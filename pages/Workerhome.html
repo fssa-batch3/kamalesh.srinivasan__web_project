@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../assets/css/workerHome.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="../assets/Images/barLogo.png" type="image/x-icon">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
         rel="stylesheet">
@@ -77,7 +79,7 @@
                         <div class="last">
                             <div class="location">Chennai</div>
                             <div class="salary">Rs.10,000</div>
-                            <div class="viewMore"><img src="../assets/Images/rightArrow.svg" alt="image"></div>
+                            <div class="viewMore"><i class="fa fa-angle-double-right"></i></div>
                         </div>
 
                     </div> -->
@@ -198,7 +200,7 @@
             console.log(from);
             let card = document.createElement("div");
             card.setAttribute("class", "card");
-            card.innerHTML = `   <div class="userName"> <img src="${profileImage}" alt="image"> ${yourJobs[i]["FN"] + yourJobs[i]["LN"]}</div>
+            card.innerHTML = `   <div class="userName" onclick> <img src="${profileImage}" alt="image"> ${yourJobs[i]["FN"] + yourJobs[i]["LN"]} <a id="ownerDetails" onclick="ownerDetails(${yourJobs[i]["ownerId"]},${i})" >Owner Details </a></div>
                         <div class="title">
                             ${yourJobs[i]["title"]}
                         </div>
@@ -209,8 +211,8 @@
 
                         <div class="cardLast">
                             <div class="location">${yourJobs[i]["location"]}</div>
-                            <div class="salary">${yourJobs[i]["Salary"]}</div>
-                            <div class="viewMore" onclick="yourJobsClick(${i})"> <img src="../assets/Images/rightArrow.svg" alt="image"></div>
+                            <div class="salary">Rs.${yourJobs[i]["Salary"]}</div>
+                            <div class="viewMore" onclick="yourJobsClick(${i})"> <i class="fa fa-angle-double-right" style="font-size:48px;"></i></div>
                         </div>`;
             document.querySelector(".cards").append(card);
 

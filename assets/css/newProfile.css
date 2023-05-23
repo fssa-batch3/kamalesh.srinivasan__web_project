@@ -1,0 +1,291 @@
+body {
+  font-family: "Aref Ruqaa Ink", serif;
+  padding: 0.2rem;
+  /* overflow: hidden; */
+  position: relative;
+}
+
+.firstOne {
+  background-image: linear-gradient(to right, #f9e3ab, #f6d0cb);
+  width: 60rem;
+  height: 10rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  position: relative;
+}
+
+#editBtn {
+  padding: 0.2rem 0.5rem;
+  border: none;
+  background-color: #382d5e;
+  color: #f9e3ab;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  border-radius: 0.3rem;
+}
+
+.first {
+  /* margin-left: 3rem; */
+  margin-top: 3rem;
+}
+
+.firstTwo {
+  background-color: white;
+  width: 60rem;
+  height: 18rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.firstOne img {
+  width: 7rem;
+  position: absolute;
+  top: 6rem;
+  left: 2rem;
+  border: 10px solid white;
+  border-radius: 50%;
+  padding: 0px;
+}
+
+.name {
+  margin-top: 5rem;
+  margin-left: 2rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.address {
+  margin-left: 2rem;
+}
+
+.qualification {
+  margin-left: 2rem;
+}
+
+.skillsTop p {
+  margin-top: -0.01rem;
+  font-size: large;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.skill {
+  background-color: rgba(211, 211, 211, 0.417);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.3rem;
+  padding: 0.2rem 0.4rem;
+}
+
+.skills {
+  display: flex;
+  column-gap: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+}
+
+.certifications {
+  margin-top: 5rem;
+}
+
+.certificationsTopic {
+  font-size: 1.3rem;
+  font-weight: 900;
+  margin-left: 1rem;
+}
+
+.certificate {
+  margin-top: 1rem;
+  background-color: rgb(255, 255, 255);
+  height: 30rem;
+  border-radius: 1rem;
+}
+
+.certificateEmpty {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-left: 3rem;
+  margin-top: 2rem;
+  color: red;
+}
+
+/* .img img {
+  width: 40rem;
+  height: 25rem;
+
+} */
+
+.editcard {
+  background-color: #382d5e;
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1rem;
+  border-radius: 1rem;
+  gap: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  left: 25rem;
+}
+
+.editcard textarea,
+input {
+  outline: none;
+}
+
+.editButtons button {
+  width: 4rem;
+  margin-right: 1rem;
+  border: none;
+  border-radius: 0.2rem;
+  transition: 0.2s;
+}
+
+.editEditBtn {
+  background-color: green;
+}
+
+.editCancel {
+  background-color: red;
+}
+
+.editDescriptioin {
+  height: 5rem;
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img img {
+  height: 24rem;
+}
+
+#delete {
+  background-color: red;
+}
+
+.certificationsTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 1rem;
+  margin-right: 2rem;
+}
+
+.add {
+  background-color: #179b8c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+  transition: 0.5s;
+}
+
+.add:hover {
+  background-color: rgba(19, 176, 19, 0.662);
+}
+
+.secondTitle {
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.card {
+  width: 24rem;
+  /* background-image: linear-gradient(to right, #f9e3ab, #f6d0cb); */
+  height: 7rem;
+  margin-top: -1rem;
+  background-color: #382d5e;
+  margin-bottom: 1rem;
+}
+main {
+  display: flex;
+  gap: 0.001rem;
+}
+
+.cardtitle {
+  color: white;
+  margin-left: 8.5rem;
+}
+
+.profile {
+  margin-top: -1rem;
+}
+
+.details {
+  display: flex;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  color: white;
+}
+
+.title {
+  font-size: 1.2rem;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.getCertificate {
+  display: none;
+  background-color: #382d5e;
+  color: white;
+  position: absolute;
+  left: 25rem;
+  border-radius: 1rem;
+}
+.image {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.image h2 {
+  text-align: center;
+}
+
+.imagebuttons {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagebuttons button {
+  width: 5rem;
+  border-radius: 0.4rem;
+  border: none;
+  transition: 0.5s;
+}
+
+.imageAddBtn {
+  background-color: green;
+}
+
+.imagecancelBtn {
+  background-color: red;
+}
+
+.image textarea {
+  height: 4rem;
+}
+
+.profileName {
+  width: 4rem;
+}

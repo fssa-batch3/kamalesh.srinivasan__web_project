@@ -11,7 +11,7 @@ a {
 .notificationEntire {
   background-color: white;
   width: 30rem;
-  /* height: 5rem; */
+  height: 5rem;
   margin-left: 100%;
   margin-top: 2rem;
   border-radius: 0.3rem;
@@ -139,7 +139,7 @@ a {
 
 main {
   display: flex;
-  gap: 10rem;
+  gap: 3rem;
 }
 
 .secS {
@@ -188,4 +188,103 @@ a:active {
 
 #getCompletedDetailsbutton {
   width: 10rem;
+}
+
+main {
+  display: flex;
+}
+
+.profileDeatail {
+  width: 1000rem;
+  height: 40rem;
+  background-color: aqua;
+  /* margin-left: 25rem; */
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+  display: none;
+  justify-content: space-around;
+}
+
+.works {
+  border: 3px solid #382d5e;
+  height: 38rem;
+  width: 30rem;
+  border-radius: 0.5rem;
+  margin-left: 0.2rem;
+  margin-top: 0.2rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  overflow: scroll;
+}
+
+.works h2 {
+  text-align: center;
+  /* position: sticky;
+  top: 0.2rem; */
+}
+
+.work__img img {
+  width: 28rem;
+  margin-left: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+/* width */
+.works::-webkit-scrollbar {
+  width: 0px;
+}
+
+.completedJobs h2 {
+  text-align: center;
+  margin-top: 0.3rem;
+}
+
+.completedJobs {
+  width: 22rem;
+  background-color: white;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+.completedJobs::-webkit-scrollbar {
+  width: 0px;
+}
+
+.jobs {
+  width: 21rem;
+  height: 5rem;
+  background-color: #382d5e;
+  justify-content: center;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+}
+
+.jobs img {
+  width: 4rem;
+}
+
+.cross {
+  width: 2rem;
+  position: absolute;
+  right: 0.5rem;
+  transition: 0.5s;
+}
+
+.cross:hover {
+  scale: 1.2;
+}
+
+.cross:active {
+  scale: 0.8;
 }

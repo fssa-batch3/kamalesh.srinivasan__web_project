@@ -68,6 +68,8 @@ function createDetails(currentJob) {
       startWork.setAttribute("onclick", "addstartWork()");
       startWork.innerHTML = "Start Work";
       details.append(startWork);
+
+      ;
     }
 
     let data = document.createElement("div");

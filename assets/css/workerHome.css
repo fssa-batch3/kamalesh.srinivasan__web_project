@@ -212,6 +212,7 @@ main {
   gap: 2rem;
   /* justify-content: space-around; */
   position: relative;
+  overflow: hidden;
 }
 
 .title {
@@ -400,7 +401,7 @@ a:hover span:after {
 }
 
 .card:hover {
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 10px -20px;
 }
 
 .userName img {
@@ -422,6 +423,26 @@ a:hover span:after {
   font-size: 1.1rem;
 }
 
+#ownerDetails {
+  width: 10rem;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-left: 1rem;
+  background-color: white;
+  text-align: center;
+  color: #2f8b65;
+  border-radius: 1rem;
+  transition: 0.5s;
+}
+
+#ownerDetails:hover {
+  scale: 0.8;
+}
+
+#ownerDetails:active {
+  scale: 1.05;
+}
+
 .cardLast {
   display: flex;
   gap: 1rem;
@@ -436,7 +457,7 @@ a:hover span:after {
 .viewMore {
   width: 25rem;
 }
-.viewMore img {
+.viewMore i {
   width: 3rem;
   /* margin-left: 8rem; */
   transition: 0.5s;
@@ -445,11 +466,11 @@ a:hover span:after {
   top: -1rem;
 }
 
-.viewMore img:hover {
+.viewMore i:hover {
   scale: 1.06;
 }
 
-.viewMore:active {
+.viewMore:i {
   .cards {
     display: flex;
     flex-direction: column;
@@ -492,4 +513,31 @@ a:hover span:after {
 
 .jobSearch i:active {
   scale: 0.5;
+}
+
+.detailDiv {
+  width: 22rem;
+  height: 20rem;
+  background-color: black;
+  position: fixed;
+  left: 38rem;
+  border-radius: 1rem;
+  box-shadow: rgba(30, 163, 59, 0.4) 0px 2px 4px,
+    rgba(34, 180, 42, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  z-index: 2;
+  color: white;
+  font-size: 1rem;
+  /* position: relative; */
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.closeBtn {
+  width: 3rem;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
 }
