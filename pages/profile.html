@@ -15,6 +15,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/css/newProfile.css">
+    <link rel="icon" href="../assets/Images/barLogo.png" type="image/x-icon">
 
 
 </head>
@@ -121,9 +122,10 @@
                 <div class="image">
 
                     <h2>Certificate or work details</h2>
-                    <input type="text" id="url" placeholder="Enter certificate image url" />
+                    <input type="text" id="url" placeholder="Enter certificate image url"
+                        value="https://prepinsta.com/wp-content/uploads/2021/05/Sample_certificate.webp" />
                     <textarea type="text" id="description" placeholder="Enter the description of the certificate/work"
-                        maxlength="200"> </textarea>
+                        maxlength="200">I got this from hackerrank</textarea>
                     <div class="imagebuttons">
                         <button class="imageAddBtn">Add</button>
                         <button class="imagecancelBtn" onclick="closeAdd()">Cancel</button>
@@ -370,7 +372,9 @@
         }
 
 
-
+        function payment() {
+            location.href = "payment.html" + location.search;
+        }
     </script>
 </body>
 

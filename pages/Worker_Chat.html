@@ -13,6 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
         rel="stylesheet">
     <link rel="icon" href="../assets/Images/barLogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -88,7 +89,7 @@
             </div>
         </section>
         <section class="rightSec">
-            <div class="rightProfile">
+            <!-- <div class="rightProfile">
                 <img src="../assets/Images/avatar (2).svg" alt="profileImage">
             </div>
 
@@ -101,6 +102,23 @@
                 <p class="noOfJobs">No of jobs completed : 0 jobs</p>
                 <p class="pendingJobs">No of pending jobs : 0 jobs</p>
 
+            </div> -->
+
+            <div class="suggetions">
+                <h2>Suggetions</h2>
+                <a class="create" onclick="openCreatesuggetions()"><i class="fa fa-plus"></i>Create</a>
+                <div class="createSuggestion">
+                    <textarea class="typedSuggetion" placeholder="Enter Your suggestion"></textarea>
+                    <div class="suggetionsButton">
+                        <button class="createSuggestionBtn" onclick="createSuggetion()">Create</button>
+                        <button class="cancelSuggestion" onclick="closeSuggestion()">Cancel</button>
+                    </div>
+                </div>
+                <div class="messages">
+
+
+
+                </div>
             </div>
         </section>
 
@@ -375,6 +393,78 @@
                 console.error(err);
             }
         })
+
+        function openCreatesuggetions() {
+            document.querySelector(".createSuggestion").style.display = "flex";
+
+        }
+
+
+        function createSuggetion() {
+            let logIn = JSON.parse(localStorage.getItem("Login"));
+            let Bio = JSON.parse(localStorage.getItem("BIO"));
+            let currentBio = Bio.find((F) => F.Email == logIn.Email);
+            let currentBioIndex = Bio.indexOf(currentBio);
+            let text = document.querySelector(".typedSuggetion").value;
+            let trimedText = text.trim();
+
+            if (text == "" || trimedText == "") {
+                return alert("Please write something in suggestions");
+            }
+            let suggestions = [];
+
+            if (currentBio["suggestions"] != null || undefined) {
+                suggestions = currentBio["suggestions"];
+            }
+
+            let id = Date.now();
+
+            let createdsuggestion = {
+                suggestionId: id,
+                message: text
+            }
+            suggestions.push(createdsuggestion);
+            Bio[currentBioIndex].suggestions = suggestions;
+            localStorage.setItem("BIO", JSON.stringify(Bio));
+            document.querySelector(".createSuggestion").style.display = "none";
+            location.reload();
+
+        }
+
+        function closeSuggestion() {
+            document.querySelector(".createSuggestion").style.display = "none";
+
+        }
+
+        //  creating suggetions 
+        let logIn = JSON.parse(localStorage.getItem("Login"));
+        let currentBio = Bio.find((F) => F.Email == logIn.Email);
+        if (currentBio["suggestions"] == undefined || null) {
+            let message = document.createElement("div");
+            message.classList.add("message");
+            message.innerHTML = "No suggestions created"
+            document.querySelector(".messages").append(message);
+        }
+        else {
+            let suggestions = currentBio["suggestions"];
+            for (let i = 0; i < suggestions.length; i++) {
+                let message = document.createElement("div");
+                message.classList.add("message");
+                message.innerHTML = suggestions[i]["message"];
+                message.setAttribute(`onclick`, `addToChat(${suggestions[i]["suggestionId"]})`)
+                document.querySelector(".messages").append(message);
+            }
+        }
+
+        function addToChat(id) {
+            let logIn = JSON.parse(localStorage.getItem("Login"));
+            let Bio = JSON.parse(localStorage.getItem("BIO"));
+            let currentBio = Bio.find((F) => F.Email == logIn.Email);
+            let currentsuggestion = currentBio.suggestions.find((F) => F.suggestionId == id);
+            document.querySelector("#chatText").value = currentsuggestion.message;
+        }
+
+
     </script>
 </body>
 

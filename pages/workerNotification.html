@@ -14,6 +14,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
         rel="stylesheet">
+        <link rel="icon" href="../assets/Images/barLogo.png" type="image/x-icon">
 
 </head>
 
@@ -31,7 +32,7 @@
             <div>
                 <a onclick="urlNotif()"><span>Home</span></a>
                 <!-- <a>Search</a> -->
-                <a href=""><span>Chat</span></a>
+                <a onclick="chat()"><span>Chat</span></a>
                 <a><span>Notification</span></a>
                 <!-- <a href="payment.html">Payment</a> -->
                 <a onclick="urlData()"><span>profile</span></a>
@@ -515,6 +516,10 @@
                 <label for="reason">Type the reason of price changes</label>
                 <textarea id="reason" placeholder="reason" required></textarea>`;
 
+        }
+
+        function chat() {
+            location.href = "Worker_Chat.html" + location.search;
         }
     </script>
 </body>

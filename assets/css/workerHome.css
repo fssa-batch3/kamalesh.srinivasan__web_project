@@ -254,6 +254,7 @@ main {
   transition: 0.3s;
   border-radius: 2px;
   background-color: #4db6ac;
+  font-size: 1rem;
 }
 
 .apply:hover {

@@ -68,8 +68,6 @@ function createDetails(currentJob) {
       startWork.setAttribute("onclick", "addstartWork()");
       startWork.innerHTML = "Start Work";
       details.append(startWork);
-
-      ;
     }
 
     let data = document.createElement("div");
@@ -352,5 +350,5 @@ function jobToast(type, message) {
 }
 
 function urlData() {
-  location.href = "profile.html" + location.search;
+  location.href = "workerProfile.html" + location.search;
 }

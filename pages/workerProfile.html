@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Needs To Be Done</title>
+    <link rel="stylesheet" href="../assets/css/ownerhome.css">
+    <link rel="stylesheet" href="../assets/css/ownerNotification.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/newProfile.css">
+
+    <link rel="icon" href="../assets/Images/barLogo.png" type="image/x-icon">
+
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="../assets/Images/logo-transparent-svg.svg" alt="Logo">
+        </div>
+
+        <nav>
+            <div>
+                <a onclick="urlHome()"><span>Home</span></a>
+                <!-- <a>Search</a> -->
+                <a onclick="redirectChat()"><span>Chat</span></a>
+                <a onclick="Notification()"><span>Notification</span></a>
+                <a onclick="urlData()"> <span> profile</span></a>
+                <a href="../index.html" style="background-color: #c84449;"><span>LogOut</span></a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="first">
+            <div class="firstOne">
+                <img src="../assets/Images/avatar (3).svg" alt="image">
+                <button id="editBtn">Edit</button>
+            </div>
+
+            <div class="firstTwo">
+                <div class="name">
+                    Kamalesh Srinivasan
+                </div>
+
+                <div class="address">
+                    No.7,Test st,Test,Chenai - $$$$$$
+                </div>
+
+                <div class="qualification">
+                    D.comp
+                </div>
+
+                <div class="skillsTop">
+                    <p>Skills</p>
+                    <div class="skills">
+                        <!-- <div class="skill">HTML</div>
+                        <div class="skill">CSS</div>
+                        <div class="skill">JS</div>
+                        <div class="skill">React</div>
+                        <div class="skill">Node</div>
+                        <div class="skill">Express</div>
+                        <div class="skill">MongoDB</div>
+                        <div class="skill">MySQL</div>
+                        <div class="skill">Git</div>
+                        <div class="skill">C</div>
+                        <div class="skill">C++</div>
+                        <div class="skill">C#</div>
+                        <div class="skill">Python</div>
+                        <div class="skill">Java</div>
+                        <div class="skill">C#</div> -->
+
+                    </div>
+                </div>
+
+
+                <div class="certifications">
+                    <div class="certificationsTop">
+                        <p class="certificationsTopic">Certifications / Works</p>
+                        <div class="add" onclick="openAdd()"><i class="fa fa-plus"></i>
+                            Add</div>
+                    </div>
+                    <div class="certificationList">
+                        <!-- <div class="certificate">
+                            <div class="top">
+                                <div class="description">I got this cerfication from HackerRank.</div>
+                                <div class="buttons">
+                                    <button class="edit">Edit</button>
+                                    <button id="delete" >Delete</button>
+                                </div>
+
+
+                            </div>
+
+                            <div class="img">
+                                <img src="https://media.istockphoto.com/id/1128426035/vector/elegant-blue-and-gold-diploma-certificate-template.jpg?s=612x612&w=0&k=20&c=u6nl2YC0OfpYpcNS3C97EZhgaJKs4IVh-Tc0a55M-wc="
+                                    alt="Certificate">
+                            </div>
+                        </div> -->
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="second">
+            <div class="secondTitle">Completed Jobs</div>
+            <div class="cards">
+
+            </div>
+
+
+            <div class="getCertificate">
+
+                <div class="image">
+
+                    <h2>Certificate or work details</h2>
+                    <input type="text" id="url" placeholder="Enter certificate image url" />
+                    <textarea type="text" id="description" placeholder="Enter the description of the certificate/work"
+                        maxlength="200"> </textarea>
+                    <div class="imagebuttons">
+                        <button class="imageAddBtn">Add</button>
+                        <button class="imagecancelBtn" onclick="closeAdd()">Cancel</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+    <script src="../assets/JS/index.js"></script>
+
+    <script>
+        let url = location.search;
+        let urlParams = new URLSearchParams(url);
+        let type = urlParams.get("type");
+        console.log(type);
+        let login = JSON.parse(localStorage.getItem("Login"));
+        let bio = JSON.parse(localStorage.getItem("BIO"));
+        let currentUserBio = bio.find((F) => F.Email == login.Email);
+        document.querySelector('#editBtn').setAttribute("onclick", `Edit()`);
+        let profileImage = profileImg(currentUserBio["FN"], currentUserBio["LN"])
+        document.querySelector(".firstOne img").setAttribute("src", `${profileImage}`)
+        document.querySelector(".name").innerHTML = currentUserBio["FN"] + " " + currentUserBio["LN"];
+        document.querySelector(".address").innerHTML = currentUserBio["Address"];
+        document.querySelector(".qualification").innerHTML = currentUserBio["Education"];
+
+
+
+        function Edit() {
+            let getLocation = location.search;
+            console.log(getLocation);
+            let login = JSON.parse(localStorage.getItem("Login"));
+            let bio = JSON.parse(localStorage.getItem("BIO"));
+            let currentUserBio = bio.find((F) => F.Email == login.Email);
+            location.href = `editProfile.html` + getLocation + "&email=" + login.Email;
+        }
+
+        function openAdd() {
+            let add = document.querySelector(".getCertificate");
+            add.style.display = "block";
+        }
+
+        function closeAdd() {
+            let add = document.querySelector(".getCertificate");
+            add.style.display = "none";
+        }
+
+        // Skils
+        let splitedSkills = currentUserBio.skils.split(",")
+        console.log(splitedSkills);
+        for (let i = 0; i < splitedSkills.length; i++) {
+            let skill = document.createElement("div");
+            skill.className = "skill";
+            skill.innerHTML = splitedSkills[i];
+            document.querySelector(".skills").appendChild(skill);
+        }
+
+
+        document.querySelector(".imageAddBtn").addEventListener("click", (event) => {
+            event.preventDefault();
+
+            let url = document.getElementById("url").value;
+            let description = document.getElementById("description").value;
+
+            if (url == "" || description == null) {
+                return alert("Url and Description should be Empty")
+            }
+            let login = JSON.parse(localStorage.getItem("Login"));
+            let bio = JSON.parse(localStorage.getItem("BIO"));
+            let currentUserBio = bio.find((F) => F.Email == login.Email);
+            let indexOfCurrentBio = bio.indexOf(currentUserBio);
+            let postId = Date.now()
+            if (currentUserBio.post != undefined || null) {
+                currentUserBio.post.push({
+                    url, description, postId
+                })
+            } else {
+                currentUserBio.post = [{
+                    url, description, postId
+                }]
+            }
+            bio[indexOfCurrentBio].currentUserBio;
+            localStorage.setItem("BIO", JSON.stringify(bio))
+            let add = document.querySelector(".getCertificate");
+            add.style.display = "none";
+            location.reload();
+        })
+
+        //  create post
+
+        if (currentUserBio.post == undefined || null) {
+            let certificate = document.createElement("div")
+            certificate.setAttribute("class", "certificateEmpty");
+            certificate.innerHTML = `Post not found`;
+            document.querySelector(".certificationList").append(certificate);
+
+        }
+
+        else {
+            for (let i = 0; i < currentUserBio.post.length; i++) {
+                let certificate = document.createElement("div")
+                certificate.setAttribute("class", "certificate");
+                certificate.innerHTML = `<div class="top">
+                                <div class="description">${currentUserBio.post[i]["description"]}</div>
+                                <div class="buttons">
+                                    <button class="edit" onclick="editPost(${currentUserBio.post[i]["postId"]})">Edit</button>
+                                    <button id="delete" onclick="deletepost(${currentUserBio.post[i]["postId"]})">Delete</button>
+                                </div>
+
+
+                            </div>
+
+                            <div class="img">
+                                <img src="${currentUserBio.post[i]["url"]}"
+                                    alt="Certificate">
+                            </div>`;
+                document.querySelector(".certificationList").append(certificate);
+
+            }
+        }
+
+        function urlHome() {
+            let url = new URLSearchParams(location.search);
+            let type = url.get("type");
+            if (type == "owner") {
+                location.href = "Ownerhome.html" + location.search;
+            }
+            else {
+                location.href = "Workerhome.html" + location.search;
+            }
+
+        }
+
+        function editPost(postId) {
+            let login = JSON.parse(localStorage.getItem("Login"));
+            let bio = JSON.parse(localStorage.getItem("BIO"));
+            let currentUserBio = bio.find((F) => F.Email == login.Email);
+            let currentUserBioIdpost = currentUserBio.post;
+            let currentUserBioIdcurrentpost = currentUserBioIdpost.find((F) => F.postId == postId);
+            let editcard = document.createElement("div");
+            editcard.setAttribute("class", "editcard");
+            editcard.innerHTML = "EditPost"
+            let editUrl = document.createElement("input");
+            editUrl.setAttribute("class", "editUrl");
+            editUrl.setAttribute("type", "text");
+            editUrl.setAttribute("value", currentUserBioIdcurrentpost["url"])
+            editUrl.setAttribute("placeholder", "Enter your image url");
+            editcard.append(editUrl);
+
+            let editDescriptioin = document.createElement("textarea");
+            editDescriptioin.setAttribute("class", "editDescriptioin");
+            editDescriptioin.setAttribute("placeholder", "Enter your description")
+            editDescriptioin.innerHTML = currentUserBioIdcurrentpost["description"]
+            editcard.append(editDescriptioin);
+
+            let editButtons = document.createElement("div");
+            editButtons.setAttribute("class", "editButtons");
+            editcard.append(editButtons);
+
+            let editEditBtn = document.createElement("button");
+            editEditBtn.setAttribute("class", "editEditBtn");
+            editEditBtn.innerHTML = "Edit";
+            editButtons.setAttribute("onclick", `replaceEditedProfile(${postId})`);
+            editButtons.append(editEditBtn);
+
+            let editCancel = document.createElement("button");
+            editCancel.innerHTML = "Cancel";
+            editCancel.setAttribute("onclick", "cancelEdit()")
+            editCancel.setAttribute("class", "editCancel");
+            editButtons.append(editCancel);
+            document.querySelector("body").append(editcard);
+        }
+
+        function replaceEditedProfile(id) {
+            let editUrl = document.querySelector(".editUrl").value;
+            let editDescriptioin = document.querySelector(".editDescriptioin").value;
+
+            if (editUrl == "" || editDescriptioin == "") {
+                return alert(" Url and description should not be empty")
+            }
+            let login = JSON.parse(localStorage.getItem("Login"));
+            let bio = JSON.parse(localStorage.getItem("BIO"));
+            let currentUserBio = bio.find((F) => F.Email == login.Email);
+            let currentUserBioIdpost = currentUserBio.post;
+            let currentUserBioIdcurrentpost = currentUserBioIdpost.find((F) => F.postId == id);
+            let currentUserBioIdcurrentpostIdIndex = currentUserBioIdpost.indexOf(currentUserBioIdcurrentpost);
+            currentUserBioIdcurrentpost.url = editUrl;
+            currentUserBioIdcurrentpost.description = editDescriptioin;
+            currentUserBioIdpost[currentUserBioIdcurrentpostIdIndex] = currentUserBioIdcurrentpost;
+            currentUserBio.post = currentUserBioIdpost;
+            let bioId = bio.indexOf(currentUserBio);
+            bio[bioId] = currentUserBio;
+            localStorage.setItem("BIO", JSON.stringify(bio));
+            location.reload();
+        }
+
+        function deletepost(postId) {
+            let login = JSON.parse(localStorage.getItem("Login"));
+            let bio = JSON.parse(localStorage.getItem("BIO"));
+            let currentUserBio = bio.find((F) => F.Email == login.Email);
+            let currentUserBioIdpost = currentUserBio.post;
+            let currentUserBioIdcurrentpost = currentUserBioIdpost.find((F) => F.postId == postId);
+            let currentUserBioIdcurrentpostIdIndex = currentUserBioIdpost.indexOf(currentUserBioIdcurrentpost);
+            currentUserBioIdpost.splice(currentUserBioIdcurrentpostIdIndex, 1);
+            currentUserBio.post = currentUserBioIdpost;
+            let bioId = bio.indexOf(currentUserBio);
+            bio[bioId] = currentUserBio;
+            localStorage.setItem("BIO", JSON.stringify(bio));
+            location.reload();
+        }
+
+
+        // completed Jobs
+        let completedJobs = JSON.parse(localStorage.getItem("completedJobs"));
+        let paidJobs = completedJobs.filter((F) => F.paid == "Paid")
+        let filteredCompletedJobs
+        if (type == "owner") {
+            filteredCompletedJobs = paidJobs.filter((F) => F.ownerId == login.id);
+        }
+        else {
+            filteredCompletedJobs = paidJobs.filter((F) => F.applierId == login.id);
+        }
+        for (let i = 0; i < filteredCompletedJobs.length; i++) {
+            let card = document.createElement("div");
+            card.classList.add("card");
+            card.innerHTML = ` <div class="cardTop">
+
+<div class="profile"> <img src="../assets/Images/avatar (4).svg" alt="imge">
+    <h2 class="profileName">${filteredCompletedJobs[i]["applierName"]}</h2>
+    <div class="cardtitle">22.02.2023</div>
+
+</div>
+
+<div class="details">
+    <div class="title">${filteredCompletedJobs[i]["title"]}</div>
+    <div class="amount">Rs.${filteredCompletedJobs[i]["paidAmount"]}</div>
+</div>
+</div>`
+            document.querySelector(".cards").append(card);
+        }
+
+
+        function payment() {
+            location.href = "payment.html" + location.search;
+        }
+
+
+        function redirectChat() {
+            location.href = "Worker_Chat.html" + location.search;
+        }
+
+        function Notification() {
+            location.href = "workerNotification.html" + location.search;
+        }
+    </script>
+
+</body>
+
+</html>
