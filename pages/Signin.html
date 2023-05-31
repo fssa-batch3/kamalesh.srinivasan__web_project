@@ -6,16 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
+    <link rel="icon" href="../assets/Images/barLogo.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/Signin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
+        rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("PJgY6h-r_KG_ejDC3");
+        })();
+    </script>
+    <script src="../assets/JS/signIn.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <!-- This is sign in -->
 
 <body>
     <section>
-        <div>
-            <img alt="image" src="../assets/Images/signin_Background.webp" />
-        </div>
-        <div class="signin">
+
+        <!-- <div class="signin">
             <div>
                 <marquee scrollamount="10" behavior="alternate">
                     <h1>Welcome Back</h1>
@@ -24,17 +38,20 @@
 
 
                 <form id="form">
-                    <label class="tag">Email Id</label><br>
-                    <input type="text" id="Email" placeholder="Enter Email" /><br>
+                    <input type="email" name="email" id="Email" placeholder="E-mail" required>
+                    <br /><br />
+                    <input type="password" name="password" id="Password" placeholder="Password" required
+                        autocomplete="fdgbsfgbds" pattern="[A-Za-z]{1,20}"
+                        title="Password should have uppercase and lowercase only">
+                    <br /><br />
 
-                    <label>Password</label><br>
-                    <input type="text" id="Password" placeholder="Enter Password" /><br>
+                    <a class="ftPwd" onclick="forgotPwdEmail()">Forgot Password ?</a>
+
+                    <label for="submit"></label>
+
 
                     <button class="btn1" type="submit">Sign In</button><br>
-                    <button class="btn2">Cancel</button><br>
-                    <p>Or</p><br>
-                    <button class="btn3">Sign In with Google</button><br>
-                    <button class="btn4">Sign In with Facebook</button><br>
+                    <button class="btn2" type="reset" onclick="index()">Cancel</button>
 
 
 
@@ -48,105 +65,123 @@
 
                 </form>
             </div>
+        </div> -->
+
+        <div class="left">
+            <p class="login"> <img src="../assets/Images/user (1).png" alt="image"> LogIn</p>
+            <form id="form">
+                <label for="email">Email*</label><br>
+
+                <input type="email" name="email" id="Email" placeholder="example@gmail.com" required /><br>
+
+                <label for="password">Password*</label><br>
+                <div class="inputs">
+                    <input type="password" name="password" id="Password" placeholder="*********" required /><i
+                        onclick="displayPassword()" class="fa fa-eye"></i>
+                </div>
+                <br>
+
+                <a class="ftPwd" onclick="forgotPwdEmail()">Forgot Password ?</a><br>
+                <div class="buttons">
+                    <button type="submit">LogIn</button>
+                    <button type="reset">Register</button>
+                </div>
+            </form>
         </div>
+
+
+
     </section>
 
-    <script>
-
-        let logIn = document.getElementById("form");
-
-        logIn.addEventListener("submit", (event) => {
-            event.preventDefault();
-            let defaultData = JSON.parse(localStorage.getItem("register"));
-            let WorkerdefaultData = JSON.parse(localStorage.getItem("workerRegister"));
-            console.log(defaultData);
-            console.log(defaultData)
-            let Email = document.getElementById("Email").value.toLowerCase();
-            let Password = document.getElementById("Password").value;
-
-            let match = false;
-            let id;
-            let type;
-
-            if (defaultData != null) {
-                for (let i = 0; i < defaultData.length; i++) {
-                    if (Email == defaultData[i].Email && Password == defaultData[i].Password) {
-                        match = true
-                        id = defaultData[i]["id"];
-                        console.log(defaultData[i]["id"]);
-                        type = "owner";
-                        break;
-                        // i = i + defaultData.length;
-
-                    }
-                }
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Toastr -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        // Default Configuration
+        $(document).ready(function () {
+            toastr.options = {
+                'closeButton': true,
+                'debug': false,
+                'newestOnTop': false,
+                'progressBar': false,
+                'positionClass': 'toast-top-right',
+                'preventDuplicates': false,
+                'showDuration': '1000',
+                'hideDuration': '1000',
+                'timeOut': '5000',
+                'extendedTimeOut': '1000',
+                'showEasing': 'swing',
+                'hideEasing': 'linear',
+                'showMethod': 'fadeIn',
+                'hideMethod': 'fadeOut',
             }
-
-            if (WorkerdefaultData != null) {
-                for (let i = 0; i < WorkerdefaultData.length; i++) {
-                    console.log("worker")
-                    if (Email == WorkerdefaultData[i]["Email"] && Password == WorkerdefaultData[i]["Password"]) {
-                        match = true;
-                        id = WorkerdefaultData[i]["id"];
-                        type = "worker";
-                        break;
-                    }
-                }
-            }
-
-
-
-
-            if (match == true && type == "owner") {
-                // let arr = [];
-
-                // if (localStorage.getItem("Login") != null) {
-                //     arr = JSON.parse(localStorage.getItem("Login"))
-                // }
-
-                let SuccessLogin = {
-                    "Email": Email,
-                    "password": Password,
-                    "id": id,
-                }
-
-                // arr.push(SuccessLogin);
-                let str = JSON.stringify(SuccessLogin);
-                localStorage.setItem("Login", str);
-
-
-
-
-                console.log(SuccessLogin)
-                window.location.href = "OwnerHome.html?from=logIn&&type=owner";
-            }
-
-            else if (match == true && type == "worker") {
-                let SuccessLogin = {
-                    "Email": Email,
-                    "password": Password,
-                    "id": id,
-                }
-
-                // arr.push(SuccessLogin);
-                let str = JSON.stringify(SuccessLogin);
-                localStorage.setItem("Login", str);
-
-                console.log(SuccessLogin)
-                window.location.href = "workerHome.html?from=logIn&&type=worker";
-            }
-            else {
-                alert("Login credentials not correct")
-            }
-
-        })
-
-
-
-
-
+        });
     </script>
+
+    <script>
+        // To get the form id to access the form for add a addeventlistener
+        let logIn = document.getElementById("form");
+        // Add a eventlostener while clicking the submit in the form
+        logIn.addEventListener("submit", (event) => {
+            try {
+                event.preventDefault();
+                // To get the restered datas and the form datas
+                let defaultData = JSON.parse(localStorage.getItem("register"));
+                let WorkerdefaultData = JSON.parse(localStorage.getItem("workerRegister"));
+                let Email = document.getElementById("Email").value.toLowerCase();
+                let Password = document.getElementById("Password").value;
+
+                let match = false;
+                let id;
+                let type;
+                // To check the entered form datas is present in the owner register
+                if (defaultData != null) {
+                    for (let i = 0; i < defaultData.length; i++) {
+                        if (Email == defaultData[i].Email) {
+                            if
+                                (comparePassword(Password, defaultData[i].Password) == true) {
+                                match = true;
+                                id = defaultData[i]["id"];
+                                console.log(defaultData[i]["id"]); type = "owner"; break;
+                            }
+                        }
+                    }
+                } // To check the entered form datas is present in the worker regsiter 
+                if (WorkerdefaultData != null) {
+                    for (let i = 0; i <
+                        WorkerdefaultData.length; i++) {
+                        if (Email == WorkerdefaultData[i]["Email"]) {
+                            if
+                                (comparePassword(Password, WorkerdefaultData[i].Password) == true) {
+                                match = true;
+                                id = WorkerdefaultData[i]["id"]; type = "worker"; break;
+                            }
+                        }
+                    }
+                }
+                // To redirect to the ownerHome if the email and password matched in the owner Regiter
+                if (match == true && type == "owner") {
+                    let
+                        SuccessLogin = { "Email": Email, "id": id, };
+                    let str = JSON.stringify(SuccessLogin);
+                    localStorage.setItem("Login", str); console.log(SuccessLogin)
+                    window.location.href = "OwnerHome.html?from=logIn&&type=owner";
+                }
+                // To redirect to the workerHome if the email and password matched in the worker Regiter 
+                else if (match == true && type == "worker") {
+                    let
+                        SuccessLogin = { "Email": Email, "password": Password, "id": id, };
+                    let str = JSON.stringify(SuccessLogin); localStorage.setItem("Login", str); console.log(SuccessLogin)
+                    window.location.href = "workerHome.html?from=logIn&&type=worker";
+                } // To display the error message if the email and password not matched to the owner and worker Regiter 
+                else {
+                    alert("Login credentials not correct")
+                }
+            } catch (err) { console.error(err); }
+        }) </script>
 </body>
 
 </html>

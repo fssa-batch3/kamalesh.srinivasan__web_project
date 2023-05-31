@@ -7,36 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WorkerHome</title>
     <link rel="stylesheet" href="../assets/css/workerHome.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="../assets/Images/barLogo.png" type="image/x-icon">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
+    <script src="../assets/JS/index.js"></script>
     <header>
         <div>
-            <img src="../assets/Images/Logo.png" alt="Logo">
+            <img src="../assets/Images/logo-transparent-svg.svg" alt="Logo">
         </div>
 
         <nav>
             <div>
-                <a>Requirement List</a>
-                <a>Search</a>
-                <a>Chat</a>
-                <a href="ownerNotification.html">Notification</a>
-                <a onclick="urlData()">profile</a>
-                <a href="../index.html">LogOut</a>
+                <a><span>Home</span></a>
+                <a onclick="chat()"><span>Chat</span></a>
+                <a href="workerNotification.html?from=register&&type=worker&&filter=All"><span>Notification</span></a>
+                <a onclick="urlData()"><span>profile</span></a>
+                <a href="../index.html" style="background-color: #c84449;"><span>LogOut</span></a>
+
             </div>
         </nav>
     </header>
 
-    <section class="filters">
-        <p>Filter By</p>
-        <a href="">Date</a>
-        <a href="">Location</a>
-        <a href="">Title</a>
-        <a href="">Radius</a>
-        <a href="">Clear</a>
-        <a href="">Payment</a>
-    </section>
 
+
+    <section class="filter">
+
+    </section>
 
 
     <main>
@@ -48,205 +53,50 @@
         <div class="left">
 
             <section class="yourJobs">
-                <h2>
-                    Your Jobs
-                </h2>
+                <div class="topYourJobs">
+                    <h2>
+                        Your Jobs
+                    </h2>
 
-
-                <!-- <div class="yourJobs_card">
-                <div class="profile">
-                    <img src="../assets/Images/avatar (2).svg" alt="profile">
-                </div>
-                <div class="content">
-                    <h2>Fullstack WebDevelopment</h2>
-                    <p class="Location">Chennai, Tamil Nadu</p>
-                    <p class="Payment">2lakh to 3lakh per project</p>
-                    <h3>Description</h3>
-                    <p class="desc">
-
-                        Create a attractive UI/UI.Website should look like a Ecommerce site.any doubts we
-                        connect with a
-                        chat and <span>Important:</span> A full-stack developer is proficient in both
-                        front-end and back-end development and is capable of working on all aspects of a web application
-                        or website. This requires a broad range of skills and knowledge, including database management,
-                        server-side scripting, and front-end technologies.</p>
-                    <div class="card_last">
-                        <div class="buttons">
-                            <a href="">More Deatils</a>
-                            <a href="">Apply</a>
-
-                        </div>
-                        <img src="../assets/Images/heart.svg" alt="image" />
+                    <div class="jobSearch">
+                        <input type="text" id="jobSearch" />
+                        <i class="fa fa-search" style="font-size:35px;color:rgb(220, 204, 204)"
+                            onclick="jobSearch()"></i>
                     </div>
                 </div>
-            </div> -->
+                <div class="cards">
+                    <!-- <div class="card">
+                        <div class="userName"> <img src="../assets/Images/avatar (3).svg" alt="image"> Kamalesh</div>
+                        <div class="title">
+                            Web Development
+                        </div>
 
+                        <div class="description">
+                            A web developer is responsible for designing, developing, and maintaining
+                            websites and web applications.
+                        </div>
 
+                        <div class="last">
+                            <div class="location">Chennai</div>
+                            <div class="salary">Rs.10,000</div>
+                            <div class="viewMore"><i class="fa fa-angle-double-right"></i></div>
+                        </div>
 
+                    </div> -->
 
-
-
+                </div>
             </section>
 
         </div>
 
-        <!-- <div class="right">
 
-            <section class="right_sec">
-                <div class="cross">
-                    <img src="../assets/Images/close.svg" onclick="closeDetail()" alt="image">
-                </div>
-                <div class="Deatils">
-                    <div class="head">
-                        <div>
-                            <div class=title>
-                                Fullstack WebDevelopment
-                            </div>
-                            <div class="location_deta">
-                                Chennai, Tamil Nadu
-                            </div>
-                            <!-- <div class="name">
-                            name
-                        </div> -->
-        <!-- </div>
-
-
-
-                 </div>
-
-
-                    <button onclick="applyJob()" class="apply">Apply</button>
-                    <div class="moredetails">
-                        <div class="heading">
-
-                            <div class="jobTitle"><b>Job Title :</b> Web Development Team Lead</div>
-                            <div class="jobLocation"><b>Location :</b> Chennai, Nungambakkam</div>
-                            <div class="jobSummary"><b>Job Summary</b></div>
-                        </div>
-                        <div class="summary">
-                            <ul>
-                                <li>Lead a team of Web Developers (4-7 members) in planning, designing and delivering
-                                    web
-                                    applications and websites.</li>
-                                <li>Manage projects from design to testing, including new programs, enhancements and
-                                    modifications.</li>
-                                <li>Collaborate with the content and design team to ensure project deliverables are met.
-                                </li>
-                                <li>Overall responsibility for developing / administering performance standards for the
-                                    Web
-                                    Development team.</li>
-                                <li>Provide subject matter guidance to team members as required.
-                                </li>
-                                <li>Develop processes and procedures to drive department efficiencies and assist in the
-                                    development and meeting of departmental budgets.</li>
-                            </ul>
-                        </div>
-
-
-                        <div class="Qualifications">
-                            <p>
-                                Qualifications
-                            </p>
-
-                            <ul>
-                                <li>2+ years of Software / Engineering industry experience
-                                </li>
-                                <li>1+ year experience in a people manager role
-                                </li>
-                                <li>
-                                    Strong work experience in web technologies, frameworks and platforms - HTML, CSS,
-                                    JS,
-                                    API, Wordpress, Shopify, and Server-side bug fixing.
-
-                                </li>
-                                <li>
-                                    Good experience in AWS, Azure.
-
-                                </li>
-                                <li>
-                                    Strong commitment, analytical skills, ethical standards, business acumen and P&L
-                                    understanding.
-                                </li>
-                                <li>
-                                    Entrepreneurial skills and a team player who enjoys working in an office
-                                    environment.
-                                </li>
-
-                                <li>
-                                    Self-learner with a keen interest in coding.
-
-                                </li>
-                                <li>Excellent verbal and written communication skills in English and Tamil.
-                                </li>
-
-                            </ul>
-                        </div>
-
-                        <div class="Responsibilities">
-                            <p>Responsibilities</p>
-                            <ul>
-                                <li>
-                                    Collaborate with project stakeholders to identify product and technical
-                                    requirements.
-
-                                </li>
-                                <li>
-                                    Oversee the planning and designing of web applications and websites.
-                                </li>
-                                <li>
-                                    Provide mentorship to the web development team.
-
-                                </li>
-                                <li>
-                                    Serve as the primary point of contact and liaison between the web development team
-                                    and
-                                    clients.
-
-                                </li>
-                                <li>
-                                    Manage all deliverables to ensure adherence to deadlines, specifications, and
-                                    budgets.
-                                </li>
-                                <li>
-                                    Implement performance metrics and prepare periodic reports.
-                                </li>
-                                <li>
-                                    Monitor and track project progress and report findings to the leadership team.
-                                </li>
-                                <li>
-                                    Ensure all developers keep current with technological developments within the
-                                    industry.
-                                </li>
-                                <li>
-                                    Monitor and evaluate competitive applications and products.
-                                </li>
-                                <li>
-                                    Estimate the cost of new requirements and prepare proposals.
-                                </li>
-                                <li>
-                                    Consistent exercise of independent judgment and discretion in matters of
-                                    significance.
-                                </li>
-                                <li>
-                                    Regular, consistent, and punctual attendance.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                </div>
-
-
-            </section>
-        </div> -->
 
 
     </main>
     <footer>
         <div>
             <div class="logo">
-                <img src="../assets/Images/Logo.png" alt="logo" />
+                <img src="../assets/Images/logo-transparent-svg.svg" alt="logo" />
             </div>
         </div>
 
@@ -283,25 +133,55 @@
 
 
     <script src="../assets/JS/wrokerHome.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Toastr -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        // Default Configuration
+        $(document).ready(function () {
+            toastr.options = {
+                'closeButton': true,
+                'debug': false,
+                'newestOnTop': false,
+                'progressBar': false,
+                'positionClass': 'toast-top-right',
+                'preventDuplicates': false,
+                'showDuration': '1000',
+                'hideDuration': '1000',
+                'timeOut': '5000',
+                'extendedTimeOut': '1000',
+                'showEasing': 'swing',
+                'hideEasing': 'linear',
+                'showMethod': 'fadeIn',
+                'hideMethod': 'fadeOut',
+            }
+        });
 
+    </script>
     <script>
+
+
 
 
         //  Get localstorage requirements
 
         let yourJobs;
 
+
         yourJobs = getLocalreq();
 
         let url = location.search;
         let urlParams = new URLSearchParams(url);
-        let from = JSON.stringify(urlParams.get("from"));
+        let from = urlParams.get("from");
         let type = urlParams.get("type");
         let id = urlParams.get("id")
         console.log(from);
 
         function urlData() {
-            location.href = "profile.html?from=" + from + "&&type=" + type;
+            location.href = "workerProfile.html?from=" + from + "&&type=" + type;
         }
 
 
@@ -314,28 +194,28 @@
             console.log(yourJobs[i])
             let yourJobs_card = document.createElement("div");
             yourJobs_card.setAttribute("class", "yourJobs_card");
-            // yourJobs_card.setAttribute("onclick" = "detailView()");
-            console.log(from);
-            yourJobs_card.innerHTML = `<div class="profile">
-                    <img src="../assets/Images/avatar (2).svg" alt="image">
-                </div>
-                <div class="content">
-                    <h2>${yourJobs[i]["title"]}</h2>
-                    <p class="Location">${yourJobs[i]["location"]}</p>
-                    <p class="Payment">${yourJobs[i]["Salary"]}t</p>
-                    <h3>Description</h3>
-                    <p class="desc">
-                
-                        ${yourJobs[i]["disc"]}</p>
-                    <div class="card_last">
-                        <div class="buttons">
-                            <a  onclick="yourJobsClick(${i})">More Deatils</a>
 
+            //  get and split a applier Name
+            let profileImage = profileImg(yourJobs[i]["FN"], yourJobs[i]["LN"]);
+            console.log(from);
+            let card = document.createElement("div");
+            card.setAttribute("class", "card");
+            card.innerHTML = `   <div class="userName" onclick> <img src="${profileImage}" alt="image"> ${yourJobs[i]["FN"] + yourJobs[i]["LN"]} <a id="ownerDetails" onclick="ownerDetails(${yourJobs[i]["ownerId"]},${i})" >Owner Details </a></div>
+                        <div class="title">
+                            ${yourJobs[i]["title"]}
                         </div>
-                        <img src="../assets/Images/heart.svg" alt="image" />
-                    </div>
-                </div>`;
-            document.querySelector(".yourJobs").append(yourJobs_card);
+
+                        <div class="description">
+                            ${yourJobs[i]["disc"]}
+                        </div>
+
+                        <div class="cardLast">
+                            <div class="location">${yourJobs[i]["location"]}</div>
+                            <div class="salary">Rs.${yourJobs[i]["Salary"]}</div>
+                            <div class="viewMore" onclick="yourJobsClick(${i})"> <i class="fa fa-angle-double-right" style="font-size:48px;"></i></div>
+                        </div>`;
+            document.querySelector(".cards").append(card);
+
         }
 
         // details
@@ -353,7 +233,7 @@
         right_sec.append(cross);
 
         let cross_img = document.createElement("img");
-        cross_img.setAttribute("src", "../assets/Images/close.svg");
+        cross_img.setAttribute("src", "../assets/Images/cross.svg");
         cross_img.setAttribute("onclick", "closeDetail()");
         cross_img.setAttribute("alt", "image");
         cross.append(cross_img);
@@ -445,6 +325,7 @@
 
 
         document.querySelector("main").append(right);
+
 
 
 

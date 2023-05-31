@@ -7,6 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bio Data</title>
     <link rel="stylesheet" href="../assets/css/Bio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="../assets/Images/barLogo.png" type="image/x-icon">
+
 </head>
 <!-- This is bio  -->
 
@@ -29,7 +36,9 @@
                     <label for="name" id="name-label">
                         First Name
                     </label>
-                    <input type="text" id="First_Name" name="name" placeholder="Enter your name" class="form-columns"
+                    <input type="text" pattern="[A-Za-z]{5,100}" id="First_Name" name="name" value="Kamalesh"
+                        placeholder="Enter your name"
+                        title="Enter atleast one capital and small letter and 5 charecters" class="form-columns"
                         required />
                 </div>
 
@@ -37,8 +46,9 @@
                     <label for="name" id="name-label">
                         Last Name
                     </label>
-                    <input type="text" id="Last_Name" name="name" placeholder="Enter your name" class="form-columns"
-                        required />
+                    <input type="text" id="Last_Name" name="name" pattern="[A-Za-z]{5,100}" value="Srinivasan"
+                        title="Enter atleast one capital and small letter and 5 charecters"
+                        placeholder="Enter your name" class="form-columns" required />
                 </div>
 
 
@@ -47,8 +57,8 @@
                     <label for="number" id="number-label">
                         DOB
                     </label>
-                    <input type="date" id="DOB" name="age" class="form-columns" min="18" max="90" id="number"
-                        placeholder="Enter your age" />
+                    <input type="date" id="DOB" name="age" class="form-columns" max="2010-01-01" id="number"
+                        title="Your DOB should be before 2010" placeholder="Enter your age" required />
                 </div>
 
                 <div class="form-groupings">
@@ -59,11 +69,12 @@
                 </div>
 
                 <div class="form-groupings">
-                    <label for="telephone" id="tel-label">
+                    <label for="Phone" id="tel-label">
                         Enter Your Phone Number
                     </label>
-                    <input type="tel" name="phone number" placeholder="Enter your phone number here"
-                        class="form-columns" id="telephone" maxlength="11" minlenght="11" required />
+                    <input type="text" name="phone number" placeholder="Enter your phone number here"
+                        class="form-columns" id="Phone" pattern="[0-9]{10,10}"
+                        title="number should have 10 numbers only" required />
                 </div>
 
                 <div class="form-groupings">
@@ -71,8 +82,18 @@
                         Enter Your Aadhar Number
 
                     </label>
-                    <input type="tel" name="Aadhar_number" placeholder="Enter Your Aadhar Number" class="form-columns"
-                        id="Aadhar_number" maxlength="11" minlenght="11" required />
+                    <input type="text" name="Aadhar_number" placeholder="Enter Your Aadhar Number" class="form-columns"
+                        id="Aadhar_number" pattern="[0-9]{12}" title="Aadhar number should be 12 numbers only"
+                        required />
+                </div>
+
+                <div class="form-groupings">
+                    <label for="upi" id=" upi">
+                        Enter Your UPI id
+
+                    </label>
+                    <input type="text" name="upi" placeholder="Enter Your UPI id" class="form-columns" id="upi"
+                        required />
                 </div>
 
                 <div class="form-groupings">
@@ -85,9 +106,6 @@
                         </option>
                         <option value="unemployed">
                             Unemployed
-                        </option>
-                        <option value="nysc">
-                            NYSC
                         </option>
                         <option value="civil servant">
                             Civil Servant
@@ -106,26 +124,13 @@
                     <p> Educational Background<span class="clue"> (check all that apply)</span>
                         <label>
                             <input type="checkbox" class="checkbox-input" value="primary-cert" name="education"
-                                id="PrimarySchool" />Primary School Cert
+                                id="PrimarySchool" />Primary School
                         </label>
 
                         <label>
                             <input type="checkbox" class="checkbox-input" value="secondary-cert" name="education"
-                                id="Secondary_School" />Secondary School Cert
+                                id="Secondary_School" />Secondary School
                         </label>
-
-                        <label>
-                            <input type="checkbox" class="checkbox-input" value="NCE" id="NCE" name="education" />NCE
-                        </label>
-
-                        <label>
-                            <input type="checkbox" class="checkbox-input" value="ND" id="ND" name="education" />ND
-                        </label>
-
-                        <label>
-                            <input type="checkbox" class="checkbox-input" value="HND" id="HND" name="education" />HND
-                        </label>
-
                         <label>
                             <input type="checkbox" class="checkbox-input" value="B.Sc" id="B.Sc" name="education" />B.Sc
                         </label>
@@ -138,22 +143,26 @@
                             <input type="checkbox" class="checkbox-input" value="Ph.D" id="Ph.D" name="education" />Ph.D
                         </label>
 
+                        <label>
+                            <input type="checkbox" class="checkbox-input" value="Others" id="others"
+                                name="education" />Others
+                        </label>
+
                 </div>
                 <div>
-                    <label for="file">
-                        Upload your expirience certificate or any certificate
-                    </label>
-                    <input type="file" id="file" name="file" />
 
+                    <label for="skils">Skils</label>
+                    <input type="text" id="skill" class="form-columns" placeholder="HTML,CSS,JS,plumbing">
 
                 </div>
 
 
 
-                <div class="form-groupings">
+                <div class=" form-groupings">
                     <p>Address</p>
-                    <textarea class="textarea-input" id="Address" name="Address"
-                        placeholder="Enter your address"></textarea>
+                    <textarea class="textarea-input" id="Address" name="Address" pattern="[A-Za-z][0-9]{1-20}"
+                        title="Space and special charecters not allowed" pattern placeholder="Enter your address"
+                        required></textarea>
                 </div>
 
                 <div class="form-groupings">
@@ -175,135 +184,137 @@
     </section>
     <script>
 
-
+        // Get url datas to check the type of the user 
         let url = location.search;
         let urlParams = new URLSearchParams(url);
         console.log(urlParams)
         let type = urlParams.get("type");
         console.log(type);
+
+        //  To get the current user's Email is from the register.
         let Email;
         if (type == "owner") {
             let register = JSON.parse(localStorage.getItem("register"));
-            // console.log(register)
             Email = register[register.length - 1]["Email"]
             console.log(Email)
         }
 
         else {
             let workerRegister = JSON.parse(localStorage.getItem("workerRegister"));
-            // console.log(register)
             Email = workerRegister[workerRegister.length - 1]["Email"]
             console.log(Email)
         }
 
 
-
-
+        // To get the form data 
 
         let bioFn = document.getElementById("survey-form");
         bioFn.addEventListener("submit", (event) => {
             event.preventDefault();
-            let arr = [];
-            if (localStorage.getItem("BIO") != null) {
-                arr = JSON.parse(localStorage.getItem("BIO"))
+            try {
+
+
+
+                let arr = [];
+                if (localStorage.getItem("BIO") != null) {
+                    arr = JSON.parse(localStorage.getItem("BIO"))
+                }
+
+                let FN = document.getElementById("First_Name").value;
+                let LN = document.getElementById("Last_Name").value;
+                let DOB = document.getElementById("DOB").value;
+                let Address = document.getElementById("Address").value;
+                let Current_occupation = document.getElementById("dropdown").value;
+                let Expect_in = document.getElementById("Expect_in").value;
+                let Aadhar_number = document.getElementById("Aadhar_number").value;
+                let Phone = document.getElementById("Phone").value;
+                let skils = document.getElementById("skill").value;
+                let PrimarySchool = document.getElementById("PrimarySchool");
+                let Secondary_School = document.getElementById("Secondary_School");
+                let others = document.getElementById("others");
+                let BSc = document.getElementById("B.Sc");
+                let MSc = document.getElementById("M.Sc");
+                let Phd = document.getElementById("Ph.D")
+                let upi = document.getElementById("upi").value;
+                let Education = [];
+
+                // Check and store the eduction in the Education array. 
+                if (PrimarySchool.checked == true) {
+                    Education.push("PrimarySchool")
+                }
+
+                if (Secondary_School.checked == true) {
+                    Education.push("Secondary_School")
+                }
+
+                if (others.checked == true) {
+                    Education.push("ND")
+                }
+
+                if (BSc.checked == true) {
+                    Education.push("B.Sc")
+                }
+
+
+                if (MSc.checked == true) {
+                    Education.push("M.Sc")
+                }
+
+
+                if (Phd.checked == true) {
+                    Education.push("Ph.D")
+                }
+
+
+                if (Education.length == 0) {
+                    return alert("Select atleast one education")
+                }
+
+
+                console.log(Education);
+
+
+
+
+
+                // Create the object with the recieved dataa.
+
+                let bio = {
+                    Email,
+                    FN,
+                    LN,
+                    DOB,
+                    Address,
+                    Education,
+                    Current_occupation,
+                    Expect_in,
+                    Aadhar_number,
+                    Phone,
+                    upi,
+                    skils
+                }
+
+                arr.push(bio);
+                let str = JSON.stringify(arr);
+                localStorage.setItem("BIO", str);
+
+
+                // REdirect to the respective user's home page
+
+                if (type == "owner") {
+                    window.location.href = "ownerhome.html?from=register&&type=owner";
+                }
+                else {
+                    window.location.href = "workerhome.html?from=register&&type=worker";
+
+                }
+
             }
-
-            let FN = document.getElementById("First_Name").value;
-            let LN = document.getElementById("Last_Name").value;
-            let DOB = document.getElementById("DOB").value;
-            let Address = document.getElementById("Address").value;
-            // let Education = document.getElementById("Education").value;
-            let Current_occupation = document.getElementById("dropdown").value;
-            let Expect_in = document.getElementById("Expect_in").value;
-            let Aadhar_number = document.getElementById("Aadhar_number").value;
-            let telephone = document.getElementById("telephone").value;
-            let file = document.getElementById("file").value;
-            let PrimarySchool = document.getElementById("PrimarySchool");
-            let Secondary_School = document.getElementById("Secondary_School");
-            let NCE = document.getElementById("NCE");
-            let ND = document.getElementById("ND");
-            let HND = document.getElementById("HND");
-            let BSc = document.getElementById("B.Sc");
-            let MSc = document.getElementById("M.Sc");
-            let Phd = document.getElementById("Ph.D")
-            let Education = [];
-
-            if (PrimarySchool.checked == true) {
-                Education.push("PrimarySchool")
-            }
-
-            if (Secondary_School.checked == true) {
-                Education.push("Secondary_School")
-            }
-
-            if (NCE.checked == true) {
-                Education.push("NCE")
-            }
-
-            if (ND.checked == true) {
-                Education.push("ND")
-            }
-
-
-            if (HND.checked == true) {
-                Education.push("HND")
-            }
-
-
-            if (BSc.checked == true) {
-                Education.push("B.Sc")
-            }
-
-
-            if (MSc.checked == true) {
-                Education.push("M.Sc")
-            }
-
-
-            if (Phd.checked == true) {
-                Education.push("Ph.D")
-            }
-
-
-
-
-
-            console.log(Education);
-
-
-
-
-
-
-            let bio = {
-                Email,
-                FN,
-                LN,
-                DOB,
-                Address,
-                Education,
-                Current_occupation,
-                Expect_in,
-                Aadhar_number,
-                telephone,
-
-            }
-
-
-            arr.push(bio);
-            let str = JSON.stringify(arr);
-            localStorage.setItem("BIO", str);
-
-
-
-            if (type == "owner") {
-                window.location.href = "ownerhome.html?from=register&&type=owner";
-            }
-            else {
-                window.location.href = "workerhome.html?from=register&&type=worker";
-
+            catch (err) {
+                console.error(err);
             }
         });
+
 
 
 

@@ -6,45 +6,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit your job</title>
+    <link rel="icon" href="../assets/Images/barLogo.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/editJob.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
     <section id="form" class="section_form">
         <h1>Edit Your Job</h1>
-        <!-- <form id="consultation-form" class="feed-form" action="#">
-            <input required="" placeholder="Title" id="Title" type="text" type="text">
-            <input name="phone" required="" placeholder="Location" id="Location" type="text">
-            <input name="email" required="" placeholder="Salary" id="Salary" type="text">
-            <button class="button_submit" type="submit">Edit</button>
-            <button class="button_submit" onclick="back()">Back</button>
 
-        </form> -->
     </section>
 </body>
 
 <script>
+
+    // To get the url datas
+
     let url = window.location.search;
     let urlParams = new URLSearchParams(url);
     let id = urlParams.get("id");
     console.log(id);
-    let requirements = JSON.parse(localStorage.getItem("requirements"));
-    let oldJob = requirements.find(R => R["id"] == id);
 
+    // To get the requirements in the localstorage 
+    let requirements = JSON.parse(localStorage.getItem("requirements"));
+    // To find the current job in the requirements using the Id that recieved from url  
+    let oldJob = requirements.find(R => R["id"] == id);
+    // To check the url param id is present in the reqiurements are not
+    console.log(oldJob);
     if (oldJob == undefined) {
         alert("Id Not Match")
     }
     else {
+        // To create a form with current job data
         let form = document.createElement("form");
         form.setAttribute("id", "consultation-form");
         form.setAttribute("class", "feed-form");
-        form.setAttribute("action", "#")
-        form.innerHTML = ` <input required="" value="${oldJob["title"]}" placeholder="Title" id="Title" type="text" type="text">
-            <input name="phone" required="" placeholder="Location" value="${oldJob["location"]}" id="Location" type="text">
-            <input name="email" required="" placeholder="Salary" id="Salary" value="${oldJob["Salary"]}" type="text">
+        form.innerHTML = ` <div class="datas">
+                <div class="inputs">
+                    <input required="" value="${oldJob["title"]}" placeholder="Title" id="Title" type="text" type="text">
+             <input placeholder="Location" value="${oldJob["location"]}" id="Location" type="text">
+             <input placeholder="Salary" id="Salary" value="${oldJob["Salary"]}" type="number">
+                    <input name="decp" id="decp" required placeholder="description" value="${oldJob["disc"]}" id="description" />
+                </div>
+
+                <div class="textareaOne">
+                    <textarea class="summary" placeholder="summary" rows="17"  cols="40">${oldJob["summary"]}</textarea>
+
+                </div>
+
+                <div class="textareaTwo">
+                    <textarea class="Qualification" placeholder="Qualification"  rows="17" cols="40">${oldJob["Qualifications"]}</textarea>
+
+                </div>
+
+                <div class="textareaThree">
+                    <textarea class="Responsibilities" placeholder="Responsibilities"  rows="17" cols="40">${oldJob["Responsibilities"]}</textarea>
+
+                </div>
+
+            </div>
             <button class="button_submit" type="submit">Edit</button>
-            <button class="button_submit" onclick="back()">Back</button>`;
+            <button class="button_submit" type="reset" onclick="back()">Back</button>`;
 
         document.querySelector(".section_form").append(form);
     }
@@ -52,56 +79,58 @@
 
 
 
+    // To update the edited job datas
 
-
-    document.getElementById("form").addEventListener("submit", (event) => {
+    document.getElementById("consultation-form").addEventListener("submit", (event) => {
         event.preventDefault();
+        try {
+            let title = document.getElementById("Title").value;
+            let Salary = document.getElementById("Salary").value;
+            let location = document.getElementById("Location").value;
+            let disc = document.getElementById("decp").value;
+            let Qualifications = document.querySelector(".Qualification").value;
+            let summary = document.querySelector(".summary").value;
+            let Responsibilities = document.querySelector(".Responsibilities").value;
+
+            let editedJob = {
+                title,
+                Salary,
+                location,
+                disc,
+                Qualifications,
+                summary,
+                Responsibilities
+            }
 
 
+            console.log(editedJob);
+            // if (oldJob == undefined || null) {
+            //     return alert("Id not match");
+            // }
+            // else {
+            let updated = Object.assign(oldJob, editedJob);
+            let index = requirements.indexOf(id);
+            requirements[index] = updated;
 
-        let title = document.getElementById("Title").value;
-        let Salary = document.getElementById("Salary").value;
-        let location = document.getElementById("Location").value;
+            localStorage.setItem("requirements", JSON.stringify(requirements));
+            window.location.href = "OwnerHome.html?from=register&&type=owner";
+            // }
 
-        let editedJob = {
-            title,
-            Salary,
-            location
+
         }
-
-
-
-        if (oldJob == undefined) {
-            return alert("Id not match");
+        catch (err) {
+            console.error(err);
         }
-
-        let updated = Object.assign(oldJob, editedJob);
-        let index = requirements.indexOf(id);
-        requirements[index] = updated;
-
-        localStorage.setItem("requirements", JSON.stringify(requirements));
-        window.location.href = "OwnerHome.html?from=register&&type=owner";
-
-
-        // let updated = Object.assign(oldProfile, newProfile);
-        //         console.log(BIO)
-        //         console.log(oldProfile)
-        //         let index = BIO.indexOf(oldProfile.Email);
-        //         BIO[index] = updated;
-        //         console.log(BIO)
-
-
-
-
-
-
-
-
     })
 
-
+    // To redirect the ownerhome page while clicking the back button
     function back() {
-        location.href = "OwnerHome.html?from=register&&type=owner"
+        try {
+            location.href = "OwnerHome.html?from=register&&type=owner"
+        }
+        catch (err) {
+            console.error(err);
+        }
     }
 </script>
 

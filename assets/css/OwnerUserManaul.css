@@ -1,0 +1,34 @@
+.steps {
+  background-color: rgb(255 245 245 / 41%);
+  width: 15rem;
+  height: 40rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  position: relative;
+}
+
+section {
+  margin-top: 2rem;
+  display: flex;
+  /* flex-direction: column-reverse; */
+  /* gap: 1rem; */
+  align-items: center;
+  justify-content: center;
+}
+
+.next {
+  position: absolute;
+  top: 5rem;
+  z-index: 1;
+  width: 4rem;
+  right: -2.8rem;
+  opacity: 0.1;
+}
+
+.steps h1 {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+body{
+  font-family: "Roboto Slab", serif;
+}

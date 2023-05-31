@@ -8,443 +8,374 @@
     <title>OwnerNotification</title>
     <link rel="stylesheet" href="../assets/css/ownerhome.css">
     <link rel="stylesheet" href="../assets/css/ownerNotification.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
+        rel="stylesheet">
+        <link rel="icon" href="../assets/Images/barLogo.png" type="image/x-icon">
+
 
 </head>
 
 <body>
+    <script src="../assets/JS/index.js"></script>
+    <script src="../assets/JS/ownerNotification.js"></script>
 
-</body>
-<header>
-    <div>
-        <img src="../assets/Images/Logo.png" alt="Logo">
-    </div>
 
-    <nav>
+    <header>
         <div>
-            <a href="OwnerHome.html">Requirement List</a>
-            <!-- <a>Search</a> -->
-            <a href="">Chat</a>
-            <a>Notification</a>
-            <a onclick="urlData()" href="profile.html">profile</a>
-            <a href="../index.html">LogOut</a>
-        </div>
-    </nav>
-</header>
-
-<main>
-    <section>
-        <div class="notificationEntire">
-            <div class="notificationTop">
-
-                <div class="profile">
-                    <img src="../assets/Images/avatar (3).svg" alt="image" />
-                    <p class="user_name">kamalesh</p>
-
-                </div>
-
-                <div class="types">
-                    <div>
-                        All
-                    </div>
-                    <div>
-                        Read
-                    </div>
-                    <div>
-                        Unread
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- <div class="notifications">
-                <div class="notifyCards">
-                    <img src="../assets/Images/boy-avatar.svg" alt="Image">
-                    <div class="applierDetails">
-                        <p class="name">Worker Name : kamalesh</p>
-                        <p class="jobId">Job Id : 0987654321wertyu</p>
-                    </div>
-                    <div class="buttons">
-                        <div class="b1">
-                            <a>Approve</a>
-                            <a>Reject</a>
-                        </div>
-                        <div class="b2">
-                            <a>Readed</a>
-                            <a>Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="notifications">
-                <div class="notifyCards">
-                    <img src="../assets/Images/boy-avatar.svg" alt="Image">
-                    <div class="applierDetails">
-                        <p class="name">Worker Name : kamalesh</p>
-                        <p class="jobId">Job Id : 0987654321wertyu</p>
-                    </div>
-                    <div class="buttons">
-                        <a>Approve</a>
-                        <a>Reject</a>
-                        <a>Readed</a>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- <div class="notifications">
-                <div class="notifyCards">
-                    <img src="../assets/Images/boy-avatar.svg" alt="Image">
-                    <div class="applierDetails">
-                        <p class="name">Worker Name : kamalesh</p>
-                        <p class="jobId">Worker Id : 0987654321wertyu</p>
-                    </div>
-                    <div class="buttons">
-                        <a>Approve</a>
-                        <a>Reject</a>
-                        <a>Readed</a>
-                    </div>
-                </div>
-            </div> -->
+            <img src="../assets/Images/logo-transparent-svg.svg" alt="Logo">
         </div>
 
+        <nav>
+            <div>
+                <a onclick="urlNotif()"><span>Home</span></a>
+                <!-- <a>Search</a> -->
+                <a onclick="redirectChat()"><span>Chat</span></a>
+                <a><span>Notification</span></a>
+                <a onclick="payment()"> <span>payment</span></a>
+                <a onclick="urlData()"> <span> profile</span></a>
+                <a href="../index.html" style="background-color: #c84449;"><span>LogOut</span></a>
+            </div>
+        </nav>
+    </header>
 
+    <main>
+        <section>
+            <div class="notificationEntire">
+                <div class="notificationTop">
 
-    </section>
+                    <div class="profile">
+                        <p class="user_name">kamalesh</p>
 
-    <section class="secS">
-        <!-- <div class="details">
-            <div class="jobHead">
-                <div class="p">
-                    <p>Job Title: JOBTITLE</p>
-                    <p>Location: LOCATION</p>
-                    <p>Worker Name: Kamalesh</p>
-                </div>
-                <div>
-                    <img src="../assets/Images/close.svg" alt="image" />
+                    </div>
+
+                    <div class="types">
+                        <a id="ftrbtn">Filter</a>
+                    </div>
+
+                    <select name="" id="filter" class="filter">
+                        <option value="All">All</option>
+                        <option value="Read">Read</option>
+                        <option value="Unread">Unread</option>
+
+                    </select>
                 </div>
             </div>
-            <div class="data">
-                <div class="jobSummary">
-                    <p class="title">
-                        Job Summary
-                    </p>
-                    <ul>
-                        <li>
-                            These include a clear understanding of the client's needs and goals, a solid plan for
-                            designing and building the website, expertise in the necessary programming
-                        </li>
 
-                        <li>Web development requirements vary depending on the specific project and goals, but there are
-                            some general requirements that apply to most web development projects</li>
 
-                        <li>Other important requirements may include effective communication and collaboration with
-                            clients and team members, attention to detail, and a commitment to ongoing testing and
-                            optimization to ensure the website functions as intended</li>
 
-                        <li>Ultimately, successful web development requires a combination of technical expertise,
-                            creativity, and effective project management skills</li>
-                    </ul>
-                </div>
-
-                <div class="Qualification">
-                    <p class="title">
-                        Qualifications
-                    </p>
-                    <ul>
-                        <li>
-                            These include a clear understanding of the client's needs and goals, a solid plan for
-                            designing and building the website, expertise in the necessary programming
-                        </li>
-
-                        <li>Web development requirements vary depending on the specific project and goals, but there are
-                            some general requirements that apply to most web development projects</li>
-
-                        <li>Other important requirements may include effective communication and collaboration with
-                            clients and team members, attention to detail, and a commitment to ongoing testing and
-                            optimization to ensure the website functions as intended</li>
-
-                        <li>Ultimately, successful web development requires a combination of technical expertise,
-                            creativity, and effective project management skills</li>
-                    </ul>
-                </div>
-
-                <div class="Responsibilitie">
-                    <p class="title">
-                        Responsibilities
-                    </p>
-                    <ul>
-                        <li>
-                            These include a clear understanding of the client's needs and goals, a solid plan for
-                            designing and building the website, expertise in the necessary programming
-                        </li>
-
-                        <li>Web development requirements vary depending on the specific project and goals, but there are
-                            some general requirements that apply to most web development projects</li>
-
-                        <li>Other important requirements may include effective communication and collaboration with
-                            clients and team members, attention to detail, and a commitment to ongoing testing and
-                            optimization to ensure the website functions as intended</li>
-
-                        <li>Ultimately, successful web development requires a combination of technical expertise,
-                            creativity, and effective project management skills</li>
-                    </ul>
-                </div>
             </div>
-        </div> -->
-
-    </section>
-</main>
-<script>
-
-    //  Notification
-
-    let getApplyJOb = JSON.parse(localStorage.getItem("apllyJob"))
-    let currentOwner = JSON.parse(localStorage.getItem("Login"))
-    console.log(getApplyJOb);
-
-    let applyJob = getApplyJOb.filter(J => J["ownerId"] == currentOwner.id)
-    console.log(getApplyJOb.ownerId);
-    console.log(applyJob)
-
-    for (let i = 0; i < applyJob.length; i++) {
-        let notifications = document.createElement("div");
-        notifications.setAttribute("class", "notifications");
-
-        let notifyCards = document.createElement("div");
-        notifyCards.setAttribute("class", "notifyCards");
-        notifications.append(notifyCards);
-
-        let notifyCardsImage = document.createElement("img");
-        notifyCardsImage.setAttribute("src", "../assets/Images/boy-avatar.svg");
-        notifyCardsImage.setAttribute("alt", "Image");
-        notifyCards.append(notifyCardsImage);
-
-        let applierDetails = document.createElement("div");
-        applierDetails.setAttribute("class", "applierDetails");
-        notifyCards.append(applierDetails);
-
-        let name = document.createElement("p");
-        name.setAttribute("class", "name");
-        name.innerHTML = `Worker Name : ${applyJob[i]["applierName"]}`;
-        applierDetails.append(name);
-
-        let jobId = document.createElement("p");
-        jobId.innerHTML = `Job Id : ${applyJob[i]["applierId"]}`;
-        jobId.setAttribute("class", "jobId");
-        applierDetails.append(jobId);
-
-        let buttons = document.createElement("div");
-        buttons.setAttribute("class", "buttons");
-        notifyCards.append(buttons);
-
-        let b1 = document.createElement("div");
-        b1.setAttribute("class", "b1");
-        buttons.append(b1);
 
 
-        let Approve = document.createElement("a");
-        Approve.innerHTML = "Approve";
-        b1.append(Approve);
 
-        let Reject = document.createElement("a");
-        Reject.innerHTML = "Reject";
-        b1.append(Reject);
+        </section>
 
-        let b2 = document.createElement("div");
-        b2.setAttribute("class", "b2");
-        buttons.append(b2);
-
-        let Readed = document.createElement("a");
-        Readed.innerHTML = "Readed";
-        b2.append(Readed);
-
-        let details = document.createElement("a");
-        details.innerHTML = "Details";
-        details.setAttribute("onclick", `setCurrentNotificationId(${applyJob[i]["jobID"]})`)
-        // details.setAttribute("onclick", "oncDetails()")
-        b2.append(details);
-
-        document.querySelector(".notificationEntire").append(notifications);
-    }
+        <section class="profileDeatail">
+            <div class="works">
+                <h2>Works / Certificates</h2>
 
 
-    // let url = location.search;
-    // let urlParams = new URLSearchParams(url);
-    // let CurrentId = urlParams.get("applyId");
-    // console.log(CurrentId)
-    // console.log(applyJob);
 
-    function setCurrentNotificationId(id) {
-        localStorage.setItem("CurrentNotificationId", JSON.stringify(id));
-        let CurrentId = JSON.parse(localStorage.getItem("CurrentNotificationId"));
-        console.log(CurrentId);
-        // let currentJobIndex = applyJob.indexOf(CurrentId);
-        // console.log(applyJob);
-        // console.log(applyJob["CurrentId"]);
-        // console.log(currentJobIndex);
-        let currentJob = applyJob.find((A) => A["jobID"] == CurrentId);
-        createDetails(currentJob);
+            </div>
 
-    }
+            <div class="completedJobs">
+                <h2>Completed Jobs</h2>
+                <img class="cross" onclick="closeProfileDetails()" src="../assets/Images/cross.svg" alt="image">
+
+            </div>
+        </section>
+    </main>
+    <script>
+
+        // Filter button to set the type of filter in the url
+
+        document.getElementById("ftrbtn").addEventListener("click", (event) => {
+            try {
+                let clicked = document.getElementById("filter").value;
+                if (clicked == "All") {
+                    filterAll()
+                }
+                if (clicked == "Read") {
+                    filterRead()
+                }
+                if (clicked == "Unread") {
+                    filterUnread()
+                }
+            }
+            catch (err) {
+                console.error(err);
+            }
+
+        })
+
+        //  To create the header of the user in the notification header
+
+        let Login = JSON.parse(localStorage.getItem("Login"));
+        let Bio = JSON.parse(localStorage.getItem("BIO"));
+
+        let findedBio = Bio.find((F) => F.Email == Login.Email);
+
+        let cntProfileImg = document.createElement("img");
+        // To create a image of the user with their names first two letter
+        cntProfileImg.setAttribute("src", profileImg(findedBio["FN"], findedBio["LN"]));
+        cntProfileImg.setAttribute("alt", "image");
+        document.querySelector(".profile").prepend(cntProfileImg);
+
+        document.querySelector(".user_name").innerHTML = findedBio["FN"] + " " + findedBio["LN"];
 
 
-    // console.log(currentJob)
-    // Data Details
+        //  Notification
 
-    function createDetails(currentJob) {
+        // filters
 
 
-        let initial = document.querySelector(".details");
-        if (initial != null) {
-            document.querySelector(".details").remove();
+
+        // url data
+
+
+        let url = location.search;
+        let urlParams = new URLSearchParams(url);
+        let filter = urlParams.get("filter");
+        console.log(filter);
+
+        let getApplyJOb = JSON.parse(localStorage.getItem("apllyJob"))
+        console.log(getApplyJOb);
+        let currentOwner = JSON.parse(localStorage.getItem("Login"))
+        console.log(currentOwner.id);
+        console.log(getApplyJOb);
+
+        // To seperate the datas with filtered conditons
+        let applyJobAll = getApplyJOb.filter((J) => J["ownerId"] == currentOwner.id);
+        console.log(applyJobAll);
+        let applyJobReaded = applyJobAll.filter((J) => J["readed"] == true);
+        console.log(applyJobReaded);
+        let applyJobUnread = applyJobAll.filter((J) => J["readed"] == false);
+        console.log(applyJobUnread);
+        let applyJob;
+        if (filter == "all") {
+            applyJob = applyJobAll;
+        }
+        else if (filter == "readed") {
+            applyJob = applyJobReaded;
+        }
+        else {
+            applyJob = applyJobUnread;
+        }
+        console.log(applyJob)
+
+
+        //   Create the notification module with the filtered data
+        for (let i = 0; i < applyJob.length; i++) {
+            let notifications = document.createElement("div");
+            notifications.setAttribute("class", "notifications");
+            console.log(applyJob[i]);
+            let notifyCards = document.createElement("div");
+            notifyCards.setAttribute("class", "notifyCards");
+            notifications.append(notifyCards);
+
+            let notifyCardsImage = document.createElement("img");
+            let imageProfile = profileImg(applyJob[i]["applierName"], applyJob[i]["applierName"])
+            notifyCardsImage.setAttribute("src", imageProfile);
+            notifyCardsImage.setAttribute("onclick", `openprofileDetails(${applyJob[i]["applierId"]})`)
+            notifyCardsImage.setAttribute("alt", "Image");
+            notifyCards.append(notifyCardsImage);
+
+            let applierDetails = document.createElement("div");
+            applierDetails.setAttribute("class", "applierDetails");
+            notifyCards.append(applierDetails);
+
+            let name = document.createElement("p");
+            name.setAttribute("class", "name");
+            name.innerHTML = `${applyJob[i]["applierName"]}`;
+            applierDetails.append(name);
+
+            let jobId = document.createElement("p");
+            jobId.innerHTML = `Job Title : ${applyJob[i]["title"]}`;
+            jobId.setAttribute("class", "jobId");
+            applierDetails.append(jobId);
+
+            let buttons = document.createElement("div");
+            buttons.setAttribute("class", "buttons");
+            notifyCards.append(buttons);
+
+            let b1 = document.createElement("div");
+            b1.setAttribute("class", "b1");
+            buttons.append(b1);
+
+            // Check the stage of the notification and create button respective buttons
+            let Approve = document.createElement("a");
+            Approve.setAttribute("id", "approve")
+            if (applyJob[i]["notificationAction"] == "Approved") {
+                Approve.innerHTML = "Approved";
+                console.log("Approved");
+            }
+            else {
+                Approve.innerHTML = "Approve";
+                Approve.setAttribute("onclick", `aprove(${applyJob[i]["aplliedJobId"]})`);
+            }
+
+            b1.append(Approve);
+
+            let Reject = document.createElement("a");
+            Reject.setAttribute("id", "reject");
+            if (applyJob[i]["notificationAction"] == "Rejected") {
+                Reject.innerHTML = "Rejected";
+            }
+            else {
+                Reject.innerHTML = "Reject";
+                Reject.setAttribute("onclick", `reject(${applyJob[i]["aplliedJobId"]})`)
+            }
+
+            b1.append(Reject);
+
+            let b2 = document.createElement("div");
+            b2.setAttribute("class", "b2");
+            buttons.append(b2);
+
+            let Readed = document.createElement("a");
+            if (applyJob[i]["readed"] == true) {
+                Readed.innerHTML = "Read";
+            }
+            else {
+                Readed.innerHTML = "Read";
+                Readed.setAttribute("onclick", `readed(${applyJob[i]["aplliedJobId"]})`)
+            }
+            Readed.innerHTML = "Read";
+            Readed.setAttribute("onclick", `readed(${applyJob[i]["aplliedJobId"]})`)
+            b2.append(Readed);
+
+            let details = document.createElement("a");
+            details.innerHTML = "Details";
+            details.setAttribute("onclick", `setCurrentNotificationId(${applyJob[i]["aplliedJobId"]})`)
+            b2.append(details);
+
+            document.querySelector(".notificationEntire").append(notifications);
         }
 
-        // let details = null;
-        let details = document.createElement("div");
-        details.setAttribute("class", "details");
 
 
-        let jobHead = document.createElement("div");
-        jobHead.setAttribute("class", "jobHead");
-        details.append(jobHead);
-
-        let p = document.createElement("div");
-        p.setAttribute("class", "p");
-        jobHead.append(p);
-
-        let Jtitle = document.createElement("p");
-        Jtitle.remove();
-        Jtitle.innerHTML = `Job Title:   ${currentJob["title"]}`;
-        p.append(Jtitle);
-
-        let Jlocation = document.createElement("p");
-        Jlocation.remove();
-        Jlocation.innerHTML = `Location:${currentJob["location"]} `;
-        p.append(Jlocation);
-
-        let JworkerName = document.createElement("p");
-        JworkerName.remove();
-        JworkerName.innerHTML = `Worker Name: ${currentJob["applierName"]}`;
-        p.append(JworkerName);
-
-        let imageDiv = document.createElement("div")
-        jobHead.append(imageDiv);
-
-        let image = document.createElement("img");
-        image.setAttribute("src", "../assets/Images/close.svg");
-        image.setAttribute("alt", "image");
-        image.setAttribute("onclick", "closeDetail()")
-        imageDiv.append(image);
-
-        let data = document.createElement("div");
-        data.setAttribute("class", "data");
-        details.append(data);
-
-        let jobSummary = document.createElement("div");
-        jobSummary.setAttribute("class", "jobSummary");
-        data.append(jobSummary);
-
-        let title = document.createElement("p");
-        title.setAttribute("class", "title");
-        title.innerHTML = "Job Summary";
-        jobSummary.append(title);
-
-        let jobSummaryUL = document.createElement("ul");
-        jobSummaryUL.remove();
-        jobSummary.append(jobSummaryUL);
 
 
-        console.log(currentJob["summary"])
-        let getSummary = currentJob["summary"];
+        function openprofileDetails(id) {
+            document.querySelector(".profileDeatail").style.display = "flex";
+            document.querySelector(".notificationEntire").style.height = null;
+            document.querySelector(".notificationEntire").style.marginLeft = "0%";
+            let workerRegister = JSON.parse(localStorage.getItem("workerRegister"));
+            let ownerRegister = JSON.parse(localStorage.getItem("register"));
+            let Register = ownerRegister.concat(workerRegister);
+            let currentRegister = Register.find((x) => x.id == id);
+            let Bio = JSON.parse(localStorage.getItem("BIO"));
+            let currentBio = Bio.find((F) => F.Email == currentRegister.Email);
+            let post = currentBio.post;
+            createposts(post);
+            completedJobs(id);
 
-        let currentSummary = getSummary.split(".");
-
-        for (let i = 0; i < currentSummary.length - 1; i++) {
-
-            let jobSummaryLi = document.createElement("li");
-            jobSummaryLi.innerHTML = currentSummary[i];
-            jobSummaryUL.append(jobSummaryLi);
         }
 
 
-        let Qualification = document.createElement("div");
-        Qualification.setAttribute("class", "Qualification");
-        data.append(Qualification);
-
-        let QualificationTitle = document.createElement("p");
-        QualificationTitle.setAttribute("class", "title");
-        QualificationTitle.innerHTML = "Qualifications";
-        Qualification.append(QualificationTitle);
-
-        let QualificationUl = document.createElement("ul");
-        QualificationUl.remove();
-        Qualification.append(QualificationUl);
-
-        let getQualification = currentJob["Qualifications"];
-        let currentQualification = getQualification.split(".")
-
-        for (let i = 0; i < currentQualification.length - 1; i++) {
-            let QualificationLi = document.createElement("li");
-            QualificationLi.innerHTML = currentQualification[i]
-            QualificationUl.append(QualificationLi);
+        function closeProfileDetails() {
+            document.querySelector(".profileDeatail").style.display = "none";
+            document.querySelector(".notificationEntire").style.height = "5rem";
+            document.querySelector(".notificationEntire").style.marginLeft = "100%"
         }
 
-        let Responsibilitie = document.createElement("div");
-        Responsibilitie.setAttribute("class", "Responsibilitie");
-        data.append(Responsibilitie);
+        function createposts(data) {
 
-        let ResponsibilitieTitle = document.createElement("p");
-        ResponsibilitieTitle.setAttribute("class", "title");
-        ResponsibilitieTitle.innerHTML = "Responsibilities";
-        Responsibilitie.append(ResponsibilitieTitle);
+            if (data == undefined || null) {
+                if (document.querySelector(".worknull") != null || undefined) {
+                    document.querySelector(".worknull").remove();
+                }
+                let work = document.createElement("div");
+                work.innerHTML = "No Posts Yet";
+                work.style.display = "flex";
+                work.style.alignItems = "center"
+                work.style.justifyContent = "center"
+                work.style.fontSize = "2rem"
+                work.className = "worknull";
+                document.querySelector(".works").append(work);
 
-        let ResponsibilitieUl = document.createElement("ul");
-        ResponsibilitieUl.remove();
-        Responsibilitie.append(ResponsibilitieUl);
+            }
+            else {
+                for (let i = 0; i < data.length; i++) {
+                    let work = document.createElement("div");
+                    work.className = "work";
 
-        let getResponsibility = currentJob["Responsibilities"]
-        let currentResponsibility = getResponsibility.split(".");
+                    let work_title = document.createElement("div");
+                    work_title.className = "work_title";
+                    work_title.innerHTML = data[i]["description"];
+                    work.append(work_title);
 
-        for (let i = 0; i < currentResponsibility.length - 1; i++) {
-            let ResponsibilitieLi = document.createElement("li");
-            ResponsibilitieLi.innerHTML = currentResponsibility[i];
-            ResponsibilitieUl.append(ResponsibilitieLi);
+                    let work__img = document.createElement("div");
+                    work__img.className = "work__img";
+                    work__img.innerHTML = `<img src="${data[i]["url"]}" alt="image">`;
+                    work.append(work__img);
+
+                    document.querySelector(".works").append(work);
+
+                }
+
+
+
+
+
+            }
         }
 
-        document.querySelector(".secS").append(details)
 
-        console.log("JS created");
+        function completedJobs(id) {
+            let completedJobs = JSON.parse(localStorage.getItem("completedJobs"));
+            let filteredCompletedJobs = completedJobs.filter((F) => F.applierId == id);
+            let paid = filteredCompletedJobs.filter((F) => F.paid == "Paid");
+            if (document.querySelectorAll(".jobs") != null || undefined) {
+                let allJobs = document.querySelectorAll(".jobs");
+                for (let i = 0; i < allJobs.length; i++) {
+                    allJobs[i].remove();
+                }
+            }
+            if (paid.length > 0) {
+                for (let i = 0; i < paid.length; i++) {
+                    // Create the main container div
+                    var jobsDiv = document.createElement('div');
+                    jobsDiv.className = 'jobs';
 
-        oncDetails();
+                    // Create the image element
+                    var image = document.createElement('img');
+                    image.src = profileImg(paid[i]["FN"], paid[i]["LN"]);
+                    image.alt = 'image';
 
-    }
-    function oncDetails() {
-        event.preventDefault();
-        let detail = document.querySelector(".secS")
-        // console.log(detail + "test")
-        detail.style.display = "block";
+                    // Create the job title div
+                    var jobTitleDiv = document.createElement('div');
+                    jobTitleDiv.className = 'job__title';
+                    jobTitleDiv.textContent = paid[i]["title"];
 
-        let notificationEntire = document.querySelector(".notificationEntire");
-        notificationEntire.style.marginLeft = "30%";
+                    // Create the paid amount div
+                    var paidAmountDiv = document.createElement('div');
+                    paidAmountDiv.className = 'paidAmount';
+                    paidAmountDiv.textContent = `Rs.${paid[i]["paidAmount"]}`;
 
-    }
+                    // Append the image, job title, and paid amount divs to the main container div
+                    jobsDiv.appendChild(image);
+                    jobsDiv.appendChild(jobTitleDiv);
+                    jobsDiv.appendChild(paidAmountDiv);
 
-    function closeDetail() {
-        // event.preventDefault();
-        let detail = document.querySelector(".secS")
-        // console.log(detail + "test")
-        detail.style.display = "none";
+                    // Append the main container div to the desired parent element in your HTML
+                    var parentElement = document.querySelector(".completedJobs");
+                    parentElement.appendChild(jobsDiv);
+                }
+            }
 
-        let notificationEntire = document.querySelector(".notificationEntire");
-        notificationEntire.style.marginLeft = "100%";
-    }
-
-
-
+        }
 
 
 
 
-</script>
+
+
+
+
+    </script>
+</body>
 
 </html>

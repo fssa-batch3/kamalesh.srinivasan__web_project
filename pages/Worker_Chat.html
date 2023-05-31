@@ -7,64 +7,465 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
     <link rel="stylesheet" href="../assets/css/chat.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;700&family=Outfit:wght@300&family=Roboto+Mono:ital,wght@0,300;1,300&family=Roboto+Slab:wght@300&family=Space+Mono:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="../assets/Images/barLogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
-    <section>
-        <div class="chat_with_us">
-            <div class="chat_with_us-P">
-
-                <p> <img src="../assets/Images/chat.png" alt="chat">
-                    Chat with your worker</p>
-                <button class="chat_with_us-2ndP" onclick="history.back()">X</button>
+    <script src="../assets/JS/index.js"></script>
+    <main>
+        <section class="leftSec">
+            <div class="left">
+                <div class="lefttop">
 
 
+                    <div class="name">Kamalesh</div>
+
+                </div>
+
+                <div class="search">
+                    <input type="text" placeholder="Search Workers" id="searchOwners">
+                    <img src="../assets/Images/Search-icon.png" alt="searchImage" class="searchImg"
+                        onclick="searchOwners()">
+
+                </div>
+
+                <div class="recentChats">
+                </div>
             </div>
+        </section>
+        <section class="middleSec">
+            <div class="chat_with_us">
+                <div class="chat_with_us-P">
 
-            <div class="chat_profile">
-                <img src="../assets/Images/avatar (2).svg" alt="">
-                <div>
-                    <p>Worker Name</p>
-                    <div class="profile_logo"><img src="../assets/Images/Logo.png" alt="Logo">
-                        <p>Needs To Be Done</p>
+                    <p> <img src="../assets/Images/chat.png" alt="chat">
+                        <span class="chatterType"></span>
+                    </p>
+                    <button class="chat_with_us-2ndP" onclick="history.back()">X</button>
+
+
+                </div>
+
+                <div class="chat_profile">
+                    <div>
+                        <p class="chatDeatilName">Worker Name</p>
+                        <div class="profile_logo"><img src="../assets/Images/barLogo.png" alt="Logo">
+                            <p>Needs To Be Done</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="main">
-            <div class="date">
+            <div class="main">
+                <div class="date">
 
-                <span>____________________</span>
-                <p>Today</p><span>____________________</span>
+                    <span>____________________</span>
+                    <p>Today</p><span>____________________</span>
+                </div>
+                <div class="chat">
+                </div>
+
             </div>
 
-            <div class="leftchat">
-                <p>Hello Sir </p><br>
-                <p>I am kamalesh</p><br>
-                <p>You accepted my request sir</p><br>
-                <p>Please tell the full Requirements </p><br>
+            <div class="typebar">
+                <div class="typebar_div1">
+                    +
+                </div>
+
+                <div class="typebar_div2">
+                    <input id="chatText" type="text" placeholder="Type here" />
+
+                </div>
+                <img class="chatSendBtn" src="../assets/Images/chatSendBtn.png" alt="chatsendbutton">
+                <div class="typebar_div3">
+                    Languages &emsp; +
+                </div>
+            </div>
+        </section>
+        <section class="rightSec">
+            <!-- <div class="rightProfile">
+                <img src="../assets/Images/avatar (2).svg" alt="profileImage">
             </div>
 
-            <div class="right_chat">
-                <p>Hi Sir</p><br>
-                <p class="right_chat_p2">I will send more details</p><br>
-            </div>
-        </div>
+            <div class="rightName">Not Found</div>
+            <div class="expert">Not Found</div>
+            <div class="amountPaid">
+                <p class="totalAmountPaid">Total Amount Paid by owners : Rs.0</p>
+                <p class="highAmount">Highest Amount Paid by owners : Rs. 0</p>
+                <p class="lowAmount">Lowset Amount Paid by owners : Rs. 0</p>
+                <p class="noOfJobs">No of jobs completed : 0 jobs</p>
+                <p class="pendingJobs">No of pending jobs : 0 jobs</p>
 
-        <div class="typebar">
-            <div class="typebar_div1">
-                +
-            </div>
+            </div> -->
 
-            <div class="typebar_div2">
-                <input type="text" placeholder="Type here" />
+            <div class="suggetions">
+                <h2>Suggetions</h2>
+                <a class="create" onclick="openCreatesuggetions()"><i class="fa fa-plus"></i>Create</a>
+                <div class="createSuggestion">
+                    <textarea class="typedSuggetion" placeholder="Enter Your suggestion"></textarea>
+                    <div class="suggetionsButton">
+                        <button class="createSuggestionBtn" onclick="createSuggetion()">Create</button>
+                        <button class="cancelSuggestion" onclick="closeSuggestion()">Cancel</button>
+                    </div>
+                </div>
+                <div class="messages">
+
+
+
+                </div>
             </div>
-            <div class="typebar_div3">
-                Languages &emsp; +
-            </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
+    <!-- Toastr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        // Default Configuration
+        $(document).ready(function () {
+            toastr.options = {
+                'closeButton': true,
+                'debug': false,
+                'newestOnTop': false,
+                'progressBar': false,
+                'positionClass': 'toast-top-right',
+                'preventDuplicates': false,
+                'showDuration': '1000',
+                'hideDuration': '1000',
+                'timeOut': '5000',
+                'extendedTimeOut': '1000',
+                'showEasing': 'swing',
+                'hideEasing': 'linear',
+                'showMethod': 'fadeIn',
+                'hideMethod': 'fadeOut',
+            }
+        });
+    </script>
+    <script src="../assets/JS/workerChat.js"></script>
+    <script>
+
+        // To get the url params
+        let url = location.search;
+        let urlParams = new URLSearchParams(url);
+        let from = urlParams.get("from");
+        console.log(from);
+
+        //  To get the current user Email and Id
+        let cntGmail;
+        let currentID;
+        if (from == "logIn") {
+            let Login = JSON.parse(localStorage.getItem("Login"));
+            cntGmail = Login.Email;
+            currentID = Login.id;
+        } else {
+            let register = JSON.parse(localStorage.getItem("register"));
+            cntGmail = register[register.length - 1].Email;
+            currentID = register[register.length - 1].id;
+        }
+
+        //  General datas of the worker chat
+
+        let Bio = JSON.parse(localStorage.getItem("BIO"));
+        let findBio = Bio.find((F) => F.Email == cntGmail);
+
+        document.querySelector(".leftSec .name").innerHTML = findBio.FN + findBio.LN;
+
+
+        //  Profile Image
+
+        let imgSrc = profileImg(findBio.FN, findBio.LN);
+
+        let Pimage = document.createElement("img");
+        Pimage.setAttribute("class", "profilePic");
+        Pimage.setAttribute("src", imgSrc);
+        Pimage.setAttribute("alt", "Image");
+        document.querySelector(".lefttop").prepend(Pimage);
+
+
+
+
+        //   Recent Chats
+
+        let chatData = JSON.parse(localStorage.getItem("chatData"));
+        if (chatData != undefined || null) {
+
+
+            console.log(currentID);
+            console.log(chatData);
+            //  Get the keys of the chatData
+            let chatDatakeys = Object.keys(chatData);
+            console.log(chatDatakeys);
+            let recentChat = [];
+
+            //  create a array with id and lastdata
+            for (let i = 0; i < chatDatakeys.length; i++) {
+                let lastIndex = chatData[chatDatakeys[i]].length - 1;
+                let cntArray = chatData[chatDatakeys[i]];
+                let splited = cntArray[lastIndex].split("-");
+                let cntObj = {
+                    key: chatDatakeys[i],
+                    date: splited[2],
+                }
+                recentChat.push(cntObj)
+            }
+
+            let customSort = (a, b) => {
+                const dateA = new Date(a.date);
+                const dateB = new Date(b.date);
+                if (dateA < dateB) return 1;
+                else if (dateA > dateB) return -1;
+                return 0;
+            }
+
+            console.log(customSort);
+
+            //  create array with recentCaht
+            console.log(recentChat.sort(customSort));
+
+            // Find the currentUser to chatters
+
+            let sortedRecent = recentChat.sort(customSort);
+            //  get the key of the sorted Array
+            let sortedRecentKeys = [];
+            for (let i = 0; i < sortedRecent.length; i++) {
+                sortedRecentKeys.push(sortedRecent[i].key);
+            }
+            // sortedRecentKeys.push("169080929027644to168890929138185");
+            console.log(sortedRecentKeys);
+            let currentIdArr = [currentID];
+            let currentUserIdInordredKeys = sortedRecentKeys.filter((F) => F.includes(currentID));
+            console.log(currentUserIdInordredKeys);
+            let removedCurrentUID = [];
+
+            for (let i = 0; i < currentUserIdInordredKeys.length; i++) {
+
+                let splitedcurrentUserIdInordredKeys = currentUserIdInordredKeys[i].split("to");
+                console.log(splitedcurrentUserIdInordredKeys);
+                for (let i = 0; i < splitedcurrentUserIdInordredKeys.length; i++) {
+                    if (splitedcurrentUserIdInordredKeys[i] != currentID) {
+                        removedCurrentUID.push(splitedcurrentUserIdInordredKeys[i]);
+                    }
+                }
+
+            }
+
+            console.log(removedCurrentUID);
+
+
+
+
+            //  create a card with finded id
+            let recentBio = JSON.parse(localStorage.getItem("BIO"));
+            let workerRegister = JSON.parse(localStorage.getItem("workerRegister"));
+            let ownerRegister = JSON.parse(localStorage.getItem("register"));
+            let mergedArray = workerRegister.concat(ownerRegister);
+            console.log(mergedArray);
+
+            let filterdwithchatsId = [];
+            for (let i = 0; i < mergedArray.length; i++) {
+                for (let j = 0; j < removedCurrentUID.length; j++) {
+                    // console.log(mergedArray[i]["id"] + " " + removedCurrentUID[0]);
+                    if (mergedArray[i]["id"] == removedCurrentUID[j]) {
+                        filterdwithchatsId.push(mergedArray[i])
+                        break;
+                    }
+                }
+
+            }
+
+            // console.log();
+            console.log(filterdwithchatsId);
+            console.log("test");
+
+            //  Find the same values in Bio 
+
+            let filterdwithchatsIdBio = [];
+
+            for (let i = 0; i < recentBio.length; i++) {
+                for (let j = 0; j < filterdwithchatsId.length; j++) {
+                    if (recentBio[i]["Email"] == filterdwithchatsId[j]["Email"]) {
+                        filterdwithchatsIdBio.push(recentBio[i])
+                        break;
+                    }
+                }
+            }
+
+            console.log(filterdwithchatsIdBio);
+            createSearchChatList(filterdwithchatsIdBio)
+        }
+        else {
+
+            let chatCard = document.createElement("div");
+            chatCard.setAttribute("class", "chatCard");
+            chatCard.innerHTML = "No recent chats";
+            document.querySelector(".recentChats").append(chatCard);
+
+            document.querySelector(".chatCard").style.padding = "1.5rem";
+
+
+        }
+        // To send the chat
+        document.querySelector(".chatSendBtn").addEventListener("click", (event) => {
+            try {
+                let chatText = document.querySelector("#chatText").value;
+                let detailViewChat = JSON.parse(localStorage.getItem("cuntDVChat"));
+                let detailViewChatObj = JSON.parse(localStorage.getItem("register")).find((F) => F.Email == detailViewChat)
+                if (detailViewChatObj == null || detailViewChatObj == undefined) {
+                    detailViewChatObj = JSON.parse(localStorage.getItem("workerRegister")).find((F) => F.Email == detailViewChat)
+                }
+                let Obj = {};
+                if (localStorage.getItem("chatData") != null) {
+                    Obj = JSON.parse(localStorage.getItem("chatData"));
+                }
+
+                // Get URL Params
+                let url = location.search;
+                let urlParams = new URLSearchParams(url);
+                let type = urlParams.get("type");
+                let from = urlParams.get("from");
+                console.log(type, from);
+                // get the id's
+                let cntUser;
+                let cntUserAll;
+                if (type == "owner" && from == "register") {
+                    let ownerReg = JSON.parse(localStorage.getItem("register"))
+                    cntUser = ownerReg[ownerReg.length - 1].id;
+                    cntUserAll = ownerReg[ownerReg.length - 1];
+                }
+                else if (type == "worker" && from == "register") {
+                    let ownerReg = JSON.parse(localStorage.getItem("workerRegister"))
+                    cntUser = ownerReg[ownerReg.length - 1].id;
+                    cntUserAll = ownerReg[ownerReg.length - 1];
+                }
+
+                else if (from == "logIn") {
+                    let LogIn = JSON.parse(localStorage.getItem("Login"));
+                    cntUser = LogIn.id;
+                    cntUserAll = LogIn;
+                }
+                let currentTime = new Date();
+                chatText = chatText + "-" + cntUser + "-" + currentTime;
+
+
+                let id = cntUser + "to" + detailViewChatObj.id;
+                console.log(id);
+                // Find the id is already present in the object or not
+                let setIdValue = Obj[id];
+                console.log(setIdValue);
+                if (setIdValue == undefined) {
+                    let SplitId = id.split("to");
+                    console.log(SplitId);
+                    let reverseArray = SplitId[1] + "to" + SplitId[0];
+                    id = SplitId[1] + "to" + SplitId[0];
+                    // let JoinReverse = reverseArray.join("");
+                    setIdValue = Obj[reverseArray];
+                    console.log(reverseArray);
+                }
+                if (setIdValue == undefined) {
+                    console.log("if")
+                    Obj[id] = [chatText];
+                }
+                else {
+                    setIdValue.push(chatText);
+                    Obj[id] = setIdValue;
+                }
+
+
+
+
+
+                localStorage.setItem("chatData", JSON.stringify(Obj));
+                let cntEmail = cntUserAll.Email;
+                // To search the chat
+                searchedChat();
+                document.getElementById("chatText").value = null;
+            }
+            catch (err) {
+                console.error(err);
+            }
+        })
+
+        function openCreatesuggetions() {
+            document.querySelector(".createSuggestion").style.display = "flex";
+
+        }
+
+
+        function createSuggetion() {
+            let logIn = JSON.parse(localStorage.getItem("Login"));
+            let Bio = JSON.parse(localStorage.getItem("BIO"));
+            let currentBio = Bio.find((F) => F.Email == logIn.Email);
+            let currentBioIndex = Bio.indexOf(currentBio);
+            let text = document.querySelector(".typedSuggetion").value;
+            let trimedText = text.trim();
+
+            if (text == "" || trimedText == "") {
+                return alert("Please write something in suggestions");
+            }
+            let suggestions = [];
+
+            if (currentBio["suggestions"] != null || undefined) {
+                suggestions = currentBio["suggestions"];
+            }
+
+            let id = Date.now();
+
+            let createdsuggestion = {
+                suggestionId: id,
+                message: text
+            }
+            suggestions.push(createdsuggestion);
+            Bio[currentBioIndex].suggestions = suggestions;
+            localStorage.setItem("BIO", JSON.stringify(Bio));
+            document.querySelector(".createSuggestion").style.display = "none";
+            location.reload();
+
+        }
+
+        function closeSuggestion() {
+            document.querySelector(".createSuggestion").style.display = "none";
+
+        }
+
+        //  creating suggetions 
+        let logIn = JSON.parse(localStorage.getItem("Login"));
+        let currentBio = Bio.find((F) => F.Email == logIn.Email);
+        if (currentBio["suggestions"] == undefined || null) {
+            let message = document.createElement("div");
+            message.classList.add("message");
+            message.innerHTML = "No suggestions created"
+            document.querySelector(".messages").append(message);
+        }
+        else {
+            let suggestions = currentBio["suggestions"];
+            for (let i = 0; i < suggestions.length; i++) {
+                let message = document.createElement("div");
+                message.classList.add("message");
+                message.innerHTML = suggestions[i]["message"];
+                message.setAttribute(`onclick`, `addToChat(${suggestions[i]["suggestionId"]})`)
+                document.querySelector(".messages").append(message);
+            }
+        }
+
+        function addToChat(id) {
+            let logIn = JSON.parse(localStorage.getItem("Login"));
+            let Bio = JSON.parse(localStorage.getItem("BIO"));
+            let currentBio = Bio.find((F) => F.Email == logIn.Email);
+            let currentsuggestion = currentBio.suggestions.find((F) => F.suggestionId == id);
+            document.querySelector("#chatText").value = currentsuggestion.message;
+        }
+
+
+    </script>
 </body>
 
 </html>

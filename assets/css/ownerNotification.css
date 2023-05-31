@@ -1,15 +1,17 @@
 body {
   color: black;
+  font-family: "Roboto Slab", serif;
 }
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .notificationEntire {
   background-color: white;
   width: 30rem;
-  /* height: 5rem; */
+  height: 5rem;
   margin-left: 100%;
   margin-top: 2rem;
   border-radius: 0.3rem;
@@ -17,13 +19,33 @@ a {
 
 .notificationTop {
   display: flex;
-  gap: 6rem;
+  gap: 4.5rem;
+  background-color: #87d0f2c5;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+#filter {
+  height: 2rem;
+  width: 5rem;
+  outline: none;
+  border: none;
+  background-color: #48dc91;
+  border-radius: 0.2rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-top: 1.5rem;
+  margin-right: 10rem;
+}
+
+#ftrbtn {
+  background-color: blanchedalmond;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .profile {
   display: flex;
   height: 5rem;
-  margin-left: 1rem;
   align-items: center;
   gap: 1rem;
 }
@@ -42,6 +64,7 @@ a {
   justify-content: space-between;
   gap: 1rem;
   align-items: center;
+  cursor: pointer;
 }
 
 .types div {
@@ -57,18 +80,17 @@ a {
 }
 
 .notifications {
-  background-color: aqua;
+  background-color: rgb(50 50 93 / 11%);
   /* margin-bottom: 2rem; */
-  padding: 0.1rem 1rem 0.5rem 1rem;
-  border-end-end-radius: 5px;
-  border-end-start-radius: 5px;
+  padding: 1rem 1rem 0rem 1rem;
+  /* border-end-end-radius: 5px; */
+  /* border-end-start-radius: 5px; */
+  /* padding-top: 1rem;*/
 }
-
 .notifyCards {
   background-color: white;
   box-sizing: 20rem;
-  margin-top: 1rem;
-  padding: 1rem;
+  /* margin-top: 1rem; */
   display: flex;
   gap: 2rem;
   border-radius: 0.5rem;
@@ -95,11 +117,13 @@ a {
 
 .buttons a {
   padding: 5px;
-  background-color: aqua;
+  background-color: #382d5e;
   text-align: center;
-  border-radius: 2px;
+  border-radius: 5px;
   box-sizing: border-box;
   width: 10rem;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .b1 a {
@@ -115,14 +139,14 @@ a {
 
 main {
   display: flex;
-  gap: 10rem;
+  gap: 3rem;
 }
 
 .secS {
   margin-top: 2rem;
   width: 45rem;
   background-color: white;
-  /* height: 50rem; */
+  height: fit-content;
   border-radius: 0.3rem;
   display: none;
 }
@@ -156,4 +180,111 @@ main {
 .data p {
   font-size: larger;
   font-weight: bold;
+}
+
+a:active {
+  background-color: antiquewhite;
+}
+
+#getCompletedDetailsbutton {
+  width: 10rem;
+}
+
+main {
+  display: flex;
+}
+
+.profileDeatail {
+  width: 1000rem;
+  height: 40rem;
+  background-color: aqua;
+  /* margin-left: 25rem; */
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+  display: none;
+  justify-content: space-around;
+}
+
+.works {
+  border: 3px solid #382d5e;
+  height: 38rem;
+  width: 30rem;
+  border-radius: 0.5rem;
+  margin-left: 0.2rem;
+  margin-top: 0.2rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  overflow: scroll;
+}
+
+.works h2 {
+  text-align: center;
+  /* position: sticky;
+  top: 0.2rem; */
+}
+
+.work__img img {
+  width: 28rem;
+  margin-left: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+/* width */
+.works::-webkit-scrollbar {
+  width: 0px;
+}
+
+.completedJobs h2 {
+  text-align: center;
+  margin-top: 0.3rem;
+}
+
+.completedJobs {
+  width: 22rem;
+  background-color: white;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+.completedJobs::-webkit-scrollbar {
+  width: 0px;
+}
+
+.jobs {
+  width: 21rem;
+  height: 5rem;
+  background-color: #382d5e;
+  justify-content: center;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+}
+
+.jobs img {
+  width: 4rem;
+}
+
+.cross {
+  width: 2rem;
+  position: absolute;
+  right: 0.5rem;
+  transition: 0.5s;
+}
+
+.cross:hover {
+  scale: 1.2;
+}
+
+.cross:active {
+  scale: 0.8;
 }

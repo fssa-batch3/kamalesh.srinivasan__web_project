@@ -2,7 +2,7 @@
   --light-purple: #dbd2dc;
   --dark-purple: #2a0531;
   --purple-opaq: rgba(20, 2, 23, 0.5);
-  --color-white: #eae9e4;
+  --color-white: white;
   --complementary-blue: #4877f4;
 }
 
@@ -15,9 +15,10 @@
 body {
   font-size: 1rem;
   font-weight: 400;
-  color: var(--color-white);
+  color: #42C2FF;
   margin: 0;
-  background-color: black;
+  background-color: #effffd;
+font-family: "Roboto Slab", serif;
 }
 
 /* mobile friendly alternative to using background-attachment: fixed */
@@ -67,7 +68,7 @@ textarea {
 }
 
 form {
-  background: var(--purple-opaq);
+  rgb(20 2 23 / 1%);
   padding: 2rem 1rem;
   width: 80%;
   display: inline-block;
@@ -111,7 +112,7 @@ p {
 .form-columns:focus {
   border-color: #ff4500;
   outline: 0;
-  box-shadow: 0 0 0 0.15rem rgba(88, 34, 13, 0.9);
+  /* box-shadow: 0 0 0 0.15rem yellow; */
 }
 
 .radio-input,
@@ -150,6 +151,21 @@ span {
 @media only screen and (min-width: 900px) {
   form {
     max-width: 100%;
-    border: 5px solid #551f2f;
+    /* border: 5px solid #551f2f; */
   }
+}
+
+
+/* input:invalid {
+  background-color: red;
+} */
+
+textarea{
+  border: none;
+}
+
+textarea:focus{
+  /* border-color: #ff4500; */
+  outline: 0;
+  box-shadow: 0 0 0 0.15rem #ff4500;
 }
